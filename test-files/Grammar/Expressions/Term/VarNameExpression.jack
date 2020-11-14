@@ -1,0 +1,12 @@
+class Main {
+    function void main() {
+      let varNameExpression1 = abc[true];
+      let varNameExpression2 = abc[a - b];
+      let varNameExpression3 = abc[def];
+      let varNameExpression4 = abc[-a];
+      let varNameExpression5 = abc[def[ghi]];
+      let varNameExpression6 = abc[def(a,b)];
+      let varNameExpression7 = abc[def.hij(a,b)];
+    }
+}
+

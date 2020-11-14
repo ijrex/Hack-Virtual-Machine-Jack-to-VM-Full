@@ -1,0 +1,8 @@
+class Main {
+  function void main() {
+    let subroutineCall1 = a;
+    let subroutineCall2 = a + b;
+    let subroutineCall3 = a + b + c;
+    let subroutineCall4 = a + b + c + d;
+  }
+}

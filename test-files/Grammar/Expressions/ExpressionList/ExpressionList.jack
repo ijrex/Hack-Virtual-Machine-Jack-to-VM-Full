@@ -1,0 +1,8 @@
+class Main {
+  function void main() {
+    let subroutineCall1 = abc();
+    let subroutineCall2 = acb.def();
+    let subroutineCall3 = abc(a, b);
+    let subroutineCall4 = acb.def(a, b);
+  }
+}

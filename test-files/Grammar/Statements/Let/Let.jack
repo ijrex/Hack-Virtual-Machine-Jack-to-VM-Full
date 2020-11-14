@@ -1,0 +1,7 @@
+class Main {
+    function void main() {
+      let letStatement1 = a + b;
+      let letStatement1[a] = c + d;
+    }
+}
+

@@ -1,0 +1,15 @@
+class Main {
+    function void main() {
+
+      let plus = a + b;
+      let minus = a - b;
+      let times = a * b;
+      let divide = a / c;
+      let and = a & b;
+      let or = a | b;
+      let lessThan = a < b;
+      let moreThan = a > b;
+      let equals = a = b;
+    }
+}
+

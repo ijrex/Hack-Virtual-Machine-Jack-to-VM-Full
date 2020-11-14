@@ -1,0 +1,15 @@
+class Main {
+    function void main() {
+
+      while (true) {
+        do abc();
+        return false;
+      }
+
+      while (a < b) {
+        do abc();
+        return true;
+      }
+    }
+}
+

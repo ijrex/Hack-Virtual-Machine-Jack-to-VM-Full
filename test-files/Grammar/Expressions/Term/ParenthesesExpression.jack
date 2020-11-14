@@ -1,0 +1,9 @@
+class Main {
+    function void main() {
+      let parExp1 = (a);
+      let parExp2 = (a + b);
+      let parExp3 = a + (b + c);
+      let parExp4 = (a + (b + c));
+    }
+}
+

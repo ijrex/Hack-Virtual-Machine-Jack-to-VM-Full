@@ -1,0 +1,9 @@
+class Main {
+    function void main() {
+
+      // integerConstant
+      let intConst1 = 4;
+      let intConst2 = 999;
+    }
+}
+

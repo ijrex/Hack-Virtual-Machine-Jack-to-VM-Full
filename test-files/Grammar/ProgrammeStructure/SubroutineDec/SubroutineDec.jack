@@ -1,0 +1,13 @@
+class Main {
+   constructor SubroutineDec new(int a, int b, int c) {
+      return this;
+   }
+
+   method void abc(int a, char b, boolean c) {
+      return this;
+   }
+
+   function boolean abc() {
+      return this;
+   }
+}

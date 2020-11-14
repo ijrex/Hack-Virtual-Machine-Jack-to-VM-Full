@@ -1,0 +1,8 @@
+class Main {
+  function void main() {
+    let expressionList1 = abc();
+    let expressionList2 = acb.def();
+    let expressionList3 = abc(a + b, -c);
+    let expressionList4 = acb.def(a, b, c, d);
+  }
+}

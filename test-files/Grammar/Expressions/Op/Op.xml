@@ -1,0 +1,156 @@
+<class>
+	<keyword> class </keyword>
+	<identifier> Main </identifier>
+	<symbol> { </symbol>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier> main </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> plus </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> + </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> minus </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> - </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> times </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> * </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> divide </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> / </symbol>
+						<term>
+							<identifier> c </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> and </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> & </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> or </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> | </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> lessThan </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> < </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> moreThan </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> > </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> equals </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+						<symbol> = </symbol>
+						<term>
+							<identifier> b </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

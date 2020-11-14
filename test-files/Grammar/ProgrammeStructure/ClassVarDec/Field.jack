@@ -1,0 +1,8 @@
+class Main {
+   field int a, b;
+   field ClassName a, b;
+
+   field char abc;
+   field boolean abc;
+   field ClassName abc;
+}

@@ -1,0 +1,23 @@
+class Main {
+    function void main() {
+
+      if (a < b) {
+        return true;
+      }
+
+      if (a < b) {
+        return true;
+      } else {
+        return false;
+      }
+
+      if (true) {
+        do abc();
+        return true;
+      } else {
+        do def();
+        return false;
+      }
+    }
+}
+

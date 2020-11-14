@@ -1,0 +1,65 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> Main </identifier>
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> main </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> stConst1 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <stringConstant>  </stringConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> strConst2 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <stringConstant> abc </stringConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> strConst3 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <stringConstant> 2 </stringConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> strConst4 </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <term>
+              <stringConstant> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </stringConstant>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </letStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>

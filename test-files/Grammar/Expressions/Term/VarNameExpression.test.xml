@@ -1,0 +1,193 @@
+<class>
+	<keyword> class </keyword>
+	<identifier> Main </identifier>
+	<symbol> { </symbol>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier> main </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> varNameExpression1 </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> abc </identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<keyword> true </keyword>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> varNameExpression2 </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> abc </identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier> a </identifier>
+								</term>
+								<symbol> - </symbol>
+								<term>
+									<identifier> b </identifier>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> varNameExpression3 </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> abc </identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier> def </identifier>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> varNameExpression4 </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> abc </identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<symbol> - </symbol>
+									<term>
+										<identifier> a </identifier>
+									</term>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> varNameExpression5 </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> abc </identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier> def </identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<identifier> ghi </identifier>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> varNameExpression6 </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> abc </identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier> def </identifier>
+									<symbol> ( </symbol>
+									<expressionList>
+										<expression>
+											<term>
+												<identifier> a </identifier>
+											</term>
+										</expression>
+										<symbol> , </symbol>
+										<expression>
+											<term>
+												<identifier> b </identifier>
+											</term>
+										</expression>
+									</expressionList>
+									<symbol> ) </symbol>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> varNameExpression7 </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> abc </identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier> def </identifier>
+									<symbol> . </symbol>
+									<identifier> hij </identifier>
+									<symbol> ( </symbol>
+									<expressionList>
+										<expression>
+											<term>
+												<identifier> a </identifier>
+											</term>
+										</expression>
+										<symbol> , </symbol>
+										<expression>
+											<term>
+												<identifier> b </identifier>
+											</term>
+										</expression>
+									</expressionList>
+									<symbol> ) </symbol>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

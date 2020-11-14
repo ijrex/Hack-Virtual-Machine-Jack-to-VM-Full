@@ -1,0 +1,8 @@
+class Main {
+   static int a, b;
+   static ClassName a, b;
+
+   static char abc;
+   static boolean abc;
+   static ClassName abc;
+}

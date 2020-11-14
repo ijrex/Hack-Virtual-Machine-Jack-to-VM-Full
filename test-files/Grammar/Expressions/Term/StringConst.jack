@@ -1,0 +1,10 @@
+class Main {
+    function void main() {
+      let strConst1 = "";
+      let strConst2 = "abc";
+      let stConst3 = "2";
+      let stConst4 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+      let stConst4 = "Lorem ipsum \"dolor sit amet\" consectetur.";
+    }
+}
+

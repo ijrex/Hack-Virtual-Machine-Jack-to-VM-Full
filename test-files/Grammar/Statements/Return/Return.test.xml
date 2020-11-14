@@ -1,0 +1,57 @@
+<class>
+	<keyword> class </keyword>
+	<identifier> Main </identifier>
+	<symbol> { </symbol>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier> main </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<keyword> true </keyword>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<returnStatement>
+							<keyword> return </keyword>
+							<symbol> ; </symbol>
+						</returnStatement>
+					</statements>
+					<symbol> } </symbol>
+					<keyword> else </keyword>
+					<symbol> { </symbol>
+					<statements>
+						<returnStatement>
+							<keyword> return </keyword>
+							<expression>
+								<term>
+									<identifier> a </identifier>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<identifier> b </identifier>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</returnStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

@@ -1,0 +1,13 @@
+class Main {
+    function void main() {
+      let varName1 = a;
+      let varName2 = abc;
+      let varName3 = acb1;
+      let varName4 = abc123;
+      let varName5 = Abc;
+      let varName6 = abc_123;
+      let varName7 = ABC;
+      let varName8 = intA;
+    }
+}
+

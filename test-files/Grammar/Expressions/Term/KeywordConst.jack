@@ -1,0 +1,9 @@
+class Main {
+    function void main() {
+      let keywordConst1 = true;
+      let keywordConst2 = false;
+      let keywordConst3 = null;
+      let keywordConst4 = this;
+    }
+}
+
