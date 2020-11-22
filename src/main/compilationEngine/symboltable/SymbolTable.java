@@ -19,13 +19,15 @@ public class SymbolTable {
     key = -1;
   }
 
-  public void add(Token token, Keyword kind) {
+  public void add(Token token) {
+
+    Keyword kind = token.getKind();
 
     lastKind = (lastKind == null ? kind : lastKind);
 
     key = (Util.MatchValue(kind, lastKind)) ? key + 1 : 0;
 
-    table.put(token.getValue(), new SymbolEntry(token, kind, key));
+    table.put(token.getValue(), new SymbolEntry(token, key));
 
     lastKind = kind;
   }

@@ -1,17 +1,26 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
 
 import compilationEngine.util.Match;
+import compilationEngine.symboltable.*;
 
 public class CompileClassVarDec extends Compile {
 
-  public CompileClassVarDec(int _tab) {
+  SymbolTable classSymbolTable;
+
+  Keyword varKind;
+  String varType;
+
+  public CompileClassVarDec(int _tab, SymbolTable classSymbolTable) {
     super(_tab);
     wrapperLabel = "classVarDec";
+
+    this.classSymbolTable = classSymbolTable;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -19,13 +28,27 @@ public class CompileClassVarDec extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        if (Match.isClassVarDec(token))
+        if (Match.isClassVarDec(token)) {
+          // @todo: Parse varType as enum
+          varKind = token.getKeyword();
           return parseToken(token, true);
+        }
         return fail();
       case 1:
-        return parseToken(token, Match.type(token));
+        if (Match.type(token)) {
+          // @todo: Parse varType as enum
+          varType = token.getValue();
+          return parseToken(token, true);
+        }
+        return fail();
       case 2:
-        return parseToken(token, Match.identifier(token));
+        if (Match.identifier(token)) {
+          token.setKind(varKind);
+          token.setIdentifierType(varType);
+          classSymbolTable.add(token);
+          return parseToken(token, true);
+        }
+        return fail();
       case 3:
         if (Match.symbol(token, Symbol.COMMA))
           return parseToken(token, true, 2);
