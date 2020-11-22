@@ -40,14 +40,14 @@ public abstract class Token {
 
   // Identifier only
 
-  public void setKind(Keyword kind) {
+  public void setKind(String kind) {
   }
 
-  public Keyword getKind() {
+  public IdentifierKind getKind() {
     return null;
   }
 
-  public void setIdentifierType(String type) {
+  public void setIdentifierType(String identifierType) {
   }
 
   public String getIdentifierType() {
