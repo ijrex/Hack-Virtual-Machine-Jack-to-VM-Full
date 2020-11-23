@@ -19,15 +19,19 @@ public class SymbolTable {
     key = -1;
   }
 
-  public void add(Token token, String _kind) {
+  public void add(Token token, String type, String _kind) {
 
     SymbolKind kind = Util.toSymbolKind(_kind);
+
+    // @todo: SymbolType to symbolType hashmap
+    // INT, CHAR, BOOLEAN, IDENTIFIER
+    // SymbolType type = Util.toSymbolType(_type);
 
     lastKind = (lastKind == null) ? kind : lastKind;
 
     key = (kind == lastKind) ? key + 1 : 0;
 
-    table.put(token.getValue(), new SymbolEntry(token, kind, key));
+    table.put(token.getValue(), new SymbolEntry(token, type, kind, key));
 
     lastKind = kind;
   }

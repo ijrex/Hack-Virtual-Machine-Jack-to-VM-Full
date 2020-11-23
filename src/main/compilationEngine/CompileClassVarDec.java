@@ -35,14 +35,13 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 1:
         if (Match.type(token)) {
-          // @todo: Parse varType as enum
           varType = token.getValue();
           return parseToken(token, true);
         }
         return fail();
       case 2:
         if (Match.identifier(token)) {
-          classSymbolTable.add(token, varKind);
+          classSymbolTable.add(token, varType, varKind);
           return parseToken(token, true);
         }
         return fail();

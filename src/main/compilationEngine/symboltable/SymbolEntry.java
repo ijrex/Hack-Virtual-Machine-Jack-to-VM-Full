@@ -9,9 +9,9 @@ public class SymbolEntry {
   SymbolKind kind;
   int key;
 
-  public SymbolEntry(Token token, SymbolKind kind, int key) {
+  public SymbolEntry(Token token, String type, SymbolKind kind, int key) {
     this.name = token.getValue();
-    this.type = "TODO";
+    this.type = type;
     this.key = key;
     this.kind = kind;
   }
