@@ -1,9 +1,9 @@
 package compilationEngine.symboltable.util;
 
-import token.*;
+import tokenlib.Keyword;
 
 public class Util {
-  public static boolean MatchValue(IdentifierKind arg1, IdentifierKind arg2) {
-    return arg1.toString().matches(arg2.toString());
+  public static boolean MatchValue(Keyword arg1, Keyword arg2) {
+    return arg1.getValue().matches(arg2.getValue());
   };
 }

@@ -1,19 +1,20 @@
 package compilationEngine.symboltable;
 
 import token.*;
+import tokenlib.*;
 
 public class SymbolEntry {
 
   String name;
   String type;
   int key;
-  IdentifierKind kind;
+  Keyword kind;
 
   public SymbolEntry(Token token, int key) {
     this.name = token.getValue();
     this.type = token.getIdentifierType();
-    this.kind = token.getKind();
     this.key = key;
+    this.kind = token.getKind();
   }
 
   public String print() {

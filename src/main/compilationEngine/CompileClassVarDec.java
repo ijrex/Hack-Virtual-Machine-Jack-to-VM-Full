@@ -29,6 +29,7 @@ public class CompileClassVarDec extends Compile {
         return prefix(token);
       case 0:
         if (Match.isClassVarDec(token)) {
+          // @todo: Parse varType as enum
           varKind = token.getKeyword();
           return parseToken(token, true);
         }
@@ -42,7 +43,7 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 2:
         if (Match.identifier(token)) {
-          token.setKind(varKind.toString());
+          token.setKind(varKind);
           token.setIdentifierType(varType);
           classSymbolTable.add(token);
           return parseToken(token, true);

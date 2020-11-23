@@ -5,7 +5,7 @@ import tokenlib.TokenType;
 
 public class IdentifierToken extends Token {
 
-  IdentifierKind kind;
+  Keyword kind;
   String identifierType;
 
   public IdentifierToken(String value) {
@@ -17,17 +17,14 @@ public class IdentifierToken extends Token {
     return "identifier";
   }
 
-  public void setKind(String kind) {
-    for (IdentifierKind k : IdentifierKind.values()) {
-      if (kind.equalsIgnoreCase(k.toString())) {
-        this.kind = k;
-        return;
-      }
-    }
-    // @todo: throw error
+  public void setKind(Keyword kind) {
+    // @todo: Limit varKind enums
+    // STATIC, FIELD or (argument) VAR
+
+    this.kind = kind;
   }
 
-  public IdentifierKind getKind() {
+  public Keyword getKind() {
     return this.kind;
   }
 
