@@ -11,7 +11,7 @@ public class SymbolTable {
 
   LinkedHashMap<String, SymbolEntry> table;
 
-  Keyword lastKind;
+  SymbolKind lastKind;
   int key;
 
   public SymbolTable() {
@@ -19,15 +19,15 @@ public class SymbolTable {
     key = -1;
   }
 
-  public void add(Token token) {
+  public void add(Token token, String _kind) {
 
-    Keyword kind = token.getKind();
+    SymbolKind kind = Util.toSymbolKind(_kind);
 
-    lastKind = (lastKind == null ? kind : lastKind);
+    lastKind = (lastKind == null) ? kind : lastKind;
 
-    key = (Util.MatchValue(kind, lastKind)) ? key + 1 : 0;
+    key = (kind == lastKind) ? key + 1 : 0;
 
-    table.put(token.getValue(), new SymbolEntry(token, key));
+    table.put(token.getValue(), new SymbolEntry(token, kind, key));
 
     lastKind = kind;
   }

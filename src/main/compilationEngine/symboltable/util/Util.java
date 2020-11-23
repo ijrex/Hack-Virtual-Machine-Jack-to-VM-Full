@@ -1,9 +1,15 @@
 package compilationEngine.symboltable.util;
 
-import tokenlib.Keyword;
+import compilationEngine.symboltable.SymbolKind;
 
 public class Util {
-  public static boolean MatchValue(Keyword arg1, Keyword arg2) {
-    return arg1.getValue().matches(arg2.getValue());
-  };
+  public static SymbolKind toSymbolKind(String input) {
+    for (SymbolKind kind : SymbolKind.values()) {
+      if (kind.toString().equalsIgnoreCase(input)) {
+        return kind;
+      }
+    }
+    // @todo: throw error
+    return SymbolKind.NULL;
+  }
 }

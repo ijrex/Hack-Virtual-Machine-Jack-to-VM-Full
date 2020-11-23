@@ -37,20 +37,4 @@ public abstract class Token {
   public String getFormattedType() {
     return this.type.toString().toLowerCase();
   }
-
-  // Identifier only
-
-  public void setKind(Keyword kind) {
-  }
-
-  public Keyword getKind() {
-    return null;
-  }
-
-  public void setIdentifierType(String type) {
-  }
-
-  public String getIdentifierType() {
-    return null;
-  }
 }
