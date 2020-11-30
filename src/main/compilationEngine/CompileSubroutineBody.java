@@ -49,7 +49,6 @@ public class CompileSubroutineBody extends Compile {
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 5:
-        scopedSymbolTable.print();
         return postfix();
       default:
         return fail();
