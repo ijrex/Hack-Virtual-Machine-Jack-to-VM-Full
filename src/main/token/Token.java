@@ -1,5 +1,6 @@
 package token;
 
+import compilationEngine.symboltable.SymbolEntry;
 import tokenlib.*;
 
 public abstract class Token {
@@ -36,5 +37,9 @@ public abstract class Token {
 
   public String getFormattedType() {
     return this.type.toString().toLowerCase();
+  }
+
+  public String parse(String tabs) {
+    return tabs + "<" + this.getLabel() + "> " + this.printValue() + " </" + this.getLabel() + ">\n";
   }
 }

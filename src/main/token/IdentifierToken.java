@@ -1,8 +1,12 @@
 package token;
 
-import tokenlib.*;
+import tokenlib.Keyword;
+import tokenlib.TokenType;
 
 public class IdentifierToken extends Token {
+
+  Keyword kind;
+  String identifierType;
 
   public IdentifierToken(String value) {
     super(value);

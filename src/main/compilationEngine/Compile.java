@@ -4,6 +4,7 @@ import token.*;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.util.*;
 
 public abstract class Compile {
@@ -21,7 +22,7 @@ public abstract class Compile {
   protected String parseToken(Token token, Boolean pass) throws IOException {
     if (pass) {
       pos++;
-      return tabs() + Parse.token(token);
+      return token.parse(tabs());
     }
 
     throw new IOException(parseTokenError(token));
@@ -30,14 +31,27 @@ public abstract class Compile {
   protected String parseToken(Token token, Boolean pass, int nextPos) throws IOException {
     if (pass) {
       pos = nextPos;
-      return tabs() + Parse.token(token);
+      return token.parse(tabs());
     }
 
     throw new IOException(parseTokenError(token));
   }
 
+  protected String parseSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
+    if (pass) {
+      pos++;
+      return symbolEntry.parse(tabs());
+    }
+
+    throw new IOException(parseSymbolEntryError(symbolEntry));
+  }
+
   private String parseTokenError(Token token) {
-    return "ERROR: Cannot parse \"" + token.getValue() + "\", pos = " + pos;
+    return "ERROR: Cannot parse token \"" + token.getValue() + "\", pos = " + pos;
+  }
+
+  private String parseSymbolEntryError(SymbolEntry symbolEntry) {
+    return "ERROR: Cannot parse symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
   }
 
   protected Boolean isComplete() {
