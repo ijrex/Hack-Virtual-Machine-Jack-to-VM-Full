@@ -20,6 +20,10 @@ class Main {
 	field int c;
 	field int d;
 
+	field OtherClass e;
+	field char f;
+	field boolean g;
+
   function void main() {
 
 	}

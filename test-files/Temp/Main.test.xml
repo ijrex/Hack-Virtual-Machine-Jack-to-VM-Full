@@ -26,6 +26,24 @@
 		<identifier> d </identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<identifier> OtherClass </identifier>
+		<identifier> e </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> char </keyword>
+		<identifier> f </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> boolean </keyword>
+		<identifier> g </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>

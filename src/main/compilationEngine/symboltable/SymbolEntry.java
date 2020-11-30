@@ -5,11 +5,11 @@ import token.*;
 public class SymbolEntry {
 
   String name;
-  String type;
+  SymbolType type;
   SymbolKind kind;
   int key;
 
-  public SymbolEntry(Token token, String type, SymbolKind kind, int key) {
+  public SymbolEntry(Token token, SymbolType type, SymbolKind kind, int key) {
     this.name = token.getValue();
     this.type = type;
     this.key = key;
@@ -17,6 +17,6 @@ public class SymbolEntry {
   }
 
   public String print() {
-    return this.name + ", " + this.type + ", " + this.kind + ", " + this.key;
+    return this.name + ", " + this.type.getValue() + ", " + this.kind + ", " + this.key;
   }
 }
