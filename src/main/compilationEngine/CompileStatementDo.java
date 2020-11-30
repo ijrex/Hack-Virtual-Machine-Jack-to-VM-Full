@@ -6,14 +6,15 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileStatementDo extends Compile {
 
   Compile compileExpressionList;
 
-  public CompileStatementDo(int _tab) {
-    super(_tab);
+  public CompileStatementDo(int _tab, SymbolTable _classSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "doStatement";
   }
 
@@ -37,7 +38,7 @@ public class CompileStatementDo extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 5:
         if (compileExpressionList == null)
-          compileExpressionList = new CompileExpressionList(tab);
+          compileExpressionList = new CompileExpressionList(tab, classSymbolTable);
         return handleChildClass(compileExpressionList, token);
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));

@@ -5,6 +5,7 @@ import tokenlib.*;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileSubroutineDec extends Compile {
@@ -12,8 +13,8 @@ public class CompileSubroutineDec extends Compile {
   Compile compileParameterList;
   Compile compileSubroutineBody;
 
-  public CompileSubroutineDec(int _tab) {
-    super(_tab);
+  public CompileSubroutineDec(int _tab, SymbolTable _classSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "subroutineDec";
   }
 
@@ -32,13 +33,13 @@ public class CompileSubroutineDec extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 4:
         if (compileParameterList == null)
-          compileParameterList = new CompileParameterList(tab);
+          compileParameterList = new CompileParameterList(tab, classSymbolTable);
         return handleChildClass(compileParameterList, token);
       case 5:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
-          compileSubroutineBody = new CompileSubroutineBody(tab);
+          compileSubroutineBody = new CompileSubroutineBody(tab, classSymbolTable);
         return handleChildClass(compileSubroutineBody, token);
       case 7:
         return postfix();

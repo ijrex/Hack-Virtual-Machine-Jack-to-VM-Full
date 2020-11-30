@@ -6,12 +6,13 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileVarDec extends Compile {
 
-  public CompileVarDec(int _tab) {
-    super(_tab);
+  public CompileVarDec(int _tab, SymbolTable _classSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "varDec";
 
     development = true;

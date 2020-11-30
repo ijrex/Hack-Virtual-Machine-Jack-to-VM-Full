@@ -10,16 +10,12 @@ import compilationEngine.symboltable.*;
 
 public class CompileClassVarDec extends Compile {
 
-  SymbolTable classSymbolTable;
-
   String varKind;
   String varType;
 
-  public CompileClassVarDec(int _tab, SymbolTable classSymbolTable) {
-    super(_tab);
+  public CompileClassVarDec(int _tab, SymbolTable _classSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "classVarDec";
-
-    this.classSymbolTable = classSymbolTable;
   }
 
   public String handleToken(Token token) throws IOException {

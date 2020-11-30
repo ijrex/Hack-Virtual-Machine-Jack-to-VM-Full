@@ -14,13 +14,9 @@ public class CompileClass extends Compile {
   Compile compileClassVarDec;
   Compile compileSubroutineDec;
 
-  SymbolTable classSymbolTable;
-
-  public CompileClass(int _tab) {
-    super(_tab);
+  public CompileClass(int _tab, SymbolTable _classSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "class";
-
-    classSymbolTable = new SymbolTable();
   }
 
   public String handleToken(Token token) throws IOException {
@@ -48,7 +44,7 @@ public class CompileClass extends Compile {
         pos++;
       case 5:
         if (Match.isSubroutineDec(token) && compileSubroutineDec == null)
-          compileSubroutineDec = new CompileSubroutineDec(tab);
+          compileSubroutineDec = new CompileSubroutineDec(tab, classSymbolTable);
         if (compileSubroutineDec != null)
           return handleChildClass(compileSubroutineDec, token);
         pos++;
