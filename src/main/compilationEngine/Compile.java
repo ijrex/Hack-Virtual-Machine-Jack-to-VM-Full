@@ -5,7 +5,7 @@ import token.*;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
-import compilationEngine.util.*;
+import compilationEngine.symboltable.SymbolTable;
 
 public abstract class Compile {
   boolean development = false;
@@ -13,10 +13,12 @@ public abstract class Compile {
   int pos = -1;
   boolean finished = false;
   String wrapperLabel;
+  SymbolTable classSymbolTable;
 
-  public Compile(int _tab) {
+  public Compile(int _tab, SymbolTable _classSymbolTable) {
     tab = _tab;
     finished = false;
+    classSymbolTable = _classSymbolTable;
   }
 
   protected String parseToken(Token token, Boolean pass) throws IOException {

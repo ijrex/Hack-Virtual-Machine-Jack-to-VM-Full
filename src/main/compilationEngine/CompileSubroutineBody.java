@@ -6,6 +6,7 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileSubroutineBody extends Compile {
@@ -13,9 +14,13 @@ public class CompileSubroutineBody extends Compile {
   Compile compileVarDec;
   Compile compileStatements;
 
-  public CompileSubroutineBody(int _tab) {
-    super(_tab);
+  SymbolTable scopedSymbolTable;
+
+  public CompileSubroutineBody(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "subroutineBody";
+
+    scopedSymbolTable = _scopedSymbolTable;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -26,7 +31,7 @@ public class CompileSubroutineBody extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 1:
         if (Match.keyword(token, Keyword.VAR) && compileVarDec == null)
-          compileVarDec = new CompileVarDec(tab);
+          compileVarDec = new CompileVarDec(tab, classSymbolTable, scopedSymbolTable);
         if (compileVarDec != null)
           return handleChildClass(compileVarDec, token);
         pos++;
@@ -39,7 +44,7 @@ public class CompileSubroutineBody extends Compile {
         pos++;
       case 3:
         if (compileStatements == null)
-          compileStatements = new CompileStatements(tab);
+          compileStatements = new CompileStatements(tab, classSymbolTable);
         return handleChildClass(compileStatements, token);
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));

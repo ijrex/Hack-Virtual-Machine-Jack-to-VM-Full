@@ -1,6 +1,5 @@
 package token;
 
-import compilationEngine.symboltable.SymbolEntry;
 import tokenlib.*;
 
 public abstract class Token {

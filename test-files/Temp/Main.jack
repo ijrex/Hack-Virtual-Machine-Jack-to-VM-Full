@@ -24,8 +24,16 @@ class Main {
 	field char f;
 	field boolean g;
 
-  function void main() {
+  function void main(int h, OtherClass i) {
+		var int j;
+		var OtherClass k;
+		var char l;
+	}
 
+  function void otherMethod(int l, OtherClass m) {
+		var int n;
+		var OtherClass o;
+		var char p;
 	}
 }
 

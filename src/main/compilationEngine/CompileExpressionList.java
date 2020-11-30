@@ -5,14 +5,15 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileExpressionList extends Compile {
 
   Compile compileExpression;
 
-  public CompileExpressionList(int _tab) {
-    super(_tab);
+  public CompileExpressionList(int _tab, SymbolTable _classSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "expressionList";
   }
 
@@ -26,7 +27,7 @@ public class CompileExpressionList extends Compile {
         return prefix(token);
       case 0:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression(tab, classSymbolTable);
         return handleChildClass(compileExpression, token);
       case 1:
         if (Match.symbol(token, Symbol.COMMA)) {

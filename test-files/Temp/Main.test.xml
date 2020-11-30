@@ -5,78 +5,78 @@
 	<classVarDec>
 		<keyword> static </keyword>
 		<keyword> int </keyword>
-		<identifier>
+		<symbolEntry>
 			<name> a </name>
 			<type> int </type>
 			<key> 0 </key>
 			<kind> STATIC </kind>
-		</identifier>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> static </keyword>
 		<keyword> int </keyword>
-		<identifier>
+		<symbolEntry>
 			<name> b </name>
 			<type> int </type>
 			<key> 1 </key>
 			<kind> STATIC </kind>
-		</identifier>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> int </keyword>
-		<identifier>
+		<symbolEntry>
 			<name> c </name>
 			<type> int </type>
 			<key> 0 </key>
 			<kind> FIELD </kind>
-		</identifier>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> int </keyword>
-		<identifier>
+		<symbolEntry>
 			<name> d </name>
 			<type> int </type>
 			<key> 1 </key>
 			<kind> FIELD </kind>
-		</identifier>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<identifier> OtherClass </identifier>
-		<identifier>
+		<symbolEntry>
 			<name> e </name>
 			<type> OtherClass </type>
 			<key> 2 </key>
 			<kind> FIELD </kind>
-		</identifier>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> char </keyword>
-		<identifier>
+		<symbolEntry>
 			<name> f </name>
 			<type> char </type>
 			<key> 3 </key>
 			<kind> FIELD </kind>
-		</identifier>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> boolean </keyword>
-		<identifier>
+		<symbolEntry>
 			<name> g </name>
 			<type> boolean </type>
 			<key> 4 </key>
 			<kind> FIELD </kind>
-		</identifier>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<subroutineDec>
@@ -85,10 +85,121 @@
 		<identifier> main </identifier>
 		<symbol> ( </symbol>
 		<parameterList>
+			<keyword> int </keyword>
+			<symbolEntry>
+				<name> h </name>
+				<type> int </type>
+				<key> 0 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+			<symbol> , </symbol>
+			<identifier> OtherClass </identifier>
+			<symbolEntry>
+				<name> i </name>
+				<type> OtherClass </type>
+				<key> 1 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
 		</parameterList>
 		<symbol> ) </symbol>
 		<subroutineBody>
 			<symbol> { </symbol>
+			<varDec>
+				<keyword> var </keyword>
+				<keyword> int </keyword>
+				<symbolEntry>
+					<name> j </name>
+					<type> int </type>
+					<key> 0 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
+			<varDec>
+				<keyword> var </keyword>
+				<identifier> OtherClass </identifier>
+				<symbolEntry>
+					<name> k </name>
+					<type> OtherClass </type>
+					<key> 1 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
+			<varDec>
+				<keyword> var </keyword>
+				<keyword> char </keyword>
+				<symbolEntry>
+					<name> l </name>
+					<type> char </type>
+					<key> 2 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
+			<statements>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier> otherMethod </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+			<keyword> int </keyword>
+			<symbolEntry>
+				<name> l </name>
+				<type> int </type>
+				<key> 0 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+			<symbol> , </symbol>
+			<identifier> OtherClass </identifier>
+			<symbolEntry>
+				<name> m </name>
+				<type> OtherClass </type>
+				<key> 1 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<varDec>
+				<keyword> var </keyword>
+				<keyword> int </keyword>
+				<symbolEntry>
+					<name> n </name>
+					<type> int </type>
+					<key> 0 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
+			<varDec>
+				<keyword> var </keyword>
+				<identifier> OtherClass </identifier>
+				<symbolEntry>
+					<name> o </name>
+					<type> OtherClass </type>
+					<key> 1 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
+			<varDec>
+				<keyword> var </keyword>
+				<keyword> char </keyword>
+				<symbolEntry>
+					<name> p </name>
+					<type> char </type>
+					<key> 2 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
 			<statements>
 			</statements>
 			<symbol> } </symbol>

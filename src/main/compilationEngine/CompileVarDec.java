@@ -6,15 +6,21 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolEntry;
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileVarDec extends Compile {
 
-  public CompileVarDec(int _tab) {
-    super(_tab);
+  SymbolTable scopedSymbolTable;
+
+  String varType;
+
+  public CompileVarDec(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    super(_tab, _classSymbolTable);
     wrapperLabel = "varDec";
 
-    development = true;
+    scopedSymbolTable = _scopedSymbolTable;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -24,9 +30,17 @@ public class CompileVarDec extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.VAR));
       case 1:
+        if (Match.type(token)) {
+          varType = token.getValue();
+          return parseToken(token, true);
+        }
         return parseToken(token, Match.type(token));
       case 2:
-        return parseToken(token, Match.identifier(token));
+        if (Match.identifier(token)) {
+          SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "VAR");
+          return parseSymbolEntry(symbolEntry, true);
+        }
+        return fail();
       case 3:
         if (Match.symbol(token, Symbol.COMMA))
           return parseToken(token, true, 2);
