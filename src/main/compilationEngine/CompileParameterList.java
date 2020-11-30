@@ -5,14 +5,21 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileParameterList extends Compile {
 
-  public CompileParameterList(int _tab, SymbolTable _classSymbolTable) {
+  SymbolTable scopedSymbolTable;
+
+  String varType;
+
+  public CompileParameterList(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable);
     wrapperLabel = "parameterList";
+
+    scopedSymbolTable = _scopedSymbolTable;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -24,9 +31,16 @@ public class CompileParameterList extends Compile {
           return prefix(token, -2);
         return prefix(token);
       case 0:
-        return parseToken(token, Match.type(token));
+        if (Match.type(token)) {
+          varType = token.getValue();
+          return parseToken(token, true);
+        }
       case 1:
-        return parseToken(token, Match.identifier(token));
+        if (Match.identifier(token)) {
+          SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "ARGUMENT");
+          return parseSymbolEntry(symbolEntry, true);
+        }
+        return fail();
       case 2:
         if (Match.symbol(token, Symbol.COMMA))
           return parseToken(token, true, 0);
