@@ -60,7 +60,6 @@ public class CompileClass extends Compile {
         }
         pos++;
       case 7:
-        classSymbolTable.print();
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R)) + postfix();
       default:
         return fail();

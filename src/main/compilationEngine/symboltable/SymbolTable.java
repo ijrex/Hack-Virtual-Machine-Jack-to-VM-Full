@@ -23,19 +23,22 @@ public class SymbolTable {
     key = -1;
   }
 
-  public void add(Token token, String _type, String _kind) {
+  public SymbolEntry add(Token token, String _type, String _kind) {
+
+    String value = token.getValue();
 
     SymbolKind kind = Util.toSymbolKind(_kind);
-
     SymbolType type = symbolTypes.handleNew(_type);
 
     lastKind = (lastKind == null) ? kind : lastKind;
 
     key = (kind == lastKind) ? key + 1 : 0;
 
-    table.put(token.getValue(), new SymbolEntry(token, type, kind, key));
+    table.put(value, new SymbolEntry(token, type, kind, key));
 
     lastKind = kind;
+
+    return table.get(value);
   }
 
   public void print() {

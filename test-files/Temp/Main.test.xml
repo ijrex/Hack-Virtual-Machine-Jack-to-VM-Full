@@ -5,43 +5,78 @@
 	<classVarDec>
 		<keyword> static </keyword>
 		<keyword> int </keyword>
-		<identifier> a </identifier>
+		<identifier>
+			<name> a </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> STATIC </kind>
+		</identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> static </keyword>
 		<keyword> int </keyword>
-		<identifier> b </identifier>
+		<identifier>
+			<name> b </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> STATIC </kind>
+		</identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> int </keyword>
-		<identifier> c </identifier>
+		<identifier>
+			<name> c </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> int </keyword>
-		<identifier> d </identifier>
+		<identifier>
+			<name> d </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<identifier> OtherClass </identifier>
-		<identifier> e </identifier>
+		<identifier>
+			<name> e </name>
+			<type> OtherClass </type>
+			<key> 2 </key>
+			<kind> FIELD </kind>
+		</identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> char </keyword>
-		<identifier> f </identifier>
+		<identifier>
+			<name> f </name>
+			<type> char </type>
+			<key> 3 </key>
+			<kind> FIELD </kind>
+		</identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> boolean </keyword>
-		<identifier> g </identifier>
+		<identifier>
+			<name> g </name>
+			<type> boolean </type>
+			<key> 4 </key>
+			<kind> FIELD </kind>
+		</identifier>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<subroutineDec>

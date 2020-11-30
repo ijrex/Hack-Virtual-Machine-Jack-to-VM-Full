@@ -40,8 +40,9 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 2:
         if (Match.identifier(token)) {
-          classSymbolTable.add(token, varType, varKind);
-          return parseToken(token, true);
+          // @todo: Check for duplicate and throw error
+          SymbolEntry symbolEntry = classSymbolTable.add(token, varType, varKind);
+          return parseSymbolEntry(symbolEntry, true);
         }
         return fail();
       case 3:
