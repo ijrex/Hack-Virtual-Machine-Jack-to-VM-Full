@@ -1,5 +1,5 @@
 package token;
 
 public enum IdentifierCat {
-    CLASS, SUBROUTINE, NONE,
+    VAR, ARGUMENT, STATIC, FIELD, CLASS, SUBROUTINE, NONE,
 }
