@@ -4,17 +4,10 @@ import tokenlib.TokenType;
 
 public class IdentifierToken extends Token {
 
-  public enum IdentifierType {
-    CLASS, SUBROUTINE, NONE,
-  }
-
-  public enum IdentifierKind {
-    VAR, ARGUMENT, STATIC, FIELD,
-  }
-
-  IdentifierType identifierType;
-  IdentifierKind identifierKind;
-  int runningIndex;
+  IdentifierCat identifierCat = IdentifierCat.NONE;
+  IdentifierKind identifierKind = IdentifierKind.NONE;
+  int runningIndex = -1;
+  boolean isBeingDefined;
 
   public IdentifierToken(String value) {
     super(value);
@@ -27,28 +20,42 @@ public class IdentifierToken extends Token {
 
   // Identifier only
 
-  public void setIdentifierType(String str) {
-    for (IdentifierType t : IdentifierType.values()) {
-      if (str.equalsIgnoreCase(t.name())) {
-        this.identifierType = t;
-      }
-    }
+  public String parse(String tabs) {
+    String str = "";
+
+    str += tabs + "<" + this.getLabel() + ">\n";
+    str += tabs + "\t" + "<name> " +  this.printValue() + " </name>\n";
+    str += tabs + "\t" + "<isBeingDefined> " +  this.isBeingDefined + " </isBeingDefined>\n";
+    str += tabs + "\t" + "<category> " +  this.identifierCat + " </category>\n";
+    str += tabs + "\t" + "<kind> " +  this.identifierKind + " </kind>\n";
+    str += tabs + "\t" + "<runningIndex> " +  this.runningIndex + " </runningIndex>\n";
+    str += tabs + "</" + this.getLabel() + ">\n";
+
+    return str;
   }
 
-  public IdentifierType getIdentifierType() {
-    return this.identifierType;
+  public void setIdentifierCat(IdentifierCat t) {
+    this.identifierCat = t;
   }
 
-  public void setIdentifierKind(String str) {
-    for (IdentifierKind k : IdentifierKind.values()) {
-      if (str.equalsIgnoreCase(k.name())) {
-        this.identifierKind = k;
-      }
-    }
+  public IdentifierCat getIdentifierType() {
+    return this.identifierCat;
+  }
+
+  public void setIdentifierKind(IdentifierKind k) {
+    this.identifierKind = k;
   }
 
   public IdentifierKind getIdentifierKind() {
     return this.identifierKind;
+  }
+
+  public void setIdentifierBeingDefined(boolean b) {
+    this.isBeingDefined = b;
+  }
+
+  public boolean getIdentifierBeingDefined() {
+    return this.isBeingDefined;
   }
 
   public void setRunningIndex(int x) {

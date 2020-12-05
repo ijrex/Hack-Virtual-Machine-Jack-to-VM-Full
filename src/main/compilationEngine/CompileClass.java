@@ -27,7 +27,8 @@ public class CompileClass extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.CLASS));
       case 1:
         if (Match.identifier(token)) {
-          // type=className
+          token.setIdentifierCat(IdentifierCat.CLASS);
+          token.setIdentifierBeingDefined(true);
           return parseToken(token, true);
         }
         return fail();

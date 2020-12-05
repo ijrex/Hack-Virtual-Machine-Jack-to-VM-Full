@@ -1,6 +1,12 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<isBeingDefined> true </isBeingDefined>
+		<category> CLASS </category>
+		<kind> NONE </kind>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
 	<classVarDec>
 		<keyword> static </keyword>
@@ -48,7 +54,13 @@
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
-		<identifier> OtherClass </identifier>
+		<identifier>
+			<name> OtherClass </name>
+			<isBeingDefined> false </isBeingDefined>
+			<category> NONE </category>
+			<kind> NONE </kind>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbolEntry>
 			<name> e </name>
 			<type> OtherClass </type>
@@ -82,7 +94,13 @@
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<isBeingDefined> false </isBeingDefined>
+			<category> NONE </category>
+			<kind> NONE </kind>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 			<keyword> int </keyword>
@@ -93,7 +111,13 @@
 				<kind> ARGUMENT </kind>
 			</symbolEntry>
 			<symbol> , </symbol>
-			<identifier> OtherClass </identifier>
+			<identifier>
+				<name> OtherClass </name>
+				<isBeingDefined> false </isBeingDefined>
+				<category> NONE </category>
+				<kind> NONE </kind>
+				<runningIndex> -1 </runningIndex>
+			</identifier>
 			<symbolEntry>
 				<name> i </name>
 				<type> OtherClass </type>
@@ -117,7 +141,13 @@
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
-				<identifier> OtherClass </identifier>
+				<identifier>
+					<name> OtherClass </name>
+					<isBeingDefined> false </isBeingDefined>
+					<category> NONE </category>
+					<kind> NONE </kind>
+					<runningIndex> -1 </runningIndex>
+				</identifier>
 				<symbolEntry>
 					<name> k </name>
 					<type> OtherClass </type>
@@ -145,7 +175,13 @@
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> otherMethod </identifier>
+		<identifier>
+			<name> otherMethod </name>
+			<isBeingDefined> false </isBeingDefined>
+			<category> NONE </category>
+			<kind> NONE </kind>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 			<keyword> int </keyword>
@@ -156,7 +192,13 @@
 				<kind> ARGUMENT </kind>
 			</symbolEntry>
 			<symbol> , </symbol>
-			<identifier> OtherClass </identifier>
+			<identifier>
+				<name> OtherClass </name>
+				<isBeingDefined> false </isBeingDefined>
+				<category> NONE </category>
+				<kind> NONE </kind>
+				<runningIndex> -1 </runningIndex>
+			</identifier>
 			<symbolEntry>
 				<name> m </name>
 				<type> OtherClass </type>
@@ -180,7 +222,13 @@
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
-				<identifier> OtherClass </identifier>
+				<identifier>
+					<name> OtherClass </name>
+					<isBeingDefined> false </isBeingDefined>
+					<category> NONE </category>
+					<kind> NONE </kind>
+					<runningIndex> -1 </runningIndex>
+				</identifier>
 				<symbolEntry>
 					<name> o </name>
 					<type> OtherClass </type>
