@@ -26,7 +26,12 @@ public class CompileClass extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.CLASS));
       case 1:
-        return parseToken(token, Match.identifier(token));
+        if (Match.identifier(token)) {
+          token.setIdentifierCat(IdentifierCat.CLASS);
+          token.setIdentifierBeingDefined(true);
+          return parseToken(token, true);
+        }
+        return fail();
       case 2:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 3:
