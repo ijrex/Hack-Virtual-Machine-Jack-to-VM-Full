@@ -47,17 +47,7 @@ public abstract class Token {
   public void setIdentifierCat(IdentifierCat str) {
   }
 
-  public void setIdentifierKind(String str) {
-  }
-
   public void setRunningIndex(int x) {
-  }
-
-  public void setIdentifierBeingDefined(boolean b) {
-  }
-
-  public boolean getIdentifierBeingDefined() {
-    return false;
   }
 
   public int getRunningIndex() {

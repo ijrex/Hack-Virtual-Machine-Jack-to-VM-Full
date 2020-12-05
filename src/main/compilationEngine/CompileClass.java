@@ -28,7 +28,6 @@ public class CompileClass extends Compile {
       case 1:
         if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.CLASS);
-          token.setIdentifierBeingDefined(true);
           return parseToken(token, true);
         }
         return fail();
