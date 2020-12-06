@@ -2,9 +2,7 @@
 	<keyword> class </keyword>
 	<identifier>
 		<name> Main </name>
-		<isBeingDefined> true </isBeingDefined>
 		<category> CLASS </category>
-		<kind> NONE </kind>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
 	<symbol> { </symbol>
@@ -56,9 +54,7 @@
 		<keyword> field </keyword>
 		<identifier>
 			<name> OtherClass </name>
-			<isBeingDefined> false </isBeingDefined>
 			<category> NONE </category>
-			<kind> NONE </kind>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbolEntry>
@@ -96,9 +92,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> main </name>
-			<isBeingDefined> false </isBeingDefined>
-			<category> NONE </category>
-			<kind> NONE </kind>
+			<category> SUBROUTINE </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -113,9 +107,7 @@
 			<symbol> , </symbol>
 			<identifier>
 				<name> OtherClass </name>
-				<isBeingDefined> false </isBeingDefined>
 				<category> NONE </category>
-				<kind> NONE </kind>
 				<runningIndex> -1 </runningIndex>
 			</identifier>
 			<symbolEntry>
@@ -143,9 +135,7 @@
 				<keyword> var </keyword>
 				<identifier>
 					<name> OtherClass </name>
-					<isBeingDefined> false </isBeingDefined>
 					<category> NONE </category>
-					<kind> NONE </kind>
 					<runningIndex> -1 </runningIndex>
 				</identifier>
 				<symbolEntry>
@@ -177,9 +167,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> otherMethod </name>
-			<isBeingDefined> false </isBeingDefined>
-			<category> NONE </category>
-			<kind> NONE </kind>
+			<category> SUBROUTINE </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -194,9 +182,7 @@
 			<symbol> , </symbol>
 			<identifier>
 				<name> OtherClass </name>
-				<isBeingDefined> false </isBeingDefined>
 				<category> NONE </category>
-				<kind> NONE </kind>
 				<runningIndex> -1 </runningIndex>
 			</identifier>
 			<symbolEntry>
@@ -224,9 +210,7 @@
 				<keyword> var </keyword>
 				<identifier>
 					<name> OtherClass </name>
-					<isBeingDefined> false </isBeingDefined>
 					<category> NONE </category>
-					<kind> NONE </kind>
 					<runningIndex> -1 </runningIndex>
 				</identifier>
 				<symbolEntry>

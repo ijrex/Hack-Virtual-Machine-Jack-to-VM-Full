@@ -26,7 +26,16 @@ public class CompileStatementLet extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.LET));
       case 1:
-        return parseToken(token, Match.identifier(token));
+        if(Match.identifier(token)) {
+          // todo - find identifier in symbol table
+          // 1 - check scopedTable
+          // 2 - check classTable
+          // return running index
+          // return symbol cat - STATIC, FIELD, ARGUMENT OR VAR
+          // throw error if not defined
+          return parseToken(token, true);
+        }
+        return fail();
       case 2:
         if (compileExpression1 == null && Match.symbol(token, Symbol.BRACKET_L)) {
           compileExpression1 = new CompileExpression(tab, classSymbolTable);

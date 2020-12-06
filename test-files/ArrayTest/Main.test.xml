@@ -1,11 +1,19 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -14,34 +22,70 @@
 			<symbol> { </symbol>
 			<varDec>
 				<keyword> var </keyword>
-				<identifier> Array </identifier>
-				<identifier> a </identifier>
+				<identifier>
+					<name> Array </name>
+					<category> NONE </category>
+					<runningIndex> -1 </runningIndex>
+				</identifier>
+				<symbolEntry>
+					<name> a </name>
+					<type> Array </type>
+					<key> 0 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> int </keyword>
-				<identifier> length </identifier>
+				<symbolEntry>
+					<name> length </name>
+					<type> int </type>
+					<key> 1 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> int </keyword>
-				<identifier> i </identifier>
+				<symbolEntry>
+					<name> i </name>
+					<type> int </type>
+					<key> 2 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> , </symbol>
-				<identifier> sum </identifier>
+				<symbolEntry>
+					<name> sum </name>
+					<type> int </type>
+					<key> 3 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> length </identifier>
+					<identifier>
+						<name> length </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> Keyboard </identifier>
+							<identifier>
+								<name> Keyboard </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> readInt </identifier>
+							<identifier>
+								<name> readInt </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -57,18 +101,34 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> a </identifier>
+					<identifier>
+						<name> a </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> Array </identifier>
+							<identifier>
+								<name> Array </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> new </identifier>
+							<identifier>
+								<name> new </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
 									<term>
-										<identifier> length </identifier>
+										<identifier>
+											<name> length </name>
+											<category> NONE </category>
+											<runningIndex> -1 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 							</expressionList>
@@ -79,7 +139,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> i </identifier>
+					<identifier>
+						<name> i </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -93,11 +157,19 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> i </identifier>
+							<identifier>
+								<name> i </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> < </symbol>
 						<term>
-							<identifier> length </identifier>
+							<identifier>
+								<name> length </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -105,20 +177,36 @@
 					<statements>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
-									<identifier> i </identifier>
+									<identifier>
+										<name> i </name>
+										<category> NONE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ] </symbol>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> Keyboard </identifier>
+									<identifier>
+										<name> Keyboard </name>
+										<category> NONE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> . </symbol>
-									<identifier> readInt </identifier>
+									<identifier>
+										<name> readInt </name>
+										<category> NONE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> ( </symbol>
 									<expressionList>
 										<expression>
@@ -134,11 +222,19 @@
 						</letStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> i </identifier>
+							<identifier>
+								<name> i </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> i </identifier>
+									<identifier>
+										<name> i </name>
+										<category> NONE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
@@ -152,7 +248,11 @@
 				</whileStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> i </identifier>
+					<identifier>
+						<name> i </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -163,7 +263,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> sum </identifier>
+					<identifier>
+						<name> sum </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -177,11 +281,19 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> i </identifier>
+							<identifier>
+								<name> i </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> < </symbol>
 						<term>
-							<identifier> length </identifier>
+							<identifier>
+								<name> length </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -189,19 +301,35 @@
 					<statements>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> sum </identifier>
+							<identifier>
+								<name> sum </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> sum </identifier>
+									<identifier>
+										<name> sum </name>
+										<category> NONE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
-									<identifier> a </identifier>
+									<identifier>
+										<name> a </name>
+										<category> NONE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> [ </symbol>
 									<expression>
 										<term>
-											<identifier> i </identifier>
+											<identifier>
+												<name> i </name>
+												<category> NONE </category>
+												<runningIndex> -1 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ] </symbol>
@@ -211,11 +339,19 @@
 						</letStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> i </identifier>
+							<identifier>
+								<name> i </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> i </identifier>
+									<identifier>
+										<name> i </name>
+										<category> NONE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
@@ -229,9 +365,17 @@
 				</whileStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Output </identifier>
+					<identifier>
+						<name> Output </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> printString </identifier>
+					<identifier>
+						<name> printString </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
@@ -245,18 +389,34 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Output </identifier>
+					<identifier>
+						<name> Output </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> printInt </identifier>
+					<identifier>
+						<name> printInt </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> sum </identifier>
+								<identifier>
+									<name> sum </name>
+									<category> NONE </category>
+									<runningIndex> -1 </runningIndex>
+								</identifier>
 							</term>
 							<symbol> / </symbol>
 							<term>
-								<identifier> length </identifier>
+								<identifier>
+									<name> length </name>
+									<category> NONE </category>
+									<runningIndex> -1 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 					</expressionList>
@@ -265,9 +425,17 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Output </identifier>
+					<identifier>
+						<name> Output </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> println </identifier>
+					<identifier>
+						<name> println </name>
+						<category> NONE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 					</expressionList>
