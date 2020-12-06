@@ -14,8 +14,19 @@ public abstract class Compile {
   boolean finished = false;
   String wrapperLabel;
   SymbolTable classSymbolTable;
+  SymbolTable scopedSymbolTable;
 
   public Compile(int _tab, SymbolTable _classSymbolTable) {
+    this.init(_tab, _classSymbolTable);
+  }
+
+  
+  public Compile(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    this.init(_tab, _classSymbolTable);
+    scopedSymbolTable = _scopedSymbolTable;
+  }
+
+  private void init(int _tab, SymbolTable _classSymbolTable) {
     tab = _tab;
     finished = false;
     classSymbolTable = _classSymbolTable;
