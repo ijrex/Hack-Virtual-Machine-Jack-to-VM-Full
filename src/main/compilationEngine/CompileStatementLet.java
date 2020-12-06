@@ -27,12 +27,7 @@ public class CompileStatementLet extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.LET));
       case 1:
         if(Match.identifier(token)) {
-          // todo - find identifier in symbol table
-          // 1 - check scopedTable
-          // 2 - check classTable
-          // return running index
-          // return symbol cat - STATIC, FIELD, ARGUMENT OR VAR
-          // throw error if not defined
+          this.handleIdentifierTokenProperties(token);
           return parseToken(token, true);
         }
         return fail();

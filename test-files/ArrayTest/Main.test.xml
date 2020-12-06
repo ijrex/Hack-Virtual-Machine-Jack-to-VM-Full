@@ -69,8 +69,8 @@
 					<keyword> let </keyword>
 					<identifier>
 						<name> length </name>
-						<category> NONE </category>
-						<runningIndex> -1 </runningIndex>
+						<category> VAR </category>
+						<runningIndex> 1 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
@@ -103,8 +103,8 @@
 					<keyword> let </keyword>
 					<identifier>
 						<name> a </name>
-						<category> NONE </category>
-						<runningIndex> -1 </runningIndex>
+						<category> VAR </category>
+						<runningIndex> 0 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
@@ -126,8 +126,8 @@
 									<term>
 										<identifier>
 											<name> length </name>
-											<category> NONE </category>
-											<runningIndex> -1 </runningIndex>
+											<category> VAR </category>
+											<runningIndex> 1 </runningIndex>
 										</identifier>
 									</term>
 								</expression>
@@ -141,8 +141,8 @@
 					<keyword> let </keyword>
 					<identifier>
 						<name> i </name>
-						<category> NONE </category>
-						<runningIndex> -1 </runningIndex>
+						<category> VAR </category>
+						<runningIndex> 2 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
@@ -159,16 +159,16 @@
 						<term>
 							<identifier>
 								<name> i </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
 							</identifier>
 						</term>
 						<symbol> < </symbol>
 						<term>
 							<identifier>
 								<name> length </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 1 </runningIndex>
 							</identifier>
 						</term>
 					</expression>
@@ -179,16 +179,16 @@
 							<keyword> let </keyword>
 							<identifier>
 								<name> a </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 0 </runningIndex>
 							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
 									<identifier>
 										<name> i </name>
-										<category> NONE </category>
-										<runningIndex> -1 </runningIndex>
+										<category> VAR </category>
+										<runningIndex> 2 </runningIndex>
 									</identifier>
 								</term>
 							</expression>
@@ -224,16 +224,16 @@
 							<keyword> let </keyword>
 							<identifier>
 								<name> i </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
 							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
 									<identifier>
 										<name> i </name>
-										<category> NONE </category>
-										<runningIndex> -1 </runningIndex>
+										<category> VAR </category>
+										<runningIndex> 2 </runningIndex>
 									</identifier>
 								</term>
 								<symbol> + </symbol>
@@ -250,8 +250,8 @@
 					<keyword> let </keyword>
 					<identifier>
 						<name> i </name>
-						<category> NONE </category>
-						<runningIndex> -1 </runningIndex>
+						<category> VAR </category>
+						<runningIndex> 2 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
@@ -265,8 +265,8 @@
 					<keyword> let </keyword>
 					<identifier>
 						<name> sum </name>
-						<category> NONE </category>
-						<runningIndex> -1 </runningIndex>
+						<category> VAR </category>
+						<runningIndex> 3 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
@@ -283,16 +283,16 @@
 						<term>
 							<identifier>
 								<name> i </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
 							</identifier>
 						</term>
 						<symbol> < </symbol>
 						<term>
 							<identifier>
 								<name> length </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 1 </runningIndex>
 							</identifier>
 						</term>
 					</expression>
@@ -303,32 +303,32 @@
 							<keyword> let </keyword>
 							<identifier>
 								<name> sum </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 3 </runningIndex>
 							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
 									<identifier>
 										<name> sum </name>
-										<category> NONE </category>
-										<runningIndex> -1 </runningIndex>
+										<category> VAR </category>
+										<runningIndex> 3 </runningIndex>
 									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
 									<identifier>
 										<name> a </name>
-										<category> NONE </category>
-										<runningIndex> -1 </runningIndex>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
 									</identifier>
 									<symbol> [ </symbol>
 									<expression>
 										<term>
 											<identifier>
 												<name> i </name>
-												<category> NONE </category>
-												<runningIndex> -1 </runningIndex>
+												<category> VAR </category>
+												<runningIndex> 2 </runningIndex>
 											</identifier>
 										</term>
 									</expression>
@@ -341,16 +341,16 @@
 							<keyword> let </keyword>
 							<identifier>
 								<name> i </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
 							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
 									<identifier>
 										<name> i </name>
-										<category> NONE </category>
-										<runningIndex> -1 </runningIndex>
+										<category> VAR </category>
+										<runningIndex> 2 </runningIndex>
 									</identifier>
 								</term>
 								<symbol> + </symbol>
@@ -406,16 +406,16 @@
 							<term>
 								<identifier>
 									<name> sum </name>
-									<category> NONE </category>
-									<runningIndex> -1 </runningIndex>
+									<category> VAR </category>
+									<runningIndex> 3 </runningIndex>
 								</identifier>
 							</term>
 							<symbol> / </symbol>
 							<term>
 								<identifier>
 									<name> length </name>
-									<category> NONE </category>
-									<runningIndex> -1 </runningIndex>
+									<category> VAR </category>
+									<runningIndex> 1 </runningIndex>
 								</identifier>
 							</term>
 						</expression>

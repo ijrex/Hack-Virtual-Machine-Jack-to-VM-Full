@@ -41,6 +41,15 @@ public class SymbolTable {
     return table.get(value);
   }
 
+  public SymbolEntry find(Token token) {
+    String key = token.getValue();
+
+    if(table.containsKey(key))
+      return table.get(key);
+
+    return null;
+  }
+
   public void print() {
     for (String key : table.keySet()) {
       String str = key + " -> " + table.get(key).print();

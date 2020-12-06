@@ -34,6 +34,14 @@ public class IdentifierToken extends Token {
     this.identifierCat = t;
   }
 
+  public void setIdentifierCat(String t) {
+    for(IdentifierCat i: IdentifierCat.values()) {
+      if(t.equalsIgnoreCase(i.toString())) {
+        this.identifierCat = i;
+      }
+    }
+  }
+
   public IdentifierCat getIdentifierType() {
     return this.identifierCat;
   }

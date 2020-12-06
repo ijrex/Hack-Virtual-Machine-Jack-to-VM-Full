@@ -142,4 +142,21 @@ public abstract class Compile {
 
     return str;
   }
+
+  /* Search symbol tables and add properties to identifier tokens */
+
+  protected void handleIdentifierTokenProperties(Token token) throws IOException {
+    SymbolEntry entry = scopedSymbolTable.find(token);
+
+    if(entry == null) 
+      entry = classSymbolTable.find(token);
+
+    if(entry != null) {
+      token.setIdentifierCat(entry.getKindtoString());
+      token.setRunningIndex(entry.getKey());
+      return;
+    }
+
+    throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
+  }
 }

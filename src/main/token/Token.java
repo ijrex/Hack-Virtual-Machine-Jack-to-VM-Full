@@ -47,6 +47,9 @@ public abstract class Token {
   public void setIdentifierCat(IdentifierCat str) {
   }
 
+  public void setIdentifierCat(String str) {
+  }
+
   public void setRunningIndex(int x) {
   }
 
