@@ -27,7 +27,7 @@ public class CompileStatementLet extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.LET));
       case 1:
         if(Match.identifier(token)) {
-          this.handleIdentifierTokenProperties(token);
+          this.handleIdentifierFromSymbolTable(token);
           return parseToken(token, true);
         }
         return fail();

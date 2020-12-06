@@ -1,35 +1,77 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Square </identifier>
+	<identifier>
+		<name> Square </name>
+		<category> CLASS </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> int </keyword>
-		<identifier> x </identifier>
+		<symbolEntry>
+			<name> x </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
 		<symbol> , </symbol>
-		<identifier> y </identifier>
+		<symbolEntry>
+			<name> y </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> int </keyword>
-		<identifier> size </identifier>
+		<symbolEntry>
+			<name> size </name>
+			<type> int </type>
+			<key> 2 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<subroutineDec>
 		<keyword> constructor </keyword>
-		<identifier> Square </identifier>
-		<identifier> new </identifier>
+		<identifier>
+			<name> Square </name>
+			<category> CLASS </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<identifier>
+			<name> new </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 			<keyword> int </keyword>
-			<identifier> Ax </identifier>
+			<symbolEntry>
+				<name> Ax </name>
+				<type> int </type>
+				<key> 0 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
 			<symbol> , </symbol>
 			<keyword> int </keyword>
-			<identifier> Ay </identifier>
+			<symbolEntry>
+				<name> Ay </name>
+				<type> int </type>
+				<key> 1 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
 			<symbol> , </symbol>
 			<keyword> int </keyword>
-			<identifier> Asize </identifier>
+			<symbolEntry>
+				<name> Asize </name>
+				<type> int </type>
+				<key> 2 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
 		</parameterList>
 		<symbol> ) </symbol>
 		<subroutineBody>
@@ -37,40 +79,68 @@
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> x </identifier>
+					<identifier>
+						<name> x </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> Ax </identifier>
+							<identifier>
+								<name> Ax </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> y </identifier>
+					<identifier>
+						<name> y </name>
+						<category> FIELD </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> Ay </identifier>
+							<identifier>
+								<name> Ay </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> size </identifier>
+					<identifier>
+						<name> size </name>
+						<category> FIELD </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> Asize </identifier>
+							<identifier>
+								<name> Asize </name>
+								<category> NONE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> draw </identifier>
+					<identifier>
+						<name> draw </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 					</expressionList>
@@ -93,7 +163,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> dispose </identifier>
+		<identifier>
+			<name> dispose </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -103,9 +177,17 @@
 			<statements>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Memory </identifier>
+					<identifier>
+						<name> Memory </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> deAlloc </identifier>
+					<identifier>
+						<name> deAlloc </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
@@ -128,7 +210,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> draw </identifier>
+		<identifier>
+			<name> draw </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -138,9 +224,17 @@
 			<statements>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Screen </identifier>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> setColor </identifier>
+					<identifier>
+						<name> setColor </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
@@ -154,40 +248,72 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Screen </identifier>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> drawRectangle </identifier>
+					<identifier>
+						<name> drawRectangle </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> x </identifier>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 						<symbol> , </symbol>
 						<expression>
 							<term>
-								<identifier> y </identifier>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 						<symbol> , </symbol>
 						<expression>
 							<term>
-								<identifier> x </identifier>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
 							</term>
 							<symbol> + </symbol>
 							<term>
-								<identifier> size </identifier>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 						<symbol> , </symbol>
 						<expression>
 							<term>
-								<identifier> y </identifier>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
 							</term>
 							<symbol> + </symbol>
 							<term>
-								<identifier> size </identifier>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 					</expressionList>
@@ -205,7 +331,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> erase </identifier>
+		<identifier>
+			<name> erase </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -215,9 +345,17 @@
 			<statements>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Screen </identifier>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> setColor </identifier>
+					<identifier>
+						<name> setColor </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
@@ -231,40 +369,72 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Screen </identifier>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> drawRectangle </identifier>
+					<identifier>
+						<name> drawRectangle </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> x </identifier>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 						<symbol> , </symbol>
 						<expression>
 							<term>
-								<identifier> y </identifier>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 						<symbol> , </symbol>
 						<expression>
 							<term>
-								<identifier> x </identifier>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
 							</term>
 							<symbol> + </symbol>
 							<term>
-								<identifier> size </identifier>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 						<symbol> , </symbol>
 						<expression>
 							<term>
-								<identifier> y </identifier>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
 							</term>
 							<symbol> + </symbol>
 							<term>
-								<identifier> size </identifier>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 					</expressionList>
@@ -282,7 +452,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> incSize </identifier>
+		<identifier>
+			<name> incSize </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -301,11 +475,19 @@
 									<symbol> ( </symbol>
 									<expression>
 										<term>
-											<identifier> y </identifier>
+											<identifier>
+												<name> y </name>
+												<category> FIELD </category>
+												<runningIndex> 1 </runningIndex>
+											</identifier>
 										</term>
 										<symbol> + </symbol>
 										<term>
-											<identifier> size </identifier>
+											<identifier>
+												<name> size </name>
+												<category> FIELD </category>
+												<runningIndex> 2 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ) </symbol>
@@ -325,11 +507,19 @@
 									<symbol> ( </symbol>
 									<expression>
 										<term>
-											<identifier> x </identifier>
+											<identifier>
+												<name> x </name>
+												<category> FIELD </category>
+												<runningIndex> 0 </runningIndex>
+											</identifier>
 										</term>
 										<symbol> + </symbol>
 										<term>
-											<identifier> size </identifier>
+											<identifier>
+												<name> size </name>
+												<category> FIELD </category>
+												<runningIndex> 2 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ) </symbol>
@@ -347,7 +537,11 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> erase </identifier>
+							<identifier>
+								<name> erase </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -356,11 +550,19 @@
 						</doStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> size </identifier>
+							<identifier>
+								<name> size </name>
+								<category> FIELD </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> size </identifier>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
@@ -371,7 +573,11 @@
 						</letStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> draw </identifier>
+							<identifier>
+								<name> draw </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -392,7 +598,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> decSize </identifier>
+		<identifier>
+			<name> decSize </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -405,7 +615,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> size </identifier>
+							<identifier>
+								<name> size </name>
+								<category> FIELD </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> > </symbol>
 						<term>
@@ -417,7 +631,11 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> erase </identifier>
+							<identifier>
+								<name> erase </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -426,11 +644,19 @@
 						</doStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> size </identifier>
+							<identifier>
+								<name> size </name>
+								<category> FIELD </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> size </identifier>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> - </symbol>
 								<term>
@@ -441,7 +667,11 @@
 						</letStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> draw </identifier>
+							<identifier>
+								<name> draw </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -462,7 +692,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> moveUp </identifier>
+		<identifier>
+			<name> moveUp </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -475,7 +709,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> y </identifier>
+							<identifier>
+								<name> y </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> > </symbol>
 						<term>
@@ -487,9 +725,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -503,14 +749,26 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
@@ -519,11 +777,19 @@
 										<symbol> ( </symbol>
 										<expression>
 											<term>
-												<identifier> y </identifier>
+												<identifier>
+													<name> y </name>
+													<category> FIELD </category>
+													<runningIndex> 1 </runningIndex>
+												</identifier>
 											</term>
 											<symbol> + </symbol>
 											<term>
-												<identifier> size </identifier>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 										<symbol> ) </symbol>
@@ -536,21 +802,37 @@
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 							</expressionList>
@@ -559,11 +841,19 @@
 						</doStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> y </identifier>
+							<identifier>
+								<name> y </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> y </identifier>
+									<identifier>
+										<name> y </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> - </symbol>
 								<term>
@@ -574,9 +864,17 @@
 						</letStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -590,36 +888,64 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
@@ -644,7 +970,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> moveDown </identifier>
+		<identifier>
+			<name> moveDown </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -660,11 +990,19 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> y </identifier>
+									<identifier>
+										<name> y </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
-									<identifier> size </identifier>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -679,9 +1017,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -695,36 +1041,64 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
@@ -737,11 +1111,19 @@
 						</doStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> y </identifier>
+							<identifier>
+								<name> y </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> y </identifier>
+									<identifier>
+										<name> y </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
@@ -752,9 +1134,17 @@
 						</letStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -768,14 +1158,26 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
@@ -784,11 +1186,19 @@
 										<symbol> ( </symbol>
 										<expression>
 											<term>
-												<identifier> y </identifier>
+												<identifier>
+													<name> y </name>
+													<category> FIELD </category>
+													<runningIndex> 1 </runningIndex>
+												</identifier>
 											</term>
 											<symbol> + </symbol>
 											<term>
-												<identifier> size </identifier>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 										<symbol> ) </symbol>
@@ -801,21 +1211,37 @@
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 							</expressionList>
@@ -836,7 +1262,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> moveLeft </identifier>
+		<identifier>
+			<name> moveLeft </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -849,7 +1279,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> x </identifier>
+							<identifier>
+								<name> x </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> > </symbol>
 						<term>
@@ -861,9 +1295,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -877,9 +1319,17 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -887,11 +1337,19 @@
 										<symbol> ( </symbol>
 										<expression>
 											<term>
-												<identifier> x </identifier>
+												<identifier>
+													<name> x </name>
+													<category> FIELD </category>
+													<runningIndex> 0 </runningIndex>
+												</identifier>
 											</term>
 											<symbol> + </symbol>
 											<term>
-												<identifier> size </identifier>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 										<symbol> ) </symbol>
@@ -904,27 +1362,47 @@
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 							</expressionList>
@@ -933,11 +1411,19 @@
 						</doStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> x </identifier>
+							<identifier>
+								<name> x </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> x </identifier>
+									<identifier>
+										<name> x </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> - </symbol>
 								<term>
@@ -948,9 +1434,17 @@
 						</letStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -964,26 +1458,46 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
@@ -993,11 +1507,19 @@
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 							</expressionList>
@@ -1018,7 +1540,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> moveRight </identifier>
+		<identifier>
+			<name> moveRight </name>
+			<category> SUBROUTINE </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -1034,11 +1560,19 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> x </identifier>
+									<identifier>
+										<name> x </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
-									<identifier> size </identifier>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -1053,9 +1587,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -1069,26 +1611,46 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
@@ -1098,11 +1660,19 @@
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 							</expressionList>
@@ -1111,11 +1681,19 @@
 						</doStatement>
 						<letStatement>
 							<keyword> let </keyword>
-							<identifier> x </identifier>
+							<identifier>
+								<name> x </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 							<symbol> = </symbol>
 							<expression>
 								<term>
-									<identifier> x </identifier>
+									<identifier>
+										<name> x </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
@@ -1126,9 +1704,17 @@
 						</letStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> setColor </identifier>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -1142,9 +1728,17 @@
 						</doStatement>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> Screen </identifier>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> drawRectangle </identifier>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 								<expression>
@@ -1152,11 +1746,19 @@
 										<symbol> ( </symbol>
 										<expression>
 											<term>
-												<identifier> x </identifier>
+												<identifier>
+													<name> x </name>
+													<category> FIELD </category>
+													<runningIndex> 0 </runningIndex>
+												</identifier>
 											</term>
 											<symbol> + </symbol>
 											<term>
-												<identifier> size </identifier>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 										<symbol> ) </symbol>
@@ -1169,27 +1771,47 @@
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> x </identifier>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 								<symbol> , </symbol>
 								<expression>
 									<term>
-										<identifier> y </identifier>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
 									</term>
 									<symbol> + </symbol>
 									<term>
-										<identifier> size </identifier>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
 									</term>
 								</expression>
 							</expressionList>

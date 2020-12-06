@@ -145,7 +145,19 @@ public abstract class Compile {
 
   /* Search symbol tables and add properties to identifier tokens */
 
-  protected void handleIdentifierTokenProperties(Token token) throws IOException {
+  protected boolean isRegisteredSymbol(Token token) {
+    SymbolEntry entry = scopedSymbolTable.find(token);
+
+    if(entry == null) 
+      entry = classSymbolTable.find(token);
+
+    if(entry == null)
+      return false;
+      
+    return true;
+  }
+
+  protected void handleIdentifierFromSymbolTable(Token token) throws IOException {
     SymbolEntry entry = scopedSymbolTable.find(token);
 
     if(entry == null) 

@@ -367,13 +367,13 @@
 					<keyword> do </keyword>
 					<identifier>
 						<name> Output </name>
-						<category> NONE </category>
+						<category> CLASS </category>
 						<runningIndex> -1 </runningIndex>
 					</identifier>
 					<symbol> . </symbol>
 					<identifier>
 						<name> printString </name>
-						<category> NONE </category>
+						<category> SUBROUTINE </category>
 						<runningIndex> -1 </runningIndex>
 					</identifier>
 					<symbol> ( </symbol>
@@ -391,13 +391,13 @@
 					<keyword> do </keyword>
 					<identifier>
 						<name> Output </name>
-						<category> NONE </category>
+						<category> CLASS </category>
 						<runningIndex> -1 </runningIndex>
 					</identifier>
 					<symbol> . </symbol>
 					<identifier>
 						<name> printInt </name>
-						<category> NONE </category>
+						<category> SUBROUTINE </category>
 						<runningIndex> -1 </runningIndex>
 					</identifier>
 					<symbol> ( </symbol>
@@ -427,13 +427,13 @@
 					<keyword> do </keyword>
 					<identifier>
 						<name> Output </name>
-						<category> NONE </category>
+						<category> CLASS </category>
 						<runningIndex> -1 </runningIndex>
 					</identifier>
 					<symbol> . </symbol>
 					<identifier>
 						<name> println </name>
-						<category> NONE </category>
+						<category> SUBROUTINE </category>
 						<runningIndex> -1 </runningIndex>
 					</identifier>
 					<symbol> ( </symbol>
