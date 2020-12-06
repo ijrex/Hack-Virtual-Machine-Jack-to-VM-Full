@@ -2,7 +2,7 @@
 	<keyword> class </keyword>
 	<identifier>
 		<name> Main </name>
-		<category> CLASS </category>
+		<category> CLASS_DEC </category>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
 	<symbol> { </symbol>
@@ -22,7 +22,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> main </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -127,7 +127,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> test </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>

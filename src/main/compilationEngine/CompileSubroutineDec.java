@@ -33,7 +33,7 @@ public class CompileSubroutineDec extends Compile {
         return parseToken(token, Match.type(token, Keyword.VOID));
       case 2:
         if(Match.identifier(token)) {
-          token.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          token.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
           return parseToken(token, true);
         }
         return fail();

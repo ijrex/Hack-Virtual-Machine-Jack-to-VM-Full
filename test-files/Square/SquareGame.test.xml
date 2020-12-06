@@ -2,7 +2,7 @@
 	<keyword> class </keyword>
 	<identifier>
 		<name> SquareGame </name>
-		<category> CLASS </category>
+		<category> CLASS_DEC </category>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
 	<symbol> { </symbol>
@@ -10,7 +10,7 @@
 		<keyword> field </keyword>
 		<identifier>
 			<name> Square </name>
-			<category> CLASS </category>
+			<category> CLASS_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbolEntry>
@@ -36,12 +36,12 @@
 		<keyword> constructor </keyword>
 		<identifier>
 			<name> SquareGame </name>
-			<category> CLASS </category>
+			<category> CLASS_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<identifier>
 			<name> new </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -63,13 +63,13 @@
 						<term>
 							<identifier>
 								<name> Square </name>
-								<category> CLASS </category>
+								<category> CLASS_DEC </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
 							<identifier>
 								<name> new </name>
-								<category> SUBROUTINE </category>
+								<category> SUBROUTINE_DEC </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> ( </symbol>
@@ -130,7 +130,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> dispose </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -196,7 +196,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> moveSquare </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -407,7 +407,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> run </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>

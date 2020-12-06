@@ -2,7 +2,7 @@
 	<keyword> class </keyword>
 	<identifier>
 		<name> Square </name>
-		<category> CLASS </category>
+		<category> CLASS_DEC </category>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
 	<symbol> { </symbol>
@@ -39,12 +39,12 @@
 		<keyword> constructor </keyword>
 		<identifier>
 			<name> Square </name>
-			<category> CLASS </category>
+			<category> CLASS_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<identifier>
 			<name> new </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -165,7 +165,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> dispose </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -212,7 +212,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> draw </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -333,7 +333,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> erase </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -454,7 +454,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> incSize </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -600,7 +600,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> decSize </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -694,7 +694,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> moveUp </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -972,7 +972,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> moveDown </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -1264,7 +1264,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> moveLeft </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -1542,7 +1542,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> moveRight </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
