@@ -65,7 +65,7 @@
 							<symbol> . </symbol>
 							<identifier>
 								<name> new </name>
-								<category> NONE </category>
+								<category> SUBROUTINE </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> ( </symbol>

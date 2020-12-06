@@ -69,7 +69,7 @@
 							<symbol> . </symbol>
 							<identifier>
 								<name> new </name>
-								<category> SUBROUTINE_DEC </category>
+								<category> SUBROUTINE </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> ( </symbol>
@@ -509,7 +509,7 @@
 											<symbol> . </symbol>
 											<identifier>
 												<name> keyPressed </name>
-												<category> NONE </category>
+												<category> SUBROUTINE </category>
 												<runningIndex> -1 </runningIndex>
 											</identifier>
 											<symbol> ( </symbol>
@@ -849,7 +849,7 @@
 											<symbol> . </symbol>
 											<identifier>
 												<name> keyPressed </name>
-												<category> NONE </category>
+												<category> SUBROUTINE </category>
 												<runningIndex> -1 </runningIndex>
 											</identifier>
 											<symbol> ( </symbol>

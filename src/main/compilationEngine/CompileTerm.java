@@ -62,7 +62,7 @@ public class CompileTerm extends Compile {
         return fail();
       case 100:
         if(Match.identifier(token)) {
-          lookAhead.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           return parseToken(token, true);
         }
         return fail();
