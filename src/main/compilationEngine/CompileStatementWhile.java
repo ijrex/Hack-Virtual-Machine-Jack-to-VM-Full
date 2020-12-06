@@ -14,8 +14,8 @@ public class CompileStatementWhile extends Compile {
   Compile compileExpression;
   Compile compileStatements;
 
-  public CompileStatementWhile(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileStatementWhile(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "whileStatement";
   }
 
@@ -29,7 +29,7 @@ public class CompileStatementWhile extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable);
+          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
       case 3:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -37,7 +37,7 @@ public class CompileStatementWhile extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements == null)
-          compileStatements = new CompileStatements(tab, classSymbolTable);
+          compileStatements = new CompileStatements(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileStatements, token);
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));

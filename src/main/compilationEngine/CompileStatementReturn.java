@@ -13,8 +13,8 @@ public class CompileStatementReturn extends Compile {
 
   Compile compileExpression;
 
-  public CompileStatementReturn(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileStatementReturn(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "returnStatement";
   }
 
@@ -30,7 +30,7 @@ public class CompileStatementReturn extends Compile {
         pos++;
       case 2:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable);
+          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         if (compileExpression != null)
           return handleChildClass(compileExpression, token);
       case 3:

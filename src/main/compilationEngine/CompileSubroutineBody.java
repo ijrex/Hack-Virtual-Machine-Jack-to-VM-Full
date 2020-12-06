@@ -40,7 +40,7 @@ public class CompileSubroutineBody extends Compile {
         pos++;
       case 3:
         if (compileStatements == null)
-          compileStatements = new CompileStatements(tab, classSymbolTable);
+          compileStatements = new CompileStatements(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileStatements, token);
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));

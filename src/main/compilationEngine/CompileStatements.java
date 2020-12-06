@@ -12,8 +12,8 @@ public class CompileStatements extends Compile {
 
   Compile compileStatement;
 
-  public CompileStatements(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileStatements(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "statements";
   }
 
@@ -27,19 +27,19 @@ public class CompileStatements extends Compile {
 
           switch (statementType) {
             case LET:
-              compileStatement = new CompileStatementLet(tab, classSymbolTable);
+              compileStatement = new CompileStatementLet(tab, classSymbolTable, scopedSymbolTable);
               break;
             case IF:
-              compileStatement = new CompileStatementIf(tab, classSymbolTable);
+              compileStatement = new CompileStatementIf(tab, classSymbolTable, scopedSymbolTable);
               break;
             case WHILE:
-              compileStatement = new CompileStatementWhile(tab, classSymbolTable);
+              compileStatement = new CompileStatementWhile(tab, classSymbolTable, scopedSymbolTable);
               break;
             case DO:
-              compileStatement = new CompileStatementDo(tab, classSymbolTable);
+              compileStatement = new CompileStatementDo(tab, classSymbolTable, scopedSymbolTable);
               break;
             case RETURN:
-              compileStatement = new CompileStatementReturn(tab, classSymbolTable);
+              compileStatement = new CompileStatementReturn(tab, classSymbolTable, scopedSymbolTable);
               break;
             default:
               fail();
