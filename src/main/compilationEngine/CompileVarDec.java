@@ -11,16 +11,11 @@ import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileVarDec extends Compile {
-
-  SymbolTable scopedSymbolTable;
-
   String varType;
 
   public CompileVarDec(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable);
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "varDec";
-
-    scopedSymbolTable = _scopedSymbolTable;
   }
 
   public String handleToken(Token token) throws IOException {

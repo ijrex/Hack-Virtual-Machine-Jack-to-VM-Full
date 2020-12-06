@@ -11,15 +11,11 @@ import compilationEngine.util.*;
 
 public class CompileParameterList extends Compile {
 
-  SymbolTable scopedSymbolTable;
-
   String varType;
 
   public CompileParameterList(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable);
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "parameterList";
-
-    scopedSymbolTable = _scopedSymbolTable;
   }
 
   public String handleToken(Token token) throws IOException {

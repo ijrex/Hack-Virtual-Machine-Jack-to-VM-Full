@@ -14,8 +14,19 @@ public abstract class Compile {
   boolean finished = false;
   String wrapperLabel;
   SymbolTable classSymbolTable;
+  SymbolTable scopedSymbolTable;
 
   public Compile(int _tab, SymbolTable _classSymbolTable) {
+    this.init(_tab, _classSymbolTable);
+  }
+
+  
+  public Compile(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    this.init(_tab, _classSymbolTable);
+    scopedSymbolTable = _scopedSymbolTable;
+  }
+
+  private void init(int _tab, SymbolTable _classSymbolTable) {
     tab = _tab;
     finished = false;
     classSymbolTable = _classSymbolTable;
@@ -130,5 +141,22 @@ public abstract class Compile {
     str += "ERROR (Continued): Handling child class \"" + compiler.getClass() + "\"";
 
     return str;
+  }
+
+  /* Search symbol tables and add properties to identifier tokens */
+
+  protected void handleIdentifierTokenProperties(Token token) throws IOException {
+    SymbolEntry entry = scopedSymbolTable.find(token);
+
+    if(entry == null) 
+      entry = classSymbolTable.find(token);
+
+    if(entry != null) {
+      token.setIdentifierCat(entry.getKindtoString());
+      token.setRunningIndex(entry.getKey());
+      return;
+    }
+
+    throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
   }
 }

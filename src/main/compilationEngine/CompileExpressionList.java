@@ -12,8 +12,8 @@ public class CompileExpressionList extends Compile {
 
   Compile compileExpression;
 
-  public CompileExpressionList(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileExpressionList(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "expressionList";
   }
 
@@ -27,7 +27,7 @@ public class CompileExpressionList extends Compile {
         return prefix(token);
       case 0:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable);
+          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
       case 1:
         if (Match.symbol(token, Symbol.COMMA)) {

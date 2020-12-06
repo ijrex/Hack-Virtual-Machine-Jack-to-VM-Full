@@ -24,6 +24,15 @@ public class SymbolEntry {
     return this.name;
   }
 
+  public int getKey() {
+    return this.key;
+  }
+
+  public String getKindtoString() {
+    return this.kind.toString();
+  }
+
+
   private String parseValue(String str, String label, String tabs) {
     return tabs + "\t" + "<" + label + "> " + str + " </" + label + ">\n";
   }

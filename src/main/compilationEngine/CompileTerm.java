@@ -16,8 +16,8 @@ public class CompileTerm extends Compile {
 
   Token lookAhead;
 
-  public CompileTerm(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileTerm(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "term";
   }
 
@@ -62,7 +62,7 @@ public class CompileTerm extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 102:
         if (compileExpressionList == null)
-          compileExpressionList = new CompileExpressionList(tab, classSymbolTable);
+          compileExpressionList = new CompileExpressionList(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpressionList, token);
       case 103:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -71,7 +71,7 @@ public class CompileTerm extends Compile {
 
       case 200:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable);
+          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
       case 201:
         return parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
@@ -80,7 +80,7 @@ public class CompileTerm extends Compile {
 
       case 300:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable);
+          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
       case 301:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -89,7 +89,7 @@ public class CompileTerm extends Compile {
 
       case 400:
         if (compileTerm == null)
-          compileTerm = new CompileTerm(tab, classSymbolTable);
+          compileTerm = new CompileTerm(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileTerm, token);
       case 401:
         return postfix();
