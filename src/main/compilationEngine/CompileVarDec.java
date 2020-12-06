@@ -29,7 +29,7 @@ public class CompileVarDec extends Compile {
           varType = token.getValue();
           return parseToken(token, true);
         }
-        return parseToken(token, Match.type(token));
+        return fail();
       case 2:
         if (Match.identifier(token)) {
           SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "VAR");
