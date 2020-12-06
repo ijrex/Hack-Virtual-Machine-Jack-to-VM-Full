@@ -59,7 +59,7 @@
 						<term>
 							<identifier>
 								<name> SquareGame </name>
-								<category> NONE </category>
+								<category> CLASS </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
@@ -80,7 +80,7 @@
 					<keyword> do </keyword>
 					<identifier>
 						<name> game </name>
-						<category> CLASS </category>
+						<category> VAR </category>
 						<runningIndex> 0 </runningIndex>
 					</identifier>
 					<symbol> . </symbol>
@@ -99,7 +99,7 @@
 					<keyword> do </keyword>
 					<identifier>
 						<name> game </name>
-						<category> CLASS </category>
+						<category> VAR </category>
 						<runningIndex> 0 </runningIndex>
 					</identifier>
 					<symbol> . </symbol>
@@ -289,8 +289,8 @@
 											<term>
 												<identifier>
 													<name> j </name>
-													<category> NONE </category>
-													<runningIndex> -1 </runningIndex>
+													<category> VAR </category>
+													<runningIndex> 1 </runningIndex>
 												</identifier>
 											</term>
 										</term>

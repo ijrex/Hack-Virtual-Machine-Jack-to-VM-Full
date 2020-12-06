@@ -89,8 +89,8 @@
 						<term>
 							<identifier>
 								<name> Ax </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> ARGUMENT </category>
+								<runningIndex> 0 </runningIndex>
 							</identifier>
 						</term>
 					</expression>
@@ -108,8 +108,8 @@
 						<term>
 							<identifier>
 								<name> Ay </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> ARGUMENT </category>
+								<runningIndex> 1 </runningIndex>
 							</identifier>
 						</term>
 					</expression>
@@ -127,8 +127,8 @@
 						<term>
 							<identifier>
 								<name> Asize </name>
-								<category> NONE </category>
-								<runningIndex> -1 </runningIndex>
+								<category> ARGUMENT </category>
+								<runningIndex> 2 </runningIndex>
 							</identifier>
 						</term>
 					</expression>

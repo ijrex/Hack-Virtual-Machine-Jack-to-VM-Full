@@ -63,7 +63,7 @@
 						<term>
 							<identifier>
 								<name> Square </name>
-								<category> CLASS_DEC </category>
+								<category> CLASS </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
@@ -144,7 +144,7 @@
 					<keyword> do </keyword>
 					<identifier>
 						<name> square </name>
-						<category> CLASS </category>
+						<category> FIELD </category>
 						<runningIndex> 0 </runningIndex>
 					</identifier>
 					<symbol> . </symbol>
@@ -229,7 +229,7 @@
 							<keyword> do </keyword>
 							<identifier>
 								<name> square </name>
-								<category> CLASS </category>
+								<category> FIELD </category>
 								<runningIndex> 0 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
@@ -270,7 +270,7 @@
 							<keyword> do </keyword>
 							<identifier>
 								<name> square </name>
-								<category> CLASS </category>
+								<category> FIELD </category>
 								<runningIndex> 0 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
@@ -311,7 +311,7 @@
 							<keyword> do </keyword>
 							<identifier>
 								<name> square </name>
-								<category> CLASS </category>
+								<category> FIELD </category>
 								<runningIndex> 0 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
@@ -352,7 +352,7 @@
 							<keyword> do </keyword>
 							<identifier>
 								<name> square </name>
-								<category> CLASS </category>
+								<category> FIELD </category>
 								<runningIndex> 0 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
@@ -479,8 +479,8 @@
 								<term>
 									<identifier>
 										<name> key </name>
-										<category> NONE </category>
-										<runningIndex> -1 </runningIndex>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
 									</identifier>
 								</term>
 								<symbol> = </symbol>
@@ -503,7 +503,7 @@
 										<term>
 											<identifier>
 												<name> Keyboard </name>
-												<category> NONE </category>
+												<category> CLASS </category>
 												<runningIndex> -1 </runningIndex>
 											</identifier>
 											<symbol> . </symbol>
@@ -596,7 +596,7 @@
 									<keyword> do </keyword>
 									<identifier>
 										<name> square </name>
-										<category> CLASS </category>
+										<category> FIELD </category>
 										<runningIndex> 0 </runningIndex>
 									</identifier>
 									<symbol> . </symbol>
@@ -637,7 +637,7 @@
 									<keyword> do </keyword>
 									<identifier>
 										<name> square </name>
-										<category> CLASS </category>
+										<category> FIELD </category>
 										<runningIndex> 0 </runningIndex>
 									</identifier>
 									<symbol> . </symbol>
@@ -843,7 +843,7 @@
 										<term>
 											<identifier>
 												<name> Keyboard </name>
-												<category> NONE </category>
+												<category> CLASS </category>
 												<runningIndex> -1 </runningIndex>
 											</identifier>
 											<symbol> . </symbol>

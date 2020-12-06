@@ -39,11 +39,7 @@ public class CompileStatementDo extends Compile {
           return parseToken(lookahead, true) + parseToken(token, true, 5);
         }
         if (Match.symbol(token, Symbol.PERIOD)) {
-          if(isRegisteredSymbol(token)) {
-            handleIdentifierFromSymbolTable(lookahead);
-          } else {
-            lookahead.setIdentifierCat(IdentifierCat.CLASS);            
-          }
+          handleIdentifierClassOrVarName(lookahead);
           return parseToken(lookahead, true, 2) + parseToken(token, true);
         }
         return fail();

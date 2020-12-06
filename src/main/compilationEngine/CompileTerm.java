@@ -46,18 +46,26 @@ public class CompileTerm extends Compile {
 
           switch (symbol) {
             case PERIOD:
+              handleIdentifierClassOrVarName(lookAhead);
               return parseToken(lookAhead, true) + parseToken(token, true, 100);
             case BRACKET_L:
+              handleIdentifierVarName(lookAhead);
               return parseToken(lookAhead, true) + parseToken(token, true, 200);
             case PARENTHESIS_L:
+              lookAhead.setIdentifierCat(IdentifierCat.SUBROUTINE);
               return parseToken(lookAhead, true) + parseToken(token, true, 102);
             default:
+              handleIdentifierVarName(lookAhead);
               return parseToken(lookAhead, true) + postfix();
           }
         }
         return fail();
       case 100:
-        return parseToken(token, Match.identifier(token));
+        if(Match.identifier(token)) {
+          lookAhead.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          return parseToken(token, true);
+        }
+        return fail();
       case 101:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 102:
