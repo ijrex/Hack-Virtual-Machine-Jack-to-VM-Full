@@ -1,9 +1,12 @@
 class Main {
+
+  static int nop;
+
     function void main() {
 
       do abc();
       do abc.def();
-      do abc.def(ghi);
+      do abc.def(nop);
       do abc.def(ghi());
       do abc.def(ghi.jkm());
 

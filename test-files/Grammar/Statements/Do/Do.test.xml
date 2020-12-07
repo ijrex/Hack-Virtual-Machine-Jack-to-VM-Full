@@ -1,11 +1,30 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> static </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> nop </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -15,7 +34,11 @@
 			<statements>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> abc </identifier>
+					<identifier>
+						<name> abc </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 					</expressionList>
@@ -24,9 +47,17 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> abc </identifier>
+					<identifier>
+						<name> abc </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> def </identifier>
+					<identifier>
+						<name> def </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 					</expressionList>
@@ -35,14 +66,26 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> abc </identifier>
+					<identifier>
+						<name> abc </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> def </identifier>
+					<identifier>
+						<name> def </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> ghi </identifier>
+								<identifier>
+									<name> nop </name>
+									<category> STATIC </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 					</expressionList>
@@ -51,14 +94,26 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> abc </identifier>
+					<identifier>
+						<name> abc </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> def </identifier>
+					<identifier>
+						<name> def </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> ghi </identifier>
+								<identifier>
+									<name> ghi </name>
+									<category> SUBROUTINE </category>
+									<runningIndex> -1 </runningIndex>
+								</identifier>
 								<symbol> ( </symbol>
 								<expressionList>
 								</expressionList>
@@ -71,16 +126,32 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> abc </identifier>
+					<identifier>
+						<name> abc </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> def </identifier>
+					<identifier>
+						<name> def </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> ghi </identifier>
+								<identifier>
+									<name> ghi </name>
+									<category> CLASS </category>
+									<runningIndex> -1 </runningIndex>
+								</identifier>
 								<symbol> . </symbol>
-								<identifier> jkm </identifier>
+								<identifier>
+									<name> jkm </name>
+									<category> SUBROUTINE </category>
+									<runningIndex> -1 </runningIndex>
+								</identifier>
 								<symbol> ( </symbol>
 								<expressionList>
 								</expressionList>
