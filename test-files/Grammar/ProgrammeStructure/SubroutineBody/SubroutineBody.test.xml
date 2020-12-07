@@ -1,11 +1,19 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> abc </identifier>
+		<identifier>
+			<name> abc </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -29,7 +37,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> abc </identifier>
+		<identifier>
+			<name> abc </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -39,45 +51,99 @@
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> int </keyword>
-				<identifier> a </identifier>
+				<symbolEntry>
+					<name> a </name>
+					<type> int </type>
+					<key> 0 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> char </keyword>
-				<identifier> b </identifier>
+				<symbolEntry>
+					<name> b </name>
+					<type> char </type>
+					<key> 1 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> boolean </keyword>
-				<identifier> c </identifier>
+				<symbolEntry>
+					<name> c </name>
+					<type> boolean </type>
+					<key> 2 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
-				<identifier> ClassName </identifier>
-				<identifier> d </identifier>
+				<identifier>
+					<name> ClassName </name>
+					<category> SYMBOL_DEC </category>
+					<runningIndex> -1 </runningIndex>
+				</identifier>
+				<symbolEntry>
+					<name> d </name>
+					<type> ClassName </type>
+					<key> 3 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> char </keyword>
-				<identifier> abc </identifier>
+				<symbolEntry>
+					<name> abc </name>
+					<type> char </type>
+					<key> 4 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> , </symbol>
-				<identifier> def </identifier>
+				<symbolEntry>
+					<name> def </name>
+					<type> char </type>
+					<key> 5 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> int </keyword>
-				<identifier> abc </identifier>
+				<symbolEntry>
+					<name> abc </name>
+					<type> int </type>
+					<key> 6 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> , </symbol>
-				<identifier> def </identifier>
+				<symbolEntry>
+					<name> def </name>
+					<type> int </type>
+					<key> 7 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> , </symbol>
-				<identifier> ghi </identifier>
+				<symbolEntry>
+					<name> ghi </name>
+					<type> int </type>
+					<key> 8 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> , </symbol>
-				<identifier> jkl </identifier>
+				<symbolEntry>
+					<name> jkl </name>
+					<type> int </type>
+					<key> 9 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<statements>
