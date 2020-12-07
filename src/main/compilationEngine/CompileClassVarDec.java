@@ -30,6 +30,8 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 1:
         if (Match.type(token)) {
+          if(Match.identifier(token))
+            token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
           return parseToken(token, true);
         }

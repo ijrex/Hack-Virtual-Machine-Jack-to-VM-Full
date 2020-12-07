@@ -35,7 +35,7 @@
 				<keyword> var </keyword>
 				<identifier>
 					<name> SquareGame </name>
-					<category> NONE </category>
+					<category> SYMBOL_DEC </category>
 					<runningIndex> -1 </runningIndex>
 				</identifier>
 				<symbolEntry>
@@ -158,7 +158,7 @@
 				<keyword> var </keyword>
 				<identifier>
 					<name> String </name>
-					<category> NONE </category>
+					<category> SYMBOL_DEC </category>
 					<runningIndex> -1 </runningIndex>
 				</identifier>
 				<symbolEntry>
@@ -173,7 +173,7 @@
 				<keyword> var </keyword>
 				<identifier>
 					<name> Array </name>
-					<category> NONE </category>
+					<category> SYMBOL_DEC </category>
 					<runningIndex> -1 </runningIndex>
 				</identifier>
 				<symbolEntry>

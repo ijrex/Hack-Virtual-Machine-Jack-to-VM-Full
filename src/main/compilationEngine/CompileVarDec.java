@@ -26,6 +26,8 @@ public class CompileVarDec extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.VAR));
       case 1:
         if (Match.type(token)) {
+          if(Match.identifier(token))
+            token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
           return parseToken(token, true);
         }

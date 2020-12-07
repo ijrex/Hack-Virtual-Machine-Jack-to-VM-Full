@@ -10,7 +10,7 @@
 		<keyword> field </keyword>
 		<identifier>
 			<name> Square </name>
-			<category> CLASS_DEC </category>
+			<category> SYMBOL_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbolEntry>
