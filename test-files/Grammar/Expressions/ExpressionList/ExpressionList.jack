@@ -1,8 +1,12 @@
 class Main {
+
+  static int subroutineCall1, subroutineCall2, subroutineCall3, subroutineCall4;
+  static int a, b;
+
   function void main() {
     let subroutineCall1 = abc();
-    let subroutineCall2 = acb.def();
+    let subroutineCall2 = Acb.def();
     let subroutineCall3 = abc(a, b);
-    let subroutineCall4 = acb.def(a, b);
+    let subroutineCall4 = Acb.def(a, b);
   }
 }

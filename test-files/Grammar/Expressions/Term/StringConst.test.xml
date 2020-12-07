@@ -1,11 +1,62 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<identifier>
+			<name> String </name>
+			<category> SYMBOL_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbolEntry>
+			<name> strConst1 </name>
+			<type> String </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> strConst2 </name>
+			<type> String </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> strConst3 </name>
+			<type> String </type>
+			<key> 2 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> strConst4 </name>
+			<type> String </type>
+			<key> 3 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> strConst5 </name>
+			<type> String </type>
+			<key> 4 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -15,7 +66,11 @@
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> strConst1 </identifier>
+					<identifier>
+						<name> strConst1 </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -26,7 +81,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> strConst2 </identifier>
+					<identifier>
+						<name> strConst2 </name>
+						<category> FIELD </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -37,7 +96,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> stConst3 </identifier>
+					<identifier>
+						<name> strConst3 </name>
+						<category> FIELD </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -48,7 +111,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> stConst4 </identifier>
+					<identifier>
+						<name> strConst4 </name>
+						<category> FIELD </category>
+						<runningIndex> 3 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -59,7 +126,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> stConst4 </identifier>
+					<identifier>
+						<name> strConst5 </name>
+						<category> FIELD </category>
+						<runningIndex> 4 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>

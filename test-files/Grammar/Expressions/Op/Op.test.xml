@@ -1,11 +1,104 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> static </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> plus </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> minus </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> times </name>
+			<type> int </type>
+			<key> 2 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> divide </name>
+			<type> int </type>
+			<key> 3 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> and </name>
+			<type> int </type>
+			<key> 4 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> or </name>
+			<type> int </type>
+			<key> 5 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> lessThan </name>
+			<type> int </type>
+			<key> 6 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> moreThan </name>
+			<type> int </type>
+			<key> 7 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> equals </name>
+			<type> int </type>
+			<key> 8 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> static </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> a </name>
+			<type> int </type>
+			<key> 9 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> b </name>
+			<type> int </type>
+			<key> 10 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -15,135 +108,243 @@
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> plus </identifier>
+					<identifier>
+						<name> plus </name>
+						<category> STATIC </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> + </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> minus </identifier>
+					<identifier>
+						<name> minus </name>
+						<category> STATIC </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> - </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> times </identifier>
+					<identifier>
+						<name> times </name>
+						<category> STATIC </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> * </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> divide </identifier>
+					<identifier>
+						<name> divide </name>
+						<category> STATIC </category>
+						<runningIndex> 3 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> / </symbol>
 						<term>
-							<identifier> c </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> and </identifier>
+					<identifier>
+						<name> and </name>
+						<category> STATIC </category>
+						<runningIndex> 4 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> & </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> or </identifier>
+					<identifier>
+						<name> or </name>
+						<category> STATIC </category>
+						<runningIndex> 5 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> | </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> lessThan </identifier>
+					<identifier>
+						<name> lessThan </name>
+						<category> STATIC </category>
+						<runningIndex> 6 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> < </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> moreThan </identifier>
+					<identifier>
+						<name> moreThan </name>
+						<category> STATIC </category>
+						<runningIndex> 7 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> > </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> equals </identifier>
+					<identifier>
+						<name> equals </name>
+						<category> STATIC </category>
+						<runningIndex> 8 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 9 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> = </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 10 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>

@@ -1,10 +1,12 @@
 class Main {
+    field String strConst1, strConst2, strConst3, strConst4, strConst5;
+
     function void main() {
       let strConst1 = "";
       let strConst2 = "abc";
-      let stConst3 = "2";
-      let stConst4 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-      let stConst4 = "Lorem ipsum \"dolor sit amet\" consectetur.";
+      let strConst3 = "2";
+      let strConst4 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+      let strConst5 = "Lorem ipsum \"dolor sit amet\" consectetur.";
     }
 }
 

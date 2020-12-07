@@ -1,11 +1,115 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<identifier>
+			<name> Array </name>
+			<category> SYMBOL_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbolEntry>
+			<name> varNameExpression1 </name>
+			<type> Array </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> varNameExpression2 </name>
+			<type> Array </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> varNameExpression3 </name>
+			<type> Array </type>
+			<key> 2 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> varNameExpression4 </name>
+			<type> Array </type>
+			<key> 3 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> varNameExpression5 </name>
+			<type> Array </type>
+			<key> 4 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> varNameExpression6 </name>
+			<type> Array </type>
+			<key> 5 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> varNameExpression7 </name>
+			<type> Array </type>
+			<key> 6 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> abc </name>
+			<type> int </type>
+			<key> 7 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> a </name>
+			<type> int </type>
+			<key> 8 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> b </name>
+			<type> int </type>
+			<key> 9 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> def </name>
+			<type> int </type>
+			<key> 10 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> ghi </name>
+			<type> int </type>
+			<key> 11 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -15,11 +119,19 @@
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> varNameExpression1 </identifier>
+					<identifier>
+						<name> varNameExpression1 </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> FIELD </category>
+								<runningIndex> 7 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
@@ -33,19 +145,35 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> varNameExpression2 </identifier>
+					<identifier>
+						<name> varNameExpression2 </name>
+						<category> FIELD </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> FIELD </category>
+								<runningIndex> 7 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
-									<identifier> a </identifier>
+									<identifier>
+										<name> a </name>
+										<category> FIELD </category>
+										<runningIndex> 8 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> - </symbol>
 								<term>
-									<identifier> b </identifier>
+									<identifier>
+										<name> b </name>
+										<category> FIELD </category>
+										<runningIndex> 9 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ] </symbol>
@@ -55,15 +183,27 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> varNameExpression3 </identifier>
+					<identifier>
+						<name> varNameExpression3 </name>
+						<category> FIELD </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> FIELD </category>
+								<runningIndex> 7 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
-									<identifier> def </identifier>
+									<identifier>
+										<name> def </name>
+										<category> FIELD </category>
+										<runningIndex> 10 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ] </symbol>
@@ -73,17 +213,29 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> varNameExpression4 </identifier>
+					<identifier>
+						<name> varNameExpression4 </name>
+						<category> FIELD </category>
+						<runningIndex> 3 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> FIELD </category>
+								<runningIndex> 7 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
 									<symbol> - </symbol>
 									<term>
-										<identifier> a </identifier>
+										<identifier>
+											<name> a </name>
+											<category> FIELD </category>
+											<runningIndex> 8 </runningIndex>
+										</identifier>
 									</term>
 								</term>
 							</expression>
@@ -94,19 +246,35 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> varNameExpression5 </identifier>
+					<identifier>
+						<name> varNameExpression5 </name>
+						<category> FIELD </category>
+						<runningIndex> 4 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> FIELD </category>
+								<runningIndex> 7 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
-									<identifier> def </identifier>
+									<identifier>
+										<name> def </name>
+										<category> FIELD </category>
+										<runningIndex> 10 </runningIndex>
+									</identifier>
 									<symbol> [ </symbol>
 									<expression>
 										<term>
-											<identifier> ghi </identifier>
+											<identifier>
+												<name> ghi </name>
+												<category> FIELD </category>
+												<runningIndex> 11 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ] </symbol>
@@ -119,26 +287,46 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> varNameExpression6 </identifier>
+					<identifier>
+						<name> varNameExpression6 </name>
+						<category> FIELD </category>
+						<runningIndex> 5 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> FIELD </category>
+								<runningIndex> 7 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
-									<identifier> def </identifier>
+									<identifier>
+										<name> hij </name>
+										<category> SUBROUTINE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> ( </symbol>
 									<expressionList>
 										<expression>
 											<term>
-												<identifier> a </identifier>
+												<identifier>
+													<name> a </name>
+													<category> FIELD </category>
+													<runningIndex> 8 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 										<symbol> , </symbol>
 										<expression>
 											<term>
-												<identifier> b </identifier>
+												<identifier>
+													<name> b </name>
+													<category> FIELD </category>
+													<runningIndex> 9 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 									</expressionList>
@@ -152,28 +340,52 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> varNameExpression7 </identifier>
+					<identifier>
+						<name> varNameExpression7 </name>
+						<category> FIELD </category>
+						<runningIndex> 6 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> FIELD </category>
+								<runningIndex> 7 </runningIndex>
+							</identifier>
 							<symbol> [ </symbol>
 							<expression>
 								<term>
-									<identifier> def </identifier>
+									<identifier>
+										<name> hij </name>
+										<category> CLASS </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> . </symbol>
-									<identifier> hij </identifier>
+									<identifier>
+										<name> lmn </name>
+										<category> SUBROUTINE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> ( </symbol>
 									<expressionList>
 										<expression>
 											<term>
-												<identifier> a </identifier>
+												<identifier>
+													<name> a </name>
+													<category> FIELD </category>
+													<runningIndex> 8 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 										<symbol> , </symbol>
 										<expression>
 											<term>
-												<identifier> b </identifier>
+												<identifier>
+													<name> b </name>
+													<category> FIELD </category>
+													<runningIndex> 9 </runningIndex>
+												</identifier>
 											</term>
 										</expression>
 									</expressionList>
