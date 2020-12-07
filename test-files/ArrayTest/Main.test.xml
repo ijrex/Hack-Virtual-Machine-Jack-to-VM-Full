@@ -2,7 +2,7 @@
 	<keyword> class </keyword>
 	<identifier>
 		<name> Main </name>
-		<category> CLASS </category>
+		<category> CLASS_DEC </category>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
 	<symbol> { </symbol>
@@ -11,7 +11,7 @@
 		<keyword> void </keyword>
 		<identifier>
 			<name> main </name>
-			<category> SUBROUTINE </category>
+			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
 		<symbol> ( </symbol>
@@ -24,7 +24,7 @@
 				<keyword> var </keyword>
 				<identifier>
 					<name> Array </name>
-					<category> NONE </category>
+					<category> SYMBOL_DEC </category>
 					<runningIndex> -1 </runningIndex>
 				</identifier>
 				<symbolEntry>
@@ -77,13 +77,13 @@
 						<term>
 							<identifier>
 								<name> Keyboard </name>
-								<category> NONE </category>
+								<category> CLASS </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
 							<identifier>
 								<name> readInt </name>
-								<category> NONE </category>
+								<category> SUBROUTINE </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> ( </symbol>
@@ -111,13 +111,13 @@
 						<term>
 							<identifier>
 								<name> Array </name>
-								<category> NONE </category>
+								<category> CLASS </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> . </symbol>
 							<identifier>
 								<name> new </name>
-								<category> NONE </category>
+								<category> SUBROUTINE </category>
 								<runningIndex> -1 </runningIndex>
 							</identifier>
 							<symbol> ( </symbol>
@@ -198,13 +198,13 @@
 								<term>
 									<identifier>
 										<name> Keyboard </name>
-										<category> NONE </category>
+										<category> CLASS </category>
 										<runningIndex> -1 </runningIndex>
 									</identifier>
 									<symbol> . </symbol>
 									<identifier>
 										<name> readInt </name>
-										<category> NONE </category>
+										<category> SUBROUTINE </category>
 										<runningIndex> -1 </runningIndex>
 									</identifier>
 									<symbol> ( </symbol>

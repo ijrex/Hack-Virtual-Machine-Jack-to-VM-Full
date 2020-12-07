@@ -1,23 +1,49 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> SquareGame </identifier>
+	<identifier>
+		<name> SquareGame </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
 	<classVarDec>
 		<keyword> field </keyword>
-		<identifier> Square </identifier>
-		<identifier> square </identifier>
+		<identifier>
+			<name> Square </name>
+			<category> SYMBOL_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbolEntry>
+			<name> square </name>
+			<type> Square </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<classVarDec>
 		<keyword> field </keyword>
 		<keyword> int </keyword>
-		<identifier> direction </identifier>
+		<symbolEntry>
+			<name> direction </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
 	<subroutineDec>
 		<keyword> constructor </keyword>
-		<identifier> SquareGame </identifier>
-		<identifier> new </identifier>
+		<identifier>
+			<name> SquareGame </name>
+			<category> CLASS </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<identifier>
+			<name> new </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -27,22 +53,38 @@
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> square </identifier>
+					<identifier>
+						<name> square </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> square </identifier>
+							<identifier>
+								<name> square </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> direction </identifier>
+					<identifier>
+						<name> direction </name>
+						<category> FIELD </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> direction </identifier>
+							<identifier>
+								<name> direction </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
@@ -51,7 +93,11 @@
 					<keyword> return </keyword>
 					<expression>
 						<term>
-							<identifier> square </identifier>
+							<identifier>
+								<name> square </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
@@ -63,7 +109,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> dispose </identifier>
+		<identifier>
+			<name> dispose </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -73,9 +123,17 @@
 			<statements>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> square </identifier>
+					<identifier>
+						<name> square </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> dispose </identifier>
+					<identifier>
+						<name> dispose </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 					</expressionList>
@@ -84,14 +142,26 @@
 				</doStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Memory </identifier>
+					<identifier>
+						<name> Memory </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> deAlloc </identifier>
+					<identifier>
+						<name> deAlloc </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> square </identifier>
+								<identifier>
+									<name> square </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 					</expressionList>
@@ -109,7 +179,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> moveSquare </identifier>
+		<identifier>
+			<name> moveSquare </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -122,7 +196,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> direction </identifier>
+							<identifier>
+								<name> direction </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -130,9 +208,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> square </identifier>
+							<identifier>
+								<name> square </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> moveUp </identifier>
+							<identifier>
+								<name> moveUp </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -147,7 +233,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> direction </identifier>
+							<identifier>
+								<name> direction </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -155,9 +245,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> square </identifier>
+							<identifier>
+								<name> square </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> moveDown </identifier>
+							<identifier>
+								<name> moveDown </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -172,7 +270,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> direction </identifier>
+							<identifier>
+								<name> direction </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -180,9 +282,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> square </identifier>
+							<identifier>
+								<name> square </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> moveLeft </identifier>
+							<identifier>
+								<name> moveLeft </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -197,7 +307,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> direction </identifier>
+							<identifier>
+								<name> direction </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -205,9 +319,17 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> square </identifier>
+							<identifier>
+								<name> square </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 							<symbol> . </symbol>
-							<identifier> moveRight </identifier>
+							<identifier>
+								<name> moveRight </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -219,14 +341,26 @@
 				</ifStatement>
 				<doStatement>
 					<keyword> do </keyword>
-					<identifier> Sys </identifier>
+					<identifier>
+						<name> Sys </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> . </symbol>
-					<identifier> wait </identifier>
+					<identifier>
+						<name> wait </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
 					<symbol> ( </symbol>
 					<expressionList>
 						<expression>
 							<term>
-								<identifier> direction </identifier>
+								<identifier>
+									<name> direction </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
 							</term>
 						</expression>
 					</expressionList>
@@ -244,7 +378,11 @@
 	<subroutineDec>
 		<keyword> method </keyword>
 		<keyword> void </keyword>
-		<identifier> run </identifier>
+		<identifier>
+			<name> run </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -254,23 +392,41 @@
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> char </keyword>
-				<identifier> key </identifier>
+				<symbolEntry>
+					<name> key </name>
+					<type> char </type>
+					<key> 0 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<varDec>
 				<keyword> var </keyword>
 				<keyword> boolean </keyword>
-				<identifier> exit </identifier>
+				<symbolEntry>
+					<name> exit </name>
+					<type> boolean </type>
+					<key> 1 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
 				<symbol> ; </symbol>
 			</varDec>
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> exit </identifier>
+					<identifier>
+						<name> exit </name>
+						<category> VAR </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> key </identifier>
+							<identifier>
+								<name> key </name>
+								<category> VAR </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
@@ -280,7 +436,11 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> exit </identifier>
+							<identifier>
+								<name> exit </name>
+								<category> VAR </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -291,7 +451,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -299,18 +463,30 @@
 							<statements>
 								<letStatement>
 									<keyword> let </keyword>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 									<symbol> = </symbol>
 									<expression>
 										<term>
-											<identifier> key </identifier>
+											<identifier>
+												<name> key </name>
+												<category> VAR </category>
+												<runningIndex> 0 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ; </symbol>
 								</letStatement>
 								<doStatement>
 									<keyword> do </keyword>
-									<identifier> moveSquare </identifier>
+									<identifier>
+										<name> moveSquare </name>
+										<category> SUBROUTINE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> ( </symbol>
 									<expressionList>
 									</expressionList>
@@ -325,7 +501,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -333,11 +513,19 @@
 							<statements>
 								<letStatement>
 									<keyword> let </keyword>
-									<identifier> exit </identifier>
+									<identifier>
+										<name> exit </name>
+										<category> VAR </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 									<symbol> = </symbol>
 									<expression>
 										<term>
-											<identifier> exit </identifier>
+											<identifier>
+												<name> exit </name>
+												<category> VAR </category>
+												<runningIndex> 1 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ; </symbol>
@@ -350,7 +538,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -358,9 +550,17 @@
 							<statements>
 								<doStatement>
 									<keyword> do </keyword>
-									<identifier> square </identifier>
+									<identifier>
+										<name> square </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 									<symbol> . </symbol>
-									<identifier> decSize </identifier>
+									<identifier>
+										<name> decSize </name>
+										<category> SUBROUTINE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> ( </symbol>
 									<expressionList>
 									</expressionList>
@@ -375,7 +575,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -383,9 +587,17 @@
 							<statements>
 								<doStatement>
 									<keyword> do </keyword>
-									<identifier> square </identifier>
+									<identifier>
+										<name> square </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 									<symbol> . </symbol>
-									<identifier> incSize </identifier>
+									<identifier>
+										<name> incSize </name>
+										<category> SUBROUTINE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> ( </symbol>
 									<expressionList>
 									</expressionList>
@@ -400,7 +612,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -408,11 +624,19 @@
 							<statements>
 								<letStatement>
 									<keyword> let </keyword>
-									<identifier> direction </identifier>
+									<identifier>
+										<name> direction </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 									<symbol> = </symbol>
 									<expression>
 										<term>
-											<identifier> exit </identifier>
+											<identifier>
+												<name> exit </name>
+												<category> VAR </category>
+												<runningIndex> 1 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ; </symbol>
@@ -425,7 +649,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -433,11 +661,19 @@
 							<statements>
 								<letStatement>
 									<keyword> let </keyword>
-									<identifier> direction </identifier>
+									<identifier>
+										<name> direction </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 									<symbol> = </symbol>
 									<expression>
 										<term>
-											<identifier> key </identifier>
+											<identifier>
+												<name> key </name>
+												<category> VAR </category>
+												<runningIndex> 0 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ; </symbol>
@@ -450,7 +686,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -458,11 +698,19 @@
 							<statements>
 								<letStatement>
 									<keyword> let </keyword>
-									<identifier> direction </identifier>
+									<identifier>
+										<name> direction </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 									<symbol> = </symbol>
 									<expression>
 										<term>
-											<identifier> square </identifier>
+											<identifier>
+												<name> square </name>
+												<category> FIELD </category>
+												<runningIndex> 0 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ; </symbol>
@@ -475,7 +723,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -483,11 +735,19 @@
 							<statements>
 								<letStatement>
 									<keyword> let </keyword>
-									<identifier> direction </identifier>
+									<identifier>
+										<name> direction </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
 									<symbol> = </symbol>
 									<expression>
 										<term>
-											<identifier> direction </identifier>
+											<identifier>
+												<name> direction </name>
+												<category> FIELD </category>
+												<runningIndex> 1 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ; </symbol>
@@ -500,7 +760,11 @@
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -508,18 +772,30 @@
 							<statements>
 								<letStatement>
 									<keyword> let </keyword>
-									<identifier> key </identifier>
+									<identifier>
+										<name> key </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
 									<symbol> = </symbol>
 									<expression>
 										<term>
-											<identifier> key </identifier>
+											<identifier>
+												<name> key </name>
+												<category> VAR </category>
+												<runningIndex> 0 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ; </symbol>
 								</letStatement>
 								<doStatement>
 									<keyword> do </keyword>
-									<identifier> moveSquare </identifier>
+									<identifier>
+										<name> moveSquare </name>
+										<category> SUBROUTINE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
 									<symbol> ( </symbol>
 									<expressionList>
 									</expressionList>
