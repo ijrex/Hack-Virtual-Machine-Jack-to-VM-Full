@@ -1,10 +1,14 @@
 class Main {
+
+    static int plus, minus, times, divide, and, or, lessThan, moreThan, equals;
+    static int a, b;
+
     function void main() {
 
       let plus = a + b;
       let minus = a - b;
       let times = a * b;
-      let divide = a / c;
+      let divide = a / b;
       let and = a & b;
       let or = a | b;
       let lessThan = a < b;

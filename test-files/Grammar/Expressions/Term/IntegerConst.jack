@@ -1,4 +1,6 @@
 class Main {
+    field int intConst1, intConst2;
+
     function void main() {
 
       // integerConstant

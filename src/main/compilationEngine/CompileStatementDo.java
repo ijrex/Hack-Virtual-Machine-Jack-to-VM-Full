@@ -18,6 +18,8 @@ public class CompileStatementDo extends Compile {
     wrapperLabel = "doStatement";
   }
 
+  Token lookahead;
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -25,15 +27,28 @@ public class CompileStatementDo extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.DO));
       case 1:
-        return parseToken(token, Match.identifier(token));
+        if(Match.identifier(token)) {
+          lookahead = token;
+          pos++;
+          return "";
+        }
+        return fail();
       case 2:
-        if (Match.symbol(token, Symbol.PARENTHESIS_L))
-          return parseToken(token, true, 5);
-        if (Match.symbol(token, Symbol.PERIOD))
-          return parseToken(token, true);
+        if (Match.symbol(token, Symbol.PARENTHESIS_L)) {
+          lookahead.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          return parseToken(lookahead, true) + parseToken(token, true, 5);
+        }
+        if (Match.symbol(token, Symbol.PERIOD)) {
+          handleIdentifierClassOrVarName(lookahead);
+          return parseToken(lookahead, true, 2) + parseToken(token, true);
+        }
         return fail();
       case 3:
-        return parseToken(token, Match.identifier(token));
+        if(Match.identifier(token)) {
+          token.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          return parseToken(token, true);
+        }
+        return fail();
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 5:

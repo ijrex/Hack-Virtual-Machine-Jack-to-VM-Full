@@ -145,7 +145,7 @@ public abstract class Compile {
 
   /* Search symbol tables and add properties to identifier tokens */
 
-  protected void handleIdentifierTokenProperties(Token token) throws IOException {
+  protected boolean setIdentifierPropsIfSymbolExists(Token token) {
     SymbolEntry entry = scopedSymbolTable.find(token);
 
     if(entry == null) 
@@ -154,9 +154,25 @@ public abstract class Compile {
     if(entry != null) {
       token.setIdentifierCat(entry.getKindtoString());
       token.setRunningIndex(entry.getKey());
-      return;
+      return true;
     }
 
-    throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
+    return false;
+  }
+
+  protected void handleIdentifierVarName(Token token) throws IOException {
+    boolean isSet = setIdentifierPropsIfSymbolExists(token);
+
+    if(!isSet) {
+      throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
+    }
+  }
+
+  protected void handleIdentifierClassOrVarName(Token token) throws IOException {
+    boolean isSet = setIdentifierPropsIfSymbolExists(token);
+
+    if(!isSet) {
+      token.setIdentifierCat(IdentifierCat.CLASS);            
+    }
   }
 }

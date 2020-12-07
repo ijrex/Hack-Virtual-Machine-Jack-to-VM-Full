@@ -26,10 +26,12 @@ public class CompileVarDec extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.VAR));
       case 1:
         if (Match.type(token)) {
+          if(Match.identifier(token))
+            token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
           return parseToken(token, true);
         }
-        return parseToken(token, Match.type(token));
+        return fail();
       case 2:
         if (Match.identifier(token)) {
           SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "VAR");

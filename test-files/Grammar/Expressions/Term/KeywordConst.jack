@@ -1,4 +1,6 @@
 class Main {
+  field boolean keywordConst1, keywordConst2, keywordConst3, keywordConst4;
+
     function void main() {
       let keywordConst1 = true;
       let keywordConst2 = false;

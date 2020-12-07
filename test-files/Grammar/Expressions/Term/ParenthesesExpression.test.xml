@@ -1,11 +1,76 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> parExp1 </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> parExp2 </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> parExp3 </name>
+			<type> int </type>
+			<key> 2 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> parExp4 </name>
+			<type> int </type>
+			<key> 3 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> a </name>
+			<type> int </type>
+			<key> 4 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> b </name>
+			<type> int </type>
+			<key> 5 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> c </name>
+			<type> int </type>
+			<key> 6 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -15,14 +80,22 @@
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> parExp1 </identifier>
+					<identifier>
+						<name> parExp1 </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> a </identifier>
+									<identifier>
+										<name> a </name>
+										<category> FIELD </category>
+										<runningIndex> 4 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -32,18 +105,30 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> parExp2 </identifier>
+					<identifier>
+						<name> parExp2 </name>
+						<category> FIELD </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> a </identifier>
+									<identifier>
+										<name> a </name>
+										<category> FIELD </category>
+										<runningIndex> 4 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
-									<identifier> b </identifier>
+									<identifier>
+										<name> b </name>
+										<category> FIELD </category>
+										<runningIndex> 5 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -53,22 +138,38 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> parExp3 </identifier>
+					<identifier>
+						<name> parExp3 </name>
+						<category> FIELD </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> FIELD </category>
+								<runningIndex> 4 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> + </symbol>
 						<term>
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> b </identifier>
+									<identifier>
+										<name> b </name>
+										<category> FIELD </category>
+										<runningIndex> 5 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
-									<identifier> c </identifier>
+									<identifier>
+										<name> c </name>
+										<category> FIELD </category>
+										<runningIndex> 6 </runningIndex>
+									</identifier>
 								</term>
 							</expression>
 							<symbol> ) </symbol>
@@ -78,25 +179,41 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> parExp4 </identifier>
+					<identifier>
+						<name> parExp4 </name>
+						<category> FIELD </category>
+						<runningIndex> 3 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
 							<symbol> ( </symbol>
 							<expression>
 								<term>
-									<identifier> a </identifier>
+									<identifier>
+										<name> a </name>
+										<category> FIELD </category>
+										<runningIndex> 4 </runningIndex>
+									</identifier>
 								</term>
 								<symbol> + </symbol>
 								<term>
 									<symbol> ( </symbol>
 									<expression>
 										<term>
-											<identifier> b </identifier>
+											<identifier>
+												<name> b </name>
+												<category> FIELD </category>
+												<runningIndex> 5 </runningIndex>
+											</identifier>
 										</term>
 										<symbol> + </symbol>
 										<term>
-											<identifier> c </identifier>
+											<identifier>
+												<name> c </name>
+												<category> FIELD </category>
+												<runningIndex> 6 </runningIndex>
+											</identifier>
 										</term>
 									</expression>
 									<symbol> ) </symbol>

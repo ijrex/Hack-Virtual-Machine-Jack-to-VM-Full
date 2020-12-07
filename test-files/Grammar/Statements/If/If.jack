@@ -1,6 +1,8 @@
 class Main {
     function void main() {
 
+      var int a, b;
+
       if (a < b) {
         return true;
       }

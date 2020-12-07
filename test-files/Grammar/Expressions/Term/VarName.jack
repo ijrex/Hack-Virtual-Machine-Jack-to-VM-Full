@@ -1,4 +1,7 @@
 class Main {
+    field int varName1, varName2, varName3, varName4, varName5, varName6, varName7, varName8;
+    field int a, abc, acb1, abc123, Abc, abc_123, ABC, intA;
+
     function void main() {
       let varName1 = a;
       let varName2 = abc;

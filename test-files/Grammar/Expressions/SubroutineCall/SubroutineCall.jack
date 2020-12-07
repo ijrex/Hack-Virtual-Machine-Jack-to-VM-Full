@@ -1,8 +1,11 @@
 class Main {
+  field int expressionList1, expressionList2, expressionList3, expressionList4;
+  field int a, b, c, d;
+
   function void main() {
     let expressionList1 = abc();
-    let expressionList2 = acb.def();
+    let expressionList2 = Acb.def();
     let expressionList3 = abc(a + b, -c);
-    let expressionList4 = acb.def(a, b, c, d);
+    let expressionList4 = Acb.def(a, b, c, d);
   }
 }

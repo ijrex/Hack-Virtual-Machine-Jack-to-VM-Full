@@ -1,11 +1,37 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> static </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> a </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> b </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> STATIC </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -26,7 +52,11 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>
@@ -50,11 +80,19 @@
 					<symbol> ( </symbol>
 					<expression>
 						<term>
-							<identifier> a </identifier>
+							<identifier>
+								<name> a </name>
+								<category> STATIC </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 						</term>
 						<symbol> < </symbol>
 						<term>
-							<identifier> b </identifier>
+							<identifier>
+								<name> b </name>
+								<category> STATIC </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ) </symbol>
@@ -62,7 +100,11 @@
 					<statements>
 						<doStatement>
 							<keyword> do </keyword>
-							<identifier> abc </identifier>
+							<identifier>
+								<name> abc </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
 							<symbol> ( </symbol>
 							<expressionList>
 							</expressionList>

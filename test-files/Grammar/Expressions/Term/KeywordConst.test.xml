@@ -1,11 +1,51 @@
 <class>
 	<keyword> class </keyword>
-	<identifier> Main </identifier>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
 	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> boolean </keyword>
+		<symbolEntry>
+			<name> keywordConst1 </name>
+			<type> boolean </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> keywordConst2 </name>
+			<type> boolean </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> keywordConst3 </name>
+			<type> boolean </type>
+			<key> 2 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> keywordConst4 </name>
+			<type> boolean </type>
+			<key> 3 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> function </keyword>
 		<keyword> void </keyword>
-		<identifier> main </identifier>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<symbol> ( </symbol>
 		<parameterList>
 		</parameterList>
@@ -15,7 +55,11 @@
 			<statements>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> keywordConst1 </identifier>
+					<identifier>
+						<name> keywordConst1 </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -26,7 +70,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> keywordConst2 </identifier>
+					<identifier>
+						<name> keywordConst2 </name>
+						<category> FIELD </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -37,7 +85,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> keywordConst3 </identifier>
+					<identifier>
+						<name> keywordConst3 </name>
+						<category> FIELD </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
@@ -48,7 +100,11 @@
 				</letStatement>
 				<letStatement>
 					<keyword> let </keyword>
-					<identifier> keywordConst4 </identifier>
+					<identifier>
+						<name> keywordConst4 </name>
+						<category> FIELD </category>
+						<runningIndex> 3 </runningIndex>
+					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>

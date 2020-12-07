@@ -1,4 +1,7 @@
 class Main {
+  field int parExp1, parExp2, parExp3, parExp4;
+  field int a, b, c;
+
     function void main() {
       let parExp1 = (a);
       let parExp2 = (a + b);
