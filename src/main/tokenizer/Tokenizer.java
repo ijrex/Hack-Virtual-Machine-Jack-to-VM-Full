@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import compilationEngine.CompilationEngine;
+import compilationenginexml.CompilationEngineXML;
 
 import java.util.LinkedList;
 import java.util.HashMap;
@@ -23,7 +24,8 @@ public class Tokenizer {
 
   TokenTypeLib tokenTypeLib;
 
-  CompilationEngine compilationEngine;
+  CompilationEngineXML compilationEngineXML;
+  CompilationEngine compilationEngineVM;
 
   HashMap<String, LinkedList<Token>> tokenizedFiles = new HashMap<String, LinkedList<Token>>();
 
@@ -33,7 +35,8 @@ public class Tokenizer {
 
     tokenTypeLib = new TokenTypeLib();
 
-    compilationEngine = new CompilationEngine();
+    compilationEngineXML = new CompilationEngineXML();
+    compilationEngineVM = new CompilationEngine();
 
     createTokenedFiles();
   }
@@ -49,7 +52,9 @@ public class Tokenizer {
     try {
       Scanner fileScanner = new Scanner(sourceFile);
 
-      FileWriter fileWriter = new FileWriter(Util.getOutputFilePath(sourceFile.getPath()), false);
+      FileWriter fileWriterXML = new FileWriter(Util.getOutputFilePath(sourceFile.getPath(), "test.xml"), false);
+      FileWriter fileWriter = new FileWriter(Util.getOutputFilePath(sourceFile.getPath(), "vm"), false);
+
 
       Boolean multilineComment = false;
 
@@ -68,12 +73,16 @@ public class Tokenizer {
         line = Util.trimExcess(line, multilineComment, multilineCommentEnd);
 
         if (line.length() > 0) {
-          parseLineToTokens(line, fileWriter);
+          parseLineToTokens(line, fileWriterXML, fileWriter);
         }
       }
 
-      compilationEngine.reset();
+      compilationEngineVM.reset();
+      compilationEngineXML.reset();
+
+      fileWriterXML.close();
       fileWriter.close();
+
       fileScanner.close();
 
     } catch (IOException e) {
@@ -83,14 +92,15 @@ public class Tokenizer {
     }
   }
 
-  private void parseLineToTokens(String line, FileWriter fileWriter) throws IOException {
+  private void parseLineToTokens(String line, FileWriter fileWriterVM, FileWriter fileWriterXML) throws IOException {
     String parsedLine = line;
 
     while (parsedLine.length() > 0) {
       Token token = matchNextToken(parsedLine);
       String value = token.getValue();
 
-      fileWriter.write(compilationEngine.parseToken(token));
+      fileWriterXML.write(compilationEngineXML.parseToken(token));
+      fileWriterVM.write(compilationEngineVM.parseToken(token));
 
       parsedLine = parsedLine.substring(value.length()).trim();
     }

@@ -5,7 +5,7 @@ class VMCompiler {
 
   public static void main(String[] args) {
 
-    String dir = "../../test-files/Grammar/Statements/While/";
+    String dir = "../../test-files/Compiler/Seven/";
 
     LoadFiles files = new LoadFiles(dir, "jack");
 
