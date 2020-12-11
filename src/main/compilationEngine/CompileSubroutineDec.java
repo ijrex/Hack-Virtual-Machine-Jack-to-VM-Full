@@ -56,7 +56,7 @@ public class CompileSubroutineDec extends Compile {
           compileParameterList = new CompileParameterList(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileParameterList, token);
       case 5:
-        String command = buildCommand(subroutineName, 0);
+        String command = buildCommand(subroutineName, scopedSymbolTable.getSize());
         return parseToken(command, token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
