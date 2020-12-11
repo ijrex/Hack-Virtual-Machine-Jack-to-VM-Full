@@ -8,6 +8,7 @@ import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.symboltable.SymbolTable;
 
 public abstract class Compile {
+  static String className;
   boolean development = false;
   int tab;
   int pos = -1;
@@ -19,7 +20,6 @@ public abstract class Compile {
   public Compile(int _tab, SymbolTable _classSymbolTable) {
     this.init(_tab, _classSymbolTable);
   }
-
   
   public Compile(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     this.init(_tab, _classSymbolTable);

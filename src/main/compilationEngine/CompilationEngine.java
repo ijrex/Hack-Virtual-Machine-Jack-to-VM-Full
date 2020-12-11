@@ -26,4 +26,9 @@ public class CompilationEngine {
 
     return "...\n";
   }
+
+  public void setClassName(String className) {
+    compileClass.setClassName(className);
+  }
+
 }
