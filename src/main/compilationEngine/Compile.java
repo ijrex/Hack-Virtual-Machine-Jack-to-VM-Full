@@ -32,24 +32,32 @@ public abstract class Compile {
     classSymbolTable = _classSymbolTable;
   }
 
-  protected String parseToken(Token token, Boolean pass) throws IOException {
+  private String handleParseToken(Token token, Boolean pass, int nextPos, String returnVal) throws IOException {
     if (pass) {
-      pos++;
-      return token.parse(tabs());
+      pos = nextPos;
+      return returnVal;
     }
 
     throw new IOException(parseTokenError(token));
+  }
+
+  protected String parseToken(Token token, Boolean pass) throws IOException {
+    return handleParseToken(token, pass, pos + 1, "");
+  }
+
+  protected String parseToken(String command, Token token, Boolean pass) throws IOException {
+    return handleParseToken(token, pass, pos + 1, command);
   }
 
   protected String parseToken(Token token, Boolean pass, int nextPos) throws IOException {
-    if (pass) {
-      pos = nextPos;
-      return token.parse(tabs());
-    }
-
-    throw new IOException(parseTokenError(token));
+    return handleParseToken(token, pass, nextPos, "");
   }
 
+  protected String parseToken(String command, Token token, Boolean pass, int nextPos) throws IOException {
+    return handleParseToken(token, pass, nextPos, command);
+  }
+
+  // @todo - parse symbol entry
   protected String parseSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
     if (pass) {
       pos++;
@@ -84,7 +92,7 @@ public abstract class Compile {
   protected String prefix(Token token, int newPos) throws IOException {
     pos = newPos;
     tab++;
-    return tabs(-1) + "<" + wrapperLabel + ">\n" + handleToken(token);
+    return "" + handleToken(token);
   }
 
   protected String prefix(Token token) throws IOException {
@@ -100,7 +108,7 @@ public abstract class Compile {
 
   protected String postfix(Boolean fakeClosure) {
     finished = true;
-    return tabs(-1) + "</" + wrapperLabel + (fakeClosure ? " . " : "") + ">" + "\n";
+    return "";
   }
 
   protected String postfix() {
