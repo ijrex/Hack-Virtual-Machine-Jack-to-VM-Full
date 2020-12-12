@@ -1,1 +1,2 @@
 function Main.main 0
+call Output.printInt 1

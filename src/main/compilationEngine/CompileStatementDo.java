@@ -13,9 +13,15 @@ public class CompileStatementDo extends Compile {
 
   Compile compileExpressionList;
 
+  String subroutineCallName;
+
   public CompileStatementDo(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "doStatement";
+  }
+
+  private String buildCommand(int numArgs) {
+    return "call " + subroutineCallName + " " + numArgs; 
   }
 
   Token lookahead;
@@ -28,6 +34,7 @@ public class CompileStatementDo extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.DO));
       case 1:
         if(Match.identifier(token)) {
+          subroutineCallName = token.getValue();
           lookahead = token;
           pos++;
           return "";
@@ -45,6 +52,7 @@ public class CompileStatementDo extends Compile {
         return fail();
       case 3:
         if(Match.identifier(token)) {
+          subroutineCallName += "." + token.getValue();
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           return parseToken(token, true);
         }
@@ -58,7 +66,9 @@ public class CompileStatementDo extends Compile {
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 7:
-        return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        int numArgs = compileExpressionList.getNumArgs();
+        String command = buildCommand(numArgs);
+        return parseToken(command, token, Match.symbol(token, Symbol.SEMI_COLON));
       case 8:
         return postfix();
       default:

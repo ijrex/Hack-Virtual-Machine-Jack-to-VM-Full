@@ -183,4 +183,11 @@ public abstract class Compile {
       token.setIdentifierCat(IdentifierCat.CLASS);            
     }
   }
+
+  /* Compile Expression List Only */
+
+  public int getNumArgs() {
+    return -1;
+  }
+
 }
