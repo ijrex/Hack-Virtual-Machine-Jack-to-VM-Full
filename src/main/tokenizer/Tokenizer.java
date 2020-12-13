@@ -55,6 +55,7 @@ public class Tokenizer {
       FileWriter fileWriterXML = new FileWriter(Util.getOutputFilePath(sourceFile.getPath(), "test.xml"), false);
       FileWriter fileWriter = new FileWriter(Util.getOutputFilePath(sourceFile.getPath(), "vm"), false);
 
+      compilationEngineVM.setClassName(Util.getFileName(sourceFile));
 
       Boolean multilineComment = false;
 
@@ -73,7 +74,7 @@ public class Tokenizer {
         line = Util.trimExcess(line, multilineComment, multilineCommentEnd);
 
         if (line.length() > 0) {
-          parseLineToTokens(line, fileWriterXML, fileWriter);
+          parseLineToTokens(line, fileWriter, fileWriterXML);
         }
       }
 

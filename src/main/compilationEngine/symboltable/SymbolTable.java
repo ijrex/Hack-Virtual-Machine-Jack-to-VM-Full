@@ -50,6 +50,10 @@ public class SymbolTable {
     return null;
   }
 
+  public int getSize() {
+    return table.size();
+  }
+
   public void print() {
     for (String key : table.keySet()) {
       String str = key + " -> " + table.get(key).print();

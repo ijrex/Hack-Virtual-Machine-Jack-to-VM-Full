@@ -1,6 +1,7 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Symbol;
 
 import java.io.IOException;
 
@@ -12,9 +13,35 @@ public class CompileExpression extends Compile {
   Compile compileTerm1;
   Compile compileTerm2;
 
+  String command;
+
   public CompileExpression(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "expression";
+  }
+
+  public static String buildOpCommand(Token token) {
+    Symbol value = token.getSymbol();
+    String output;
+
+    // Hardware command
+    switch (value) {
+      case PLUS:
+        return "add";
+      default:
+        break;
+    }
+
+    // Software command (Math lib)
+    switch (value) {
+      case ASTERISK:
+        output = "multiply";
+        break;
+      default:
+        return null;
+    }
+
+    return "call Math." + output + " 2";
   }
 
   public String handleToken(Token token) throws IOException {
@@ -28,9 +55,10 @@ public class CompileExpression extends Compile {
       case 1:
         if (Match.op(token)) {
           compileTerm1 = null;
+          command = buildOpCommand(token) + "\n";
           return parseToken(token, true, 0);
         }
-        return postfix();
+        return command + postfix();
       default:
         return fail();
     }

@@ -21,13 +21,19 @@ public class CompileTerm extends Compile {
     wrapperLabel = "term";
   }
 
+  private String buildConstCommand(Token token) {
+    return "push constant " + token.getValue() + "\n"; 
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
         return prefix(token);
       case 0:
-        if (Match.intConst(token) || Match.stringConst(token) || Match.keywordConst(token))
-          return parseToken(token, true, 500);
+        if (Match.intConst(token) || Match.stringConst(token) || Match.keywordConst(token)) {
+          String command = buildConstCommand(token);
+          return parseToken(command, token, true, 500);
+        }
         if (Match.identifier(token)) {
           lookAhead = token;
           pos++;
