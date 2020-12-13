@@ -14,9 +14,12 @@ public class CompileSubroutineBody extends Compile {
   Compile compileVarDec;
   Compile compileStatements;
 
-  public CompileSubroutineBody(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+  Token returnType;
+
+  public CompileSubroutineBody(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable, Token _returnType) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "subroutineBody";
+    returnType = _returnType;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -40,7 +43,7 @@ public class CompileSubroutineBody extends Compile {
         pos++;
       case 3:
         if (compileStatements == null)
-          compileStatements = new CompileStatements(tab, classSymbolTable, scopedSymbolTable);
+          compileStatements = new CompileStatements(tab, classSymbolTable, scopedSymbolTable, returnType);
         return handleChildClass(compileStatements, token);
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));

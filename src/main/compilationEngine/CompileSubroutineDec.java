@@ -17,6 +17,8 @@ public class CompileSubroutineDec extends Compile {
 
   String subroutineName;
 
+  Token returnType;
+
   private String buildCommand(String functionName, int args) {
     return "function" + " " + className + "." + functionName + " " + args + "\n"; 
   }
@@ -36,9 +38,11 @@ public class CompileSubroutineDec extends Compile {
         return parseToken(token,
             Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD }));
       case 1:
-        if(Match.type(token, Keyword.VOID)) {
-          if(Match.identifier(token))
+        if(Match.type(token, Keyword.VOID)) { {
+          returnType = token;
+          if(Match.identifier(token)) 
             token.setIdentifierCat(IdentifierCat.CLASS);
+        }
           return parseToken(token, true);
         }
         return fail();
@@ -60,7 +64,7 @@ public class CompileSubroutineDec extends Compile {
         return parseToken(command, token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
-          compileSubroutineBody = new CompileSubroutineBody(tab, classSymbolTable, scopedSymbolTable);
+          compileSubroutineBody = new CompileSubroutineBody(tab, classSymbolTable, scopedSymbolTable, returnType);
         return handleChildClass(compileSubroutineBody, token);
       case 7:
         return postfix();

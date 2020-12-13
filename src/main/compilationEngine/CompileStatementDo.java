@@ -21,7 +21,7 @@ public class CompileStatementDo extends Compile {
   }
 
   private String buildCommand(int numArgs) {
-    return "call " + subroutineCallName + " " + numArgs; 
+    return "call " + subroutineCallName + " " + numArgs + "\n"; 
   }
 
   Token lookahead;

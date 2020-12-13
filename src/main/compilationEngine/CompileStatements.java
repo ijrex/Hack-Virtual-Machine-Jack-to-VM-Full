@@ -12,9 +12,17 @@ public class CompileStatements extends Compile {
 
   Compile compileStatement;
 
+  Token returnType;
+
   public CompileStatements(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "statements";
+  }
+
+  public CompileStatements(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable, Token _returnType) {
+    super(_tab, _classSymbolTable, _scopedSymbolTable);
+    wrapperLabel = "statements";
+    returnType = _returnType;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -39,7 +47,7 @@ public class CompileStatements extends Compile {
               compileStatement = new CompileStatementDo(tab, classSymbolTable, scopedSymbolTable);
               break;
             case RETURN:
-              compileStatement = new CompileStatementReturn(tab, classSymbolTable, scopedSymbolTable);
+              compileStatement = new CompileStatementReturn(tab, classSymbolTable, scopedSymbolTable, returnType);
               break;
             default:
               fail();

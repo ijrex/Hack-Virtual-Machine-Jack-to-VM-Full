@@ -13,9 +13,28 @@ public class CompileStatementReturn extends Compile {
 
   Compile compileExpression;
 
-  public CompileStatementReturn(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+  Token returnType;
+
+  public CompileStatementReturn(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable, Token _returnType) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "returnStatement";
+    returnType = _returnType;
+  }
+
+  private String buildCommand() {
+
+    String command = "";
+
+    if(returnType.getKeyword() == Keyword.VOID) {
+      command += "push temp 0\n";
+      command += "push constant 0\n";
+    } else {
+      command += "@todo handle " + returnType.getValue() + "type";
+    }
+
+    command += "return\n";
+
+    return command;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -36,7 +55,8 @@ public class CompileStatementReturn extends Compile {
       case 3:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 4:
-        return postfix();
+        String command = buildCommand();
+        return command + postfix();
       default:
         return fail();
     }
