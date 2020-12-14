@@ -25,6 +25,10 @@ public class CompileStatementReturn extends Compile {
 
     String command = "";
 
+    if( returnType == null)  {
+      return "@todo handle this";
+    }
+
     if(returnType.getKeyword() == Keyword.VOID) {
       command += "push temp 0\n";
       command += "push constant 0\n";

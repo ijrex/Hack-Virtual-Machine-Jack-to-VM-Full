@@ -75,8 +75,6 @@ public class Tokenizer {
 
         line = Util.trimExcess(line, multilineComment, multilineCommentEnd);
 
-        System.out.println(line);
-
         if (line.length() > 0) {
           parseLineToTokens(line, fileWriter, fileWriterXML);
         }
