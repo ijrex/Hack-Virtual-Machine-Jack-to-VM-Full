@@ -1,10 +1,10 @@
-function Main.main 0
-				<symbolEntry>
+function Main.main				<symbolEntry>
 					<name> value </name>
 					<type> int </type>
 					<key> 0 </key>
 					<kind> VAR </kind>
 				</symbolEntry>
+ 1
 push constant 8001
 nullpush constant 16
 nullpush constant 1
@@ -20,8 +20,7 @@ return
 				<key> 0 </key>
 				<kind> ARGUMENT </kind>
 			</symbolEntry>
-function Main.convert 1
-				<symbolEntry>
+function Main.convert				<symbolEntry>
 					<name> mask </name>
 					<type> int </type>
 					<key> 0 </key>
@@ -39,6 +38,7 @@ function Main.convert 1
 					<key> 2 </key>
 					<kind> VAR </kind>
 				</symbolEntry>
+ 4
 push constant true
 nullnullpush constant 1
 add
