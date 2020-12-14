@@ -16,6 +16,8 @@ public class CompileTerm extends Compile {
 
   Token lookAhead;
 
+  String unaryOpCommand;
+
   public CompileTerm(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "term";
@@ -23,6 +25,25 @@ public class CompileTerm extends Compile {
 
   private String buildConstCommand(Token token) {
     return "push constant " + token.getValue() + "\n"; 
+  }
+
+  private String buildUnaryOpCommand(Symbol symbol){
+    String command = "";
+
+    // Hardware command
+    switch (symbol) {
+      case MINUS:
+        command = "neg";
+        break;
+      case TILDE:
+        command = "@todo - handle tilde";
+        break;
+      default:
+        break;
+    }
+
+    return command + "\n";
+
   }
 
   public String handleToken(Token token) throws IOException {
@@ -42,8 +63,10 @@ public class CompileTerm extends Compile {
         if (Match.symbol(token, Symbol.PARENTHESIS_L))
           return parseToken(token, true, 300);
 
-        if (Match.unaryOp(token))
+        if (Match.unaryOp(token)) {
+          unaryOpCommand = buildUnaryOpCommand(token.getSymbol());
           return parseToken(token, true, 400);
+        }
 
         return fail();
       case 1:
@@ -106,7 +129,7 @@ public class CompileTerm extends Compile {
           compileTerm = new CompileTerm(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileTerm, token);
       case 401:
-        return postfix();
+        return unaryOpCommand + postfix();
 
       case 500:
         return postfix();

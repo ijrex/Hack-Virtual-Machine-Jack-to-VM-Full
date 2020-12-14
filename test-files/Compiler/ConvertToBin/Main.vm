@@ -1,46 +1,49 @@
 function Main.main 1
 push constant 8001
-nullpush constant 16
-nullpush constant 1
-nullcall Main.fillMemory 3
+push constant 16
+push constant 1
+neg
+call Main.fillMemory 3
 push constant 8000
-nullnullnullcall Main.convert 1
+call Main.convert 1
 push temp 0
 push constant 0
 return
 function Main.convert 4
 push constant true
-nullnullpush constant 1
+push constant 1
 add
-nullnullpush constant 16
-null
-nullnull
+push constant 16
+call Math.@todo parse MORE_THAN 2
+@todo - handle tilde
+call Math.@todo parse AMPERSAND 2
 push constant 0
-null
-nullpush constant 8000
+call Math.@todo parse EQUALS 2
+@todo - handle tilde
+push constant 8000
 add
 push constant 1
-nullcall Memory.poke 2
+call Memory.poke 2
 push constant 8000
 add
 push constant 0
-nullcall Memory.poke 2
+call Memory.poke 2
 push constant false
-nullpush temp 0
+push temp 0
 push constant 0
 return
 function Main.nextMask 1
 push constant 0
-null
+call Math.@todo parse EQUALS 2
 push constant 1
-null@todo handle thispush constant 2
+@todo handle thispush constant 2
 call Math.multiply 2
 @todo handle thisfunction Main.fillMemory 3
 push constant 0
-null
-nullnullcall Memory.poke 2
+call Math.@todo parse MORE_THAN 2
+call Memory.poke 2
 push constant 1
-null
+neg
 push constant 1
 add
 push temp 0

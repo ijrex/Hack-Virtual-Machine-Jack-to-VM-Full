@@ -13,7 +13,7 @@ public class CompileExpression extends Compile {
   Compile compileTerm1;
   Compile compileTerm2;
 
-  String command;
+  String command = "";
 
   public CompileExpression(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
@@ -28,6 +28,8 @@ public class CompileExpression extends Compile {
     switch (value) {
       case PLUS:
         return "add";
+      case MINUS:
+        return "neg";
       default:
         break;
     }
@@ -38,7 +40,8 @@ public class CompileExpression extends Compile {
         output = "multiply";
         break;
       default:
-        return null;
+        output = "@todo parse " + token.getSymbol();
+        break;
     }
 
     return "call Math." + output + " 2";
