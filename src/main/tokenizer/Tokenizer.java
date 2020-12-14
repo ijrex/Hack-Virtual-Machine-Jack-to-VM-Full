@@ -62,6 +62,8 @@ public class Tokenizer {
       while (fileScanner.hasNextLine()) {
         String line = fileScanner.nextLine();
 
+        line = line.trim();
+
         if (line.startsWith("/*"))
           multilineComment = true;
 
@@ -72,6 +74,8 @@ public class Tokenizer {
         }
 
         line = Util.trimExcess(line, multilineComment, multilineCommentEnd);
+
+        System.out.println(line);
 
         if (line.length() > 0) {
           parseLineToTokens(line, fileWriter, fileWriterXML);
