@@ -57,11 +57,10 @@ public abstract class Compile {
     return handleParseToken(token, pass, nextPos, command);
   }
 
-  // @todo - parse symbol entry
   protected String parseSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
     if (pass) {
       pos++;
-      return symbolEntry.parse(tabs());
+      return "";
     }
 
     throw new IOException(parseSymbolEntryError(symbolEntry));

@@ -1,10 +1,4 @@
-function Main.main				<symbolEntry>
-					<name> value </name>
-					<type> int </type>
-					<key> 0 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
- 1
+function Main.main 1
 push constant 8001
 nullpush constant 16
 nullpush constant 1
@@ -14,31 +8,7 @@ nullnullnullcall Main.convert 1
 push temp 0
 push constant 0
 return
-			<symbolEntry>
-				<name> value </name>
-				<type> int </type>
-				<key> 0 </key>
-				<kind> ARGUMENT </kind>
-			</symbolEntry>
-function Main.convert				<symbolEntry>
-					<name> mask </name>
-					<type> int </type>
-					<key> 0 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
-				<symbolEntry>
-					<name> position </name>
-					<type> int </type>
-					<key> 1 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
-				<symbolEntry>
-					<name> loop </name>
-					<type> boolean </type>
-					<key> 2 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
- 4
+function Main.convert 4
 push constant true
 nullnullpush constant 1
 add
@@ -59,37 +29,13 @@ push constant false
 nullpush temp 0
 push constant 0
 return
-			<symbolEntry>
-				<name> mask </name>
-				<type> int </type>
-				<key> 0 </key>
-				<kind> ARGUMENT </kind>
-			</symbolEntry>
 function Main.nextMask 1
 push constant 0
 null
 push constant 1
 null@todo handle thispush constant 2
 call Math.multiply 2
-@todo handle this			<symbolEntry>
-				<name> startAddress </name>
-				<type> int </type>
-				<key> 0 </key>
-				<kind> ARGUMENT </kind>
-			</symbolEntry>
-			<symbolEntry>
-				<name> length </name>
-				<type> int </type>
-				<key> 1 </key>
-				<kind> ARGUMENT </kind>
-			</symbolEntry>
-			<symbolEntry>
-				<name> value </name>
-				<type> int </type>
-				<key> 2 </key>
-				<kind> ARGUMENT </kind>
-			</symbolEntry>
-function Main.fillMemory 3
+@todo handle thisfunction Main.fillMemory 3
 push constant 0
 null
 nullnullcall Memory.poke 2
