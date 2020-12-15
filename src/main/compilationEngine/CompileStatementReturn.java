@@ -30,7 +30,7 @@ public class CompileStatementReturn extends Compile {
     }
 
     if(returnType.getKeyword() == Keyword.VOID) {
-      command += "push temp 0\n";
+      command += "pop temp 0\n";
       command += "push constant 0\n";
     } else {
       command += "@todo handle " + returnType.getValue() + "type";
