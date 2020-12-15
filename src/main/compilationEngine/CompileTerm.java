@@ -17,6 +17,7 @@ public class CompileTerm extends Compile {
   Token lookAhead;
 
   String unaryOpCommand;
+  String subroutineCommand = "call ";
 
   public CompileTerm(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
@@ -43,7 +44,10 @@ public class CompileTerm extends Compile {
     }
 
     return command + "\n";
+  }
 
+  private String buildSubroutineCallCommand(String command, int args) {
+    return command + " " + args + "\n";
   }
 
   public String handleToken(Token token) throws IOException {
@@ -76,6 +80,7 @@ public class CompileTerm extends Compile {
           switch (symbol) {
             case PERIOD:
               handleIdentifierClassOrVarName(lookAhead);
+              subroutineCommand += lookAhead.getValue() + ".";
               return parseToken(lookAhead, true) + parseToken(token, true, 100);
             case BRACKET_L:
               handleIdentifierVarName(lookAhead);
@@ -92,6 +97,7 @@ public class CompileTerm extends Compile {
       case 100:
         if(Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          subroutineCommand = subroutineCommand + token.getValue();
           return parseToken(token, true);
         }
         return fail();
@@ -104,13 +110,13 @@ public class CompileTerm extends Compile {
       case 103:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 104:
-        return postfix();
+        return buildSubroutineCallCommand(subroutineCommand, compileExpressionList.getNumArgs()) + postfix();
 
       case 200:
         if (compileExpression == null)
           compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
-      case 201:
+      case 201: 
         return parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
       case 202:
         return postfix();

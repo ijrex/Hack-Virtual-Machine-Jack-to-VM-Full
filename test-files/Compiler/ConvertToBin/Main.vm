@@ -6,6 +6,7 @@ neg
 call Main.fillMemory 3
 pop temp 0
 push constant 8000
+call Memory.peek 1
 call Main.convert 1
 pop temp 0
 push constant 0
@@ -14,6 +15,7 @@ function Main.convert 4
 push constant true
 push constant 1
 add
+call Main.nextMask 1
 push constant 16
 call Math.@todo parse MORE_THAN 2
 @todo - handle tilde
