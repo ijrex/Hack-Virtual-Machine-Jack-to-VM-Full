@@ -24,7 +24,9 @@ public class CompileStatementWhile extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.WHILE));
+        String command = "label WHILE_EXP" + whileExpressionCount + "\n";
+        whileExpressionCount++;
+        return command + parseToken(token, Match.keyword(token, Keyword.WHILE));
       case 1:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 2:

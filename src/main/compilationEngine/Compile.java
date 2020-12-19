@@ -9,6 +9,7 @@ import compilationEngine.symboltable.SymbolTable;
 
 public abstract class Compile {
   static String className;
+
   boolean development = false;
   int tab;
   int pos = -1;
@@ -16,6 +17,9 @@ public abstract class Compile {
   String wrapperLabel;
   SymbolTable classSymbolTable;
   SymbolTable scopedSymbolTable;
+
+  // Expression counters for VM printing
+  static int whileExpressionCount = 0;
 
   public Compile(int _tab, SymbolTable _classSymbolTable) {
     this.init(_tab, _classSymbolTable);

@@ -14,8 +14,10 @@ pop temp 0
 push constant 0
 return
 function Main.convert 3
-push constant true
+push constant 0
+not
 pop local 2
+label WHILE_EXP0
 push local 2
 push local 1
 push constant 1
@@ -46,7 +48,7 @@ add
 push constant 0
 call Memory.poke 2
 pop temp 0
-push constant false
+push constant 
 pop local 2
 push constant 0
 return
@@ -59,6 +61,7 @@ push constant 1
 push constant 2
 call Math.multiply 2
 @todo handle thisfunction Main.fillMemory 0
+label WHILE_EXP0
 push local 1
 push constant 0
 call Math.@todo parse MORE_THAN 2

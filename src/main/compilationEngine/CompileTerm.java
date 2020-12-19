@@ -1,7 +1,9 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Keyword;
 import tokenlib.Symbol;
+import tokenlib.TokenType;
 
 import java.io.IOException;
 
@@ -25,7 +27,28 @@ public class CompileTerm extends Compile {
   }
 
   private String buildConstCommand(Token token) {
-    return "push constant " + token.getValue() + "\n"; 
+    String command = "";
+
+    TokenType type = token.getType();
+
+    if(type == TokenType.INT_CONST) {
+      command = token.getValue();
+    }
+
+    if(type == TokenType.KEYWORD) {
+      Keyword keyword = token.getKeyword();
+
+      switch (keyword) {
+        case TRUE:
+          command = "0\n";
+          command += "not";
+          break;
+        default:
+          break;
+      }
+    }
+
+    return "push constant " + command + "\n"; 
   }
 
   private String buildUnaryOpCommand(Symbol symbol){
