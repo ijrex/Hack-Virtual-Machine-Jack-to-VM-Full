@@ -50,6 +50,10 @@ public class CompileTerm extends Compile {
     return command + " " + args + "\n";
   }
 
+  private String buildIdentifierCommand(Token token) {
+    return "push local " + token.getRunningIndex() + "\n"; 
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -90,7 +94,7 @@ public class CompileTerm extends Compile {
               return parseToken(lookAhead, true) + parseToken(token, true, 102);
             default:
               handleIdentifierVarName(lookAhead);
-              return parseToken(lookAhead, true) + postfix();
+              return buildIdentifierCommand(lookAhead) + parseToken(lookAhead, true) + postfix();
           }
         }
         return fail();
