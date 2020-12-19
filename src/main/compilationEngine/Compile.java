@@ -167,12 +167,14 @@ public abstract class Compile {
     return false;
   }
 
-  protected void handleIdentifierVarName(Token token) throws IOException {
+  protected Token handleIdentifierVarName(Token token) throws IOException {
     boolean isSet = setIdentifierPropsIfSymbolExists(token);
 
     if(!isSet) {
       throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
     }
+
+    return token;
   }
 
   protected void handleIdentifierClassOrVarName(Token token) throws IOException {
