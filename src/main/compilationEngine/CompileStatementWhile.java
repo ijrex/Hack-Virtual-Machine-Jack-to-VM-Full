@@ -36,7 +36,6 @@ public class CompileStatementWhile extends Compile {
           compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
       case 3:
-        // @todo: evaluate expression
         String evaluateExpressionCommand = "not\n";
         evaluateExpressionCommand += "if-goto " + expressionName + "\n";
         return evaluateExpressionCommand + parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
