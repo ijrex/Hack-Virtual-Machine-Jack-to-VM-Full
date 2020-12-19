@@ -13,7 +13,7 @@ call Main.convert 1
 pop temp 0
 push constant 0
 return
-function Main.convert 4
+function Main.convert 3
 push constant true
 pop local 2
 push local 2
@@ -50,7 +50,7 @@ push constant false
 pop local 2
 push constant 0
 return
-function Main.nextMask 1
+function Main.nextMask 0
 push local 0
 push constant 0
 call Math.@todo parse EQUALS 2
@@ -58,7 +58,7 @@ push constant 1
 @todo handle thispush local 0
 push constant 2
 call Math.multiply 2
-@todo handle thisfunction Main.fillMemory 3
+@todo handle thisfunction Main.fillMemory 0
 push local 1
 push constant 0
 call Math.@todo parse MORE_THAN 2

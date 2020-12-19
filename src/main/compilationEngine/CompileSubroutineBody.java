@@ -45,7 +45,7 @@ public class CompileSubroutineBody extends Compile {
           return handleToken(token);
         }
         pos++;
-        return buildCommand(scopedSymbolTable.getSize()) + handleToken(token);
+        return buildCommand(scopedSymbolTable.getLocalsAmmount()) + handleToken(token);
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements(tab, classSymbolTable, scopedSymbolTable, returnType);
