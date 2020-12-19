@@ -19,6 +19,8 @@ not
 pop local 2
 label WHILE_EXP0
 push local 2
+not
+if-goto WHILE_EXP0
 push local 1
 push constant 1
 add
@@ -61,10 +63,12 @@ push constant 1
 push constant 2
 call Math.multiply 2
 @todo handle thisfunction Main.fillMemory 0
-label WHILE_EXP0
+label WHILE_EXP1
 push local 1
 push constant 0
 call Math.@todo parse MORE_THAN 2
+not
+if-goto WHILE_EXP1
 push local 0
 push local 2
 call Memory.poke 2
