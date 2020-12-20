@@ -28,6 +28,10 @@ public class SymbolEntry {
     return this.key;
   }
 
+  public SymbolKind getKind() {
+    return this.kind;
+  }
+
   public String getKindtoString() {
     return this.kind.toString();
   }

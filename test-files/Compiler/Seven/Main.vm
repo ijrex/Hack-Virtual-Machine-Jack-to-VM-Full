@@ -5,6 +5,6 @@ push constant 3
 call Math.multiply 2
 add
 call Output.printInt 1
-push temp 0
+pop temp 0
 push constant 0
 return

@@ -9,6 +9,7 @@ import compilationEngine.symboltable.SymbolTable;
 
 public abstract class Compile {
   static String className;
+
   boolean development = false;
   int tab;
   int pos = -1;
@@ -16,6 +17,9 @@ public abstract class Compile {
   String wrapperLabel;
   SymbolTable classSymbolTable;
   SymbolTable scopedSymbolTable;
+
+  // Expression counters for VM printing
+  static int whileExpressionCount = 0;
 
   public Compile(int _tab, SymbolTable _classSymbolTable) {
     this.init(_tab, _classSymbolTable);
@@ -57,11 +61,10 @@ public abstract class Compile {
     return handleParseToken(token, pass, nextPos, command);
   }
 
-  // @todo - parse symbol entry
   protected String parseSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
     if (pass) {
       pos++;
-      return symbolEntry.parse(tabs());
+      return "";
     }
 
     throw new IOException(parseSymbolEntryError(symbolEntry));
@@ -168,12 +171,14 @@ public abstract class Compile {
     return false;
   }
 
-  protected void handleIdentifierVarName(Token token) throws IOException {
+  protected Token handleIdentifierVarName(Token token) throws IOException {
     boolean isSet = setIdentifierPropsIfSymbolExists(token);
 
     if(!isSet) {
       throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
     }
+
+    return token;
   }
 
   protected void handleIdentifierClassOrVarName(Token token) throws IOException {

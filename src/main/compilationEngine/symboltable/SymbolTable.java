@@ -54,6 +54,15 @@ public class SymbolTable {
     return table.size();
   }
 
+  public int getLocalsAmmount() {
+    int vars = 0;
+    for (String key : table.keySet()) {
+      if (table.get(key).getKind() == SymbolKind.VAR) 
+        vars++;
+    }
+    return vars;
+  }
+
   public void print() {
     for (String key : table.keySet()) {
       String str = key + " -> " + table.get(key).print();

@@ -1,7 +1,9 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Keyword;
 import tokenlib.Symbol;
+import tokenlib.TokenType;
 
 import java.io.IOException;
 
@@ -16,13 +18,63 @@ public class CompileTerm extends Compile {
 
   Token lookAhead;
 
+  String unaryOpCommand;
+  String subroutineCommand = "call ";
+
   public CompileTerm(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "term";
   }
 
   private String buildConstCommand(Token token) {
-    return "push constant " + token.getValue() + "\n"; 
+    String command = "";
+
+    TokenType type = token.getType();
+
+    if(type == TokenType.INT_CONST) {
+      command = token.getValue();
+    }
+
+    if(type == TokenType.KEYWORD) {
+      Keyword keyword = token.getKeyword();
+
+      switch (keyword) {
+        case TRUE:
+          command = "0\n";
+          command += "not";
+          break;
+        default:
+          break;
+      }
+    }
+
+    return "push constant " + command + "\n"; 
+  }
+
+  private String buildUnaryOpCommand(Symbol symbol){
+    String command = "";
+
+    // Hardware command
+    switch (symbol) {
+      case MINUS:
+        command = "neg";
+        break;
+      case TILDE:
+        command = "not";
+        break;
+      default:
+        break;
+    }
+
+    return command + "\n";
+  }
+
+  private String buildSubroutineCallCommand(String command, int args) {
+    return command + " " + args + "\n";
+  }
+
+  private String buildIdentifierCommand(Token token) {
+    return "push local " + token.getRunningIndex() + "\n"; 
   }
 
   public String handleToken(Token token) throws IOException {
@@ -42,8 +94,10 @@ public class CompileTerm extends Compile {
         if (Match.symbol(token, Symbol.PARENTHESIS_L))
           return parseToken(token, true, 300);
 
-        if (Match.unaryOp(token))
+        if (Match.unaryOp(token)) {
+          unaryOpCommand = buildUnaryOpCommand(token.getSymbol());
           return parseToken(token, true, 400);
+        }
 
         return fail();
       case 1:
@@ -53,6 +107,7 @@ public class CompileTerm extends Compile {
           switch (symbol) {
             case PERIOD:
               handleIdentifierClassOrVarName(lookAhead);
+              subroutineCommand += lookAhead.getValue() + ".";
               return parseToken(lookAhead, true) + parseToken(token, true, 100);
             case BRACKET_L:
               handleIdentifierVarName(lookAhead);
@@ -62,13 +117,14 @@ public class CompileTerm extends Compile {
               return parseToken(lookAhead, true) + parseToken(token, true, 102);
             default:
               handleIdentifierVarName(lookAhead);
-              return parseToken(lookAhead, true) + postfix();
+              return buildIdentifierCommand(lookAhead) + parseToken(lookAhead, true) + postfix();
           }
         }
         return fail();
       case 100:
         if(Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          subroutineCommand = subroutineCommand + token.getValue();
           return parseToken(token, true);
         }
         return fail();
@@ -81,13 +137,13 @@ public class CompileTerm extends Compile {
       case 103:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 104:
-        return postfix();
+        return buildSubroutineCallCommand(subroutineCommand, compileExpressionList.getNumArgs()) + postfix();
 
       case 200:
         if (compileExpression == null)
           compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
-      case 201:
+      case 201: 
         return parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
       case 202:
         return postfix();
@@ -106,7 +162,7 @@ public class CompileTerm extends Compile {
           compileTerm = new CompileTerm(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileTerm, token);
       case 401:
-        return postfix();
+        return unaryOpCommand + postfix();
 
       case 500:
         return postfix();

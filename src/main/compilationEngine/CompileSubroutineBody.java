@@ -22,6 +22,10 @@ public class CompileSubroutineBody extends Compile {
     returnType = _returnType;
   }
 
+  private String buildCommand(int args) {
+    return " " + args + "\n"; 
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -41,6 +45,7 @@ public class CompileSubroutineBody extends Compile {
           return handleToken(token);
         }
         pos++;
+        return buildCommand(scopedSymbolTable.getLocalsAmmount()) + handleToken(token);
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements(tab, classSymbolTable, scopedSymbolTable, returnType);

@@ -14,6 +14,8 @@ public class CompileStatementWhile extends Compile {
   Compile compileExpression;
   Compile compileStatements;
 
+  String expressionName = "WHILE_EXP" + whileExpressionCount;
+
   public CompileStatementWhile(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "whileStatement";
@@ -24,7 +26,9 @@ public class CompileStatementWhile extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.WHILE));
+        String labelCommand = "label " + expressionName + "\n";
+        whileExpressionCount++;
+        return labelCommand + parseToken(token, Match.keyword(token, Keyword.WHILE));
       case 1:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 2:
@@ -32,7 +36,9 @@ public class CompileStatementWhile extends Compile {
           compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
       case 3:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        String evaluateExpressionCommand = "not\n";
+        evaluateExpressionCommand += "if-goto " + expressionName + "\n";
+        return evaluateExpressionCommand + parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:

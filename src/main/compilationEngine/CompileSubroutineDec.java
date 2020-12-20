@@ -19,8 +19,8 @@ public class CompileSubroutineDec extends Compile {
 
   Token returnType;
 
-  private String buildCommand(String functionName, int args) {
-    return "function" + " " + className + "." + functionName + " " + args + "\n"; 
+  private String buildCommand(String functionName) {
+    return "function" + " " + className + "." + functionName; 
   }
 
   public CompileSubroutineDec(int _tab, SymbolTable _classSymbolTable) {
@@ -60,7 +60,7 @@ public class CompileSubroutineDec extends Compile {
           compileParameterList = new CompileParameterList(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileParameterList, token);
       case 5:
-        String command = buildCommand(subroutineName, scopedSymbolTable.getSize());
+        String command = buildCommand(subroutineName);
         return parseToken(command, token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)

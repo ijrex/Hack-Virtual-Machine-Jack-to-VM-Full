@@ -14,9 +14,15 @@ public class CompileStatementLet extends Compile {
   Compile compileExpression1;
   Compile compileExpression2;
 
+  Token symbolRef;
+
   public CompileStatementLet(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "letStatement";
+  }
+
+  private String buildCommand(Token token) {
+    return "pop local " + token.getRunningIndex() + "\n";
   }
 
   public String handleToken(Token token) throws IOException {
@@ -27,7 +33,7 @@ public class CompileStatementLet extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.LET));
       case 1:
         if(Match.identifier(token)) {
-          handleIdentifierVarName(token);
+          symbolRef = handleIdentifierVarName(token);
           return parseToken(token, true);
         }
         return fail();
@@ -50,7 +56,7 @@ public class CompileStatementLet extends Compile {
           compileExpression2 = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression2, token);
       case 6:
-        return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return buildCommand(symbolRef) + parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 7:
         return postfix();
       default:
