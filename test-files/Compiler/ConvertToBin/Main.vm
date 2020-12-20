@@ -30,14 +30,14 @@ call Main.nextMask 1
 pop local 0
 push local 1
 push constant 16
-call Math.@todo parse MORE_THAN 2
-@todo - handle tilde
+gt
+not
 push local 0
 push local 0
 call Math.@todo parse AMPERSAND 2
 push constant 0
 call Math.@todo parse EQUALS 2
-@todo - handle tilde
+not
 push constant 8000
 push local 1
 add
@@ -66,7 +66,7 @@ call Math.multiply 2
 label WHILE_EXP1
 push local 1
 push constant 0
-call Math.@todo parse MORE_THAN 2
+gt
 not
 if-goto WHILE_EXP1
 push local 0

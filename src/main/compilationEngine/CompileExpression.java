@@ -30,6 +30,10 @@ public class CompileExpression extends Compile {
         return "add";
       case MINUS:
         return "neg";
+      case MORE_THAN:
+        return "gt";
+      case LESS_THAN:
+        return "lt";
       default:
         break;
     }

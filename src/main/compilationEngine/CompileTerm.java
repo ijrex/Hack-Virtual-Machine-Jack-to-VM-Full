@@ -60,7 +60,7 @@ public class CompileTerm extends Compile {
         command = "neg";
         break;
       case TILDE:
-        command = "@todo - handle tilde";
+        command = "not";
         break;
       default:
         break;
