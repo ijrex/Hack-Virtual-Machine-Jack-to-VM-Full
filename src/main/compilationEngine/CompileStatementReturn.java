@@ -26,7 +26,7 @@ public class CompileStatementReturn extends Compile {
     String command = "";
 
     if( returnType == null)  {
-      return "@todo handle this";
+      return "@todo handle this\n";
     }
 
     if(returnType.getKeyword() == Keyword.VOID) {

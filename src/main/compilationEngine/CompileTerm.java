@@ -43,6 +43,9 @@ public class CompileTerm extends Compile {
           command = "0\n";
           command += "not";
           break;
+        case FALSE:
+          command += "0";
+          break;
         default:
           break;
       }
