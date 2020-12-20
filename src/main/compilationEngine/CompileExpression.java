@@ -34,6 +34,10 @@ public class CompileExpression extends Compile {
         return "gt";
       case LESS_THAN:
         return "lt";
+      case AMPERSAND:
+        return "and";
+      case EQUALS:
+        return "eq";
       default:
         break;
     }

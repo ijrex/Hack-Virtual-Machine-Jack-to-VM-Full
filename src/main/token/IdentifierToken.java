@@ -42,7 +42,7 @@ public class IdentifierToken extends Token {
     }
   }
 
-  public IdentifierCat getIdentifierType() {
+  public IdentifierCat getIdentifierCat() {
     return this.identifierCat;
   }
 

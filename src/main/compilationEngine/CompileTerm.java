@@ -74,7 +74,7 @@ public class CompileTerm extends Compile {
   }
 
   private String buildIdentifierCommand(Token token) {
-    return "push local " + token.getRunningIndex() + "\n"; 
+    return "push " + parseTokenCategory(token.getIdentifierCat()) + " " + token.getRunningIndex() + "\n"; 
   }
 
   public String handleToken(Token token) throws IOException {

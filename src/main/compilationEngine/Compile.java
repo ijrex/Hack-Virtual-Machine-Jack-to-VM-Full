@@ -190,6 +190,17 @@ public abstract class Compile {
     }
   }
 
+  protected String parseTokenCategory(IdentifierCat identifierCat) {
+    switch(identifierCat) {
+      case VAR:
+        return "local";
+      case ARGUMENT:
+        return "argument";
+      default:
+        return null;
+    }
+  }
+
   /* Compile Expression List Only */
 
   public int getNumArgs() {

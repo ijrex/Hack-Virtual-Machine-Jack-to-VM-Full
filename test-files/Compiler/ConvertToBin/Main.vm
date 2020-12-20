@@ -35,11 +35,11 @@ not
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push argument 0
 push local 0
-push local 0
-call Math.@todo parse AMPERSAND 2
+and
 push constant 0
-call Math.@todo parse EQUALS 2
+eq
 not
 if-goto IF_TRUE1
 goto IF_FALSE1
@@ -69,35 +69,35 @@ label WHILE_EXP0
 push constant 0
 return
 function Main.nextMask 0
-push local 0
+push argument 0
 push constant 0
-call Math.@todo parse EQUALS 2
+eq
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
 push constant 1
 @todo handle thisgoto IF_END2
 label IF_FALSE2
-push local 0
+push argument 0
 push constant 2
 call Math.multiply 2
 @todo handle thislabel IF_END2
 function Main.fillMemory 0
 label WHILE_EXP1
-push local 1
+push argument 1
 push constant 0
 gt
 not
 if-goto WHILE_END1
-push local 0
-push local 2
+push argument 0
+push argument 2
 call Memory.poke 2
 pop temp 0
-push local 1
+push argument 1
 push constant 1
 neg
 pop local 1
-push local 0
+push argument 0
 push constant 1
 add
 pop local 0

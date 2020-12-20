@@ -50,6 +50,10 @@ public abstract class Token {
   public void setIdentifierCat(String str) {
   }
 
+  public IdentifierCat getIdentifierCat() {
+    return null;
+  }
+
   public void setRunningIndex(int x) {
   }
 
