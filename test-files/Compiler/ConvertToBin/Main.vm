@@ -20,7 +20,7 @@ pop local 2
 label WHILE_EXP0
 push local 2
 not
-if-goto WHILE_EXP0
+if-goto WHILE_END0
 push local 1
 push constant 1
 add
@@ -32,54 +32,78 @@ push local 1
 push constant 16
 gt
 not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 0
 push local 0
-push local 0
-call Math.@todo parse AMPERSAND 2
+and
 push constant 0
-call Math.@todo parse EQUALS 2
+eq
 not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push constant 8000
 push local 1
 add
 push constant 1
 call Memory.poke 2
 pop temp 0
+goto IF_END1
+label IF_FALSE1
 push constant 8000
 push local 1
 add
 push constant 0
 call Memory.poke 2
 pop temp 0
-push constant 
+label IF_END1
+goto IF_END0
+label IF_FALSE0
+push constant 0
 pop local 2
+label IF_END0
+goto WHILE_EXP0
+label WHILE_EXP0
 push constant 0
 return
 function Main.nextMask 0
-push local 0
+push argument 0
 push constant 0
-call Math.@todo parse EQUALS 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push constant 1
-@todo handle thispush local 0
+@todo handle this
+goto IF_END2
+label IF_FALSE2
+push argument 0
 push constant 2
 call Math.multiply 2
-@todo handle thisfunction Main.fillMemory 0
+@todo handle this
+label IF_END2
+function Main.fillMemory 0
 label WHILE_EXP1
-push local 1
+push argument 1
 push constant 0
 gt
 not
-if-goto WHILE_EXP1
-push local 0
-push local 2
+if-goto WHILE_END1
+push argument 0
+push argument 2
 call Memory.poke 2
 pop temp 0
-push local 1
+push argument 1
 push constant 1
 neg
 pop local 1
-push local 0
+push argument 0
 push constant 1
 add
 pop local 0
+goto WHILE_EXP1
+label WHILE_EXP1
 push constant 0
 return

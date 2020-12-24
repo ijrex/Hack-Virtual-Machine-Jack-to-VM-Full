@@ -43,6 +43,9 @@ public class CompileTerm extends Compile {
           command = "0\n";
           command += "not";
           break;
+        case FALSE:
+          command += "0";
+          break;
         default:
           break;
       }
@@ -74,7 +77,7 @@ public class CompileTerm extends Compile {
   }
 
   private String buildIdentifierCommand(Token token) {
-    return "push local " + token.getRunningIndex() + "\n"; 
+    return "push " + parseTokenCategory(token.getIdentifierCat()) + " " + token.getRunningIndex() + "\n"; 
   }
 
   public String handleToken(Token token) throws IOException {

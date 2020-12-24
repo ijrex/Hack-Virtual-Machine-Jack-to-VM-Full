@@ -20,6 +20,7 @@ public abstract class Compile {
 
   // Expression counters for VM printing
   static int whileExpressionCount = 0;
+  static int ifExpressionCount = 0;
 
   public Compile(int _tab, SymbolTable _classSymbolTable) {
     this.init(_tab, _classSymbolTable);
@@ -186,6 +187,17 @@ public abstract class Compile {
 
     if(!isSet) {
       token.setIdentifierCat(IdentifierCat.CLASS);            
+    }
+  }
+
+  protected String parseTokenCategory(IdentifierCat identifierCat) {
+    switch(identifierCat) {
+      case VAR:
+        return "local";
+      case ARGUMENT:
+        return "argument";
+      default:
+        return null;
     }
   }
 

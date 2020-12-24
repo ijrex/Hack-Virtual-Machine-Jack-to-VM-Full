@@ -15,9 +15,35 @@ public class CompileStatementIf extends Compile {
   Compile compileStatements1;
   Compile compileStatements2;
 
+  String expressionTrueName = "IF_TRUE"; 
+  String expressionFalseName = "IF_FALSE"; 
+  String expressionEndName = "IF_END"; 
+
   public CompileStatementIf(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "ifStatement";
+
+    expressionTrueName = expressionTrueName + ifExpressionCount;
+    expressionFalseName = expressionFalseName + ifExpressionCount;
+    expressionEndName = expressionEndName + ifExpressionCount;
+    ifExpressionCount++;
+  }
+
+  private String buildIfCommand() {
+    String command = "if-goto " + expressionTrueName + "\n";
+    command += "goto " + expressionFalseName + "\n";
+    command += "label " + expressionTrueName + "\n";
+    return command;
+  }
+
+  private String buildElseCommand() {
+    String command = "goto " + expressionEndName + "\n";
+    command += "label " + expressionFalseName + "\n";
+    return command;
+  }
+
+  private String buildIfEndCommand() {
+    return "label " + expressionEndName + "\n";
   }
 
   public String handleToken(Token token) throws IOException {
@@ -33,7 +59,7 @@ public class CompileStatementIf extends Compile {
           compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
         return handleChildClass(compileExpression, token);
       case 3:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return buildIfCommand() + parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
@@ -44,7 +70,7 @@ public class CompileStatementIf extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 7:
         if (Match.keyword(token, Keyword.ELSE))
-          return parseToken(token, true, 8);
+          return buildElseCommand() + parseToken(token, true, 8);
         return postfix();
       case 8:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
@@ -55,7 +81,7 @@ public class CompileStatementIf extends Compile {
       case 10:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 11:
-        return postfix();
+        return buildIfEndCommand() + postfix();
       default:
         return fail();
     }
