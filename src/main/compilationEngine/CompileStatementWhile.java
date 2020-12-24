@@ -52,8 +52,8 @@ public class CompileStatementWhile extends Compile {
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 7:
-        String returnToStartCommand = "goto " + expressionName + "\n"; 
-        returnToStartCommand += "label " + expressionName + "\n"; 
+        String returnToStartCommand = "goto " + expressionName + "\n";
+        returnToStartCommand += "label " + expressionEndName + "\n";
         return returnToStartCommand + postfix();
       default:
         return fail();
