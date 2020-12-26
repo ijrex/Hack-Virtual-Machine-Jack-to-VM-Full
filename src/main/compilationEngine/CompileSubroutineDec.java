@@ -15,8 +15,6 @@ public class CompileSubroutineDec extends Compile {
 
   String subroutineName;
 
-  Token returnType;
-
   private String buildCommand(String functionName) {
     return "function" + " " + className + "." + functionName;
   }
@@ -63,7 +61,7 @@ public class CompileSubroutineDec extends Compile {
         return parseToken(command, token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
-          compileSubroutineBody = new CompileSubroutineBody(tab, returnType);
+          compileSubroutineBody = new CompileSubroutineBody(tab);
         return handleChildClass(compileSubroutineBody, token);
       case 7:
         resetExpressionsCounts();

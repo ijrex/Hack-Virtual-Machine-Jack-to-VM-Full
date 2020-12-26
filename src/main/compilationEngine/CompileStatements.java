@@ -11,17 +11,9 @@ public class CompileStatements extends Compile {
 
   Compile compileStatement;
 
-  Token returnType;
-
   public CompileStatements(int _tab) {
     super(_tab);
     wrapperLabel = "statements";
-  }
-
-  public CompileStatements(int _tab, Token _returnType) {
-    super(_tab);
-    wrapperLabel = "statements";
-    returnType = _returnType;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -37,7 +29,7 @@ public class CompileStatements extends Compile {
               compileStatement = new CompileStatementLet(tab);
               break;
             case IF:
-              compileStatement = new CompileStatementIf(tab, returnType);
+              compileStatement = new CompileStatementIf(tab);
               break;
             case WHILE:
               compileStatement = new CompileStatementWhile(tab);
@@ -46,7 +38,7 @@ public class CompileStatements extends Compile {
               compileStatement = new CompileStatementDo(tab);
               break;
             case RETURN:
-              compileStatement = new CompileStatementReturn(tab, returnType);
+              compileStatement = new CompileStatementReturn(tab);
               break;
             default:
               fail();

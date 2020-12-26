@@ -2,7 +2,6 @@ package compilationEngine;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import token.*;
 
 public class CompilationEngine {

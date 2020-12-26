@@ -12,21 +12,14 @@ public class CompileStatementReturn extends Compile {
 
   Compile compileExpression;
 
-  Token returnType;
-
-  public CompileStatementReturn(int _tab, Token _returnType) {
+  public CompileStatementReturn(int _tab) {
     super(_tab);
     wrapperLabel = "returnStatement";
-    returnType = _returnType;
   }
 
   private String buildCommand() {
 
     String command = "";
-
-    if (returnType == null) {
-      return "@todo handle this\n";
-    }
 
     if (returnType.getKeyword() == Keyword.VOID) {
       command += "push constant 0\n";
