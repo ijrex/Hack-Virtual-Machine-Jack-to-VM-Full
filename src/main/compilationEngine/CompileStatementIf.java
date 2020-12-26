@@ -15,13 +15,18 @@ public class CompileStatementIf extends Compile {
   Compile compileStatements1;
   Compile compileStatements2;
 
-  String expressionTrueName = "IF_TRUE"; 
-  String expressionFalseName = "IF_FALSE"; 
-  String expressionEndName = "IF_END"; 
+  String expressionTrueName = "IF_TRUE";
+  String expressionFalseName = "IF_FALSE";
+  String expressionEndName = "IF_END";
 
-  public CompileStatementIf(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
+  Token returnType;
+
+  public CompileStatementIf(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable,
+      Token _returnType) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "ifStatement";
+
+    returnType = _returnType;
 
     expressionTrueName = expressionTrueName + ifExpressionCount;
     expressionFalseName = expressionFalseName + ifExpressionCount;
@@ -64,7 +69,7 @@ public class CompileStatementIf extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
-          compileStatements1 = new CompileStatements(tab, classSymbolTable, scopedSymbolTable);
+          compileStatements1 = new CompileStatements(tab, classSymbolTable, scopedSymbolTable, returnType);
         return handleChildClass(compileStatements1, token);
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
@@ -76,7 +81,7 @@ public class CompileStatementIf extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 9:
         if (compileStatements2 == null)
-          compileStatements2 = new CompileStatements(tab, classSymbolTable, scopedSymbolTable);
+          compileStatements2 = new CompileStatements(tab, classSymbolTable, scopedSymbolTable, returnType);
         return handleChildClass(compileStatements2, token);
       case 10:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));

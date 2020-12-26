@@ -76,13 +76,13 @@ if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
 push constant 1
-@todo handle this
+return
 goto IF_END2
 label IF_FALSE2
 push argument 0
 push constant 2
 call Math.multiply 2
-@todo handle this
+return
 label IF_END2
 function Main.fillMemory 0
 label WHILE_EXP1
@@ -98,11 +98,11 @@ pop temp 0
 push argument 1
 push constant 1
 neg
-pop local 1
+pop argument 1
 push argument 0
 push constant 1
 add
-pop local 0
+pop argument 0
 goto WHILE_EXP1
 label WHILE_END1
 push constant 0

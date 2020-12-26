@@ -22,7 +22,7 @@ public class CompileStatementLet extends Compile {
   }
 
   private String buildCommand(Token token) {
-    return "pop local " + token.getRunningIndex() + "\n";
+    return "pop " + parseTokenCategory(token.getIdentifierCat()) + " " + token.getRunningIndex() + "\n";
   }
 
   public String handleToken(Token token) throws IOException {
@@ -32,7 +32,7 @@ public class CompileStatementLet extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.LET));
       case 1:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           symbolRef = handleIdentifierVarName(token);
           return parseToken(token, true);
         }

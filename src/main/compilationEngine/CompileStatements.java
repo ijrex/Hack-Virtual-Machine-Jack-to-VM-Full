@@ -38,7 +38,7 @@ public class CompileStatements extends Compile {
               compileStatement = new CompileStatementLet(tab, classSymbolTable, scopedSymbolTable);
               break;
             case IF:
-              compileStatement = new CompileStatementIf(tab, classSymbolTable, scopedSymbolTable);
+              compileStatement = new CompileStatementIf(tab, classSymbolTable, scopedSymbolTable, returnType);
               break;
             case WHILE:
               compileStatement = new CompileStatementWhile(tab, classSymbolTable, scopedSymbolTable);
