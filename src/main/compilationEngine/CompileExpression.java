@@ -5,7 +5,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileExpression extends Compile {
@@ -15,8 +14,8 @@ public class CompileExpression extends Compile {
 
   String command = "";
 
-  public CompileExpression(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileExpression(int _tab) {
+    super(_tab);
     wrapperLabel = "expression";
   }
 
@@ -61,7 +60,7 @@ public class CompileExpression extends Compile {
         return prefix(token);
       case 0:
         if (compileTerm1 == null)
-          compileTerm1 = new CompileTerm(tab, classSymbolTable, scopedSymbolTable);
+          compileTerm1 = new CompileTerm(tab);
         return handleChildClass(compileTerm1, token);
       case 1:
         if (Match.op(token)) {

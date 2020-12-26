@@ -7,7 +7,6 @@ import tokenlib.TokenType;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileTerm extends Compile {
@@ -21,8 +20,8 @@ public class CompileTerm extends Compile {
   String unaryOpCommand;
   String subroutineCommand = "call ";
 
-  public CompileTerm(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileTerm(int _tab) {
+    super(_tab);
     wrapperLabel = "term";
   }
 
@@ -31,11 +30,11 @@ public class CompileTerm extends Compile {
 
     TokenType type = token.getType();
 
-    if(type == TokenType.INT_CONST) {
+    if (type == TokenType.INT_CONST) {
       command = token.getValue();
     }
 
-    if(type == TokenType.KEYWORD) {
+    if (type == TokenType.KEYWORD) {
       Keyword keyword = token.getKeyword();
 
       switch (keyword) {
@@ -51,10 +50,10 @@ public class CompileTerm extends Compile {
       }
     }
 
-    return "push constant " + command + "\n"; 
+    return "push constant " + command + "\n";
   }
 
-  private String buildUnaryOpCommand(Symbol symbol){
+  private String buildUnaryOpCommand(Symbol symbol) {
     String command = "";
 
     // Hardware command
@@ -77,7 +76,7 @@ public class CompileTerm extends Compile {
   }
 
   private String buildIdentifierCommand(Token token) {
-    return "push " + parseTokenCategory(token.getIdentifierCat()) + " " + token.getRunningIndex() + "\n"; 
+    return "push " + parseTokenCategory(token.getIdentifierCat()) + " " + token.getRunningIndex() + "\n";
   }
 
   public String handleToken(Token token) throws IOException {
@@ -125,7 +124,7 @@ public class CompileTerm extends Compile {
         }
         return fail();
       case 100:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutineCommand = subroutineCommand + token.getValue();
           return parseToken(token, true);
@@ -135,7 +134,7 @@ public class CompileTerm extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 102:
         if (compileExpressionList == null)
-          compileExpressionList = new CompileExpressionList(tab, classSymbolTable, scopedSymbolTable);
+          compileExpressionList = new CompileExpressionList(tab);
         return handleChildClass(compileExpressionList, token);
       case 103:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -144,16 +143,16 @@ public class CompileTerm extends Compile {
 
       case 200:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
+          compileExpression = new CompileExpression(tab);
         return handleChildClass(compileExpression, token);
-      case 201: 
+      case 201:
         return parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
       case 202:
         return postfix();
 
       case 300:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
+          compileExpression = new CompileExpression(tab);
         return handleChildClass(compileExpression, token);
       case 301:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -162,7 +161,7 @@ public class CompileTerm extends Compile {
 
       case 400:
         if (compileTerm == null)
-          compileTerm = new CompileTerm(tab, classSymbolTable, scopedSymbolTable);
+          compileTerm = new CompileTerm(tab);
         return handleChildClass(compileTerm, token);
       case 401:
         return unaryOpCommand + postfix();

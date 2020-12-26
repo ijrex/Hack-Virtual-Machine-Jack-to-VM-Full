@@ -13,8 +13,8 @@ public class CompileClassVarDec extends Compile {
   String varKind;
   String varType;
 
-  public CompileClassVarDec(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileClassVarDec(int _tab) {
+    super(_tab);
     wrapperLabel = "classVarDec";
   }
 
@@ -30,7 +30,7 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 1:
         if (Match.type(token)) {
-          if(Match.identifier(token))
+          if (Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
           return parseToken(token, true);

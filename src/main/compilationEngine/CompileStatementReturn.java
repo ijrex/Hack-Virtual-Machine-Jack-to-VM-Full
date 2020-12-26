@@ -6,7 +6,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileStatementReturn extends Compile {
@@ -15,9 +14,8 @@ public class CompileStatementReturn extends Compile {
 
   Token returnType;
 
-  public CompileStatementReturn(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable,
-      Token _returnType) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileStatementReturn(int _tab, Token _returnType) {
+    super(_tab);
     wrapperLabel = "returnStatement";
     returnType = _returnType;
   }
@@ -51,7 +49,7 @@ public class CompileStatementReturn extends Compile {
         pos++;
       case 2:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
+          compileExpression = new CompileExpression(tab);
         if (compileExpression != null)
           return handleChildClass(compileExpression, token);
       case 3:
