@@ -68,6 +68,7 @@ public class CompileSubroutineDec extends Compile {
           compileSubroutineBody = new CompileSubroutineBody(tab, classSymbolTable, scopedSymbolTable, returnType);
         return handleChildClass(compileSubroutineBody, token);
       case 7:
+        resetExpressionsCounts();
         return postfix();
       default:
         return fail();
