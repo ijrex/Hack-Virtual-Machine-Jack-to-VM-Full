@@ -65,45 +65,45 @@ push constant 0
 pop local 2
 label IF_END0
 goto WHILE_EXP0
-label WHILE_EXP0
+label WHILE_END0
 push constant 0
 return
 function Main.nextMask 0
 push argument 0
 push constant 0
 eq
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
 push constant 1
-@todo handle this
-goto IF_END2
-label IF_FALSE2
+return
+goto IF_END0
+label IF_FALSE0
 push argument 0
 push constant 2
 call Math.multiply 2
-@todo handle this
-label IF_END2
+return
+label IF_END0
 function Main.fillMemory 0
-label WHILE_EXP1
+label WHILE_EXP0
 push argument 1
 push constant 0
 gt
 not
-if-goto WHILE_END1
+if-goto WHILE_END0
 push argument 0
 push argument 2
 call Memory.poke 2
 pop temp 0
 push argument 1
 push constant 1
-neg
-pop local 1
+sub
+pop argument 1
 push argument 0
 push constant 1
 add
-pop local 0
-goto WHILE_EXP1
-label WHILE_EXP1
+pop argument 0
+goto WHILE_EXP0
+label WHILE_END0
 push constant 0
 return

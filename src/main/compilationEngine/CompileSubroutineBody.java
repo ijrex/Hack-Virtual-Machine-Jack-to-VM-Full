@@ -16,14 +16,15 @@ public class CompileSubroutineBody extends Compile {
 
   Token returnType;
 
-  public CompileSubroutineBody(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable, Token _returnType) {
+  public CompileSubroutineBody(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable,
+      Token _returnType) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "subroutineBody";
     returnType = _returnType;
   }
 
   private String buildCommand(int args) {
-    return " " + args + "\n"; 
+    return " " + args + "\n";
   }
 
   public String handleToken(Token token) throws IOException {

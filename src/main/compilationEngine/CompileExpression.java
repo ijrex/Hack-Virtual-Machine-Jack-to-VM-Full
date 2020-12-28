@@ -29,7 +29,7 @@ public class CompileExpression extends Compile {
       case PLUS:
         return "add";
       case MINUS:
-        return "neg";
+        return "sub";
       case MORE_THAN:
         return "gt";
       case LESS_THAN:

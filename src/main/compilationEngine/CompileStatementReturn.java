@@ -15,7 +15,8 @@ public class CompileStatementReturn extends Compile {
 
   Token returnType;
 
-  public CompileStatementReturn(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable, Token _returnType) {
+  public CompileStatementReturn(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable,
+      Token _returnType) {
     super(_tab, _classSymbolTable, _scopedSymbolTable);
     wrapperLabel = "returnStatement";
     returnType = _returnType;
@@ -25,14 +26,12 @@ public class CompileStatementReturn extends Compile {
 
     String command = "";
 
-    if( returnType == null)  {
+    if (returnType == null) {
       return "@todo handle this\n";
     }
 
-    if(returnType.getKeyword() == Keyword.VOID) {
+    if (returnType.getKeyword() == Keyword.VOID) {
       command += "push constant 0\n";
-    } else {
-      command += "@todo handle " + returnType.getValue() + "type";
     }
 
     command += "return\n";
