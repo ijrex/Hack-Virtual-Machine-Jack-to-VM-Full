@@ -6,7 +6,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileStatementDo extends Compile {
@@ -15,8 +14,8 @@ public class CompileStatementDo extends Compile {
 
   String subroutineCallName;
 
-  public CompileStatementDo(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileStatementDo(int _tab) {
+    super(_tab);
     wrapperLabel = "doStatement";
   }
 
@@ -35,7 +34,7 @@ public class CompileStatementDo extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.DO));
       case 1:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           subroutineCallName = token.getValue();
           lookahead = token;
           pos++;
@@ -53,7 +52,7 @@ public class CompileStatementDo extends Compile {
         }
         return fail();
       case 3:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           subroutineCallName += "." + token.getValue();
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           return parseToken(token, true);
@@ -63,7 +62,7 @@ public class CompileStatementDo extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 5:
         if (compileExpressionList == null)
-          compileExpressionList = new CompileExpressionList(tab, classSymbolTable, scopedSymbolTable);
+          compileExpressionList = new CompileExpressionList(tab);
         return handleChildClass(compileExpressionList, token);
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));

@@ -6,15 +6,14 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileParameterList extends Compile {
 
   String varType;
 
-  public CompileParameterList(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileParameterList(int _tab) {
+    super(_tab);
     wrapperLabel = "parameterList";
   }
 

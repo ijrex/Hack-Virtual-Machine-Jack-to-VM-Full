@@ -13,8 +13,6 @@ public class CompileSubroutineDec extends Compile {
   Compile compileParameterList;
   Compile compileSubroutineBody;
 
-  SymbolTable scopedSymbolTable;
-
   String subroutineName;
 
   Token returnType;
@@ -23,8 +21,8 @@ public class CompileSubroutineDec extends Compile {
     return "function" + " " + className + "." + functionName;
   }
 
-  public CompileSubroutineDec(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileSubroutineDec(int _tab) {
+    super(_tab);
     wrapperLabel = "subroutineDec";
 
     scopedSymbolTable = new SymbolTable();
@@ -58,14 +56,14 @@ public class CompileSubroutineDec extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 4:
         if (compileParameterList == null)
-          compileParameterList = new CompileParameterList(tab, classSymbolTable, scopedSymbolTable);
+          compileParameterList = new CompileParameterList(tab);
         return handleChildClass(compileParameterList, token);
       case 5:
         String command = buildCommand(subroutineName);
         return parseToken(command, token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
-          compileSubroutineBody = new CompileSubroutineBody(tab, classSymbolTable, scopedSymbolTable, returnType);
+          compileSubroutineBody = new CompileSubroutineBody(tab, returnType);
         return handleChildClass(compileSubroutineBody, token);
       case 7:
         resetExpressionsCounts();

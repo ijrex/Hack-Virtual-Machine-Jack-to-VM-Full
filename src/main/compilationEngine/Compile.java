@@ -10,31 +10,31 @@ import compilationEngine.symboltable.SymbolTable;
 public abstract class Compile {
   static String className;
 
+  static SymbolTable classSymbolTable;
+  static SymbolTable scopedSymbolTable;
+
   boolean development = false;
   int tab;
   int pos = -1;
   boolean finished = false;
   String wrapperLabel;
-  SymbolTable classSymbolTable;
-  SymbolTable scopedSymbolTable;
 
   // Expression counters for VM printing
   static int whileExpressionCount = 0;
   static int ifExpressionCount = 0;
 
-  public Compile(int _tab, SymbolTable _classSymbolTable) {
-    this.init(_tab, _classSymbolTable);
+  public Compile(int _tab) {
+    this.init(_tab);
   }
 
-  public Compile(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    this.init(_tab, _classSymbolTable);
+  public Compile(int _tab, SymbolTable _scopedSymbolTable) {
+    this.init(_tab);
     scopedSymbolTable = _scopedSymbolTable;
   }
 
-  private void init(int _tab, SymbolTable _classSymbolTable) {
+  private void init(int _tab) {
     tab = _tab;
     finished = false;
-    classSymbolTable = _classSymbolTable;
   }
 
   private String handleParseToken(Token token, Boolean pass, int nextPos, String returnVal) throws IOException {

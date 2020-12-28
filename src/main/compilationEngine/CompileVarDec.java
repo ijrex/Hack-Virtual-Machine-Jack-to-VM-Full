@@ -7,14 +7,13 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileVarDec extends Compile {
   String varType;
 
-  public CompileVarDec(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileVarDec(int _tab) {
+    super(_tab);
     wrapperLabel = "varDec";
   }
 
@@ -26,7 +25,7 @@ public class CompileVarDec extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.VAR));
       case 1:
         if (Match.type(token)) {
-          if(Match.identifier(token))
+          if (Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
           return parseToken(token, true);
