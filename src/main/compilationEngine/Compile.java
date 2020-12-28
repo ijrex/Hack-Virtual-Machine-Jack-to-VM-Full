@@ -13,6 +13,8 @@ public abstract class Compile {
   static SymbolTable classSymbolTable;
   static SymbolTable scopedSymbolTable;
 
+  static Token returnType;
+
   boolean development = false;
   int tab;
   int pos = -1;
@@ -25,11 +27,6 @@ public abstract class Compile {
 
   public Compile(int _tab) {
     this.init(_tab);
-  }
-
-  public Compile(int _tab, SymbolTable _scopedSymbolTable) {
-    this.init(_tab);
-    scopedSymbolTable = _scopedSymbolTable;
   }
 
   private void init(int _tab) {

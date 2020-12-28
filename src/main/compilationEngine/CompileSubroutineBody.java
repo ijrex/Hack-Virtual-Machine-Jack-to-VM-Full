@@ -13,12 +13,9 @@ public class CompileSubroutineBody extends Compile {
   Compile compileVarDec;
   Compile compileStatements;
 
-  Token returnType;
-
-  public CompileSubroutineBody(int _tab, Token _returnType) {
+  public CompileSubroutineBody(int _tab) {
     super(_tab);
     wrapperLabel = "subroutineBody";
-    returnType = _returnType;
   }
 
   private String buildCommand(int args) {
@@ -47,7 +44,7 @@ public class CompileSubroutineBody extends Compile {
         return buildCommand(scopedSymbolTable.getLocalsAmmount()) + handleToken(token);
       case 3:
         if (compileStatements == null)
-          compileStatements = new CompileStatements(tab, returnType);
+          compileStatements = new CompileStatements(tab);
         return handleChildClass(compileStatements, token);
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));

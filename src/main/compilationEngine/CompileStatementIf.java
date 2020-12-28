@@ -18,13 +18,9 @@ public class CompileStatementIf extends Compile {
   String expressionFalseName = "IF_FALSE";
   String expressionEndName = "IF_END";
 
-  Token returnType;
-
-  public CompileStatementIf(int _tab, Token _returnType) {
+  public CompileStatementIf(int _tab) {
     super(_tab);
     wrapperLabel = "ifStatement";
-
-    returnType = _returnType;
 
     expressionTrueName = expressionTrueName + ifExpressionCount;
     expressionFalseName = expressionFalseName + ifExpressionCount;
@@ -67,7 +63,7 @@ public class CompileStatementIf extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
-          compileStatements1 = new CompileStatements(tab, returnType);
+          compileStatements1 = new CompileStatements(tab);
         return handleChildClass(compileStatements1, token);
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
@@ -79,7 +75,7 @@ public class CompileStatementIf extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 9:
         if (compileStatements2 == null)
-          compileStatements2 = new CompileStatements(tab, returnType);
+          compileStatements2 = new CompileStatements(tab);
         return handleChildClass(compileStatements2, token);
       case 10:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
