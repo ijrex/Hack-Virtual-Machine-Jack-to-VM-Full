@@ -31,7 +31,7 @@ public class CompileTerm extends Compile {
     TokenType type = token.getType();
 
     if (type == TokenType.INT_CONST) {
-      command = token.getValue();
+      command = "push constant " + token.getValue();
     }
 
     if (type == TokenType.KEYWORD) {
@@ -39,18 +39,21 @@ public class CompileTerm extends Compile {
 
       switch (keyword) {
         case TRUE:
-          command = "0\n";
+          command = "push constant 0\n";
           command += "not";
           break;
         case FALSE:
-          command += "0";
+          command += "push constant 0";
+          break;
+        case THIS:
+          command += "push pointer 0";
           break;
         default:
           break;
       }
     }
 
-    return "push constant " + command + "\n";
+    return command + "\n";
   }
 
   private String buildUnaryOpCommand(Symbol symbol) {

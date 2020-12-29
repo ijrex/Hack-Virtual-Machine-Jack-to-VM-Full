@@ -195,6 +195,8 @@ public abstract class Compile {
         return "local";
       case ARGUMENT:
         return "argument";
+      case FIELD:
+        return "this";
       default:
         return null;
     }

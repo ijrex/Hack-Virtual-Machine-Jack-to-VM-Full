@@ -38,6 +38,11 @@ public class CompileStatementDo extends Compile {
 
     if (subroutineCall != null) {
       arg2 = "." + subroutineCall.getValue();
+    } else {
+      numArgs++;
+      command += "push pointer 0\n";
+      arg2 = arg1;
+      arg1 = className + ".";
     }
 
     command += "call " + arg1 + arg2 + " " + numArgs + "\n";
