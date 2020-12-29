@@ -21,4 +21,17 @@ public class SymbolTypes {
     }
     return types.get(val);
   }
+
+  public boolean isPrimitive(SymbolType type) {
+    String value = type.getValue();
+
+    switch (value) {
+      case "int":
+      case "char":
+      case "boolean":
+        return true;
+      default:
+        return false;
+    }
+  }
 }

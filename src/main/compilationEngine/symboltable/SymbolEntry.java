@@ -8,12 +8,14 @@ public class SymbolEntry {
   SymbolType type;
   SymbolKind kind;
   int key;
+  boolean isPrimitveType;
 
-  public SymbolEntry(Token token, SymbolType type, SymbolKind kind, int key) {
+  public SymbolEntry(Token token, SymbolType type, SymbolKind kind, int key, boolean isPrimitveType) {
     this.name = token.getValue();
     this.type = type;
     this.key = key;
     this.kind = kind;
+    this.isPrimitveType = isPrimitveType;
   }
 
   public String print() {
@@ -32,10 +34,21 @@ public class SymbolEntry {
     return this.kind;
   }
 
-  public String getKindtoString() {
+  public String getKindToString() {
     return this.kind.toString();
   }
 
+  public SymbolType getType() {
+    return this.type;
+  }
+
+  public String getTypeToString() {
+    return this.type.getValue();
+  }
+
+  public boolean getIsPrimitive() {
+    return this.isPrimitveType;
+  }
 
   private String parseValue(String str, String label, String tabs) {
     return tabs + "\t" + "<" + label + "> " + str + " </" + label + ">\n";
@@ -49,6 +62,7 @@ public class SymbolEntry {
     str += parseValue(this.type.getValue(), "type", tabs);
     str += parseValue(String.valueOf(this.key), "key", tabs);
     str += parseValue(this.kind.name(), "kind", tabs);
+    str += parseValue(String.valueOf(isPrimitveType), "isPrimitive", tabs);
     str += tabs + "</symbolEntry>\n";
 
     return str;

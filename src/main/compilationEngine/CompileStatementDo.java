@@ -12,20 +12,38 @@ public class CompileStatementDo extends Compile {
 
   Compile compileExpressionList;
 
-  String subroutineCallName;
-
   public CompileStatementDo(int _tab) {
     super(_tab);
     wrapperLabel = "doStatement";
   }
 
-  private String buildCommand(int numArgs) {
-    String command = "call " + subroutineCallName + " " + numArgs + "\n";
+  Token lookahead;
+  Token subroutineCall;
+
+  private String buildCommand(int _numArgs) {
+
+    String command = "";
+
+    String arg1 = lookahead.getValue();
+    String arg2 = "";
+    int numArgs = _numArgs;
+
+    int runningIndex = lookahead.getRunningIndex();
+
+    if (runningIndex >= 0 && !lookahead.getIsPrimitiveType()) {
+      arg1 = lookahead.getIdentifierType();
+      numArgs++;
+      command += "push " + parseTokenCategory(lookahead.getIdentifierCat()) + " " + lookahead.getRunningIndex() + "\n";
+    }
+
+    if (subroutineCall != null) {
+      arg2 = "." + subroutineCall.getValue();
+    }
+
+    command += "call " + arg1 + arg2 + " " + numArgs + "\n";
     command += "pop temp 0\n";
     return command;
   }
-
-  Token lookahead;
 
   public String handleToken(Token token) throws IOException {
     switch (pos) {
@@ -35,7 +53,6 @@ public class CompileStatementDo extends Compile {
         return parseToken(token, Match.keyword(token, Keyword.DO));
       case 1:
         if (Match.identifier(token)) {
-          subroutineCallName = token.getValue();
           lookahead = token;
           pos++;
           return "";
@@ -53,7 +70,7 @@ public class CompileStatementDo extends Compile {
         return fail();
       case 3:
         if (Match.identifier(token)) {
-          subroutineCallName += "." + token.getValue();
+          subroutineCall = token;
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           return parseToken(token, true);
         }

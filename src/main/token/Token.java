@@ -54,6 +54,20 @@ public abstract class Token {
     return null;
   }
 
+  public void setIdentifierType(String str) {
+  }
+
+  public String getIdentifierType() {
+    return null;
+  }
+
+  public void setIsPrimitiveType(Boolean b) {
+  }
+
+  public boolean getIsPrimitiveType() {
+    return false;
+  }
+
   public void setRunningIndex(int x) {
   }
 

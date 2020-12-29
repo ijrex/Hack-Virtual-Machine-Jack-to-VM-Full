@@ -29,12 +29,13 @@ public class SymbolTable {
 
     SymbolKind kind = Util.toSymbolKind(_kind);
     SymbolType type = symbolTypes.handleNew(_type);
+    boolean isPrimitive = symbolTypes.isPrimitive(type);
 
     lastKind = (lastKind == null) ? kind : lastKind;
 
     key = (kind == lastKind) ? key + 1 : 0;
 
-    table.put(value, new SymbolEntry(token, type, kind, key));
+    table.put(value, new SymbolEntry(token, type, kind, key, isPrimitive));
 
     lastKind = kind;
 
@@ -44,7 +45,7 @@ public class SymbolTable {
   public SymbolEntry find(Token token) {
     String key = token.getValue();
 
-    if(table.containsKey(key))
+    if (table.containsKey(key))
       return table.get(key);
 
     return null;
@@ -57,7 +58,7 @@ public class SymbolTable {
   public int getLocalsAmmount() {
     int vars = 0;
     for (String key : table.keySet()) {
-      if (table.get(key).getKind() == SymbolKind.VAR) 
+      if (table.get(key).getKind() == SymbolKind.VAR)
         vars++;
     }
     return vars;

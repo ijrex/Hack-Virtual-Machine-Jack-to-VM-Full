@@ -161,7 +161,9 @@ public abstract class Compile {
       entry = classSymbolTable.find(token);
 
     if (entry != null) {
-      token.setIdentifierCat(entry.getKindtoString());
+      token.setIdentifierCat(entry.getKindToString());
+      token.setIsPrimitiveType(entry.getIsPrimitive());
+      token.setIdentifierType(entry.getTypeToString());
       token.setRunningIndex(entry.getKey());
       return true;
     }
