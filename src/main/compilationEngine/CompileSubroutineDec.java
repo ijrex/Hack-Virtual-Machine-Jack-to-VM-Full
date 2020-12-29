@@ -14,9 +14,11 @@ public class CompileSubroutineDec extends Compile {
   Compile compileSubroutineBody;
 
   String subroutineName;
+  Keyword subroutineType;
 
-  private String buildCommand(String functionName) {
-    return "function" + " " + className + "." + functionName;
+  private String buildCommand() {
+
+    return "function" + " " + className + "." + subroutineName;
   }
 
   public CompileSubroutineDec(int _tab) {
@@ -31,8 +33,11 @@ public class CompileSubroutineDec extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token,
-            Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD }));
+        if (Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
+          subroutineType = token.getKeyword();
+          return parseToken(token, true);
+        }
+        return fail();
       case 1:
         if (Match.type(token, Keyword.VOID)) {
           {
@@ -57,11 +62,11 @@ public class CompileSubroutineDec extends Compile {
           compileParameterList = new CompileParameterList(tab);
         return handleChildClass(compileParameterList, token);
       case 5:
-        String command = buildCommand(subroutineName);
+        String command = buildCommand();
         return parseToken(command, token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
-          compileSubroutineBody = new CompileSubroutineBody(tab);
+          compileSubroutineBody = new CompileSubroutineBody(tab, subroutineType);
         return handleChildClass(compileSubroutineBody, token);
       case 7:
         resetExpressionsCounts();

@@ -55,13 +55,13 @@ public class SymbolTable {
     return table.size();
   }
 
-  public int getLocalsAmmount() {
-    int vars = 0;
+  public int getKindAmount(SymbolKind kind) {
+    int kinds = 0;
     for (String key : table.keySet()) {
-      if (table.get(key).getKind() == SymbolKind.VAR)
-        vars++;
+      if (table.get(key).getKind() == kind)
+        kinds++;
     }
-    return vars;
+    return kinds;
   }
 
   public void print() {

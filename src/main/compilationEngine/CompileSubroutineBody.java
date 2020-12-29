@@ -6,6 +6,7 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolKind;
 import compilationEngine.util.*;
 
 public class CompileSubroutineBody extends Compile {
@@ -13,13 +14,24 @@ public class CompileSubroutineBody extends Compile {
   Compile compileVarDec;
   Compile compileStatements;
 
-  public CompileSubroutineBody(int _tab) {
+  Keyword subroutineType;
+
+  public CompileSubroutineBody(int _tab, Keyword subroutineType) {
     super(_tab);
+    this.subroutineType = subroutineType;
     wrapperLabel = "subroutineBody";
   }
 
   private String buildCommand(int args) {
-    return " " + args + "\n";
+    String command = " " + args + "\n";
+
+    if (subroutineType == Keyword.CONSTRUCTOR) {
+      command += "push constant " + classSymbolTable.getKindAmount(SymbolKind.FIELD) + "\n";
+      command += "call Memory.alloc 1\n";
+      command += "pop pointer 0\n";
+    }
+
+    return command;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -41,7 +53,7 @@ public class CompileSubroutineBody extends Compile {
           return handleToken(token);
         }
         pos++;
-        return buildCommand(scopedSymbolTable.getLocalsAmmount()) + handleToken(token);
+        return buildCommand(scopedSymbolTable.getKindAmount(SymbolKind.VAR)) + handleToken(token);
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements(tab);
