@@ -32,6 +32,9 @@ public class SymbolEntry {
     return this.kind.toString();
   }
 
+  public SymbolKind getKind() {
+    return this.kind;
+  }
 
   private String parseValue(String str, String label, String tabs) {
     return tabs + "\t" + "<" + label + "> " + str + " </" + label + ">\n";

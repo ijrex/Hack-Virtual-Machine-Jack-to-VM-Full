@@ -44,10 +44,19 @@ public class SymbolTable {
   public SymbolEntry find(Token token) {
     String key = token.getValue();
 
-    if(table.containsKey(key))
+    if (table.containsKey(key))
       return table.get(key);
 
     return null;
+  }
+
+  public int getKindAmount(SymbolKind kind) {
+    int kinds = 0;
+    for (String key : table.keySet()) {
+      if (table.get(key).getKind() == kind)
+        kinds++;
+    }
+    return kinds;
   }
 
   public void print() {
