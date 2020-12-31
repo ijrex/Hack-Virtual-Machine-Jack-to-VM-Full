@@ -19,6 +19,10 @@ public class CompileClass extends Compile {
     wrapperLabel = "class";
   }
 
+  public void setClassName(String _className) {
+    className = _className;
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:

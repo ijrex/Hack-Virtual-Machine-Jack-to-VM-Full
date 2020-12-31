@@ -38,7 +38,7 @@ public class CompileSubroutineDec extends Compile {
         return fail();
       case 2:
         if (Match.identifier(token)) {
-          functionName = token.getValue();
+          functionName = className + "." + token.getValue();
           token.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
           return parseToken(token, true);
         }
