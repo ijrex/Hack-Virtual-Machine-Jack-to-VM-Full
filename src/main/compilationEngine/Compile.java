@@ -16,11 +16,14 @@ public abstract class Compile {
   SymbolTable classSymbolTable;
   SymbolTable scopedSymbolTable;
 
+  // Statics to be reset
+  static String className;
+  static String functionName;
+
   public Compile(int _tab, SymbolTable _classSymbolTable) {
     this.init(_tab, _classSymbolTable);
   }
 
-  
   public Compile(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
     this.init(_tab, _classSymbolTable);
     scopedSymbolTable = _scopedSymbolTable;
@@ -156,10 +159,10 @@ public abstract class Compile {
   protected boolean setIdentifierPropsIfSymbolExists(Token token) {
     SymbolEntry entry = scopedSymbolTable.find(token);
 
-    if(entry == null) 
+    if (entry == null)
       entry = classSymbolTable.find(token);
 
-    if(entry != null) {
+    if (entry != null) {
       token.setIdentifierCat(entry.getKindtoString());
       token.setRunningIndex(entry.getKey());
       return true;
@@ -171,7 +174,7 @@ public abstract class Compile {
   protected void handleIdentifierVarName(Token token) throws IOException {
     boolean isSet = setIdentifierPropsIfSymbolExists(token);
 
-    if(!isSet) {
+    if (!isSet) {
       throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
     }
   }
@@ -179,8 +182,8 @@ public abstract class Compile {
   protected void handleIdentifierClassOrVarName(Token token) throws IOException {
     boolean isSet = setIdentifierPropsIfSymbolExists(token);
 
-    if(!isSet) {
-      token.setIdentifierCat(IdentifierCat.CLASS);            
+    if (!isSet) {
+      token.setIdentifierCat(IdentifierCat.CLASS);
     }
   }
 }

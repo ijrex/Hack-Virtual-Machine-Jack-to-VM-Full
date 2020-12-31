@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
+import compilationEngine.vmwriter.VM;
 
 public class CompileSubroutineBody extends Compile {
 
@@ -45,7 +46,7 @@ public class CompileSubroutineBody extends Compile {
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 5:
-        return postfix();
+        return VM.writeFunction(functionName, -1) + postfix();
       default:
         return fail();
     }

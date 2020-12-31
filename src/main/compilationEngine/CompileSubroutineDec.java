@@ -30,14 +30,15 @@ public class CompileSubroutineDec extends Compile {
         return parseToken(token,
             Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD }));
       case 1:
-        if(Match.type(token, Keyword.VOID)) {
-          if(Match.identifier(token))
+        if (Match.type(token, Keyword.VOID)) {
+          if (Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.CLASS);
           return parseToken(token, true);
         }
         return fail();
       case 2:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
+          functionName = token.getValue();
           token.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
           return parseToken(token, true);
         }
