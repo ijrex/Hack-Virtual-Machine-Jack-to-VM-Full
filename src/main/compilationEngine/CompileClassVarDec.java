@@ -13,8 +13,8 @@ public class CompileClassVarDec extends Compile {
   String varKind;
   String varType;
 
-  public CompileClassVarDec(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileClassVarDec(int _tab) {
+    super(_tab);
     wrapperLabel = "classVarDec";
   }
 

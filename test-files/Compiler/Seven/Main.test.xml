@@ -20,17 +20,6 @@
 		<symbol> ) </symbol>
 		<subroutineBody>
 			<symbol> { </symbol>
-			<varDec>
-				<keyword> var </keyword>
-				<keyword> int </keyword>
-				<symbolEntry>
-					<name> aa </name>
-					<type> int </type>
-					<key> 0 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
-				<symbol> ; </symbol>
-			</varDec>
 			<statements>
 				<doStatement>
 					<keyword> do </keyword>

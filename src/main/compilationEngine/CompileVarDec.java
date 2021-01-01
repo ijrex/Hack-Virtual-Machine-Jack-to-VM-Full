@@ -7,14 +7,13 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileVarDec extends Compile {
   String varType;
 
-  public CompileVarDec(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileVarDec(int _tab) {
+    super(_tab);
     wrapperLabel = "varDec";
   }
 

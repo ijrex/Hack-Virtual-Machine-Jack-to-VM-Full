@@ -6,17 +6,19 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
-import compilationEngine.symboltable.*;
 
 public class CompileClass extends Compile {
 
   Compile compileClassVarDec;
   Compile compileSubroutineDec;
 
-  public CompileClass(int _tab, SymbolTable _classSymbolTable) {
-    super(_tab, _classSymbolTable);
+  public CompileClass(int _tab) {
+    super(_tab);
     wrapperLabel = "class";
+    
+    classSymbolTable = new SymbolTable();
   }
 
   public void setClassName(String _className) {
@@ -39,7 +41,7 @@ public class CompileClass extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 3:
         if (Match.isClassVarDec(token) && compileClassVarDec == null)
-          compileClassVarDec = new CompileClassVarDec(tab, classSymbolTable);
+          compileClassVarDec = new CompileClassVarDec(tab);
         if (compileClassVarDec != null)
           return handleChildClass(compileClassVarDec, token);
         pos++;
@@ -52,7 +54,7 @@ public class CompileClass extends Compile {
         pos++;
       case 5:
         if (Match.isSubroutineDec(token) && compileSubroutineDec == null)
-          compileSubroutineDec = new CompileSubroutineDec(tab, classSymbolTable);
+          compileSubroutineDec = new CompileSubroutineDec(tab);
         if (compileSubroutineDec != null)
           return handleChildClass(compileSubroutineDec, token);
         pos++;

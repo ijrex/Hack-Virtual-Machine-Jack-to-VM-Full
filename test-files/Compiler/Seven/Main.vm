@@ -1,7 +1,1 @@
-				<symbolEntry>
-					<name> aa </name>
-					<type> int </type>
-					<key> 0 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
-function Main.main 1
+function Main.main 0

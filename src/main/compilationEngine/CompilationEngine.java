@@ -2,21 +2,17 @@ package compilationEngine;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import token.*;
 
 public class CompilationEngine {
   CompileClass compileClass;
-
-  SymbolTable classSymbolTable;
 
   public CompilationEngine() {
     this.reset();
   }
 
   public void reset() {
-    classSymbolTable = new SymbolTable();
-    compileClass = new CompileClass(0, classSymbolTable);
+    compileClass = new CompileClass(0);
   }
 
   public String parseToken(Token token) throws IOException {

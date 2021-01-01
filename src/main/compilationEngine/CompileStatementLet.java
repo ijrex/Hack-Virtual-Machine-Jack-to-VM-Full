@@ -6,7 +6,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileStatementLet extends Compile {
@@ -14,8 +13,8 @@ public class CompileStatementLet extends Compile {
   Compile compileExpression1;
   Compile compileExpression2;
 
-  public CompileStatementLet(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileStatementLet(int _tab) {
+    super(_tab);
     wrapperLabel = "letStatement";
   }
 
@@ -33,7 +32,7 @@ public class CompileStatementLet extends Compile {
         return fail();
       case 2:
         if (compileExpression1 == null && Match.symbol(token, Symbol.BRACKET_L)) {
-          compileExpression1 = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
+          compileExpression1 = new CompileExpression(tab);
           return parseToken(token, true, 2);
         }
         if (compileExpression1 != null)
@@ -47,7 +46,7 @@ public class CompileStatementLet extends Compile {
         return parseToken(token, Match.symbol(token, Symbol.EQUALS));
       case 5:
         if (compileExpression2 == null)
-          compileExpression2 = new CompileExpression(tab, classSymbolTable, scopedSymbolTable);
+          compileExpression2 = new CompileExpression(tab);
         return handleChildClass(compileExpression2, token);
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));

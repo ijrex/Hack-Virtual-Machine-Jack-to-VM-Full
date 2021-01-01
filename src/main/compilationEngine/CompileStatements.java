@@ -5,15 +5,14 @@ import tokenlib.Keyword;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.Match;
 
 public class CompileStatements extends Compile {
 
   Compile compileStatement;
 
-  public CompileStatements(int _tab, SymbolTable _classSymbolTable, SymbolTable _scopedSymbolTable) {
-    super(_tab, _classSymbolTable, _scopedSymbolTable);
+  public CompileStatements(int _tab) {
+    super(_tab);
     wrapperLabel = "statements";
   }
 
@@ -27,19 +26,19 @@ public class CompileStatements extends Compile {
 
           switch (statementType) {
             case LET:
-              compileStatement = new CompileStatementLet(tab, classSymbolTable, scopedSymbolTable);
+              compileStatement = new CompileStatementLet(tab);
               break;
             case IF:
-              compileStatement = new CompileStatementIf(tab, classSymbolTable, scopedSymbolTable);
+              compileStatement = new CompileStatementIf(tab);
               break;
             case WHILE:
-              compileStatement = new CompileStatementWhile(tab, classSymbolTable, scopedSymbolTable);
+              compileStatement = new CompileStatementWhile(tab);
               break;
             case DO:
-              compileStatement = new CompileStatementDo(tab, classSymbolTable, scopedSymbolTable);
+              compileStatement = new CompileStatementDo(tab);
               break;
             case RETURN:
-              compileStatement = new CompileStatementReturn(tab, classSymbolTable, scopedSymbolTable);
+              compileStatement = new CompileStatementReturn(tab);
               break;
             default:
               fail();
