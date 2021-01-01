@@ -6,6 +6,7 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.util.*;
+import compilationEngine.vmwriter.VM;
 
 public class CompileTerm extends Compile {
 
@@ -25,8 +26,10 @@ public class CompileTerm extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        if (Match.intConst(token) || Match.stringConst(token) || Match.keywordConst(token))
-          return parseToken(token, true, 500);
+        if (Match.intConst(token))
+          return VM.writePush("constant", token.getValue()) + parseToken(token, true, 500);
+        if (Match.stringConst(token) || Match.keywordConst(token))
+          return VM.writePush("todo", "todo") + parseToken(token, true, 500);
         if (Match.identifier(token)) {
           lookAhead = token;
           pos++;
