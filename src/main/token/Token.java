@@ -56,4 +56,10 @@ public abstract class Token {
   public int getRunningIndex() {
     return -1;
   }
+
+  // intConst only
+
+  public int getIntValue() {
+    return -1;
+  }
 }

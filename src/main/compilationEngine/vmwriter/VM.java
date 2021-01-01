@@ -5,7 +5,7 @@ public class VM {
     return "function " + name + " " + nLocals + "\n";
   }
 
-  public static String writePush(String segment, String index) {
-    return "push " + segment + " " + index +"\n";
+  public static String writePush(String segment, int index) {
+    return "push " + segment + " " + index + "\n";
   }
 }

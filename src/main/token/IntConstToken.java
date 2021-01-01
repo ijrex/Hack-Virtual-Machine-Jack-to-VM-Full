@@ -4,11 +4,13 @@ import tokenlib.*;
 
 public class IntConstToken extends Token {
 
+  int intValue;
+
   public IntConstToken(String value) {
     super(value);
 
     try {
-      int intValue = Integer.parseInt(value);
+      intValue = Integer.parseInt(value);
 
       if (intValue > 32767)
         throw new NumberFormatException();
@@ -20,7 +22,10 @@ public class IntConstToken extends Token {
     }
 
     this.type = TokenType.INT_CONST;
+  }
 
+  public int getIntValue() {
+    return this.intValue;
   }
 
   public String getLabel() {
