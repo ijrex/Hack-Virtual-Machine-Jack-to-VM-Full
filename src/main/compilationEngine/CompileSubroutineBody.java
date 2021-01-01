@@ -39,6 +39,8 @@ public class CompileSubroutineBody extends Compile {
           return handleToken(token);
         }
         pos++;
+        int localsAmount = scopedSymbolTable.getKindAmount(SymbolKind.VAR);
+        return VM.writeFunction(functionName, localsAmount) + handleToken(token);
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements(tab);
@@ -46,8 +48,7 @@ public class CompileSubroutineBody extends Compile {
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 5:
-        int localsAmount = scopedSymbolTable.getKindAmount(SymbolKind.VAR);
-        return VM.writeFunction(functionName, localsAmount) + postfix();
+        return postfix();
       default:
         return fail();
     }
