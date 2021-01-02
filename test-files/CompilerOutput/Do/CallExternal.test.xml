@@ -1,7 +1,7 @@
 <class>
 	<keyword> class </keyword>
 	<identifier>
-		<name> Call </name>
+		<name> CallExternal </name>
 		<category> CLASS_DEC </category>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
