@@ -1,15 +1,50 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Symbol;
 
 import java.io.IOException;
 
 import compilationEngine.util.*;
+import compilationEngine.vmwriter.VM;
 
 public class CompileExpression extends Compile {
 
   Compile compileTerm1;
   Compile compileTerm2;
+
+  String command;
+
+  public static String buildCommand(Token token) {
+    Symbol value = token.getSymbol();
+
+    // Hardware command
+    switch (value) {
+      case PLUS:
+      case MINUS:
+      case MORE_THAN:
+      case LESS_THAN:
+      case AMPERSAND:
+      case EQUALS:
+        return VM.writeArithmetic(value);
+      default:
+        break;
+    }
+
+    // Software command (Math lib)
+    String output;
+
+    switch (value) {
+      case ASTERISK:
+        output = "multiply";
+        break;
+      default:
+        output = "@todo parse " + token.getSymbol();
+        break;
+    }
+
+    return VM.writeCall("Math." + output, 2);
+  }
 
   public CompileExpression(int _tab) {
     super(_tab);
@@ -27,9 +62,10 @@ public class CompileExpression extends Compile {
       case 1:
         if (Match.op(token)) {
           compileTerm1 = null;
+          command = buildCommand(token);
           return parseToken(token, true, 0);
         }
-        return postfix();
+        return command + postfix();
       default:
         return fail();
     }
