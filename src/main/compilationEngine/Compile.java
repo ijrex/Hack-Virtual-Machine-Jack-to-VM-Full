@@ -59,7 +59,7 @@ public abstract class Compile {
   protected String parseSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
     if (pass) {
       pos++;
-      return symbolEntry.parse(tabs());
+      return "";
     }
 
     throw new IOException(parseSymbolEntryError(symbolEntry));
