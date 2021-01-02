@@ -1,0 +1,5 @@
+function Arithmetic.main 0
+push constant 2
+push constant 3
+add
+return

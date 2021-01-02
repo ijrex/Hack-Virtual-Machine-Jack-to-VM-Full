@@ -1,0 +1,5 @@
+class MathLib {
+    function void main() {
+        return 2 * 3;
+    }
+}

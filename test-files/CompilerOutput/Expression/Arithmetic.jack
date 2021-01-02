@@ -1,0 +1,5 @@
+class Arithmetic {
+    function int main() {
+        return 2 + 3;
+    }
+}
