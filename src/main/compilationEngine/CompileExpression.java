@@ -13,7 +13,7 @@ public class CompileExpression extends Compile {
   Compile compileTerm1;
   Compile compileTerm2;
 
-  String command;
+  String command = "";
 
   public static String buildCommand(Token token) {
     Symbol value = token.getSymbol();

@@ -1,0 +1,6 @@
+class Call {
+   function void main() {
+      do Output.printInt(1);
+      return;
+   }
+}
