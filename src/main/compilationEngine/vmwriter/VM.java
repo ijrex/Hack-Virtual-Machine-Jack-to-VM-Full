@@ -11,6 +11,10 @@ public class VM {
     return "push " + segment + " " + index + "\n";
   }
 
+  public static String writePop(String segment, int index) {
+    return "pop " + segment + " " + index + "\n";
+  }
+
   public static String writeCall(String name, int nArgs) {
     return "call " + name + " " + nArgs + "\n";
   }

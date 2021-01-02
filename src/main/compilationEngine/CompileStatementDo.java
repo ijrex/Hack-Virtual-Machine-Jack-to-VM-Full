@@ -19,8 +19,16 @@ public class CompileStatementDo extends Compile {
   }
 
   String subroutineCall;
+  int nArgs;
 
   Token lookahead;
+
+  private String buildCommand() {
+    String command = "";
+    command += VM.writeCall(subroutineCall, nArgs);
+    command += VM.writePop("temp", 0);
+    return command;
+  }
 
   public String handleToken(Token token) throws IOException {
     switch (pos) {
@@ -63,8 +71,8 @@ public class CompileStatementDo extends Compile {
       case 7:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 8:
-        int nArgs = compileExpressionList.getNumArgs();
-        return VM.writeCall(subroutineCall, nArgs) + postfix();
+        nArgs = compileExpressionList.getNumArgs();
+        return buildCommand() + postfix();
       default:
         return fail();
     }
