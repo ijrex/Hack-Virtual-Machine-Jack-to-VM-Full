@@ -7,6 +7,7 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.util.Match;
+import compilationEngine.vmwriter.VM;
 
 public class CompileStatementDo extends Compile {
 
@@ -16,6 +17,8 @@ public class CompileStatementDo extends Compile {
     super(_tab);
     wrapperLabel = "doStatement";
   }
+
+  String subroutineCall;
 
   Token lookahead;
 
@@ -45,6 +48,7 @@ public class CompileStatementDo extends Compile {
       case 3:
         if(Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          subroutineCall = lookahead.getValue() + "." + token.getValue();
           return parseToken(token, true);
         }
         return fail();
@@ -59,7 +63,7 @@ public class CompileStatementDo extends Compile {
       case 7:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 8:
-        return postfix();
+        return VM.writeCall(subroutineCall, -1) + postfix();
       default:
         return fail();
     }
