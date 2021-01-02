@@ -162,25 +162,19 @@
 						</term>
 						<symbol> + </symbol>
 						<term>
-							<symbol> ( </symbol>
-							<expression>
-								<term>
-									<identifier>
-										<name> b </name>
-										<category> ARGUMENT </category>
-										<runningIndex> 1 </runningIndex>
-									</identifier>
-								</term>
-								<symbol> + </symbol>
-								<term>
-									<identifier>
-										<name> c </name>
-										<category> ARGUMENT </category>
-										<runningIndex> 2 </runningIndex>
-									</identifier>
-								</term>
-							</expression>
-							<symbol> ) </symbol>
+							<identifier>
+								<name> b </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+						</term>
+						<symbol> - </symbol>
+						<term>
+							<identifier>
+								<name> c </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
