@@ -9,7 +9,7 @@
  */
 class Main {
 
-   function Cunt main() {
+   function void main() {
       do Output.printInt(1 + (2 * 3));
       return;
    }

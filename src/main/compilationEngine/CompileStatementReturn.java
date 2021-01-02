@@ -18,6 +18,16 @@ public class CompileStatementReturn extends Compile {
     wrapperLabel = "returnStatement";
   }
 
+  private String buildCommand() {
+    String command = "";
+
+    if(returnType.getKeyword() == Keyword.VOID) {
+      command += VM.writePush("constant", 0);
+    }
+
+    return command + VM.writeReturn();
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -36,7 +46,7 @@ public class CompileStatementReturn extends Compile {
       case 3:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 4:
-        return VM.writeReturn() + postfix();
+        return buildCommand() + postfix();
       default:
         return fail();
     }
