@@ -11,9 +11,15 @@ public class CompileExpressionList extends Compile {
 
   Compile compileExpression;
 
+  int numArgs = 0;
+
   public CompileExpressionList(int _tab) {
     super(_tab);
     wrapperLabel = "expressionList";
+  }
+
+  public int getNumArgs() {
+    return numArgs;
   }
 
   public String handleToken(Token token) throws IOException {
@@ -29,6 +35,7 @@ public class CompileExpressionList extends Compile {
           compileExpression = new CompileExpression(tab);
         return handleChildClass(compileExpression, token);
       case 1:
+        numArgs++;
         if (Match.symbol(token, Symbol.COMMA)) {
           compileExpression = null;
           pos--;

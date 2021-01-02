@@ -63,7 +63,8 @@ public class CompileStatementDo extends Compile {
       case 7:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 8:
-        return VM.writeCall(subroutineCall, -1) + postfix();
+        int nArgs = compileExpressionList.getNumArgs();
+        return VM.writeCall(subroutineCall, nArgs) + postfix();
       default:
         return fail();
     }
