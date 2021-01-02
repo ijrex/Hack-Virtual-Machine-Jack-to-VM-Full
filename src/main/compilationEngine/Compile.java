@@ -19,6 +19,7 @@ public abstract class Compile {
   static SymbolTable scopedSymbolTable;
   static String className;
   static String functionName;
+  static Token returnType;
 
   public Compile(int _tab) {
     this.init(_tab);

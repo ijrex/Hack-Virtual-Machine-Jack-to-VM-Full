@@ -43,4 +43,8 @@ public class VM {
 
     return command + "\n";
   }
+
+  public static String writeReturn() {
+    return "return\n";
+  }
 }

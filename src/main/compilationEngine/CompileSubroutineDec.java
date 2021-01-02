@@ -31,6 +31,7 @@ public class CompileSubroutineDec extends Compile {
         if (Match.type(token, Keyword.VOID)) {
           if (Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.CLASS);
+          returnType = token;
           return parseToken(token, true);
         }
         return fail();

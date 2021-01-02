@@ -8,7 +8,11 @@
 	<symbol> { </symbol>
 	<subroutineDec>
 		<keyword> function </keyword>
-		<keyword> void </keyword>
+		<identifier>
+			<name> Cunt </name>
+			<category> CLASS </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
 		<identifier>
 			<name> main </name>
 			<category> SUBROUTINE_DEC </category>

@@ -7,6 +7,7 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.util.Match;
+import compilationEngine.vmwriter.VM;
 
 public class CompileStatementReturn extends Compile {
 
@@ -35,7 +36,7 @@ public class CompileStatementReturn extends Compile {
       case 3:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 4:
-        return postfix();
+        return VM.writeReturn() + postfix();
       default:
         return fail();
     }
