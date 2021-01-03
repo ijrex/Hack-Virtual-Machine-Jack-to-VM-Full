@@ -1,0 +1,4 @@
+function Keyword.main 0
+push constant 0
+not
+return

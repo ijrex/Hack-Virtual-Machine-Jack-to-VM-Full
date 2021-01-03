@@ -1,0 +1,5 @@
+class Keyword {
+    function boolean main() {
+        return true;
+    }
+}

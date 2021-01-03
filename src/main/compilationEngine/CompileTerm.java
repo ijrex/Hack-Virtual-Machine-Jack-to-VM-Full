@@ -1,6 +1,7 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
@@ -41,6 +42,17 @@ public class CompileTerm extends Compile {
     return VM.writePush(location, token.getRunningIndex());
   }
 
+  private String keywordTokenCommand(Keyword keyword) {
+    switch(keyword) {
+      case TRUE:
+        String command = VM.writePush("constant", 0);
+        command += "not\n";
+        return command;
+      default:
+        return null;
+    }
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -48,7 +60,9 @@ public class CompileTerm extends Compile {
       case 0:
         if (Match.intConst(token))
           return VM.writePush("constant", token.getIntValue()) + parseToken(token, true, 500);
-        if (Match.stringConst(token) || Match.keywordConst(token))
+        if (Match.keywordConst(token))
+          return keywordTokenCommand(token.getKeyword()) + parseToken(token, true, 500);
+        if (Match.stringConst(token))
           return VM.writePush("@todo" + token.getType(), -1) + parseToken(token, true, 500);
         if (Match.identifier(token)) {
           lookAhead = token;

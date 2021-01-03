@@ -13,7 +13,8 @@ pop temp 0
 push constant 0
 return
 function Main.convert 3
-push @todoKEYWORD -1
+push constant 0
+not
 pop local 2
 push local 2
 push local 1
@@ -44,8 +45,7 @@ add
 push constant 0
 call Memory.poke 2
 pop temp 0
-push @todoKEYWORD -1
-pop local 2
+nullpop local 2
 push constant 0
 return
 function Main.nextMask 0
