@@ -1,0 +1,8 @@
+function UnaryOp.neg 0
+push constant 1
+neg
+return
+function UnaryOp.not 0
+push constant 1
+not
+return

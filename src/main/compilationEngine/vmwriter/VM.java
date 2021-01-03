@@ -48,6 +48,23 @@ public class VM {
     return command + "\n";
   }
 
+  public static String writeUnaryOp(Symbol symbol) {
+    String command = "";
+
+    switch (symbol) {
+      case MINUS:
+        command = "neg";
+        break;
+      case TILDE:
+        command = "not";
+        break;
+      default:
+        break;
+    }
+
+    return command + "\n";
+  }
+
   public static String writeReturn() {
     return "return\n";
   }

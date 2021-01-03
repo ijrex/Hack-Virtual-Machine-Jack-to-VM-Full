@@ -1,0 +1,10 @@
+class UnaryOp {
+
+    function int neg() {
+        return -1;
+    }
+
+    function int not() {
+        return ~1;
+    }
+}

@@ -58,8 +58,10 @@ public class CompileTerm extends Compile {
         if (Match.symbol(token, Symbol.PARENTHESIS_L))
           return parseToken(token, true, 300);
 
-        if (Match.unaryOp(token))
+        if (Match.unaryOp(token)) {
+          lookAhead = token;
           return parseToken(token, true, 400);
+        }
 
         return fail();
       case 1:
@@ -122,7 +124,7 @@ public class CompileTerm extends Compile {
           compileTerm = new CompileTerm(tab);
         return handleChildClass(compileTerm, token);
       case 401:
-        return postfix();
+        return VM.writeUnaryOp(lookAhead.getSymbol()) + postfix();
 
       case 500:
         return postfix();
