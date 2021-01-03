@@ -1,0 +1,17 @@
+function Variables.local 1
+push constant 1
+pop local 0
+push local 0
+return
+function Variables.arg 1
+push argument 0
+pop local 0
+push local 0
+return
+function Variables.multiple 2
+push argument 0
+pop local 0
+push argument 0
+pop local 1
+push constant 0
+return

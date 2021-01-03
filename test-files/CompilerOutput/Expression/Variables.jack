@@ -1,0 +1,22 @@
+class Variables {
+
+    function int local() {
+        var int value;
+        let value = 1;
+        return value;
+    }
+
+    function int arg(int a) {
+        var int value;
+        let value = a;
+        return value;
+    }
+
+    function void multiple(int a) {
+        var int b;
+        var int c;
+        let b = a;
+        let c = a;
+        return;
+    }
+}

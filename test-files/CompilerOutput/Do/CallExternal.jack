@@ -4,4 +4,5 @@ class CallExternal {
         do Output.printInt(1);
         return;
     }
+    
 }

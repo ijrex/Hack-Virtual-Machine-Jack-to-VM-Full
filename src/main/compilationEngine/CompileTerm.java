@@ -30,6 +30,9 @@ public class CompileTerm extends Compile {
       case ARGUMENT:
         location = "argument";
         break;
+      case VAR:
+        location = "local";
+        break;
       default: 
         location = "@todo: unhandled " + cat;
         break;
