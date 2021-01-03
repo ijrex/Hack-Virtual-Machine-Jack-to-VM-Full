@@ -60,7 +60,7 @@ public class Tokenizer {
       Boolean multilineComment = false;
 
       while (fileScanner.hasNextLine()) {
-        String line = fileScanner.nextLine();
+        String line = fileScanner.nextLine().trim();
 
         if (line.startsWith("/*"))
           multilineComment = true;
