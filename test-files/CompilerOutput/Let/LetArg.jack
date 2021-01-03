@@ -1,0 +1,16 @@
+class LetArg {
+
+    function void assignOne(int a) {
+        var int b;
+        let b = a;
+        return;
+    }
+
+    
+    function void assignMany(int a, int b) {
+        var int c, d;
+        let c = a;
+        let d = b;
+        return;
+    }
+}

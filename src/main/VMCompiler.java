@@ -5,7 +5,7 @@ class VMCompiler {
 
   public static void main(String[] args) {
 
-    String dir = "../../test-files/CompilerOutput/Do/";
+    String dir = "../../test-files/CompilerOutput/Let/";
 
     LoadFiles files = new LoadFiles(dir, "jack");
 

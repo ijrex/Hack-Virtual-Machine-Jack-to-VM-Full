@@ -1,0 +1,12 @@
+function LetVar.assignOne 1
+push constant 1
+pop local 0
+push constant 0
+return
+function LetVar.assignMany 2
+push constant 1
+pop local 0
+push constant 2
+pop local 1
+push constant 0
+return

@@ -7,6 +7,7 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.util.*;
+import compilationEngine.vmwriter.VM;
 
 public class CompileStatementLet extends Compile {
 
@@ -18,6 +19,25 @@ public class CompileStatementLet extends Compile {
     wrapperLabel = "letStatement";
   }
 
+  String command;
+
+  private String buildCommand(Token token) {
+    String location = "";
+
+    IdentifierCat cat = token.getIdentifierCat();
+
+    switch(cat) {
+      case VAR:
+        location = "local";
+        break;
+      default: 
+        location = "@todo: unhandled " + cat;
+        break;
+    }
+
+    return VM.writePop(location, token.getRunningIndex());
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -27,6 +47,7 @@ public class CompileStatementLet extends Compile {
       case 1:
         if(Match.identifier(token)) {
           handleIdentifierVarName(token);
+          command = buildCommand(token);
           return parseToken(token, true);
         }
         return fail();
@@ -51,7 +72,7 @@ public class CompileStatementLet extends Compile {
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 7:
-        return postfix();
+        return command + postfix();
       default:
         return fail();
     }
