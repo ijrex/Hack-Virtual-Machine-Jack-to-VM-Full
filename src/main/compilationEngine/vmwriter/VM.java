@@ -68,4 +68,8 @@ public class VM {
   public static String writeReturn() {
     return "return\n";
   }
+
+  public static String createSubroutineName(String className, String subroutineName) {
+    return className + "." + subroutineName;
+  }
 }

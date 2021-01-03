@@ -56,7 +56,7 @@ public class CompileStatementDo extends Compile {
       case 3:
         if(Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          subroutineCall = lookahead.getValue() + "." + token.getValue();
+          subroutineCall = VM.createSubroutineName(lookahead.getValue(),  token.getValue());
           return parseToken(token, true);
         }
         return fail();

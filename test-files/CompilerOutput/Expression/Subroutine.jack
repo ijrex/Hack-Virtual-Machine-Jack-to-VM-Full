@@ -1,0 +1,5 @@
+class Subroutine {
+    function int main() {
+        return Output.printInt(1);
+    }
+}

@@ -16,6 +16,7 @@ public class CompileTerm extends Compile {
   Compile compileTerm;
 
   Token lookAhead;
+  Token subroutineToken;
 
   public CompileTerm(int _tab) {
     super(_tab);
@@ -51,6 +52,11 @@ public class CompileTerm extends Compile {
       default:
         return null;
     }
+  }
+
+  private String subroutineCallCommand(int nArgs) {
+    String functionCall = VM.createSubroutineName(lookAhead.getValue(), subroutineToken.getValue());
+    return VM.writeCall(functionCall, nArgs);
   }
 
   public String handleToken(Token token) throws IOException {
@@ -101,6 +107,7 @@ public class CompileTerm extends Compile {
       case 100:
         if(Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          subroutineToken = token;
           return parseToken(token, true);
         }
         return fail();
@@ -113,7 +120,8 @@ public class CompileTerm extends Compile {
       case 103:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 104:
-        return postfix();
+        int nArgs = compileExpressionList.getNumArgs();
+        return subroutineCallCommand(nArgs) + postfix();
 
       case 200:
         if (compileExpression == null)

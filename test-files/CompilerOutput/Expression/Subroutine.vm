@@ -1,0 +1,4 @@
+function Subroutine.main 0
+push constant 1
+call Output.printInt 1
+return
