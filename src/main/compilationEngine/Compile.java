@@ -21,6 +21,9 @@ public abstract class Compile {
   static String functionName;
   static Token returnType;
 
+  // VM Label counts
+  static int numWhileStatements = 0;
+
   public Compile(int _tab) {
     this.init(_tab);
   }

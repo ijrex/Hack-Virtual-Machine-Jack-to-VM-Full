@@ -16,7 +16,11 @@ public class CompileStatementWhile extends Compile {
   public CompileStatementWhile(int _tab) {
     super(_tab);
     wrapperLabel = "whileStatement";
+
+    numWhileStatements++;
   }
+
+  String label = "WHILE_EXP" + numWhileStatements;
 
   public String handleToken(Token token) throws IOException {
     switch (pos) {
