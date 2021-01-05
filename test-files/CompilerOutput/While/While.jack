@@ -1,0 +1,10 @@
+class Main {
+    function void main() {
+        var boolean a;
+        let a = true;
+
+        while (a) {
+          let a = false;
+        }
+     }
+}

@@ -1,0 +1,88 @@
+<class>
+	<keyword> class </keyword>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
+	<symbol> { </symbol>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<varDec>
+				<keyword> var </keyword>
+				<keyword> boolean </keyword>
+				<symbolEntry>
+					<name> a </name>
+					<type> boolean </type>
+					<key> 0 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
+			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> VAR </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<keyword> true </keyword>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<whileStatement>
+					<keyword> while </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> a </name>
+								<category> VAR </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> a </name>
+								<category> VAR </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<keyword> false </keyword>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+					</statements>
+					<symbol> } </symbol>
+				</whileStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

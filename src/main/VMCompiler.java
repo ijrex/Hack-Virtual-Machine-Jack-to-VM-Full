@@ -5,7 +5,7 @@ class VMCompiler {
 
   public static void main(String[] args) {
 
-    String dir = "../../test-files/CompilerOutput/Expression/";
+    String dir = "../../test-files/Compiler/ConvertToBin/";
 
     LoadFiles files = new LoadFiles(dir, "jack");
 

@@ -19,6 +19,18 @@ public class VM {
     return "call " + name + " " + nArgs + "\n";
   }
 
+  public static String writeLabel(String name) {
+    return "label " + name + "\n";
+  }
+
+  public static String writeIf(String name) {
+    return "if-goto " + name + "\n";
+  }
+
+  public static String writeGoto(String name) {
+    return "goto " + name + "\n";
+  }
+
   public static String writeArithmetic(Symbol symbol) {
     String command = "";
 
