@@ -6,6 +6,7 @@ label WHILE_EXP0
 push local 0
 not
 if-goto WHILE_END0
-nullpop local 0
+push constant 0
+pop local 0
 goto WHILE_EXP0
 label WHILE_END0

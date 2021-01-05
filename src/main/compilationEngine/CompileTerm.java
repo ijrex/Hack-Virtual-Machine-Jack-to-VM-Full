@@ -28,14 +28,14 @@ public class CompileTerm extends Compile {
 
     IdentifierCat cat = token.getIdentifierCat();
 
-    switch(cat) {
+    switch (cat) {
       case ARGUMENT:
         location = "argument";
         break;
       case VAR:
         location = "local";
         break;
-      default: 
+      default:
         location = "@todo: unhandled " + cat;
         break;
     }
@@ -44,11 +44,13 @@ public class CompileTerm extends Compile {
   }
 
   private String keywordTokenCommand(Keyword keyword) {
-    switch(keyword) {
+    switch (keyword) {
       case TRUE:
         String command = VM.writePush("constant", 0);
         command += "not\n";
         return command;
+      case FALSE:
+        return VM.writePush("constant", 0);
       default:
         return null;
     }
@@ -105,7 +107,7 @@ public class CompileTerm extends Compile {
         }
         return fail();
       case 100:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutineToken = token;
           return parseToken(token, true);
