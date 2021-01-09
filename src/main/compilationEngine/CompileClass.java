@@ -17,7 +17,7 @@ public class CompileClass extends Compile {
   public CompileClass(int _tab) {
     super(_tab);
     wrapperLabel = "class";
-    
+
     classSymbolTable = new SymbolTable();
   }
 

@@ -23,6 +23,7 @@ public abstract class Compile {
 
   // VM Label counts
   static int numWhileStatements = 0;
+  static int numIfStatements = 0;
 
   public Compile(int _tab) {
     this.init(_tab);
@@ -183,6 +184,13 @@ public abstract class Compile {
     if (!isSet) {
       token.setIdentifierCat(IdentifierCat.CLASS);
     }
+  }
+
+  /* Reset statics */
+
+  protected void resetStaticStatements() {
+    numWhileStatements = 0;
+    numIfStatements = 0;
   }
 
   /* Compile Expression List Only */

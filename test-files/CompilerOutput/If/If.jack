@@ -1,0 +1,21 @@
+class If {
+  function boolean standardIf() {
+    var boolean a;
+    let a = true;
+
+    if (a) {
+      return true;
+    }
+  }
+
+  function boolean ifElse() {
+    var boolean a;
+    let a = true;
+
+    if (a) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}

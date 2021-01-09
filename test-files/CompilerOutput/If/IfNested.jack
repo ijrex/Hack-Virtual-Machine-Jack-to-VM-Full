@@ -1,0 +1,13 @@
+class If {
+  function boolean nestedIf() {
+    var boolean a, b;
+    let a = true;
+    let b = true;
+
+    if (a) {
+      if(b) {
+        let a = false;
+      }
+    }
+  }
+}

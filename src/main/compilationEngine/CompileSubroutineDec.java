@@ -55,6 +55,7 @@ public class CompileSubroutineDec extends Compile {
           compileSubroutineBody = new CompileSubroutineBody(tab);
         return handleChildClass(compileSubroutineBody, token);
       case 7:
+        resetStaticStatements();
         return postfix();
       default:
         return fail();

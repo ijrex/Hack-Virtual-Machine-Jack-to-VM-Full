@@ -7,6 +7,7 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.util.*;
+import compilationEngine.vmwriter.VM;
 
 public class CompileStatementIf extends Compile {
 
@@ -17,7 +18,15 @@ public class CompileStatementIf extends Compile {
   public CompileStatementIf(int _tab) {
     super(_tab);
     wrapperLabel = "ifStatement";
+
+    numIfStatements++;
   }
+
+  String labelTrue = "IF_TRUE" + numIfStatements;
+  String labelFalse = "IF_FALSE" + numIfStatements;
+  String labelEnd = "IF_END" + numIfStatements;
+
+  String ifStartCommand = VM.writeIf(labelTrue) + VM.writeGoto(labelFalse) + VM.writeLabel(labelTrue);
 
   public String handleToken(Token token) throws IOException {
     switch (pos) {
@@ -34,17 +43,19 @@ public class CompileStatementIf extends Compile {
       case 3:
         return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 4:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return ifStartCommand + parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
           compileStatements1 = new CompileStatements(tab);
         return handleChildClass(compileStatements1, token);
       case 6:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse)
+            + parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 7:
         if (Match.keyword(token, Keyword.ELSE))
           return parseToken(token, true, 8);
-        return postfix();
+        pos = 11;
+        return handleToken(token);
       case 8:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 9:
@@ -54,7 +65,7 @@ public class CompileStatementIf extends Compile {
       case 10:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 11:
-        return postfix();
+        return VM.writeLabel(labelEnd) + postfix();
       default:
         return fail();
     }
