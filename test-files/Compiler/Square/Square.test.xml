@@ -1,0 +1,1833 @@
+<class>
+	<keyword> class </keyword>
+	<identifier>
+		<name> Square </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
+	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> x </name>
+			<type> int </type>
+			<key> 0 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> , </symbol>
+		<symbolEntry>
+			<name> y </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> size </name>
+			<type> int </type>
+			<key> 2 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<subroutineDec>
+		<keyword> constructor </keyword>
+		<identifier>
+			<name> Square </name>
+			<category> CLASS </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<identifier>
+			<name> new </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+			<keyword> int </keyword>
+			<symbolEntry>
+				<name> Ax </name>
+				<type> int </type>
+				<key> 0 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+			<symbol> , </symbol>
+			<keyword> int </keyword>
+			<symbolEntry>
+				<name> Ay </name>
+				<type> int </type>
+				<key> 1 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+			<symbol> , </symbol>
+			<keyword> int </keyword>
+			<symbolEntry>
+				<name> Asize </name>
+				<type> int </type>
+				<key> 2 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> x </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> Ax </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> y </name>
+						<category> FIELD </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> Ay </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> size </name>
+						<category> FIELD </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> Asize </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> draw </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<expression>
+						<term>
+							<keyword> this </keyword>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> dispose </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Memory </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> deAlloc </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<keyword> this </keyword>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> draw </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> setColor </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<keyword> true </keyword>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> drawRectangle </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+						<symbol> , </symbol>
+						<expression>
+							<term>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+						<symbol> , </symbol>
+						<expression>
+							<term>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
+							</term>
+							<symbol> + </symbol>
+							<term>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+						<symbol> , </symbol>
+						<expression>
+							<term>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
+							</term>
+							<symbol> + </symbol>
+							<term>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> erase </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> setColor </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<keyword> false </keyword>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Screen </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> drawRectangle </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+						<symbol> , </symbol>
+						<expression>
+							<term>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+						<symbol> , </symbol>
+						<expression>
+							<term>
+								<identifier>
+									<name> x </name>
+									<category> FIELD </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
+							</term>
+							<symbol> + </symbol>
+							<term>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+						<symbol> , </symbol>
+						<expression>
+							<term>
+								<identifier>
+									<name> y </name>
+									<category> FIELD </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
+							</term>
+							<symbol> + </symbol>
+							<term>
+								<identifier>
+									<name> size </name>
+									<category> FIELD </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> incSize </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<symbol> ( </symbol>
+							<expression>
+								<term>
+									<symbol> ( </symbol>
+									<expression>
+										<term>
+											<identifier>
+												<name> y </name>
+												<category> FIELD </category>
+												<runningIndex> 1 </runningIndex>
+											</identifier>
+										</term>
+										<symbol> + </symbol>
+										<term>
+											<identifier>
+												<name> size </name>
+												<category> FIELD </category>
+												<runningIndex> 2 </runningIndex>
+											</identifier>
+										</term>
+									</expression>
+									<symbol> ) </symbol>
+								</term>
+								<symbol> < </symbol>
+								<term>
+									<integerConstant> 254 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ) </symbol>
+						</term>
+						<symbol> & </symbol>
+						<term>
+							<symbol> ( </symbol>
+							<expression>
+								<term>
+									<symbol> ( </symbol>
+									<expression>
+										<term>
+											<identifier>
+												<name> x </name>
+												<category> FIELD </category>
+												<runningIndex> 0 </runningIndex>
+											</identifier>
+										</term>
+										<symbol> + </symbol>
+										<term>
+											<identifier>
+												<name> size </name>
+												<category> FIELD </category>
+												<runningIndex> 2 </runningIndex>
+											</identifier>
+										</term>
+									</expression>
+									<symbol> ) </symbol>
+								</term>
+								<symbol> < </symbol>
+								<term>
+									<integerConstant> 510 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ) </symbol>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> erase </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> size </name>
+								<category> FIELD </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<integerConstant> 2 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> draw </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> decSize </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> size </name>
+								<category> FIELD </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+						</term>
+						<symbol> > </symbol>
+						<term>
+							<integerConstant> 2 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> erase </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> size </name>
+								<category> FIELD </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> - </symbol>
+								<term>
+									<integerConstant> 2 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> draw </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> moveUp </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> y </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+						</term>
+						<symbol> > </symbol>
+						<term>
+							<integerConstant> 1 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> false </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<symbol> ( </symbol>
+										<expression>
+											<term>
+												<identifier>
+													<name> y </name>
+													<category> FIELD </category>
+													<runningIndex> 1 </runningIndex>
+												</identifier>
+											</term>
+											<symbol> + </symbol>
+											<term>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
+											</term>
+										</expression>
+										<symbol> ) </symbol>
+									</term>
+									<symbol> - </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> y </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> y </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> - </symbol>
+								<term>
+									<integerConstant> 2 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> true </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> moveDown </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<symbol> ( </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> y </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
+								</term>
+							</expression>
+							<symbol> ) </symbol>
+						</term>
+						<symbol> < </symbol>
+						<term>
+							<integerConstant> 254 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> false </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> y </name>
+								<category> FIELD </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> y </name>
+										<category> FIELD </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<integerConstant> 2 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> true </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<symbol> ( </symbol>
+										<expression>
+											<term>
+												<identifier>
+													<name> y </name>
+													<category> FIELD </category>
+													<runningIndex> 1 </runningIndex>
+												</identifier>
+											</term>
+											<symbol> + </symbol>
+											<term>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
+											</term>
+										</expression>
+										<symbol> ) </symbol>
+									</term>
+									<symbol> - </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> moveLeft </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> x </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+						</term>
+						<symbol> > </symbol>
+						<term>
+							<integerConstant> 1 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> false </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<symbol> ( </symbol>
+										<expression>
+											<term>
+												<identifier>
+													<name> x </name>
+													<category> FIELD </category>
+													<runningIndex> 0 </runningIndex>
+												</identifier>
+											</term>
+											<symbol> + </symbol>
+											<term>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
+											</term>
+										</expression>
+										<symbol> ) </symbol>
+									</term>
+									<symbol> - </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> x </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> x </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> - </symbol>
+								<term>
+									<integerConstant> 2 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> true </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> moveRight </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<symbol> ( </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> x </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<identifier>
+										<name> size </name>
+										<category> FIELD </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
+								</term>
+							</expression>
+							<symbol> ) </symbol>
+						</term>
+						<symbol> < </symbol>
+						<term>
+							<integerConstant> 510 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> false </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> x </name>
+								<category> FIELD </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> x </name>
+										<category> FIELD </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<integerConstant> 2 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> setColor </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<keyword> true </keyword>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Screen </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> drawRectangle </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<symbol> ( </symbol>
+										<expression>
+											<term>
+												<identifier>
+													<name> x </name>
+													<category> FIELD </category>
+													<runningIndex> 0 </runningIndex>
+												</identifier>
+											</term>
+											<symbol> + </symbol>
+											<term>
+												<identifier>
+													<name> size </name>
+													<category> FIELD </category>
+													<runningIndex> 2 </runningIndex>
+												</identifier>
+											</term>
+										</expression>
+										<symbol> ) </symbol>
+									</term>
+									<symbol> - </symbol>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> x </name>
+											<category> FIELD </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<identifier>
+											<name> y </name>
+											<category> FIELD </category>
+											<runningIndex> 1 </runningIndex>
+										</identifier>
+									</term>
+									<symbol> + </symbol>
+									<term>
+										<identifier>
+											<name> size </name>
+											<category> FIELD </category>
+											<runningIndex> 2 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

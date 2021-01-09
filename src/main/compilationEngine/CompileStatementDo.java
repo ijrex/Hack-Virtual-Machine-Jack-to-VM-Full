@@ -30,6 +30,15 @@ public class CompileStatementDo extends Compile {
     return command;
   }
 
+  private String handleSubroutineName(Token className, Token subroutineName) {
+
+    if (lookahead.getRunningIndex() >= 0) {
+      return "@todo: handle class do call " + className.getValue() + ", " + subroutineName.getValue() + ",";
+    }
+
+    return VM.createSubroutineName(className.getValue(), subroutineName.getValue());
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -37,7 +46,7 @@ public class CompileStatementDo extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.DO));
       case 1:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           lookahead = token;
           pos++;
           return "";
@@ -54,9 +63,9 @@ public class CompileStatementDo extends Compile {
         }
         return fail();
       case 3:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          subroutineCall = VM.createSubroutineName(lookahead.getValue(),  token.getValue());
+          subroutineCall = handleSubroutineName(lookahead, token);
           return parseToken(token, true);
         }
         return fail();
