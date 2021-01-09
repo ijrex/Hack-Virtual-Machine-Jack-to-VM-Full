@@ -26,11 +26,14 @@ public class CompileStatementLet extends Compile {
 
     IdentifierCat cat = token.getIdentifierCat();
 
-    switch(cat) {
+    switch (cat) {
+      case ARGUMENT:
+        location = "argument";
+        break;
       case VAR:
         location = "local";
         break;
-      default: 
+      default:
         location = "@todo: unhandled " + cat;
         break;
     }
@@ -45,7 +48,7 @@ public class CompileStatementLet extends Compile {
       case 0:
         return parseToken(token, Match.keyword(token, Keyword.LET));
       case 1:
-        if(Match.identifier(token)) {
+        if (Match.identifier(token)) {
           handleIdentifierVarName(token);
           command = buildCommand(token);
           return parseToken(token, true);
