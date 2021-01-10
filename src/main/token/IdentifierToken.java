@@ -5,6 +5,7 @@ import tokenlib.TokenType;
 public class IdentifierToken extends Token {
 
   IdentifierCat identifierCat = IdentifierCat.NONE;
+  String varType;
   int runningIndex = -1;
 
   public IdentifierToken(String value) {
@@ -22,9 +23,9 @@ public class IdentifierToken extends Token {
     String str = "";
 
     str += tabs + "<" + this.getLabel() + ">\n";
-    str += tabs + "\t" + "<name> " +  this.printValue() + " </name>\n";
-    str += tabs + "\t" + "<category> " +  this.identifierCat + " </category>\n";
-    str += tabs + "\t" + "<runningIndex> " +  this.runningIndex + " </runningIndex>\n";
+    str += tabs + "\t" + "<name> " + this.printValue() + " </name>\n";
+    str += tabs + "\t" + "<category> " + this.identifierCat + " </category>\n";
+    str += tabs + "\t" + "<runningIndex> " + this.runningIndex + " </runningIndex>\n";
     str += tabs + "</" + this.getLabel() + ">\n";
 
     return str;
@@ -35,8 +36,8 @@ public class IdentifierToken extends Token {
   }
 
   public void setIdentifierCat(String t) {
-    for(IdentifierCat i: IdentifierCat.values()) {
-      if(t.equalsIgnoreCase(i.toString())) {
+    for (IdentifierCat i : IdentifierCat.values()) {
+      if (t.equalsIgnoreCase(i.toString())) {
         this.identifierCat = i;
       }
     }
@@ -44,6 +45,14 @@ public class IdentifierToken extends Token {
 
   public IdentifierCat getIdentifierCat() {
     return this.identifierCat;
+  }
+
+  public void setVarType(String t) {
+    this.varType = t;
+  }
+
+  public String getVarType() {
+    return this.varType;
   }
 
   public void setRunningIndex(int x) {

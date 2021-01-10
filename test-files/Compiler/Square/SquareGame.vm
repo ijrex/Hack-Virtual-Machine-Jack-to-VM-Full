@@ -8,7 +8,8 @@ push constant 0
 pop @todo: unhandled FIELD 1
 nullreturn
 function SquareGame.dispose 0
-call @todo: handle class do call square, dispose, 0
+push @todo: handle FIELD 0
+call Square.dispose 1
 pop temp 0
 nullcall Memory.deAlloc 1
 pop temp 0
@@ -21,7 +22,8 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-call @todo: handle class do call square, moveUp, 0
+push @todo: handle FIELD 0
+call Square.moveUp 1
 pop temp 0
 goto IF_END0
 label IF_FALSE0
@@ -32,7 +34,8 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-call @todo: handle class do call square, moveDown, 0
+push @todo: handle FIELD 0
+call Square.moveDown 1
 pop temp 0
 goto IF_END1
 label IF_FALSE1
@@ -43,7 +46,8 @@ eq
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-call @todo: handle class do call square, moveLeft, 0
+push @todo: handle FIELD 0
+call Square.moveLeft 1
 pop temp 0
 goto IF_END2
 label IF_FALSE2
@@ -54,7 +58,8 @@ eq
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
-call @todo: handle class do call square, moveRight, 0
+push @todo: handle FIELD 0
+call Square.moveRight 1
 pop temp 0
 goto IF_END3
 label IF_FALSE3
@@ -80,7 +85,7 @@ not
 if-goto WHILE_END1
 call Keyboard.keyPressed 0
 pop local 0
-call null 0
+call moveSquare. 0
 pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
@@ -102,7 +107,8 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-call @todo: handle class do call square, decSize, 0
+push @todo: handle FIELD 0
+call Square.decSize 1
 pop temp 0
 goto IF_END1
 label IF_FALSE1
@@ -113,7 +119,8 @@ eq
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-call @todo: handle class do call square, incSize, 0
+push @todo: handle FIELD 0
+call Square.incSize 1
 pop temp 0
 goto IF_END2
 label IF_FALSE2
@@ -171,7 +178,7 @@ not
 if-goto WHILE_END2
 call Keyboard.keyPressed 0
 pop local 0
-call null 0
+call moveSquare. 0
 pop temp 0
 goto WHILE_EXP2
 label WHILE_END2

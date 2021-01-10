@@ -164,6 +164,7 @@ public abstract class Compile {
     if (entry != null) {
       token.setIdentifierCat(entry.getKindtoString());
       token.setRunningIndex(entry.getKey());
+      token.setVarType(entry.getType());
       return true;
     }
 

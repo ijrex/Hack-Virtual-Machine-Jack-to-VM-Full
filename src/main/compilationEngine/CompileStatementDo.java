@@ -18,26 +18,82 @@ public class CompileStatementDo extends Compile {
     wrapperLabel = "doStatement";
   }
 
-  String subroutineCall;
   int nArgs;
 
   Token lookahead;
+  Token subroutine;
 
   private String buildCommand() {
     String command = "";
+    String subroutineCallName = "";
+    String callClassName = lookahead.getValue();
+
+    // @todo: handle do statements with no subroutine
+    if (subroutine != null) {
+      subroutineCallName = subroutine.getValue();
+    }
+
+    int runningIndex = lookahead.getRunningIndex();
+
+    if (runningIndex >= 0) {
+      callClassName = lookahead.getVarType();
+
+      nArgs++;
+
+      IdentifierCat identifierCat = lookahead.getIdentifierCat();
+      String location;
+
+      switch (identifierCat) {
+        case VAR:
+          location = "local";
+          break;
+        default:
+          location = "@todo: handle " + identifierCat.toString();
+      }
+
+      command += VM.writePush(location, runningIndex);
+    }
+
+    String subroutineCall = VM.createSubroutineName(callClassName, subroutineCallName);
+
     command += VM.writeCall(subroutineCall, nArgs);
     command += VM.writePop("temp", 0);
     return command;
   }
 
-  private String handleSubroutineName(Token className, Token subroutineName) {
+  // private String handleSubroutineName(Token className, Token subroutineName) {
 
-    if (lookahead.getRunningIndex() >= 0) {
-      return "@todo: handle class do call " + className.getValue() + ", " + subroutineName.getValue() + ",";
-    }
+  // if (lookahead.getRunningIndex() >= 0) {
+  // return "@todo: handle class do call " + className.getValue() + ", " +
+  // subroutineName.getValue() + ",";
+  // }
 
-    return VM.createSubroutineName(className.getValue(), subroutineName.getValue());
-  }
+  // return VM.createSubroutineName(className.getValue(),
+  // subroutineName.getValue());
+  // }
+
+  // private String buildCommand() {
+  // String command = "";
+
+  // String classCallName = lookahead.getValue();
+  // int runningIndex = lookahead.getRunningIndex();
+
+  // System.out.println(classCallName);
+  // System.out.println(runningIndex);
+  // System.out.println(subroutine.getValue());
+
+  // if (runningIndex >= 0) {
+
+  // classCallName = lookahead.getVarType();
+  // command += VM.writePush("aa", runningIndex);
+  // }
+
+  // String subroutineCall = VM.createSubroutineName(classCallName, "test");
+
+  // command += VM.writeCall(subroutineCall, nArgs);
+  // command += VM.writePop("temp", 0);
+  // return command;
+  // }
 
   public String handleToken(Token token) throws IOException {
     switch (pos) {
@@ -65,7 +121,7 @@ public class CompileStatementDo extends Compile {
       case 3:
         if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          subroutineCall = handleSubroutineName(lookahead, token);
+          subroutine = token;
           return parseToken(token, true);
         }
         return fail();

@@ -32,6 +32,10 @@ public class SymbolEntry {
     return this.kind.toString();
   }
 
+  public String getType() {
+    return this.type.getValue();
+  }
+
   public SymbolKind getKind() {
     return this.kind;
   }

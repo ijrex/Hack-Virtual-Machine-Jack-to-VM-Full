@@ -61,6 +61,13 @@ public abstract class Token {
     return -1;
   }
 
+  public void setVarType(String str) {
+  }
+
+  public String getVarType() {
+    return null;
+  }
+
   // intConst only
 
   public int getIntValue() {
