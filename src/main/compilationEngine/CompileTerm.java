@@ -24,22 +24,7 @@ public class CompileTerm extends Compile {
   }
 
   private String identifierTokenCommand(Token token) {
-    String location = "";
-
-    IdentifierCat cat = token.getIdentifierCat();
-
-    switch (cat) {
-      case ARGUMENT:
-        location = "argument";
-        break;
-      case VAR:
-        location = "local";
-        break;
-      default:
-        location = "@todo: unhandled " + cat;
-        break;
-    }
-
+    String location = VM.parseLocation(token.getIdentifierCat());
     return VM.writePush(location, token.getRunningIndex());
   }
 

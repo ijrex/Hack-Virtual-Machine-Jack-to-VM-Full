@@ -40,16 +40,7 @@ public class CompileStatementDo extends Compile {
 
       nArgs++;
 
-      IdentifierCat identifierCat = lookahead.getIdentifierCat();
-      String location;
-
-      switch (identifierCat) {
-        case VAR:
-          location = "local";
-          break;
-        default:
-          location = "@todo: handle " + identifierCat.toString();
-      }
+      String location = VM.parseLocation(lookahead.getIdentifierCat());
 
       command += VM.writePush(location, runningIndex);
     }

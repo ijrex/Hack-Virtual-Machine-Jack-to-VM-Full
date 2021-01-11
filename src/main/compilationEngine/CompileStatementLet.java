@@ -22,22 +22,7 @@ public class CompileStatementLet extends Compile {
   String command;
 
   private String buildCommand(Token token) {
-    String location = "";
-
-    IdentifierCat cat = token.getIdentifierCat();
-
-    switch (cat) {
-      case ARGUMENT:
-        location = "argument";
-        break;
-      case VAR:
-        location = "local";
-        break;
-      default:
-        location = "@todo: unhandled " + cat;
-        break;
-    }
-
+    String location = VM.parseLocation(token.getIdentifierCat());
     return VM.writePop(location, token.getRunningIndex());
   }
 

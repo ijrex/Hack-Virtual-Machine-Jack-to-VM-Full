@@ -1,5 +1,6 @@
 package compilationEngine.vmwriter;
 
+import token.IdentifierCat;
 import tokenlib.Symbol;
 
 public class VM {
@@ -83,5 +84,16 @@ public class VM {
 
   public static String createSubroutineName(String className, String subroutineName) {
     return className + "." + subroutineName;
+  }
+
+  public static String parseLocation(IdentifierCat location) {
+    switch (location) {
+      case ARGUMENT:
+        return "argument";
+      case VAR:
+        return "local";
+      default:
+        return "@todo: unhandled " + location;
+    }
   }
 }
