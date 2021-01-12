@@ -52,40 +52,6 @@ public class CompileStatementDo extends Compile {
     return command;
   }
 
-  // private String handleSubroutineName(Token className, Token subroutineName) {
-
-  // if (lookahead.getRunningIndex() >= 0) {
-  // return "@todo: handle class do call " + className.getValue() + ", " +
-  // subroutineName.getValue() + ",";
-  // }
-
-  // return VM.createSubroutineName(className.getValue(),
-  // subroutineName.getValue());
-  // }
-
-  // private String buildCommand() {
-  // String command = "";
-
-  // String classCallName = lookahead.getValue();
-  // int runningIndex = lookahead.getRunningIndex();
-
-  // System.out.println(classCallName);
-  // System.out.println(runningIndex);
-  // System.out.println(subroutine.getValue());
-
-  // if (runningIndex >= 0) {
-
-  // classCallName = lookahead.getVarType();
-  // command += VM.writePush("aa", runningIndex);
-  // }
-
-  // String subroutineCall = VM.createSubroutineName(classCallName, "test");
-
-  // command += VM.writeCall(subroutineCall, nArgs);
-  // command += VM.writePop("temp", 0);
-  // return command;
-  // }
-
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
