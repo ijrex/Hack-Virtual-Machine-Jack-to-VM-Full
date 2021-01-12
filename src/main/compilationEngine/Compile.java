@@ -23,7 +23,7 @@ public abstract class Compile {
   static Keyword functionType;
   static Token returnType;
 
-  static int numParamArgs = 0;
+  static int numFieldVars = 0;
   static int numLocals = 0;
 
   // VM Label counts
@@ -197,7 +197,7 @@ public abstract class Compile {
   protected void resetStaticStatements() {
     numWhileStatements = 0;
     numIfStatements = 0;
-    numParamArgs = 0;
+    numFieldVars = 0;
     numLocals = 0;
   }
 

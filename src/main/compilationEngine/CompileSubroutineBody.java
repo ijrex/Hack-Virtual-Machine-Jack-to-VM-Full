@@ -24,7 +24,7 @@ public class CompileSubroutineBody extends Compile {
     String command = VM.writeFunction(functionName, numLocals);
 
     if (functionType == Keyword.CONSTRUCTOR) {
-      command += VM.writePush("constant", numParamArgs);
+      command += VM.writePush("constant", numFieldVars);
       command += VM.writeCall("Memory.alloc", 1);
       command += VM.writePop("pointer", 0);
     }

@@ -1,0 +1,13 @@
+class TestObj {
+   field int a;
+   field int b;
+
+   constructor TestObj new() {
+      let a = 0;
+      let b = 0;
+      return this;
+   }
+}
+
+
+

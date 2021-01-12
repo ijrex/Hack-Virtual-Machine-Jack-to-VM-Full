@@ -30,7 +30,7 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 1:
         if (Match.type(token)) {
-          if(Match.identifier(token))
+          if (Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
           return parseToken(token, true);
@@ -39,6 +39,7 @@ public class CompileClassVarDec extends Compile {
       case 2:
         if (Match.identifier(token)) {
           // @todo: Check for duplicate and throw error
+          numFieldVars++;
           SymbolEntry symbolEntry = classSymbolTable.add(token, varType, varKind);
           return parseSymbolEntry(symbolEntry, true);
         }
