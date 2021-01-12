@@ -1,6 +1,7 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Keyword;
 
 import java.io.IOException;
 
@@ -19,7 +20,11 @@ public abstract class Compile {
   static SymbolTable scopedSymbolTable;
   static String className;
   static String functionName;
+  static Keyword functionType;
   static Token returnType;
+
+  static int numParamArgs = 0;
+  static int numLocals = 0;
 
   // VM Label counts
   static int numWhileStatements = 0;
@@ -192,6 +197,8 @@ public abstract class Compile {
   protected void resetStaticStatements() {
     numWhileStatements = 0;
     numIfStatements = 0;
+    numParamArgs = 0;
+    numLocals = 0;
   }
 
   /* Compile Expression List Only */

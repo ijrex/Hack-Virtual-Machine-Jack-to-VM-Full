@@ -25,8 +25,11 @@ public class CompileSubroutineDec extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token,
-            Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD }));
+        if (Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
+          functionType = token.getKeyword();
+          return parseToken(token, true);
+        }
+        return fail();
       case 1:
         if (Match.type(token, Keyword.VOID)) {
           if (Match.identifier(token))

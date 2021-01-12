@@ -28,6 +28,7 @@ public class CompileParameterList extends Compile {
       case 0:
         if (Match.type(token)) {
           varType = token.getValue();
+          numParamArgs++;
           return parseToken(token, true);
         }
       case 1:

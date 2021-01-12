@@ -20,6 +20,18 @@ public class CompileSubroutineBody extends Compile {
     wrapperLabel = "subroutineBody";
   }
 
+  private String buildCommand() {
+    String command = VM.writeFunction(functionName, numLocals);
+
+    if (functionType == Keyword.CONSTRUCTOR) {
+      command += VM.writePush("constant", numParamArgs);
+      command += VM.writeCall("Memory.alloc", 1);
+      command += VM.writePop("pointer", 0);
+    }
+
+    return command;
+  }
+
   public String handleToken(Token token) throws IOException {
     switch (pos) {
       case -1:
@@ -39,8 +51,8 @@ public class CompileSubroutineBody extends Compile {
           return handleToken(token);
         }
         pos++;
-        int localsAmount = scopedSymbolTable.getKindAmount(SymbolKind.VAR);
-        return VM.writeFunction(functionName, localsAmount) + handleToken(token);
+        numLocals = scopedSymbolTable.getKindAmount(SymbolKind.VAR);
+        return buildCommand() + handleToken(token);
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements(tab);

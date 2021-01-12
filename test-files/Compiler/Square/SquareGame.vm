@@ -1,5 +1,8 @@
 function SquareGame.new 0
 push constant 0
+call Memory.alloc 1
+pop pointer 0
+push constant 0
 push constant 0
 push constant 30
 call Square.new 3
