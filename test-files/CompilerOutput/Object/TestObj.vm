@@ -3,7 +3,7 @@ push constant 2
 call Memory.alloc 1
 pop pointer 0
 push constant 0
-pop @todo: unhandled FIELD 0
+pop this 0
 push constant 0
-pop @todo: unhandled FIELD 1
+pop this 1
 nullreturn

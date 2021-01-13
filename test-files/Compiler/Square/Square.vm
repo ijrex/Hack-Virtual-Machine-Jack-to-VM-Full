@@ -8,7 +8,8 @@ push argument 1
 pop this 1
 push argument 2
 pop this 2
-call draw. 0
+push pointer 0
+call Square.draw 1
 pop temp 0
 nullreturn
 function Square.dispose 0
@@ -64,13 +65,15 @@ and
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-call erase. 0
+push pointer 0
+call Square.erase 1
 pop temp 0
 push this 2
 push constant 2
 add
 pop this 2
-call draw. 0
+push pointer 0
+call Square.draw 1
 pop temp 0
 goto IF_END0
 label IF_FALSE0
@@ -84,13 +87,15 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-call erase. 0
+push pointer 0
+call Square.erase 1
 pop temp 0
 push this 2
 push constant 2
 sub
 pop this 2
-call draw. 0
+push pointer 0
+call Square.draw 1
 pop temp 0
 goto IF_END0
 label IF_FALSE0

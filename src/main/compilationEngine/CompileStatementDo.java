@@ -26,23 +26,29 @@ public class CompileStatementDo extends Compile {
   private String buildCommand() {
     String command = "";
     String subroutineCallName = "";
-    String callClassName = lookahead.getValue();
+    String callClassName = "";
 
-    // @todo: handle do statements with no subroutine
-    if (subroutine != null) {
-      subroutineCallName = subroutine.getValue();
-    }
-
-    int runningIndex = lookahead.getRunningIndex();
-
-    if (runningIndex >= 0) {
-      callClassName = lookahead.getVarType();
-
+    if (subroutine == null) {
+      // Internal method call
+      subroutineCallName = lookahead.getValue();
+      callClassName = className;
       nArgs++;
+      command += VM.writePush("pointer", 0);
+    } else {
+      callClassName = lookahead.getValue();
+      subroutineCallName = subroutine.getValue();
 
-      String location = VM.parseLocation(lookahead.getIdentifierCat());
+      int runningIndex = lookahead.getRunningIndex();
 
-      command += VM.writePush(location, runningIndex);
+      if (runningIndex >= 0) {
+        callClassName = lookahead.getVarType();
+
+        nArgs++;
+
+        String location = VM.parseLocation(lookahead.getIdentifierCat());
+
+        command += VM.writePush(location, runningIndex);
+      }
     }
 
     String subroutineCall = VM.createSubroutineName(callClassName, subroutineCallName);
