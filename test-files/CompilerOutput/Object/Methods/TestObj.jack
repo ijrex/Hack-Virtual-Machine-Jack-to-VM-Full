@@ -1,0 +1,23 @@
+class TestObj {
+   field int a;
+
+   constructor TestObj new() {
+      return this;
+   }
+
+   method int returnA(){
+      return a;
+   }
+
+   method void doNothing(){
+      return;
+   }
+
+   method void internalMethod(){
+      do doNothing();
+      return;
+   }
+}
+
+
+

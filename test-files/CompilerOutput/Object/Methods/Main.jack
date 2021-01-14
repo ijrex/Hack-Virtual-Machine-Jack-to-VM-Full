@@ -1,0 +1,9 @@
+class Main {
+  function void main() {
+    var TestObj testObj;
+    let testObj = TestObj.new();
+    do testObj.returnA();
+    do testObj.doNothing();
+    return;
+  }
+}
