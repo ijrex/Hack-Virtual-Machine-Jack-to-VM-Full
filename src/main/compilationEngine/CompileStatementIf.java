@@ -49,13 +49,12 @@ public class CompileStatementIf extends Compile {
           compileStatements1 = new CompileStatements(tab);
         return handleChildClass(compileStatements1, token);
       case 6:
-        return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse)
-            + parseToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 7:
-        if (Match.keyword(token, Keyword.ELSE))
-          return parseToken(token, true, 8);
-        pos = 11;
-        return handleToken(token);
+        if (Match.keyword(token, Keyword.ELSE)) {
+          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + parseToken(token, true, 8);
+        }
+        return VM.writeLabel(labelFalse) + postfix();
       case 8:
         return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 9:
