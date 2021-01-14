@@ -14,9 +14,17 @@ push argument 0
 pop pointer 0
 push constant 0
 return
-function TestObj.internalMethod 0
+@todo: handle symbol table with method
+@todo: handle symbol table with method
+function TestObj.internalMethod 3
 push argument 0
 pop pointer 0
+push constant 1
+pop local 0
+push constant 1
+pop argument 0
+push constant 1
+pop argument 1
 push pointer 0
 call TestObj.doNothing 1
 pop temp 0

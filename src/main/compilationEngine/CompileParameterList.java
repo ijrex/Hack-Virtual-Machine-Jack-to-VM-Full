@@ -1,6 +1,7 @@
 package compilationEngine;
 
 import token.*;
+import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
@@ -28,7 +29,14 @@ public class CompileParameterList extends Compile {
       case 0:
         if (Match.type(token)) {
           varType = token.getValue();
-          return parseToken(token, true);
+
+          String command = "";
+
+          if(functionType == Keyword.METHOD) {
+            command += "@todo: handle symbol table with method\n";
+          }
+
+          return command + parseToken(token, true);
         }
       case 1:
         if (Match.identifier(token)) {

@@ -13,7 +13,11 @@ class TestObj {
       return;
    }
 
-   method void internalMethod(){
+   method void internalMethod(int e, int f){
+      var int b, c, d;
+      let b = 1;
+      let e = 1;
+      let f = 1;
       do doNothing();
       return;
    }
