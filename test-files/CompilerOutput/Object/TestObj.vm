@@ -6,4 +6,5 @@ push constant 0
 pop this 0
 push constant 0
 pop this 1
-nullreturn
+push pointer 0
+return

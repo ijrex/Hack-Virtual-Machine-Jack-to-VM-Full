@@ -11,9 +11,11 @@ pop this 2
 push pointer 0
 call Square.draw 1
 pop temp 0
-nullreturn
+push pointer 0
+return
 function Square.dispose 0
-nullcall Memory.deAlloc 1
+push pointer 0
+call Memory.deAlloc 1
 pop temp 0
 push constant 0
 return

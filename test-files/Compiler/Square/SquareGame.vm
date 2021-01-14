@@ -9,12 +9,14 @@ call Square.new 3
 pop this 0
 push constant 0
 pop this 1
-nullreturn
+push pointer 0
+return
 function SquareGame.dispose 0
 push this 0
 call Square.dispose 1
 pop temp 0
-nullcall Memory.deAlloc 1
+push pointer 0
+call Memory.deAlloc 1
 pop temp 0
 push constant 0
 return
