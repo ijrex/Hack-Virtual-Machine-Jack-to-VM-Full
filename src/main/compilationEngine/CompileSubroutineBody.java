@@ -29,6 +29,11 @@ public class CompileSubroutineBody extends Compile {
       command += VM.writePop("pointer", 0);
     }
 
+    if (functionType == Keyword.METHOD) {
+      command += VM.writePush("argument", 0);
+      command += VM.writePop("pointer", 0);
+    }
+
     return command;
   }
 
