@@ -34,12 +34,13 @@ public class CompileTerm extends Compile {
         String command = VM.writePush("constant", 0);
         command += "not\n";
         return command;
-      case FALSE:
-        return VM.writePush("constant", 0);
       case THIS:
         return VM.writePush("pointer", 0);
+        case NULL:
+        case FALSE:
+          return VM.writePush("constant", 0);
       default:
-        return null + "/n";
+        return null + "\n";
     }
   }
 
