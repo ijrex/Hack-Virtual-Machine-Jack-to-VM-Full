@@ -19,11 +19,28 @@ public class CompileStatementLet extends Compile {
     wrapperLabel = "letStatement";
   }
 
-  String command;
+  Token varToken;
+  Boolean isArray = false;
 
-  private String buildCommand(Token token) {
-    String location = VM.parseLocation(token.getIdentifierCat());
-    return VM.writePop(location, token.getRunningIndex());
+
+  private String buildArrayLocationCommand() {
+    String location = VM.parseLocation(varToken.getIdentifierCat());
+    String command = VM.writePush(location, varToken.getRunningIndex());
+    command += "add\n";
+    return command;
+  }
+
+  private String buildAssignmentCommand() {
+    if(isArray) {
+      String command = VM.writePop("temp", 0);
+      command += VM.writePop("pointer", 1);
+      command += VM.writePush("temp", 0);
+      command += VM.writePop("that", 0);
+      return command;
+    }
+
+    String location = VM.parseLocation(varToken.getIdentifierCat());
+    return VM.writePop(location, varToken.getRunningIndex());
   }
 
   public String handleToken(Token token) throws IOException {
@@ -35,12 +52,13 @@ public class CompileStatementLet extends Compile {
       case 1:
         if (Match.identifier(token)) {
           handleIdentifierVarName(token);
-          command = buildCommand(token);
+          varToken = token;
           return parseToken(token, true);
         }
         return fail();
       case 2:
         if (compileExpression1 == null && Match.symbol(token, Symbol.BRACKET_L)) {
+          isArray = true;
           compileExpression1 = new CompileExpression(tab);
           return parseToken(token, true, 2);
         }
@@ -48,8 +66,10 @@ public class CompileStatementLet extends Compile {
           return handleChildClass(compileExpression1, token);
         pos++;
       case 3:
-        if (compileExpression1 != null)
-          return parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
+        if (compileExpression1 != null){
+          String command = buildArrayLocationCommand();
+          return command + parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
+        }
         pos++;
       case 4:
         return parseToken(token, Match.symbol(token, Symbol.EQUALS));
@@ -60,7 +80,7 @@ public class CompileStatementLet extends Compile {
       case 6:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 7:
-        return command + postfix();
+        return buildAssignmentCommand() + postfix();
       default:
         return fail();
     }

@@ -1,0 +1,1260 @@
+<class>
+	<keyword> class </keyword>
+	<identifier>
+		<name> Main </name>
+		<category> CLASS_DEC </category>
+		<runningIndex> -1 </runningIndex>
+	</identifier>
+	<symbol> { </symbol>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> main </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<varDec>
+				<keyword> var </keyword>
+				<identifier>
+					<name> Array </name>
+					<category> SYMBOL_DEC </category>
+					<runningIndex> -1 </runningIndex>
+				</identifier>
+				<symbolEntry>
+					<name> a </name>
+					<type> Array </type>
+					<key> 0 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> , </symbol>
+				<symbolEntry>
+					<name> b </name>
+					<type> Array </type>
+					<key> 1 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> , </symbol>
+				<symbolEntry>
+					<name> c </name>
+					<type> Array </type>
+					<key> 2 </key>
+					<kind> VAR </kind>
+				</symbolEntry>
+				<symbol> ; </symbol>
+			</varDec>
+			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> VAR </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> Array </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> new </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<integerConstant> 10 </integerConstant>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> b </name>
+						<category> VAR </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> Array </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> new </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<integerConstant> 5 </integerConstant>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> c </name>
+						<category> VAR </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> Array </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> new </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> VAR </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> [ </symbol>
+					<expression>
+						<term>
+							<integerConstant> 3 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ] </symbol>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<integerConstant> 2 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> VAR </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> [ </symbol>
+					<expression>
+						<term>
+							<integerConstant> 4 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ] </symbol>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<integerConstant> 8 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> VAR </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> [ </symbol>
+					<expression>
+						<term>
+							<integerConstant> 5 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ] </symbol>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<integerConstant> 4 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> b </name>
+						<category> VAR </category>
+						<runningIndex> 1 </runningIndex>
+					</identifier>
+					<symbol> [ </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> a </name>
+								<category> VAR </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<integerConstant> 3 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ] </symbol>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> a </name>
+								<category> VAR </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<integerConstant> 3 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+						<symbol> + </symbol>
+						<term>
+							<integerConstant> 3 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> VAR </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> [ </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> b </name>
+								<category> VAR </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> a </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<integerConstant> 3 </integerConstant>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ] </symbol>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> a </name>
+								<category> VAR </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> a </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<integerConstant> 5 </integerConstant>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+						<symbol> * </symbol>
+						<term>
+							<identifier>
+								<name> b </name>
+								<category> VAR </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<symbol> ( </symbol>
+									<expression>
+										<term>
+											<symbol> ( </symbol>
+											<expression>
+												<term>
+													<integerConstant> 7 </integerConstant>
+												</term>
+												<symbol> - </symbol>
+												<term>
+													<identifier>
+														<name> a </name>
+														<category> VAR </category>
+														<runningIndex> 0 </runningIndex>
+													</identifier>
+													<symbol> [ </symbol>
+													<expression>
+														<term>
+															<integerConstant> 3 </integerConstant>
+														</term>
+													</expression>
+													<symbol> ] </symbol>
+												</term>
+											</expression>
+											<symbol> ) </symbol>
+										</term>
+										<symbol> - </symbol>
+										<term>
+											<identifier>
+												<name> Main </name>
+												<category> CLASS </category>
+												<runningIndex> -1 </runningIndex>
+											</identifier>
+											<symbol> . </symbol>
+											<identifier>
+												<name> double </name>
+												<category> SUBROUTINE </category>
+												<runningIndex> -1 </runningIndex>
+											</identifier>
+											<symbol> ( </symbol>
+											<expressionList>
+												<expression>
+													<term>
+														<integerConstant> 2 </integerConstant>
+													</term>
+												</expression>
+											</expressionList>
+											<symbol> ) </symbol>
+										</term>
+									</expression>
+									<symbol> ) </symbol>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<integerConstant> 1 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> c </name>
+						<category> VAR </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
+					<symbol> [ </symbol>
+					<expression>
+						<term>
+							<integerConstant> 0 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ] </symbol>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<keyword> null </keyword>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> c </name>
+						<category> VAR </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> c </name>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<integerConstant> 0 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printString </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<stringConstant> Test 1: expected result: 5; actual result:  </stringConstant>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printInt </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<identifier>
+									<name> b </name>
+									<category> VAR </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
+								<symbol> [ </symbol>
+								<expression>
+									<term>
+										<integerConstant> 2 </integerConstant>
+									</term>
+								</expression>
+								<symbol> ] </symbol>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> println </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printString </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<stringConstant> Test 2: expected result: 40; actual result:  </stringConstant>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printInt </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<identifier>
+									<name> a </name>
+									<category> VAR </category>
+									<runningIndex> 0 </runningIndex>
+								</identifier>
+								<symbol> [ </symbol>
+								<expression>
+									<term>
+										<integerConstant> 5 </integerConstant>
+									</term>
+								</expression>
+								<symbol> ] </symbol>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> println </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printString </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<stringConstant> Test 3: expected result: 0; actual result:  </stringConstant>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printInt </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<identifier>
+									<name> c </name>
+									<category> VAR </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> println </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> c </name>
+						<category> VAR </category>
+						<runningIndex> 2 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<keyword> null </keyword>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> c </name>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+						</term>
+						<symbol> = </symbol>
+						<term>
+							<keyword> null </keyword>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<identifier>
+								<name> Main </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> fill </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+								<expression>
+									<term>
+										<identifier>
+											<name> a </name>
+											<category> VAR </category>
+											<runningIndex> 0 </runningIndex>
+										</identifier>
+									</term>
+								</expression>
+								<symbol> , </symbol>
+								<expression>
+									<term>
+										<integerConstant> 10 </integerConstant>
+									</term>
+								</expression>
+							</expressionList>
+							<symbol> ) </symbol>
+							<symbol> ; </symbol>
+						</doStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> c </name>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> a </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<integerConstant> 3 </integerConstant>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> c </name>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<integerConstant> 1 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<integerConstant> 33 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> c </name>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> a </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<integerConstant> 7 </integerConstant>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> c </name>
+								<category> VAR </category>
+								<runningIndex> 2 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<integerConstant> 1 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<integerConstant> 77 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> b </name>
+								<category> VAR </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> a </name>
+										<category> VAR </category>
+										<runningIndex> 0 </runningIndex>
+									</identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<integerConstant> 3 </integerConstant>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> b </name>
+								<category> VAR </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<integerConstant> 1 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> b </name>
+										<category> VAR </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<integerConstant> 1 </integerConstant>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+								<symbol> + </symbol>
+								<term>
+									<identifier>
+										<name> c </name>
+										<category> VAR </category>
+										<runningIndex> 2 </runningIndex>
+									</identifier>
+									<symbol> [ </symbol>
+									<expression>
+										<term>
+											<integerConstant> 1 </integerConstant>
+										</term>
+									</expression>
+									<symbol> ] </symbol>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printString </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<stringConstant> Test 4: expected result: 77; actual result:  </stringConstant>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printInt </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<identifier>
+									<name> c </name>
+									<category> VAR </category>
+									<runningIndex> 2 </runningIndex>
+								</identifier>
+								<symbol> [ </symbol>
+								<expression>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> ] </symbol>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> println </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printString </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<stringConstant> Test 5: expected result: 110; actual result:  </stringConstant>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> printInt </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+						<expression>
+							<term>
+								<identifier>
+									<name> b </name>
+									<category> VAR </category>
+									<runningIndex> 1 </runningIndex>
+								</identifier>
+								<symbol> [ </symbol>
+								<expression>
+									<term>
+										<integerConstant> 1 </integerConstant>
+									</term>
+								</expression>
+								<symbol> ] </symbol>
+							</term>
+						</expression>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<identifier>
+						<name> Output </name>
+						<category> CLASS </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> . </symbol>
+					<identifier>
+						<name> println </name>
+						<category> SUBROUTINE </category>
+						<runningIndex> -1 </runningIndex>
+					</identifier>
+					<symbol> ( </symbol>
+					<expressionList>
+					</expressionList>
+					<symbol> ) </symbol>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> int </keyword>
+		<identifier>
+			<name> double </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+			<keyword> int </keyword>
+			<symbolEntry>
+				<name> a </name>
+				<type> int </type>
+				<key> 0 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<returnStatement>
+					<keyword> return </keyword>
+					<expression>
+						<term>
+							<identifier>
+								<name> a </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+						</term>
+						<symbol> * </symbol>
+						<term>
+							<integerConstant> 2 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> fill </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+			<identifier>
+				<name> Array </name>
+				<category> CLASS </category>
+				<runningIndex> -1 </runningIndex>
+			</identifier>
+			<symbolEntry>
+				<name> a </name>
+				<type> Array </type>
+				<key> 0 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+			<symbol> , </symbol>
+			<keyword> int </keyword>
+			<symbolEntry>
+				<name> size </name>
+				<type> int </type>
+				<key> 1 </key>
+				<kind> ARGUMENT </kind>
+			</symbolEntry>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<whileStatement>
+					<keyword> while </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<identifier>
+								<name> size </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+						</term>
+						<symbol> > </symbol>
+						<term>
+							<integerConstant> 0 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> size </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> size </name>
+										<category> ARGUMENT </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
+								</term>
+								<symbol> - </symbol>
+								<term>
+									<integerConstant> 1 </integerConstant>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+						<letStatement>
+							<keyword> let </keyword>
+							<identifier>
+								<name> a </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
+							<symbol> [ </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> size </name>
+										<category> ARGUMENT </category>
+										<runningIndex> 1 </runningIndex>
+									</identifier>
+								</term>
+							</expression>
+							<symbol> ] </symbol>
+							<symbol> = </symbol>
+							<expression>
+								<term>
+									<identifier>
+										<name> Array </name>
+										<category> CLASS </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
+									<symbol> . </symbol>
+									<identifier>
+										<name> new </name>
+										<category> SUBROUTINE </category>
+										<runningIndex> -1 </runningIndex>
+									</identifier>
+									<symbol> ( </symbol>
+									<expressionList>
+										<expression>
+											<term>
+												<integerConstant> 3 </integerConstant>
+											</term>
+										</expression>
+									</expressionList>
+									<symbol> ) </symbol>
+								</term>
+							</expression>
+							<symbol> ; </symbol>
+						</letStatement>
+					</statements>
+					<symbol> } </symbol>
+				</whileStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>
