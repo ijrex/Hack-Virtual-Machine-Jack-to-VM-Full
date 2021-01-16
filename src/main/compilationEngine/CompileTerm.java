@@ -43,6 +43,15 @@ public class CompileTerm extends Compile {
     }
   }
 
+  private String arrayReferenceCommand() {
+    String location = VM.parseLocation(lookAhead.getIdentifierCat());
+    String command = VM.writePush(location, lookAhead.getRunningIndex());
+    command += "add\n";
+    command += VM.writePop("pointer", 1);
+    command += VM.writePush("that", 0);
+    return command;
+  }
+
   private String subroutineCallCommand(int nArgs) {
     String functionCall = VM.createSubroutineName(lookAhead.getValue(), subroutineToken.getValue());
     return VM.writeCall(functionCall, nArgs);
@@ -117,7 +126,7 @@ public class CompileTerm extends Compile {
           compileExpression = new CompileExpression(tab);
         return handleChildClass(compileExpression, token);
       case 201:
-        return parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
+        return arrayReferenceCommand() + parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
       case 202:
         return postfix();
 
