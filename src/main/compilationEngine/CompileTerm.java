@@ -53,6 +53,26 @@ public class CompileTerm extends Compile {
     return command;
   }
 
+  private String stringCommand(Token token) {
+
+    String command = "";
+
+    String str = token.getValue();
+    String trimmedStr = str.substring(1, str.length() -1);
+    int strLen = trimmedStr.length();
+
+    command += VM.writePush("constant", strLen);
+    command += VM.writeCall("String.new", 1);
+
+    for(int i = 0; i < strLen; i++ ) {
+      int c = trimmedStr.charAt(i);
+      command += VM.writePush("constant", c);
+      command += VM.writeCall("String.appendChar", 2);
+    }
+
+    return command;
+  }
+
   private String subroutineCallCommand(int nArgs) {
     String functionCall = VM.createSubroutineName(lookAhead.getValue(), subroutineToken.getValue());
     return VM.writeCall(functionCall, nArgs);
@@ -67,8 +87,9 @@ public class CompileTerm extends Compile {
           return VM.writePush("constant", token.getIntValue()) + parseToken(token, true, 500);
         if (Match.keywordConst(token))
           return keywordTokenCommand(token.getKeyword()) + parseToken(token, true, 500);
-        if (Match.stringConst(token))
-          return VM.writePush("@todo" + token.getType(), -1) + parseToken(token, true, 500);
+        if (Match.stringConst(token)) {
+          return stringCommand(token) + parseToken(token, true, 500);
+        }
         if (Match.identifier(token)) {
           lookAhead = token;
           pos++;
