@@ -5,7 +5,7 @@ class VMCompiler {
 
   public static void main(String[] args) {
 
-    String dir = "../../test-files/CompilerOutput/String";
+    String dir = "../../test-files/Compiler/Average";
 
     LoadFiles files = new LoadFiles(dir, "jack");
 

@@ -38,6 +38,9 @@ public class CompileExpression extends Compile {
       case ASTERISK:
         output = "multiply";
         break;
+      case SLASH_FWD:
+        output = "divide";
+        break;
       default:
         output = "@todo parse " + token.getSymbol();
         break;
