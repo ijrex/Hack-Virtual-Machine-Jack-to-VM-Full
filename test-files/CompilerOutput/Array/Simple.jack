@@ -1,0 +1,28 @@
+class Simple {
+
+    function void simple() {
+        var Array a;
+        let a = Array.new(10);
+        let a[3] = 2;
+        return;
+    }
+
+    function void multiple() {
+        var Array a, b;
+        let a = Array.new(10);
+        let b = Array.new(10);
+        let a[1] = 1;
+        let b[1] = 1;
+        return;
+    }
+
+    function void nested() {
+        var Array a, b;
+        let a = Array.new(10);
+        let b = Array.new(10);
+        let a[1] = 1;
+        let b[1] = 1;
+        let a[2] = b[a[1]];
+        return;
+    }
+}
