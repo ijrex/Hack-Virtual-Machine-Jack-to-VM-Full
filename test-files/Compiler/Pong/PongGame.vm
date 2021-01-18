@@ -81,11 +81,11 @@ push constant 0
 return
 function PongGame.newInstance 0
 call PongGame.new 0
-pop @todo: unhandled STATIC 0
+pop static 0
 push constant 0
 return
 function PongGame.getInstance 0
-push @todo: unhandled STATIC 0
+push static 0
 return
 function PongGame.run 1
 push argument 0
@@ -214,6 +214,7 @@ return
 function PongGame.moveBall 5
 push argument 0
 pop pointer 0
+@todo: handle method call
 call ball.move 0
 pop this 2
 push this 2
@@ -235,8 +236,10 @@ call bat.getLeft 0
 pop local 1
 call bat.getRight 0
 pop local 2
+@todo: handle method call
 call ball.getLeft 0
 pop local 3
+@todo: handle method call
 call ball.getRight 0
 pop local 4
 push this 2

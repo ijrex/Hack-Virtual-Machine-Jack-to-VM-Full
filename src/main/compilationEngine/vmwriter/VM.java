@@ -94,6 +94,8 @@ public class VM {
         return "local";
       case FIELD:
         return "this";
+      case STATIC:
+        return "static";
       default:
         return "@todo: unhandled " + location;
     }

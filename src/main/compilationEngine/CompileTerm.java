@@ -74,8 +74,15 @@ public class CompileTerm extends Compile {
   }
 
   private String subroutineCallCommand(int nArgs) {
+    String command = "";
+
+    if(lookAhead.getRunningIndex() > 0){
+      command += "@todo: handle method call\n";
+    }
+
     String functionCall = VM.createSubroutineName(lookAhead.getValue(), subroutineToken.getValue());
-    return VM.writeCall(functionCall, nArgs);
+    command += VM.writeCall(functionCall, nArgs);
+    return command;
   }
 
   public String handleToken(Token token) throws IOException {
