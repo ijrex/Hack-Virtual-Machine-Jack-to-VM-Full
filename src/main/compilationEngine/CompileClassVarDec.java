@@ -39,8 +39,10 @@ public class CompileClassVarDec extends Compile {
       case 2:
         if (Match.identifier(token)) {
           // @todo: Check for duplicate and throw error
-          numFieldVars++;
           SymbolEntry symbolEntry = classSymbolTable.add(token, varType, varKind);
+          if(symbolEntry.getKind() == SymbolKind.FIELD) {
+            numFieldVars++;
+          }
           return parseSymbolEntry(symbolEntry, true);
         }
         return fail();
