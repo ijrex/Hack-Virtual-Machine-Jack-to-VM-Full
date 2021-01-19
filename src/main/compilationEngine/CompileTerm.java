@@ -79,14 +79,15 @@ public class CompileTerm extends Compile {
 
     int runningIndex = lookAhead.getRunningIndex();
 
-    if(runningIndex > 0){
+    if(runningIndex >= 0){
       String location = VM.parseLocation(lookAhead.getIdentifierCat());
 
       callClassName = lookAhead.getVarType();
       command += VM.writePush(location, runningIndex);
+      nArgs++;
+    } else {
+      callClassName = lookAhead.getValue();
     }
-
-    callClassName = lookAhead.getValue();
 
     String functionCall = VM.createSubroutineName(callClassName, subroutineToken.getValue());
     command += VM.writeCall(functionCall, nArgs);
