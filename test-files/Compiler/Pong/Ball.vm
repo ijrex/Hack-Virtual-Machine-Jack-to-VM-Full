@@ -341,7 +341,7 @@ push constant 1
 neg
 eq
 and
-call Math.@todo parse PIPE 2
+or
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
@@ -438,9 +438,9 @@ pop local 0
 label IF_END4
 label IF_END3
 label IF_END2
+push pointer 0
 push local 0
 push local 1
-push pointer 0
 call Ball.setDestination 3
 pop temp 0
 push constant 0

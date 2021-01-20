@@ -26,6 +26,7 @@ public class CompileExpression extends Compile {
       case LESS_THAN:
       case AMPERSAND:
       case EQUALS:
+      case PIPE:
         return VM.writeArithmetic(value);
       default:
         break;

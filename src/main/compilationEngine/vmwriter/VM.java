@@ -54,6 +54,9 @@ public class VM {
       case EQUALS:
         command = "eq";
         break;
+      case PIPE:
+        command = "or";
+        break;
       default:
         break;
     }

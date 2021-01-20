@@ -20,9 +20,9 @@ push constant 0
 push constant 229
 call Ball.new 6
 pop this 1
+push this 1
 push constant 400
 push constant 0
-push this 1
 call Ball.setDestination 3
 pop temp 0
 push constant 0
@@ -123,8 +123,8 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push constant 1
 push this 0
+push constant 1
 call Bat.setDirection 2
 pop temp 0
 goto IF_END0
@@ -135,8 +135,8 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push constant 2
 push this 0
+push constant 2
 call Bat.setDirection 2
 pop temp 0
 goto IF_END1
@@ -256,7 +256,7 @@ gt
 push local 2
 push local 3
 lt
-call Math.@todo parse PIPE 2
+or
 pop this 3
 push this 3
 not
@@ -292,8 +292,8 @@ push this 6
 push constant 2
 sub
 pop this 6
-push this 6
 push this 0
+push this 6
 call Bat.setWidth 2
 pop temp 0
 push this 4
@@ -309,8 +309,8 @@ call Output.printInt 1
 pop temp 0
 label IF_FALSE2
 label IF_FALSE1
-push local 0
 push this 1
+push local 0
 call Ball.bounce 2
 pop temp 0
 label IF_FALSE0

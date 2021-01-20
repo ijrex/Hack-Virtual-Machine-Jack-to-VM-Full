@@ -23,37 +23,42 @@ public class CompileStatementDo extends Compile {
   Token lookahead;
   Token subroutine;
 
-  private String buildCommand() {
-    String command = "";
-    String subroutineCallName = "";
-    String callClassName = "";
+  String subroutineCallName;
+  String callClassName;
 
-    if (subroutine == null) {
-      // Internal method call
-      subroutineCallName = lookahead.getValue();
-      callClassName = className;
+  private String buildLocalCommandStart() {
+    // Local method or function call
+    // i.e. foo();
+    nArgs++;
+    callClassName = className;
+    subroutineCallName = lookahead.getValue();
+    return VM.writePush("pointer", 0);
+  }
+
+  private String buildRemoteCommandStart() {
+
+    subroutineCallName = subroutine.getValue();
+
+    // Remote method call
+    // i.e. foo.bar();
+    if (lookahead.getRunningIndex() >= 0) {
       nArgs++;
-      command += VM.writePush("pointer", 0);
-    } else {
-      callClassName = lookahead.getValue();
-      subroutineCallName = subroutine.getValue();
-
-      int runningIndex = lookahead.getRunningIndex();
-
-      if (runningIndex >= 0) {
-        callClassName = lookahead.getVarType();
-
-        nArgs++;
-
-        String location = VM.parseLocation(lookahead.getIdentifierCat());
-
-        command += VM.writePush(location, runningIndex);
-      }
+      callClassName = lookahead.getVarType();
+      String location = VM.parseLocation(lookahead.getIdentifierCat());
+      return VM.writePush(location, lookahead.getRunningIndex());
     }
 
+    // Remote function call
+    // i.e. Foo.bar();
+    callClassName = lookahead.getValue();
+
+    return "";
+  }
+
+  private String buildCommandEnd() {
     String subroutineCall = VM.createSubroutineName(callClassName, subroutineCallName);
 
-    command += VM.writeCall(subroutineCall, nArgs);
+    String command = VM.writeCall(subroutineCall, nArgs);
     command += VM.writePop("temp", 0);
     return command;
   }
@@ -67,25 +72,24 @@ public class CompileStatementDo extends Compile {
       case 1:
         if (Match.identifier(token)) {
           lookahead = token;
-          pos++;
-          return "";
+          return parseToken(token, true);
         }
         return fail();
       case 2:
         if (Match.symbol(token, Symbol.PARENTHESIS_L)) {
           lookahead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          return parseToken(lookahead, true) + parseToken(token, true, 5);
+          return buildLocalCommandStart() + parseToken(token, true, 5);
         }
         if (Match.symbol(token, Symbol.PERIOD)) {
           handleIdentifierClassOrVarName(lookahead);
-          return parseToken(lookahead, true, 2) + parseToken(token, true);
+          return parseToken(token, true);
         }
         return fail();
       case 3:
         if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutine = token;
-          return parseToken(token, true);
+          return buildRemoteCommandStart() + parseToken(token, true);
         }
         return fail();
       case 4:
@@ -99,8 +103,8 @@ public class CompileStatementDo extends Compile {
       case 7:
         return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 8:
-        nArgs = compileExpressionList.getNumArgs();
-        return buildCommand() + postfix();
+        nArgs += compileExpressionList.getNumArgs();
+        return buildCommandEnd() + postfix();
       default:
         return fail();
     }
