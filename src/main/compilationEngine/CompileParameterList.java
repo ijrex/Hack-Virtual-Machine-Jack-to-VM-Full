@@ -7,12 +7,12 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
-import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileParameterList extends Compile {
 
   String varType;
+  Boolean incKeyForMethod = false;
 
   public CompileParameterList(int _tab) {
     super(_tab);
@@ -30,6 +30,11 @@ public class CompileParameterList extends Compile {
       case 0:
         if (Match.type(token)) {
           varType = token.getValue();
+
+          if(!incKeyForMethod && functionType == Keyword.METHOD) {
+            incKeyForMethod = true;
+            scopedSymbolTable.incKey();
+          }
           return  parseToken(token, true);
         }
       case 1:

@@ -27,9 +27,6 @@ public class CompileSubroutineDec extends Compile {
       case 0:
         if (Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
           functionType = token.getKeyword();
-          if(functionType == Keyword.METHOD) {
-            scopedSymbolTable.incKey();
-          }
           return parseToken(token, true);
         }
         return fail();
