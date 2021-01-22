@@ -7,6 +7,7 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
+import compilationEngine.symboltable.SymbolTable;
 import compilationEngine.util.*;
 
 public class CompileParameterList extends Compile {
@@ -29,14 +30,7 @@ public class CompileParameterList extends Compile {
       case 0:
         if (Match.type(token)) {
           varType = token.getValue();
-
-          String command = "";
-
-          if(functionType == Keyword.METHOD) {
-            command += "@todo: handle symbol table with method\n";
-          }
-
-          return command + parseToken(token, true);
+          return  parseToken(token, true);
         }
       case 1:
         if (Match.identifier(token)) {

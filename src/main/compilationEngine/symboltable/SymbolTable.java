@@ -41,6 +41,10 @@ public class SymbolTable {
     return table.get(value);
   }
 
+  public void incKey() {
+    key++;
+  }
+
   public SymbolEntry find(Token token) {
     String key = token.getValue();
 
