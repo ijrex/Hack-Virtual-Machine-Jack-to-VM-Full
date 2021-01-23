@@ -1,0 +1,30 @@
+class Methods {
+   field int a;
+   field int b;
+
+   constructor Methods new() {
+      let a = 0;
+      return this;
+   }
+
+    method int simple() {
+      let a = 1;
+      return a;
+    }
+
+    method void params(int c, int d) {
+        var int e;
+        let a = c;
+        let e = d;
+        return;
+    }
+
+    method void methodCall() {
+        let a = Test.methodCall();
+        do params();
+        return;
+    }
+}
+
+
+

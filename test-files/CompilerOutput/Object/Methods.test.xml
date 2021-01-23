@@ -1,7 +1,7 @@
 <class>
 	<keyword> class </keyword>
 	<identifier>
-		<name> TestObj </name>
+		<name> Methods </name>
 		<category> CLASS_DEC </category>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
@@ -17,10 +17,21 @@
 		</symbolEntry>
 		<symbol> ; </symbol>
 	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<symbolEntry>
+			<name> b </name>
+			<type> int </type>
+			<key> 1 </key>
+			<kind> FIELD </kind>
+		</symbolEntry>
+		<symbol> ; </symbol>
+	</classVarDec>
 	<subroutineDec>
 		<keyword> constructor </keyword>
 		<identifier>
-			<name> TestObj </name>
+			<name> Methods </name>
 			<category> CLASS </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
@@ -36,6 +47,21 @@
 		<subroutineBody>
 			<symbol> { </symbol>
 			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<integerConstant> 0 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
 				<returnStatement>
 					<keyword> return </keyword>
 					<expression>
@@ -53,7 +79,7 @@
 		<keyword> method </keyword>
 		<keyword> int </keyword>
 		<identifier>
-			<name> returnA </name>
+			<name> simple </name>
 			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
@@ -64,6 +90,21 @@
 		<subroutineBody>
 			<symbol> { </symbol>
 			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier>
+						<name> a </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
+					</identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<integerConstant> 1 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
 				<returnStatement>
 					<keyword> return </keyword>
 					<expression>
@@ -85,30 +126,7 @@
 		<keyword> method </keyword>
 		<keyword> void </keyword>
 		<identifier>
-			<name> doNothing </name>
-			<category> SUBROUTINE_DEC </category>
-			<runningIndex> -1 </runningIndex>
-		</identifier>
-		<symbol> ( </symbol>
-		<parameterList>
-		</parameterList>
-		<symbol> ) </symbol>
-		<subroutineBody>
-			<symbol> { </symbol>
-			<statements>
-				<returnStatement>
-					<keyword> return </keyword>
-					<symbol> ; </symbol>
-				</returnStatement>
-			</statements>
-			<symbol> } </symbol>
-		</subroutineBody>
-	</subroutineDec>
-	<subroutineDec>
-		<keyword> method </keyword>
-		<keyword> void </keyword>
-		<identifier>
-			<name> internalMethod </name>
+			<name> params </name>
 			<category> SUBROUTINE_DEC </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
@@ -116,7 +134,7 @@
 		<parameterList>
 			<keyword> int </keyword>
 			<symbolEntry>
-				<name> e </name>
+				<name> c </name>
 				<type> int </type>
 				<key> 0 </key>
 				<kind> ARGUMENT </kind>
@@ -124,7 +142,7 @@
 			<symbol> , </symbol>
 			<keyword> int </keyword>
 			<symbolEntry>
-				<name> f </name>
+				<name> d </name>
 				<type> int </type>
 				<key> 1 </key>
 				<kind> ARGUMENT </kind>
@@ -137,23 +155,9 @@
 				<keyword> var </keyword>
 				<keyword> int </keyword>
 				<symbolEntry>
-					<name> b </name>
+					<name> e </name>
 					<type> int </type>
 					<key> 0 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
-				<symbol> , </symbol>
-				<symbolEntry>
-					<name> c </name>
-					<type> int </type>
-					<key> 1 </key>
-					<kind> VAR </kind>
-				</symbolEntry>
-				<symbol> , </symbol>
-				<symbolEntry>
-					<name> d </name>
-					<type> int </type>
-					<key> 2 </key>
 					<kind> VAR </kind>
 				</symbolEntry>
 				<symbol> ; </symbol>
@@ -162,14 +166,18 @@
 				<letStatement>
 					<keyword> let </keyword>
 					<identifier>
-						<name> b </name>
-						<category> VAR </category>
+						<name> a </name>
+						<category> FIELD </category>
 						<runningIndex> 0 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<integerConstant> 1 </integerConstant>
+							<identifier>
+								<name> c </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 0 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
@@ -178,28 +186,69 @@
 					<keyword> let </keyword>
 					<identifier>
 						<name> e </name>
-						<category> ARGUMENT </category>
+						<category> VAR </category>
 						<runningIndex> 0 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<integerConstant> 1 </integerConstant>
+							<identifier>
+								<name> d </name>
+								<category> ARGUMENT </category>
+								<runningIndex> 1 </runningIndex>
+							</identifier>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier>
+			<name> methodCall </name>
+			<category> SUBROUTINE_DEC </category>
+			<runningIndex> -1 </runningIndex>
+		</identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
 				<letStatement>
 					<keyword> let </keyword>
 					<identifier>
-						<name> f </name>
-						<category> ARGUMENT </category>
-						<runningIndex> 1 </runningIndex>
+						<name> a </name>
+						<category> FIELD </category>
+						<runningIndex> 0 </runningIndex>
 					</identifier>
 					<symbol> = </symbol>
 					<expression>
 						<term>
-							<integerConstant> 1 </integerConstant>
+							<identifier>
+								<name> Test </name>
+								<category> CLASS </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> . </symbol>
+							<identifier>
+								<name> methodCall </name>
+								<category> SUBROUTINE </category>
+								<runningIndex> -1 </runningIndex>
+							</identifier>
+							<symbol> ( </symbol>
+							<expressionList>
+							</expressionList>
+							<symbol> ) </symbol>
 						</term>
 					</expression>
 					<symbol> ; </symbol>
@@ -207,7 +256,7 @@
 				<doStatement>
 					<keyword> do </keyword>
 					<identifier>
-						<name> doNothing </name>
+						<name> params </name>
 						<category> SUBROUTINE </category>
 						<runningIndex> -1 </runningIndex>
 					</identifier>

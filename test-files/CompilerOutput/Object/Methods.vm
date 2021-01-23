@@ -1,0 +1,34 @@
+function Methods.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 0
+push pointer 0
+return
+function Methods.simple 0
+push argument 0
+pop pointer 0
+push constant 1
+pop this 0
+push this 0
+return
+function Methods.params 1
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push argument 2
+pop local 0
+push constant 0
+return
+function Methods.methodCall 0
+push argument 0
+pop pointer 0
+call Test.methodCall 0
+pop this 0
+push pointer 0
+call Methods.params 1
+pop temp 0
+push constant 0
+return

@@ -1,8 +1,8 @@
-class TestObj {
+class Constructor {
    field int a;
    field int b;
 
-   constructor TestObj new() {
+   constructor Constructor new() {
       let a = 0;
       let b = 0;
       return this;

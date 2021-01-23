@@ -1,7 +1,7 @@
 <class>
 	<keyword> class </keyword>
 	<identifier>
-		<name> TestObj </name>
+		<name> Constructor </name>
 		<category> CLASS_DEC </category>
 		<runningIndex> -1 </runningIndex>
 	</identifier>
@@ -31,7 +31,7 @@
 	<subroutineDec>
 		<keyword> constructor </keyword>
 		<identifier>
-			<name> TestObj </name>
+			<name> Constructor </name>
 			<category> CLASS </category>
 			<runningIndex> -1 </runningIndex>
 		</identifier>
