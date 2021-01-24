@@ -13,10 +13,6 @@ public class IdentifierToken extends Token {
     this.type = TokenType.IDENTIFIER;
   }
 
-  public String getLabel() {
-    return "identifier";
-  }
-
   public void setIdentifierCat(IdentifierCat t) {
     this.identifierCat = t;
   }

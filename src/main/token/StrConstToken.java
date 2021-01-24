@@ -8,12 +8,4 @@ public class StrConstToken extends Token {
     super(value);
     this.type = TokenType.STRING_CONST;
   }
-
-  public String getLabel() {
-    return "stringConstant";
-  }
-
-  public String printValue() {
-    return value.substring(1, value.length() - 1);
-  }
 }

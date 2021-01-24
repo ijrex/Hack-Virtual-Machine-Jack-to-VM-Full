@@ -27,8 +27,4 @@ public class IntConstToken extends Token {
   public int getIntValue() {
     return this.intValue;
   }
-
-  public String getLabel() {
-    return "integerConstant";
-  }
 }
