@@ -14,8 +14,7 @@ public class CompileParameterList extends Compile {
   String varType;
   Boolean incKeyForMethod = false;
 
-  public CompileParameterList(int _tab) {
-    super(_tab);
+  public CompileParameterList() {
     wrapperLabel = "parameterList";
   }
 

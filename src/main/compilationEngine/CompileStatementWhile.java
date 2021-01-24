@@ -14,8 +14,7 @@ public class CompileStatementWhile extends Compile {
   Compile compileExpression;
   Compile compileStatements;
 
-  public CompileStatementWhile(int _tab) {
-    super(_tab);
+  public CompileStatementWhile() {
     wrapperLabel = "whileStatement";
 
     numWhileStatements++;
@@ -34,7 +33,7 @@ public class CompileStatementWhile extends Compile {
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression();
         return handleChildClass(compileExpression, token);
       case 3:
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -42,7 +41,7 @@ public class CompileStatementWhile extends Compile {
         return "not\n" + VM.writeIf(labelEnd) + passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements == null)
-          compileStatements = new CompileStatements(tab);
+          compileStatements = new CompileStatements();
         return handleChildClass(compileStatements, token);
       case 6:
         return passToken(token, Match.symbol(token, Symbol.BRACE_R));

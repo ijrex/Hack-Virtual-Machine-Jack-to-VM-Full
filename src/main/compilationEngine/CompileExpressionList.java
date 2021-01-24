@@ -13,8 +13,7 @@ public class CompileExpressionList extends Compile {
 
   int numArgs = 0;
 
-  public CompileExpressionList(int _tab) {
-    super(_tab);
+  public CompileExpressionList() {
     wrapperLabel = "expressionList";
   }
 
@@ -32,7 +31,7 @@ public class CompileExpressionList extends Compile {
         return prefix(token);
       case 0:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression();
         return handleChildClass(compileExpression, token);
       case 1:
         numArgs++;

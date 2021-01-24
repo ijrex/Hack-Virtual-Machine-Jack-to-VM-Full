@@ -12,7 +12,7 @@ public class CompilationEngine {
   }
 
   public void reset() {
-    compileClass = new CompileClass(0);
+    compileClass = new CompileClass();
   }
 
   public String parseToken(Token token) throws IOException {

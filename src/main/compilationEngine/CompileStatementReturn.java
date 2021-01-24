@@ -13,8 +13,7 @@ public class CompileStatementReturn extends Compile {
 
   Compile compileExpression;
 
-  public CompileStatementReturn(int _tab) {
-    super(_tab);
+  public CompileStatementReturn() {
     wrapperLabel = "returnStatement";
   }
 
@@ -40,7 +39,7 @@ public class CompileStatementReturn extends Compile {
         pos++;
       case 2:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression();
         if (compileExpression != null)
           return handleChildClass(compileExpression, token);
       case 3:

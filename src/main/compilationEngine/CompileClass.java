@@ -14,8 +14,7 @@ public class CompileClass extends Compile {
   Compile compileClassVarDec;
   Compile compileSubroutineDec;
 
-  public CompileClass(int _tab) {
-    super(_tab);
+  public CompileClass() {
     wrapperLabel = "class";
 
     classSymbolTable = new SymbolTable();
@@ -41,7 +40,7 @@ public class CompileClass extends Compile {
         return passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 3:
         if (Match.isClassVarDec(token) && compileClassVarDec == null)
-          compileClassVarDec = new CompileClassVarDec(tab);
+          compileClassVarDec = new CompileClassVarDec();
         if (compileClassVarDec != null)
           return handleChildClass(compileClassVarDec, token);
         pos++;
@@ -54,7 +53,7 @@ public class CompileClass extends Compile {
         pos++;
       case 5:
         if (Match.isSubroutineDec(token) && compileSubroutineDec == null)
-          compileSubroutineDec = new CompileSubroutineDec(tab);
+          compileSubroutineDec = new CompileSubroutineDec();
         if (compileSubroutineDec != null)
           return handleChildClass(compileSubroutineDec, token);
         pos++;

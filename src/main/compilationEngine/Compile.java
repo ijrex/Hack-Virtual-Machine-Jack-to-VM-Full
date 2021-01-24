@@ -10,7 +10,6 @@ import compilationEngine.symboltable.SymbolTable;
 
 public abstract class Compile {
   boolean development = false;
-  int tab;
   int pos = -1;
   boolean finished = false;
   String wrapperLabel;
@@ -30,12 +29,11 @@ public abstract class Compile {
   static int numWhileStatements = 0;
   static int numIfStatements = 0;
 
-  public Compile(int _tab) {
-    this.init(_tab);
+  public Compile() {
+    this.init();
   }
 
-  private void init(int _tab) {
-    tab = _tab;
+  private void init() {
     finished = false;
   }
 
@@ -85,19 +83,10 @@ public abstract class Compile {
     return finished;
   }
 
-  protected String tabs() {
-    return "\t".repeat(tab);
-  }
-
-  protected String tabs(int modifier) {
-    return "\t".repeat(tab + modifier);
-  }
-
   /* Prefix */
 
   protected String prefix(Token token, int newPos) throws IOException {
     pos = newPos;
-    tab++;
     return "" + handleToken(token);
   }
 

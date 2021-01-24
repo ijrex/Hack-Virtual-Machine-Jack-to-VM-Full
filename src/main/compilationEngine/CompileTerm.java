@@ -18,8 +18,7 @@ public class CompileTerm extends Compile {
   Token lookAhead;
   Token subroutineToken;
 
-  public CompileTerm(int _tab) {
-    super(_tab);
+  public CompileTerm() {
     wrapperLabel = "term";
   }
 
@@ -159,7 +158,7 @@ public class CompileTerm extends Compile {
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 102:
         if (compileExpressionList == null)
-          compileExpressionList = new CompileExpressionList(tab);
+          compileExpressionList = new CompileExpressionList();
         return handleChildClass(compileExpressionList, token);
       case 103:
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -169,7 +168,7 @@ public class CompileTerm extends Compile {
 
       case 200:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression();
         return handleChildClass(compileExpression, token);
       case 201:
         return arrayReferenceCommand() + passToken(token, Match.symbol(token, Symbol.BRACKET_R));
@@ -178,7 +177,7 @@ public class CompileTerm extends Compile {
 
       case 300:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression();
         return handleChildClass(compileExpression, token);
       case 301:
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -187,7 +186,7 @@ public class CompileTerm extends Compile {
 
       case 400:
         if (compileTerm == null)
-          compileTerm = new CompileTerm(tab);
+          compileTerm = new CompileTerm();
         return handleChildClass(compileTerm, token);
       case 401:
         return VM.writeUnaryOp(lookAhead.getSymbol()) + postfix();

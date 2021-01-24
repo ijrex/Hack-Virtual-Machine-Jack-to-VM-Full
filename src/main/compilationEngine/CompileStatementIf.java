@@ -15,8 +15,7 @@ public class CompileStatementIf extends Compile {
   Compile compileStatements1;
   Compile compileStatements2;
 
-  public CompileStatementIf(int _tab) {
-    super(_tab);
+  public CompileStatementIf() {
     wrapperLabel = "ifStatement";
 
     numIfStatements++;
@@ -38,7 +37,7 @@ public class CompileStatementIf extends Compile {
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression();
         return handleChildClass(compileExpression, token);
       case 3:
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
@@ -46,7 +45,7 @@ public class CompileStatementIf extends Compile {
         return ifStartCommand + passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
-          compileStatements1 = new CompileStatements(tab);
+          compileStatements1 = new CompileStatements();
         return handleChildClass(compileStatements1, token);
       case 6:
         return passToken(token, Match.symbol(token, Symbol.BRACE_R));
@@ -59,7 +58,7 @@ public class CompileStatementIf extends Compile {
         return passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 9:
         if (compileStatements2 == null)
-          compileStatements2 = new CompileStatements(tab);
+          compileStatements2 = new CompileStatements();
         return handleChildClass(compileStatements2, token);
       case 10:
         return passToken(token, Match.symbol(token, Symbol.BRACE_R));

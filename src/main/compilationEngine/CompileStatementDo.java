@@ -13,8 +13,7 @@ public class CompileStatementDo extends Compile {
 
   Compile compileExpressionList;
 
-  public CompileStatementDo(int _tab) {
-    super(_tab);
+  public CompileStatementDo() {
     wrapperLabel = "doStatement";
   }
 
@@ -96,7 +95,7 @@ public class CompileStatementDo extends Compile {
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 5:
         if (compileExpressionList == null)
-          compileExpressionList = new CompileExpressionList(tab);
+          compileExpressionList = new CompileExpressionList();
         return handleChildClass(compileExpressionList, token);
       case 6:
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));

@@ -12,8 +12,8 @@ import compilationEngine.util.Match;
 public class CompileVarDec extends Compile {
   String varType;
 
-  public CompileVarDec(int _tab) {
-    super(_tab);
+  public CompileVarDec() {
+    super();
     wrapperLabel = "varDec";
   }
 

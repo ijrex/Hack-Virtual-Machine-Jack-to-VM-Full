@@ -13,8 +13,8 @@ public class CompileSubroutineDec extends Compile {
   Compile compileParameterList;
   Compile compileSubroutineBody;
 
-  public CompileSubroutineDec(int _tab) {
-    super(_tab);
+  public CompileSubroutineDec() {
+    super();
     wrapperLabel = "subroutineDec";
 
     scopedSymbolTable = new SymbolTable();
@@ -49,13 +49,13 @@ public class CompileSubroutineDec extends Compile {
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 4:
         if (compileParameterList == null)
-          compileParameterList = new CompileParameterList(tab);
+          compileParameterList = new CompileParameterList();
         return handleChildClass(compileParameterList, token);
       case 5:
         return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
-          compileSubroutineBody = new CompileSubroutineBody(tab);
+          compileSubroutineBody = new CompileSubroutineBody();
         return handleChildClass(compileSubroutineBody, token);
       case 7:
         resetStaticStatements();
