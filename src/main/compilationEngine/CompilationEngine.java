@@ -20,7 +20,7 @@ public class CompilationEngine {
     if (!compileClass.finished)
       return compileClass.handleToken(token);
 
-    return "...\n";
+      return "@todo throw error";
   }
 
   public void setClassName(String className) {

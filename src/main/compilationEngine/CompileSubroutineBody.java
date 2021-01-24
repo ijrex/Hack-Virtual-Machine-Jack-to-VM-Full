@@ -42,7 +42,7 @@ public class CompileSubroutineBody extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 1:
         if (Match.keyword(token, Keyword.VAR) && compileVarDec == null)
           compileVarDec = new CompileVarDec(tab);
@@ -63,7 +63,7 @@ public class CompileSubroutineBody extends Compile {
           compileStatements = new CompileStatements(tab);
         return handleChildClass(compileStatements, token);
       case 4:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 5:
         return postfix();
       default:

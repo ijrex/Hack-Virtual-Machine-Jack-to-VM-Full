@@ -30,15 +30,15 @@ public class CompileClass extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.CLASS));
+        return passToken(token, Match.keyword(token, Keyword.CLASS));
       case 1:
         if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.CLASS_DEC);
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 2:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 3:
         if (Match.isClassVarDec(token) && compileClassVarDec == null)
           compileClassVarDec = new CompileClassVarDec(tab);
@@ -66,7 +66,7 @@ public class CompileClass extends Compile {
         }
         pos++;
       case 7:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R)) + postfix();
+        return passToken(token, Match.symbol(token, Symbol.BRACE_R)) + postfix();
       default:
         return fail();
     }

@@ -108,11 +108,11 @@ public class CompileTerm extends Compile {
         return prefix(token);
       case 0:
         if (Match.intConst(token))
-          return VM.writePush("constant", token.getIntValue()) + parseToken(token, true, 500);
+          return VM.writePush("constant", token.getIntValue()) + passToken(token, true, 500);
         if (Match.keywordConst(token))
-          return keywordTokenCommand(token.getKeyword()) + parseToken(token, true, 500);
+          return keywordTokenCommand(token.getKeyword()) + passToken(token, true, 500);
         if (Match.stringConst(token)) {
-          return stringCommand(token) + parseToken(token, true, 500);
+          return stringCommand(token) + passToken(token, true, 500);
         }
         if (Match.identifier(token)) {
           lookAhead = token;
@@ -120,11 +120,11 @@ public class CompileTerm extends Compile {
           return "";
         }
         if (Match.symbol(token, Symbol.PARENTHESIS_L))
-          return parseToken(token, true, 300);
+          return passToken(token, true, 300);
 
         if (Match.unaryOp(token)) {
           lookAhead = token;
-          return parseToken(token, true, 400);
+          return passToken(token, true, 400);
         }
 
         return fail();
@@ -135,16 +135,16 @@ public class CompileTerm extends Compile {
           switch (symbol) {
             case PERIOD:
               handleIdentifierClassOrVarName(lookAhead);
-              return parseToken(lookAhead, true) + parseToken(token, true, 100);
+              return passToken(lookAhead, true) + passToken(token, true, 100);
             case BRACKET_L:
               handleIdentifierVarName(lookAhead);
-              return parseToken(lookAhead, true) + parseToken(token, true, 200);
+              return passToken(lookAhead, true) + passToken(token, true, 200);
             case PARENTHESIS_L:
               lookAhead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-              return parseToken(lookAhead, true) + parseToken(token, true, 102);
+              return passToken(lookAhead, true) + passToken(token, true, 102);
             default:
               handleIdentifierVarName(lookAhead);
-              return identifierTokenCommand(lookAhead) + parseToken(lookAhead, true) + postfix();
+              return identifierTokenCommand(lookAhead) + passToken(lookAhead, true) + postfix();
           }
         }
         return fail();
@@ -152,17 +152,17 @@ public class CompileTerm extends Compile {
         if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutineToken = token;
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 101:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 102:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList(tab);
         return handleChildClass(compileExpressionList, token);
       case 103:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 104:
         int nArgs = compileExpressionList.getNumArgs();
         return subroutineCallCommand(nArgs) + postfix();
@@ -172,7 +172,7 @@ public class CompileTerm extends Compile {
           compileExpression = new CompileExpression(tab);
         return handleChildClass(compileExpression, token);
       case 201:
-        return arrayReferenceCommand() + parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
+        return arrayReferenceCommand() + passToken(token, Match.symbol(token, Symbol.BRACKET_R));
       case 202:
         return postfix();
 
@@ -181,7 +181,7 @@ public class CompileTerm extends Compile {
           compileExpression = new CompileExpression(tab);
         return handleChildClass(compileExpression, token);
       case 301:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 302:
         return postfix();
 

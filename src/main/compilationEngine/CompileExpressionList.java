@@ -39,7 +39,7 @@ public class CompileExpressionList extends Compile {
         if (Match.symbol(token, Symbol.COMMA)) {
           compileExpression = null;
           pos--;
-          return parseToken(token, true, 0);
+          return passToken(token, true, 0);
         }
         return postfix();
       default:

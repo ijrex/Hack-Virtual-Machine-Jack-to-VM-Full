@@ -29,23 +29,23 @@ public class CompileStatementWhile extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return VM.writeLabel(labelExp) + parseToken(token, Match.keyword(token, Keyword.WHILE));
+        return VM.writeLabel(labelExp) + passToken(token, Match.keyword(token, Keyword.WHILE));
       case 1:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression(tab);
         return handleChildClass(compileExpression, token);
       case 3:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 4:
-        return "not\n" + VM.writeIf(labelEnd) + parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return "not\n" + VM.writeIf(labelEnd) + passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements == null)
           compileStatements = new CompileStatements(tab);
         return handleChildClass(compileStatements, token);
       case 6:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 7:
         return VM.writeGoto(labelExp) + VM.writeLabel(labelEnd) + postfix();
       default:

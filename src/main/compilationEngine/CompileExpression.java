@@ -67,7 +67,7 @@ public class CompileExpression extends Compile {
         if (Match.op(token)) {
           compileTerm1 = null;
           command = buildCommand(token) + command;
-          return parseToken(token, true, 0);
+          return passToken(token, true, 0);
         }
         return command + postfix();
       default:

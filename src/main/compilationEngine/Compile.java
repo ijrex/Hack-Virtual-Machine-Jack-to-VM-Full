@@ -39,47 +39,46 @@ public abstract class Compile {
     finished = false;
   }
 
-  private String handleParseToken(Token token, Boolean pass, int nextPos, String returnVal) throws IOException {
+  private String handlePassToken(Token token, Boolean pass, int nextPos, String returnVal) throws IOException {
     if (pass) {
       pos = nextPos;
       return returnVal;
     }
 
-    throw new IOException(parseTokenError(token));
+    throw new IOException(passTokenError(token));
   }
 
-  protected String parseToken(Token token, Boolean pass) throws IOException {
-    return handleParseToken(token, pass, pos + 1, "");
+  protected String passToken(Token token, Boolean pass) throws IOException {
+    return handlePassToken(token, pass, pos + 1, "");
   }
 
-  protected String parseToken(String command, Token token, Boolean pass) throws IOException {
-    return handleParseToken(token, pass, pos + 1, command);
+  protected String passToken(String command, Token token, Boolean pass) throws IOException {
+    return handlePassToken(token, pass, pos + 1, command);
   }
 
-  protected String parseToken(Token token, Boolean pass, int nextPos) throws IOException {
-    return handleParseToken(token, pass, nextPos, "");
+  protected String passToken(Token token, Boolean pass, int nextPos) throws IOException {
+    return handlePassToken(token, pass, nextPos, "");
   }
 
-  protected String parseToken(String command, Token token, Boolean pass, int nextPos) throws IOException {
-    return handleParseToken(token, pass, nextPos, command);
+  protected String passToken(String command, Token token, Boolean pass, int nextPos) throws IOException {
+    return handlePassToken(token, pass, nextPos, command);
   }
 
-  // @todo - parse symbol entry
-  protected String parseSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
+  protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
     if (pass) {
       pos++;
       return "";
     }
 
-    throw new IOException(parseSymbolEntryError(symbolEntry));
+    throw new IOException(passSymbolEntryError(symbolEntry));
   }
 
-  private String parseTokenError(Token token) {
-    return "ERROR: Cannot parse token \"" + token.getValue() + "\", pos = " + pos;
+  private String passTokenError(Token token) {
+    return "ERROR: Cannot pass token \"" + token.getValue() + "\", pos = " + pos;
   }
 
-  private String parseSymbolEntryError(SymbolEntry symbolEntry) {
-    return "ERROR: Cannot parse symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
+  private String passSymbolEntryError(SymbolEntry symbolEntry) {
+    return "ERROR: Cannot pass symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
   }
 
   protected Boolean isComplete() {
@@ -152,7 +151,7 @@ public abstract class Compile {
 
   private String childClassError(Token token, Compile compiler) {
     String str = "\n";
-    str += "ERROR: Cannot parse \"" + token.getValue() + "\"\n";
+    str += "ERROR: Cannot pass \"" + token.getValue() + "\"\n";
     str += "ERROR (Continued): Handling child class \"" + compiler.getClass() + "\"";
 
     return str;

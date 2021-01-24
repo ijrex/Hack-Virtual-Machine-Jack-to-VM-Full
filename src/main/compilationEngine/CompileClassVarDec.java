@@ -25,7 +25,7 @@ public class CompileClassVarDec extends Compile {
       case 0:
         if (Match.isClassVarDec(token)) {
           varKind = token.getKeyword().toString();
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 1:
@@ -33,7 +33,7 @@ public class CompileClassVarDec extends Compile {
           if (Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 2:
@@ -43,14 +43,14 @@ public class CompileClassVarDec extends Compile {
           if(symbolEntry.getKind() == SymbolKind.FIELD) {
             numFieldVars++;
           }
-          return parseSymbolEntry(symbolEntry, true);
+          return passSymbolEntry(symbolEntry, true);
         }
         return fail();
       case 3:
         if (Match.symbol(token, Symbol.COMMA))
-          return parseToken(token, true, 2);
+          return passToken(token, true, 2);
         if (Match.symbol(token, Symbol.SEMI_COLON))
-          return parseToken(token, true, 4);
+          return passToken(token, true, 4);
         return fail();
       case 4:
         return postfix();

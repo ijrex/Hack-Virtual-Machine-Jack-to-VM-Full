@@ -33,10 +33,10 @@ public class CompileStatementReturn extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.RETURN));
+        return passToken(token, Match.keyword(token, Keyword.RETURN));
       case 1:
         if (Match.symbol(token, Symbol.SEMI_COLON))
-          return parseToken(token, true, 4);
+          return passToken(token, true, 4);
         pos++;
       case 2:
         if (compileExpression == null)
@@ -44,7 +44,7 @@ public class CompileStatementReturn extends Compile {
         if (compileExpression != null)
           return handleChildClass(compileExpression, token);
       case 3:
-        return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return passToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 4:
         return buildCommand() + postfix();
       default:
