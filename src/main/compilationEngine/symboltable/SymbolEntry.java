@@ -16,10 +16,6 @@ public class SymbolEntry {
     this.kind = kind;
   }
 
-  public String print() {
-    return this.name + ", " + this.type.getValue() + ", " + this.kind + ", " + this.key;
-  }
-
   public String getName() {
     return this.name;
   }
@@ -38,5 +34,10 @@ public class SymbolEntry {
 
   public SymbolKind getKind() {
     return this.kind;
+  }
+
+  //@todo: remove or move, used for debgging
+  public String print() {
+    return this.name + ", " + this.type.getValue() + ", " + this.kind + ", " + this.key;
   }
 }
