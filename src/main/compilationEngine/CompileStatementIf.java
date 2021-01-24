@@ -15,8 +15,7 @@ public class CompileStatementIf extends Compile {
   Compile compileStatements1;
   Compile compileStatements2;
 
-  public CompileStatementIf(int _tab) {
-    super(_tab);
+  public CompileStatementIf() {
     wrapperLabel = "ifStatement";
 
     numIfStatements++;
@@ -33,36 +32,36 @@ public class CompileStatementIf extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.IF));
+        return passToken(token, Match.keyword(token, Keyword.IF));
       case 1:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
-          compileExpression = new CompileExpression(tab);
+          compileExpression = new CompileExpression();
         return handleChildClass(compileExpression, token);
       case 3:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 4:
-        return ifStartCommand + parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return ifStartCommand + passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
-          compileStatements1 = new CompileStatements(tab);
+          compileStatements1 = new CompileStatements();
         return handleChildClass(compileStatements1, token);
       case 6:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 7:
         if (Match.keyword(token, Keyword.ELSE)) {
-          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + parseToken(token, true, 8);
+          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passToken(token, true, 8);
         }
         return VM.writeLabel(labelFalse) + postfix();
       case 8:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 9:
         if (compileStatements2 == null)
-          compileStatements2 = new CompileStatements(tab);
+          compileStatements2 = new CompileStatements();
         return handleChildClass(compileStatements2, token);
       case 10:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 11:
         return VM.writeLabel(labelEnd) + postfix();
       default:

@@ -12,8 +12,8 @@ import compilationEngine.util.Match;
 public class CompileVarDec extends Compile {
   String varType;
 
-  public CompileVarDec(int _tab) {
-    super(_tab);
+  public CompileVarDec() {
+    super();
     wrapperLabel = "varDec";
   }
 
@@ -22,26 +22,26 @@ public class CompileVarDec extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.VAR));
+        return passToken(token, Match.keyword(token, Keyword.VAR));
       case 1:
         if (Match.type(token)) {
           if(Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = token.getValue();
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 2:
         if (Match.identifier(token)) {
           SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "VAR");
-          return parseSymbolEntry(symbolEntry, true);
+          return passSymbolEntry(symbolEntry, true);
         }
         return fail();
       case 3:
         if (Match.symbol(token, Symbol.COMMA))
-          return parseToken(token, true, 2);
+          return passToken(token, true, 2);
         if (Match.symbol(token, Symbol.SEMI_COLON))
-          return parseToken(token, true);
+          return passToken(token, true);
         return fail();
       case 4:
         return postfix();

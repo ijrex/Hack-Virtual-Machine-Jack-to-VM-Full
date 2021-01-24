@@ -11,8 +11,7 @@ public class CompileStatements extends Compile {
 
   Compile compileStatement;
 
-  public CompileStatements(int _tab) {
-    super(_tab);
+  public CompileStatements() {
     wrapperLabel = "statements";
   }
 
@@ -26,19 +25,19 @@ public class CompileStatements extends Compile {
 
           switch (statementType) {
             case LET:
-              compileStatement = new CompileStatementLet(tab);
+              compileStatement = new CompileStatementLet();
               break;
             case IF:
-              compileStatement = new CompileStatementIf(tab);
+              compileStatement = new CompileStatementIf();
               break;
             case WHILE:
-              compileStatement = new CompileStatementWhile(tab);
+              compileStatement = new CompileStatementWhile();
               break;
             case DO:
-              compileStatement = new CompileStatementDo(tab);
+              compileStatement = new CompileStatementDo();
               break;
             case RETURN:
-              compileStatement = new CompileStatementReturn(tab);
+              compileStatement = new CompileStatementReturn();
               break;
             default:
               fail();

@@ -14,8 +14,7 @@ public class CompileStatementLet extends Compile {
   Compile compileExpression1;
   Compile compileExpression2;
 
-  public CompileStatementLet(int _tab) {
-    super(_tab);
+  public CompileStatementLet() {
     wrapperLabel = "letStatement";
   }
 
@@ -48,19 +47,19 @@ public class CompileStatementLet extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.LET));
+        return passToken(token, Match.keyword(token, Keyword.LET));
       case 1:
         if (Match.identifier(token)) {
           handleIdentifierVarName(token);
           varToken = token;
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 2:
         if (compileExpression1 == null && Match.symbol(token, Symbol.BRACKET_L)) {
           isArray = true;
-          compileExpression1 = new CompileExpression(tab);
-          return parseToken(token, true, 2);
+          compileExpression1 = new CompileExpression();
+          return passToken(token, true, 2);
         }
         if (compileExpression1 != null)
           return handleChildClass(compileExpression1, token);
@@ -68,17 +67,17 @@ public class CompileStatementLet extends Compile {
       case 3:
         if (compileExpression1 != null){
           String command = buildArrayLocationCommand();
-          return command + parseToken(token, Match.symbol(token, Symbol.BRACKET_R));
+          return command + passToken(token, Match.symbol(token, Symbol.BRACKET_R));
         }
         pos++;
       case 4:
-        return parseToken(token, Match.symbol(token, Symbol.EQUALS));
+        return passToken(token, Match.symbol(token, Symbol.EQUALS));
       case 5:
         if (compileExpression2 == null)
-          compileExpression2 = new CompileExpression(tab);
+          compileExpression2 = new CompileExpression();
         return handleChildClass(compileExpression2, token);
       case 6:
-        return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return passToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 7:
         return buildAssignmentCommand() + postfix();
       default:

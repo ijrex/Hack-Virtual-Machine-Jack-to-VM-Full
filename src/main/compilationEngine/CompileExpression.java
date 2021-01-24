@@ -50,8 +50,7 @@ public class CompileExpression extends Compile {
     return VM.writeCall("Math." + output, 2);
   }
 
-  public CompileExpression(int _tab) {
-    super(_tab);
+  public CompileExpression() {
     wrapperLabel = "expression";
   }
 
@@ -61,13 +60,13 @@ public class CompileExpression extends Compile {
         return prefix(token);
       case 0:
         if (compileTerm1 == null)
-          compileTerm1 = new CompileTerm(tab);
+          compileTerm1 = new CompileTerm();
         return handleChildClass(compileTerm1, token);
       case 1:
         if (Match.op(token)) {
           compileTerm1 = null;
           command = buildCommand(token) + command;
-          return parseToken(token, true, 0);
+          return passToken(token, true, 0);
         }
         return command + postfix();
       default:

@@ -14,8 +14,7 @@ public class CompileClass extends Compile {
   Compile compileClassVarDec;
   Compile compileSubroutineDec;
 
-  public CompileClass(int _tab) {
-    super(_tab);
+  public CompileClass() {
     wrapperLabel = "class";
 
     classSymbolTable = new SymbolTable();
@@ -30,18 +29,18 @@ public class CompileClass extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.CLASS));
+        return passToken(token, Match.keyword(token, Keyword.CLASS));
       case 1:
         if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.CLASS_DEC);
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 2:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 3:
         if (Match.isClassVarDec(token) && compileClassVarDec == null)
-          compileClassVarDec = new CompileClassVarDec(tab);
+          compileClassVarDec = new CompileClassVarDec();
         if (compileClassVarDec != null)
           return handleChildClass(compileClassVarDec, token);
         pos++;
@@ -54,7 +53,7 @@ public class CompileClass extends Compile {
         pos++;
       case 5:
         if (Match.isSubroutineDec(token) && compileSubroutineDec == null)
-          compileSubroutineDec = new CompileSubroutineDec(tab);
+          compileSubroutineDec = new CompileSubroutineDec();
         if (compileSubroutineDec != null)
           return handleChildClass(compileSubroutineDec, token);
         pos++;
@@ -66,7 +65,7 @@ public class CompileClass extends Compile {
         }
         pos++;
       case 7:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R)) + postfix();
+        return passToken(token, Match.symbol(token, Symbol.BRACE_R)) + postfix();
       default:
         return fail();
     }

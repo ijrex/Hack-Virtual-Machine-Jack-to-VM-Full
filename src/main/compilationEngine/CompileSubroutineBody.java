@@ -15,8 +15,7 @@ public class CompileSubroutineBody extends Compile {
   Compile compileVarDec;
   Compile compileStatements;
 
-  public CompileSubroutineBody(int _tab) {
-    super(_tab);
+  public CompileSubroutineBody() {
     wrapperLabel = "subroutineBody";
   }
 
@@ -42,10 +41,10 @@ public class CompileSubroutineBody extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
       case 1:
         if (Match.keyword(token, Keyword.VAR) && compileVarDec == null)
-          compileVarDec = new CompileVarDec(tab);
+          compileVarDec = new CompileVarDec();
         if (compileVarDec != null)
           return handleChildClass(compileVarDec, token);
         pos++;
@@ -60,10 +59,10 @@ public class CompileSubroutineBody extends Compile {
         return buildCommand() + handleToken(token);
       case 3:
         if (compileStatements == null)
-          compileStatements = new CompileStatements(tab);
+          compileStatements = new CompileStatements();
         return handleChildClass(compileStatements, token);
       case 4:
-        return parseToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
       case 5:
         return postfix();
       default:

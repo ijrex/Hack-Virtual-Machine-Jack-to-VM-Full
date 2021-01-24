@@ -39,21 +39,4 @@ public class SymbolEntry {
   public SymbolKind getKind() {
     return this.kind;
   }
-
-  private String parseValue(String str, String label, String tabs) {
-    return tabs + "\t" + "<" + label + "> " + str + " </" + label + ">\n";
-  }
-
-  public String parse(String tabs) {
-    String str = "";
-
-    str += tabs + "<symbolEntry>\n";
-    str += parseValue(this.name, "name", tabs);
-    str += parseValue(this.type.getValue(), "type", tabs);
-    str += parseValue(String.valueOf(this.key), "key", tabs);
-    str += parseValue(this.kind.name(), "kind", tabs);
-    str += tabs + "</symbolEntry>\n";
-
-    return str;
-  }
 }

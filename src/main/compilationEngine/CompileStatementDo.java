@@ -13,8 +13,7 @@ public class CompileStatementDo extends Compile {
 
   Compile compileExpressionList;
 
-  public CompileStatementDo(int _tab) {
-    super(_tab);
+  public CompileStatementDo() {
     wrapperLabel = "doStatement";
   }
 
@@ -68,40 +67,40 @@ public class CompileStatementDo extends Compile {
       case -1:
         return prefix(token);
       case 0:
-        return parseToken(token, Match.keyword(token, Keyword.DO));
+        return passToken(token, Match.keyword(token, Keyword.DO));
       case 1:
         if (Match.identifier(token)) {
           lookahead = token;
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 2:
         if (Match.symbol(token, Symbol.PARENTHESIS_L)) {
           lookahead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          return buildLocalCommandStart() + parseToken(token, true, 5);
+          return buildLocalCommandStart() + passToken(token, true, 5);
         }
         if (Match.symbol(token, Symbol.PERIOD)) {
           handleIdentifierClassOrVarName(lookahead);
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 3:
         if (Match.identifier(token)) {
           token.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutine = token;
-          return buildRemoteCommandStart() + parseToken(token, true);
+          return buildRemoteCommandStart() + passToken(token, true);
         }
         return fail();
       case 4:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 5:
         if (compileExpressionList == null)
-          compileExpressionList = new CompileExpressionList(tab);
+          compileExpressionList = new CompileExpressionList();
         return handleChildClass(compileExpressionList, token);
       case 6:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 7:
-        return parseToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return passToken(token, Match.symbol(token, Symbol.SEMI_COLON));
       case 8:
         nArgs += compileExpressionList.getNumArgs();
         return buildCommandEnd() + postfix();

@@ -14,8 +14,7 @@ public class CompileParameterList extends Compile {
   String varType;
   Boolean incKeyForMethod = false;
 
-  public CompileParameterList(int _tab) {
-    super(_tab);
+  public CompileParameterList() {
     wrapperLabel = "parameterList";
   }
 
@@ -35,17 +34,17 @@ public class CompileParameterList extends Compile {
             incKeyForMethod = true;
             scopedSymbolTable.incKey();
           }
-          return  parseToken(token, true);
+          return  passToken(token, true);
         }
       case 1:
         if (Match.identifier(token)) {
           SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "ARGUMENT");
-          return parseSymbolEntry(symbolEntry, true);
+          return passSymbolEntry(symbolEntry, true);
         }
         return fail();
       case 2:
         if (Match.symbol(token, Symbol.COMMA))
-          return parseToken(token, true, 0);
+          return passToken(token, true, 0);
         if (Match.symbol(token, Symbol.PARENTHESIS_R))
           return postfix();
       default:

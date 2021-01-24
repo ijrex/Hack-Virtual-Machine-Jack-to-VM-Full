@@ -13,8 +13,8 @@ public class CompileSubroutineDec extends Compile {
   Compile compileParameterList;
   Compile compileSubroutineBody;
 
-  public CompileSubroutineDec(int _tab) {
-    super(_tab);
+  public CompileSubroutineDec() {
+    super();
     wrapperLabel = "subroutineDec";
 
     scopedSymbolTable = new SymbolTable();
@@ -27,7 +27,7 @@ public class CompileSubroutineDec extends Compile {
       case 0:
         if (Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
           functionType = token.getKeyword();
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 1:
@@ -35,27 +35,27 @@ public class CompileSubroutineDec extends Compile {
           if (Match.identifier(token))
             token.setIdentifierCat(IdentifierCat.CLASS);
           returnType = token;
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 2:
         if (Match.identifier(token)) {
           functionName = className + "." + token.getValue();
           token.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
-          return parseToken(token, true);
+          return passToken(token, true);
         }
         return fail();
       case 3:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
       case 4:
         if (compileParameterList == null)
-          compileParameterList = new CompileParameterList(tab);
+          compileParameterList = new CompileParameterList();
         return handleChildClass(compileParameterList, token);
       case 5:
-        return parseToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
-          compileSubroutineBody = new CompileSubroutineBody(tab);
+          compileSubroutineBody = new CompileSubroutineBody();
         return handleChildClass(compileSubroutineBody, token);
       case 7:
         resetStaticStatements();
