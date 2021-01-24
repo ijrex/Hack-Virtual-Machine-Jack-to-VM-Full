@@ -14,16 +14,8 @@ public abstract class Token {
     return value;
   }
 
-  public String printValue() {
-    return value;
-  }
-
   public TokenType getType() {
     return type;
-  }
-
-  public String getLabel() {
-    return null;
   }
 
   public Keyword getKeyword() {
@@ -32,10 +24,6 @@ public abstract class Token {
 
   public Symbol getSymbol() {
     return null;
-  }
-
-  public String getFormattedType() {
-    return this.type.toString().toLowerCase();
   }
 
   // Identifier only

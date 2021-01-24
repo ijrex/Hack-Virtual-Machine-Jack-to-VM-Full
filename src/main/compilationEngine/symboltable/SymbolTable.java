@@ -63,6 +63,7 @@ public class SymbolTable {
     return kinds;
   }
 
+  //@todo: remove or move, used for debgging
   public void print() {
     for (String key : table.keySet()) {
       String str = key + " -> " + table.get(key).print();
