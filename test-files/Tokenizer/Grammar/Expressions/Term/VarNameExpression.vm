@@ -1,0 +1,55 @@
+function VarNameExpression.main 0
+push constant 0
+not
+push this 7
+add
+pop pointer 1
+push that 0
+pop this 0
+push this 8
+push this 9
+sub
+push this 7
+add
+pop pointer 1
+push that 0
+pop this 1
+push this 10
+push this 7
+add
+pop pointer 1
+push that 0
+pop this 2
+push this 8
+neg
+push this 7
+add
+pop pointer 1
+push that 0
+pop this 3
+push this 11
+push this 10
+add
+pop pointer 1
+push that 0
+push this 7
+add
+pop pointer 1
+push that 0
+pop this 4
+push this 8
+push this 9
+call hij.@todo: handle method call 2
+push this 7
+add
+pop pointer 1
+push that 0
+pop this 5
+push this 8
+push this 9
+call hij.lmn 2
+push this 7
+add
+pop pointer 1
+push that 0
+pop this 6
