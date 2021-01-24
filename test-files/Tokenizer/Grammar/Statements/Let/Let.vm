@@ -1,0 +1,15 @@
+function Let.main 0
+push static 1
+push static 2
+add
+pop static 0
+push static 1
+push static 5
+add
+push static 3
+push static 4
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0

@@ -1,0 +1,37 @@
+function Op.main 0
+push static 9
+push static 10
+add
+pop static 0
+push static 9
+push static 10
+sub
+pop static 1
+push static 9
+push static 10
+call Math.multiply 2
+pop static 2
+push static 9
+push static 10
+call Math.divide 2
+pop static 3
+push static 9
+push static 10
+and
+pop static 4
+push static 9
+push static 10
+or
+pop static 5
+push static 9
+push static 10
+lt
+pop static 6
+push static 9
+push static 10
+gt
+pop static 7
+push static 9
+push static 10
+eq
+pop static 8

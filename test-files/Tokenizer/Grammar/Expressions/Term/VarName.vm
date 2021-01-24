@@ -1,0 +1,17 @@
+function VarName.main 0
+push this 8
+pop this 0
+push this 9
+pop this 1
+push this 10
+pop this 2
+push this 11
+pop this 3
+push this 12
+pop this 4
+push this 13
+pop this 5
+push this 14
+pop this 6
+push this 15
+pop this 7

@@ -49,7 +49,9 @@ public class Tokenizer {
     try {
       Scanner fileScanner = new Scanner(sourceFile);
 
-      FileWriter fileWriter = new FileWriter(Util.getOutputFilePath(sourceFile.getPath(), "vm"), false);
+      String sourcePath = sourceFile.getPath();
+
+      FileWriter fileWriter = new FileWriter(Util.getOutputFilePath(sourcePath, "vm"), false);
 
       compilationEngineVM.setClassName(Util.getFileName(sourceFile));
 
@@ -76,8 +78,8 @@ public class Tokenizer {
 
       compilationEngineVM.reset();
 
+      System.out.println("SUCCESS: " + sourcePath);
       fileWriter.close();
-
       fileScanner.close();
 
     } catch (IOException e) {

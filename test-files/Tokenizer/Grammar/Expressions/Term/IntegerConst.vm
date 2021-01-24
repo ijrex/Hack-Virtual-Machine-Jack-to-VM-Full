@@ -1,0 +1,5 @@
+function IntegerConst.main 0
+push constant 4
+pop this 0
+push constant 999
+pop this 1

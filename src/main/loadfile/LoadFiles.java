@@ -5,19 +5,27 @@ import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import loadfile.util.*;
 
+import java.util.ArrayList;
+
 public class LoadFiles {
 
-  private File[] files;
+  private ArrayList<File> files = new ArrayList<File>();
   private String path;
 
-  public LoadFiles(String dir, String extention) {
+  public LoadFiles(String dir, String extention, Boolean recursive) {
     path = dir;
-    this.load(dir, extention);
+
+    if(recursive) {
+      this.loadRecursive(dir, extention);
+    } else {
+      this.load(dir, extention);
+    }
+
     this.confirmFilesFound(dir, extention);
   }
 
   public File[] getFiles() {
-    return files;
+    return files.toArray(new File[files.size()]);
   }
 
   public String getDirectoryPath() {
@@ -36,7 +44,9 @@ public class LoadFiles {
           }
         };
 
-        files = sourceDir.listFiles(filter);
+        for(File file: sourceDir.listFiles(filter)) {
+          files.add(file);
+        }
 
       } else {
         throw new FileNotFoundException();
@@ -51,9 +61,23 @@ public class LoadFiles {
     }
   }
 
+  private void loadRecursive(String arg, String extention) {
+
+    File sourceDir = new File(arg);
+    File[] sourceDirFiles = sourceDir.listFiles();
+
+    for(File file: sourceDirFiles) {
+      if(file.isDirectory()) {
+        String path = file.getPath();
+        this.load(path, extention);
+        this.loadRecursive(path, extention);
+      }
+    }
+  }
+
   private void confirmFilesFound(String arg, String extention) {
     try {
-      if (files.length <= 0) {
+      if (files.size() <= 0) {
         throw new FileNotFoundException();
       }
 
