@@ -9,7 +9,6 @@ import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.symboltable.SymbolTable;
 
 public abstract class Compile {
-  boolean development = false;
   int pos = -1;
   boolean finished = false;
   String wrapperLabel;
@@ -96,28 +95,15 @@ public abstract class Compile {
 
   /* Postfix */
 
-  /*
-   * Subclass routines close out naturally on `exit` in development mode, this is
-   * flagged in the XML output with a trailing `.`
-   */
-
-  protected String postfix(Boolean fakeClosure) {
+  protected String postfix() {
     finished = true;
     return "";
-  }
-
-  protected String postfix() {
-    return postfix(false);
   }
 
   /* Fail */
 
   protected String fail() throws IOException {
-    if (development) {
-      return postfix(true);
-    } else {
-      throw new IOException("ERROR: Failed while parsing " + this.getClass());
-    }
+    throw new IOException("ERROR: Failed while parsing " + this.getClass());
   }
 
   protected String handleToken(Token token) throws IOException {
