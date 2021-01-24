@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import compilationEngine.CompilationEngine;
-import compilationenginexml.CompilationEngineXML;
 
 import java.util.LinkedList;
 import java.util.HashMap;
@@ -24,7 +23,6 @@ public class Tokenizer {
 
   TokenTypeLib tokenTypeLib;
 
-  CompilationEngineXML compilationEngineXML;
   CompilationEngine compilationEngineVM;
 
   HashMap<String, LinkedList<Token>> tokenizedFiles = new HashMap<String, LinkedList<Token>>();
@@ -35,7 +33,6 @@ public class Tokenizer {
 
     tokenTypeLib = new TokenTypeLib();
 
-    compilationEngineXML = new CompilationEngineXML();
     compilationEngineVM = new CompilationEngine();
 
     createTokenedFiles();
@@ -52,7 +49,6 @@ public class Tokenizer {
     try {
       Scanner fileScanner = new Scanner(sourceFile);
 
-      FileWriter fileWriterXML = new FileWriter(Util.getOutputFilePath(sourceFile.getPath(), "test.xml"), false);
       FileWriter fileWriter = new FileWriter(Util.getOutputFilePath(sourceFile.getPath(), "vm"), false);
 
       compilationEngineVM.setClassName(Util.getFileName(sourceFile));
@@ -74,14 +70,12 @@ public class Tokenizer {
         line = Util.trimExcess(line, multilineComment, multilineCommentEnd);
 
         if (line.length() > 0) {
-          parseLineToTokens(line, fileWriter, fileWriterXML);
+          parseLineToTokens(line, fileWriter);
         }
       }
 
       compilationEngineVM.reset();
-      compilationEngineXML.reset();
 
-      fileWriterXML.close();
       fileWriter.close();
 
       fileScanner.close();
@@ -93,14 +87,13 @@ public class Tokenizer {
     }
   }
 
-  private void parseLineToTokens(String line, FileWriter fileWriterVM, FileWriter fileWriterXML) throws IOException {
+  private void parseLineToTokens(String line, FileWriter fileWriterVM) throws IOException {
     String parsedLine = line;
 
     while (parsedLine.length() > 0) {
       Token token = matchNextToken(parsedLine);
       String value = token.getValue();
 
-      fileWriterXML.write(compilationEngineXML.parseToken(token));
       fileWriterVM.write(compilationEngineVM.parseToken(token));
 
       parsedLine = parsedLine.substring(value.length()).trim();
