@@ -89,7 +89,15 @@ public class CompileTerm extends Compile {
       callClassName = lookAhead.getValue();
     }
 
-    String functionCall = VM.createSubroutineName(callClassName, subroutineToken.getValue());
+    String subroutineCallName;
+
+    if(subroutineToken != null) {
+      subroutineCallName = subroutineToken.getValue();
+    } else {
+      subroutineCallName = "@todo: handle method call";
+    }
+
+    String functionCall = VM.createSubroutineName(callClassName, subroutineCallName);
     command += VM.writeCall(functionCall, nArgs);
     return command;
   }

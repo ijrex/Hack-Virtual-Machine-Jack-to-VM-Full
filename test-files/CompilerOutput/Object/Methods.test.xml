@@ -235,12 +235,6 @@
 					<expression>
 						<term>
 							<identifier>
-								<name> Test </name>
-								<category> CLASS </category>
-								<runningIndex> -1 </runningIndex>
-							</identifier>
-							<symbol> . </symbol>
-							<identifier>
 								<name> methodCall </name>
 								<category> SUBROUTINE </category>
 								<runningIndex> -1 </runningIndex>
@@ -253,19 +247,6 @@
 					</expression>
 					<symbol> ; </symbol>
 				</letStatement>
-				<doStatement>
-					<keyword> do </keyword>
-					<identifier>
-						<name> params </name>
-						<category> SUBROUTINE </category>
-						<runningIndex> -1 </runningIndex>
-					</identifier>
-					<symbol> ( </symbol>
-					<expressionList>
-					</expressionList>
-					<symbol> ) </symbol>
-					<symbol> ; </symbol>
-				</doStatement>
 				<returnStatement>
 					<keyword> return </keyword>
 					<symbol> ; </symbol>

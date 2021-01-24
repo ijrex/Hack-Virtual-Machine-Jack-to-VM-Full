@@ -25,10 +25,7 @@ return
 function Methods.methodCall 0
 push argument 0
 pop pointer 0
-call Test.methodCall 0
+call methodCall.@todo: handle method call 0
 pop this 0
-push pointer 0
-call Methods.params 1
-pop temp 0
 push constant 0
 return
