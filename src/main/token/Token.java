@@ -38,10 +38,6 @@ public abstract class Token {
     return this.type.toString().toLowerCase();
   }
 
-  public String parse(String tabs) {
-    return tabs + "<" + this.getLabel() + "> " + this.printValue() + " </" + this.getLabel() + ">\n";
-  }
-
   // Identifier only
 
   public void setIdentifierCat(IdentifierCat str) {

@@ -17,20 +17,6 @@ public class IdentifierToken extends Token {
     return "identifier";
   }
 
-  // Identifier only
-
-  public String parse(String tabs) {
-    String str = "";
-
-    str += tabs + "<" + this.getLabel() + ">\n";
-    str += tabs + "\t" + "<name> " + this.printValue() + " </name>\n";
-    str += tabs + "\t" + "<category> " + this.identifierCat + " </category>\n";
-    str += tabs + "\t" + "<runningIndex> " + this.runningIndex + " </runningIndex>\n";
-    str += tabs + "</" + this.getLabel() + ">\n";
-
-    return str;
-  }
-
   public void setIdentifierCat(IdentifierCat t) {
     this.identifierCat = t;
   }
