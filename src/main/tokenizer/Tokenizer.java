@@ -27,6 +27,9 @@ public class Tokenizer {
 
   HashMap<String, LinkedList<Token>> tokenizedFiles = new HashMap<String, LinkedList<Token>>();
 
+  int activeLinePos = 0;
+  String activeLine;
+
   public Tokenizer(LoadFiles files) {
     sourceFiles = files.getFiles();
     sourceDir = files.getDirectoryPath();
@@ -58,21 +61,23 @@ public class Tokenizer {
       Boolean multilineComment = false;
 
       while (fileScanner.hasNextLine()) {
-        String line = fileScanner.nextLine().trim();
+        activeLinePos++;
 
-        if (line.startsWith("/*"))
+        activeLine = fileScanner.nextLine().trim();
+
+        if (activeLine.startsWith("/*"))
           multilineComment = true;
 
         Boolean multilineCommentEnd = false;
-        if (line.endsWith("*/")) {
+        if (activeLine.endsWith("*/")) {
           multilineComment = false;
           multilineCommentEnd = true;
         }
 
-        line = Util.trimExcess(line, multilineComment, multilineCommentEnd);
+        activeLine = Util.trimExcess(activeLine, multilineComment, multilineCommentEnd);
 
-        if (line.length() > 0) {
-          parseLineToTokens(line, fileWriter);
+        if (activeLine.length() > 0) {
+          parseLineToTokens(activeLine, fileWriter);
         }
       }
 
@@ -83,8 +88,13 @@ public class Tokenizer {
       fileScanner.close();
 
     } catch (IOException e) {
-      System.out.println("An error occured parsing " + sourceFile.getName());
-      e.printStackTrace();
+      System.out.println("PARSING ERROR: ---------------------------------------");
+      System.out.println("File: \t" + sourceFile.getName());
+      System.out.println("Pos: \t" + activeLinePos);
+      System.out.println("Line: \t" + "\"" + activeLine + "\"");
+      System.out.println(e.getMessage());
+      System.out.println("------------------------------------------------------");
+      // e.printStackTrace();
       System.exit(1);
     }
   }

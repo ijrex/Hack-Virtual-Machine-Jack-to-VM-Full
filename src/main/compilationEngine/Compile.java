@@ -49,16 +49,8 @@ public abstract class Compile {
     return handlePassToken(token, pass, pos + 1, "");
   }
 
-  protected String passToken(String command, Token token, Boolean pass) throws IOException {
-    return handlePassToken(token, pass, pos + 1, command);
-  }
-
   protected String passToken(Token token, Boolean pass, int nextPos) throws IOException {
     return handlePassToken(token, pass, nextPos, "");
-  }
-
-  protected String passToken(String command, Token token, Boolean pass, int nextPos) throws IOException {
-    return handlePassToken(token, pass, nextPos, command);
   }
 
   protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
@@ -71,7 +63,10 @@ public abstract class Compile {
   }
 
   private String passTokenError(Token token) {
-    return "ERROR: Cannot pass token \"" + token.getValue() + "\", pos = " + pos;
+    String str = "Token: \t" + token.getValue() + " (" + token.getType() + ")\n";
+    str += "Routine: \t" + wrapperLabel + "\n";
+    str += "Case: \t" + pos;
+    return str;
   }
 
   private String passSymbolEntryError(SymbolEntry symbolEntry) {
