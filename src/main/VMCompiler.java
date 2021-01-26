@@ -5,9 +5,9 @@ class VMCompiler {
 
   public static void main(String[] args) {
 
-    String dir = "../../test-files/Compiler";
+    String dir = "../../tests/jack-language/Do";
 
-    LoadFiles files = new LoadFiles(dir, "jack", true);
+    LoadFiles files = new LoadFiles(dir, "jack", false);
 
     Tokenizer tokenizer = new Tokenizer(files);
   }

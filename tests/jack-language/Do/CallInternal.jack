@@ -1,0 +1,16 @@
+class CallInternal {
+
+    function void main() {
+        do CallInternal.getOne();
+        do CallInternal.getMany(1 2, 3);
+        return;
+    }
+
+    function int getOne() {
+        return 1;
+    }
+
+    function int getMany(int a, int b, int c) {
+        return a + b - c;
+    }
+}

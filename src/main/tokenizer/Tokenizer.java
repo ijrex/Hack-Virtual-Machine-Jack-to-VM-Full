@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import compilationEngine.CompilationEngine;
+import errormessage.*;
 
 import java.util.LinkedList;
 import java.util.HashMap;
@@ -26,6 +27,9 @@ public class Tokenizer {
   CompilationEngine compilationEngineVM;
 
   HashMap<String, LinkedList<Token>> tokenizedFiles = new HashMap<String, LinkedList<Token>>();
+
+  int activeLinePos = 0;
+  String activeLine;
 
   public Tokenizer(LoadFiles files) {
     sourceFiles = files.getFiles();
@@ -58,21 +62,23 @@ public class Tokenizer {
       Boolean multilineComment = false;
 
       while (fileScanner.hasNextLine()) {
-        String line = fileScanner.nextLine().trim();
+        activeLinePos++;
 
-        if (line.startsWith("/*"))
+        activeLine = fileScanner.nextLine().trim();
+
+        if (activeLine.startsWith("/*"))
           multilineComment = true;
 
         Boolean multilineCommentEnd = false;
-        if (line.endsWith("*/")) {
+        if (activeLine.endsWith("*/")) {
           multilineComment = false;
           multilineCommentEnd = true;
         }
 
-        line = Util.trimExcess(line, multilineComment, multilineCommentEnd);
+        activeLine = Util.trimExcess(activeLine, multilineComment, multilineCommentEnd);
 
-        if (line.length() > 0) {
-          parseLineToTokens(line, fileWriter);
+        if (activeLine.length() > 0) {
+          parseLineToTokens(activeLine, fileWriter);
         }
       }
 
@@ -83,8 +89,16 @@ public class Tokenizer {
       fileScanner.close();
 
     } catch (IOException e) {
-      System.out.println("An error occured parsing " + sourceFile.getName());
-      e.printStackTrace();
+      String err = "";
+
+      err += ErrorMessage.header("ERROR");
+      err += ErrorMessage.info("File", sourceFile.getName());
+      err += ErrorMessage.info("Line Number", String.valueOf(activeLinePos));
+      err += ErrorMessage.info("Line Value", activeLine);
+
+      err += e.getMessage();
+
+      System.out.println(err); ;
       System.exit(1);
     }
   }
