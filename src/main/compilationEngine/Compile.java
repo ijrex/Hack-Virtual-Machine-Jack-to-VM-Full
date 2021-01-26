@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.symboltable.SymbolTable;
+import errormessage.ErrorMessage;
 
 public abstract class Compile {
   int pos = -1;
@@ -63,10 +64,12 @@ public abstract class Compile {
   }
 
   private String passTokenError(Token token) {
-    String str = "Token: \t" + token.getValue() + " (" + token.getType() + ")\n";
-    str += "Routine: \t" + wrapperLabel + "\n";
-    str += "Case: \t" + pos;
-    return str;
+    String err = "";
+    err += ErrorMessage.header("TOKEN INFO");
+    err += ErrorMessage.info("Token", token.getValue());
+    err += ErrorMessage.info("Routine", wrapperLabel);
+    err += ErrorMessage.info("Case", String.valueOf(pos));
+    return err;
   }
 
   private String passSymbolEntryError(SymbolEntry symbolEntry) {

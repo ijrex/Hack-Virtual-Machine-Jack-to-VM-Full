@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import compilationEngine.CompilationEngine;
+import errormessage.*;
 
 import java.util.LinkedList;
 import java.util.HashMap;
@@ -88,13 +89,16 @@ public class Tokenizer {
       fileScanner.close();
 
     } catch (IOException e) {
-      System.out.println("PARSING ERROR: ---------------------------------------");
-      System.out.println("File: \t" + sourceFile.getName());
-      System.out.println("Pos: \t" + activeLinePos);
-      System.out.println("Line: \t" + "\"" + activeLine + "\"");
-      System.out.println(e.getMessage());
-      System.out.println("------------------------------------------------------");
-      // e.printStackTrace();
+      String err = "";
+
+      err += ErrorMessage.header("ERROR");
+      err += ErrorMessage.info("File", sourceFile.getName());
+      err += ErrorMessage.info("Line Number", String.valueOf(activeLinePos));
+      err += ErrorMessage.info("Line Value", activeLine);
+
+      err += e.getMessage();
+
+      System.out.println(err); ;
       System.exit(1);
     }
   }
