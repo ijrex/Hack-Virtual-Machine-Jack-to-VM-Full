@@ -1,0 +1,20 @@
+function CallInternal.main 0
+call CallInternal.getOne 0
+pop temp 0
+push constant 1
+push constant 2
+push constant 3
+call CallInternal.getMany 3
+pop temp 0
+push constant 0
+return
+function CallInternal.getOne 0
+push constant 1
+return
+function CallInternal.getMany 0
+push argument 0
+push argument 1
+push argument 2
+sub
+add
+return

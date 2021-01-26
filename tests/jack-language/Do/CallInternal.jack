@@ -2,7 +2,7 @@ class CallInternal {
 
     function void main() {
         do CallInternal.getOne();
-        do CallInternal.getMany(1 2, 3);
+        do CallInternal.getMany(1, 2, 3);
         return;
     }
 
