@@ -15,13 +15,13 @@ public class CompileStatements extends Compile {
     wrapperLabel = "statements";
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        if (Match.isStatementDec(token) && compileStatement == null) {
-          Keyword statementType = token.getKeyword();
+        if (passer.isStatementDec(activeToken) && compileStatement == null) {
+          Keyword statementType = activeToken.getKeyword();
 
           switch (statementType) {
             case LET:
@@ -44,12 +44,12 @@ public class CompileStatements extends Compile {
           }
         }
         if (compileStatement != null)
-          return handleChildClass(compileStatement, token);
+          return handleChildClass(compileStatement);
       case 1:
-        if (Match.isStatementDec(token) && compileStatement != null) {
+        if (passer.isStatementDec(activeToken) && compileStatement != null) {
           compileStatement = null;
           pos--;
-          return handleToken(token);
+          return handleRoutine();
         }
       default:
         return postfix();

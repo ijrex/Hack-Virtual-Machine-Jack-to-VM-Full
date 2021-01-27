@@ -54,19 +54,19 @@ public class CompileExpression extends Compile {
     wrapperLabel = "expression";
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
         if (compileTerm1 == null)
           compileTerm1 = new CompileTerm();
-        return handleChildClass(compileTerm1, token);
+        return handleChildClass(compileTerm1);
       case 1:
-        if (Match.op(token)) {
+        if (passer.isOp(activeToken)){
           compileTerm1 = null;
-          command = buildCommand(token) + command;
-          return passToken(token, true, 0);
+          command = buildCommand(activeToken) + command;
+          return passToken(0);
         }
         return command + postfix();
       default:

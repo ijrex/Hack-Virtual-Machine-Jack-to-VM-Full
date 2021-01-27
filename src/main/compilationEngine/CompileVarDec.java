@@ -17,31 +17,31 @@ public class CompileVarDec extends Compile {
     wrapperLabel = "varDec";
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.VAR));
+        return passToken(passer.matchKeyword(activeToken, Keyword.VAR));
       case 1:
-        if (Match.type(token)) {
-          if(Match.identifier(token))
-            token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
-          varType = token.getValue();
-          return passToken(token, true);
+        if (passer.isType(activeToken)) {
+          if(passer.isIdentifier(activeToken))
+            activeToken.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
+          varType = activeToken.getValue();
+          return passToken();
         }
         return fail();
       case 2:
-        if (Match.identifier(token)) {
-          SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "VAR");
+        if (passer.isIdentifier(activeToken)) {
+          SymbolEntry symbolEntry = scopedSymbolTable.add(activeToken, varType, "VAR");
           return passSymbolEntry(symbolEntry, true);
         }
         return fail();
       case 3:
-        if (Match.symbol(token, Symbol.COMMA))
-          return passToken(token, true, 2);
-        if (Match.symbol(token, Symbol.SEMI_COLON))
-          return passToken(token, true);
+        if (passer.matchSymbol(activeToken, Symbol.COMMA))
+          return passToken(2);
+        if (passer.matchSymbol(activeToken, Symbol.SEMI_COLON))
+          return passToken();
         return fail();
       case 4:
         return postfix();

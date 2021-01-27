@@ -27,23 +27,23 @@ public class CompileStatementReturn extends Compile {
     return command + VM.writeReturn();
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.RETURN));
+        return passToken(passer.matchKeyword(activeToken, Keyword.RETURN));
       case 1:
-        if (Match.symbol(token, Symbol.SEMI_COLON))
-          return passToken(token, true, 4);
+        if (passer.matchSymbol(activeToken, Symbol.SEMI_COLON))
+          return passToken(4);
         pos++;
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
         if (compileExpression != null)
-          return handleChildClass(compileExpression, token);
+          return handleChildClass(compileExpression);
       case 3:
-        return passToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return passToken(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 4:
         return buildCommand() + postfix();
       default:

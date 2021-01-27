@@ -27,41 +27,41 @@ public class CompileStatementIf extends Compile {
 
   String ifStartCommand = VM.writeIf(labelTrue) + VM.writeGoto(labelFalse) + VM.writeLabel(labelTrue);
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.IF));
+        return passToken(passer.matchKeyword(activeToken, Keyword.IF));
       case 1:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression, token);
+        return handleChildClass(compileExpression);
       case 3:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 4:
-        return ifStartCommand + passToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return ifStartCommand + passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
           compileStatements1 = new CompileStatements();
-        return handleChildClass(compileStatements1, token);
+        return handleChildClass(compileStatements1);
       case 6:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 7:
-        if (Match.keyword(token, Keyword.ELSE)) {
-          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passToken(token, true, 8);
+        if (passer.matchKeyword(activeToken, Keyword.ELSE)) {
+          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passToken(8);
         }
         return VM.writeLabel(labelFalse) + postfix();
       case 8:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 9:
         if (compileStatements2 == null)
           compileStatements2 = new CompileStatements();
-        return handleChildClass(compileStatements2, token);
+        return handleChildClass(compileStatements2);
       case 10:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 11:
         return VM.writeLabel(labelEnd) + postfix();
       default:

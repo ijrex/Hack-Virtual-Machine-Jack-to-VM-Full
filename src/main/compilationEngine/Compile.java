@@ -7,12 +7,16 @@ import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.symboltable.SymbolTable;
+import compilationEngine.tokenpasser.TokenPasser;
 import errormessage.ErrorMessage;
 
 public abstract class Compile {
   int pos = -1;
   boolean finished = false;
   String wrapperLabel;
+
+  static TokenPasser passer = new TokenPasser();
+  static Token activeToken;
 
   // Statics to be reset
   static SymbolTable classSymbolTable;
@@ -37,21 +41,29 @@ public abstract class Compile {
     finished = false;
   }
 
-  private String handlePassToken(Token token, Boolean pass, int nextPos) throws IOException {
+  private String handlePassToken(Boolean pass, int nextPos) throws IOException {
     if (pass) {
       pos = nextPos;
       return "";
     }
 
-    throw new IOException(passTokenError(token));
+    throw new IOException(passTokenError(activeToken));
   }
 
-  protected String passToken(Token token, Boolean pass) throws IOException {
-    return handlePassToken(token, pass, pos + 1);
+  protected String passToken() throws IOException {
+    return handlePassToken(true, pos + 1);
   }
 
-  protected String passToken(Token token, Boolean pass, int nextPos) throws IOException {
-    return handlePassToken(token, pass, nextPos);
+  protected String passToken(Boolean pass) throws IOException {
+    return handlePassToken(pass, pos + 1);
+  }
+
+  protected String passToken(int nextPos) throws IOException {
+    return handlePassToken(true, nextPos);
+  }
+
+  protected String passToken(Boolean pass, int nextPos) throws IOException {
+    return handlePassToken(pass, nextPos);
   }
 
   protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
@@ -82,13 +94,13 @@ public abstract class Compile {
 
   /* Prefix */
 
-  protected String prefix(Token token, int newPos) throws IOException {
+  protected String prefix(int newPos) throws IOException {
     pos = newPos;
-    return "" + handleToken(token);
+    return "" + handleToken(activeToken);
   }
 
-  protected String prefix(Token token) throws IOException {
-    return prefix(token, 0);
+  protected String prefix() throws IOException {
+    return prefix(0);
   }
 
   /* Postfix */
@@ -104,22 +116,27 @@ public abstract class Compile {
     throw new IOException("ERROR: Failed while parsing " + this.getClass());
   }
 
-  protected String handleToken(Token token) throws IOException {
+  public String handleToken(Token token) throws IOException {
+    activeToken = token;
+    return handleRoutine();
+  }
+
+  protected String handleRoutine() throws IOException {
     throw new IOException();
   }
 
   /* Handle Child Class */
 
-  protected String handleChildClass(Compile compiler, Token token) throws IOException {
+  protected String handleChildClass(Compile compiler) throws IOException {
     if (!compiler.isComplete()) {
-      String str = compiler.handleToken(token);
+      String str = compiler.handleToken(activeToken);
       if (compiler.isComplete()) {
         pos++;
-        return str + handleToken(token);
+        return str + handleToken(activeToken);
       }
       return str;
     }
-    throw new IOException(childClassError(token, compiler));
+    throw new IOException(childClassError(activeToken, compiler));
   }
 
   private String childClassError(Token token, Compile compiler) {

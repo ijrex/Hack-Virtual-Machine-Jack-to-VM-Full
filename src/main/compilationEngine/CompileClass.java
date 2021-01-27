@@ -24,48 +24,48 @@ public class CompileClass extends Compile {
     className = _className;
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.CLASS));
+        return passToken(passer.matchKeyword(activeToken, Keyword.CLASS));
       case 1:
-        if (Match.identifier(token)) {
-          token.setIdentifierCat(IdentifierCat.CLASS_DEC);
-          return passToken(token, true);
+        if (passer.isIdentifier(activeToken)) {
+          activeToken.setIdentifierCat(IdentifierCat.CLASS_DEC);
+          return passToken();
         }
         return fail();
       case 2:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 3:
-        if (Match.isClassVarDec(token) && compileClassVarDec == null)
+        if (passer.isClassVarDec(activeToken) && compileClassVarDec == null)
           compileClassVarDec = new CompileClassVarDec();
         if (compileClassVarDec != null)
-          return handleChildClass(compileClassVarDec, token);
+          return handleChildClass(compileClassVarDec);
         pos++;
       case 4:
-        if (Match.isClassVarDec(token) && compileClassVarDec != null) {
+        if (passer.isClassVarDec(activeToken) && compileClassVarDec != null) {
           compileClassVarDec = null;
           pos--;
-          return handleToken(token);
+          return handleRoutine();
         }
         pos++;
       case 5:
-        if (Match.isSubroutineDec(token) && compileSubroutineDec == null)
+        if (passer.isSubroutineDec(activeToken) && compileSubroutineDec == null)
           compileSubroutineDec = new CompileSubroutineDec();
         if (compileSubroutineDec != null)
-          return handleChildClass(compileSubroutineDec, token);
+          return handleChildClass(compileSubroutineDec);
         pos++;
       case 6:
-        if (Match.isSubroutineDec(token) && compileSubroutineDec != null) {
+        if (passer.isSubroutineDec(activeToken) && compileSubroutineDec != null) {
           compileSubroutineDec = null;
           pos--;
-          return handleToken(token);
+          return handleRoutine();
         }
         pos++;
       case 7:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_R)) + postfix();
+        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R)) + postfix();
       default:
         return fail();
     }

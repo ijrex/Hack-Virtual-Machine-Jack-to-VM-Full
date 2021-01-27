@@ -17,28 +17,28 @@ public class CompileClassVarDec extends Compile {
     wrapperLabel = "classVarDec";
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        if (Match.isClassVarDec(token)) {
-          varKind = token.getKeyword().toString();
-          return passToken(token, true);
+        if (passer.isClassVarDec(activeToken)){
+          varKind = activeToken.getKeyword().toString();
+          return passToken();
         }
         return fail();
       case 1:
-        if (Match.type(token)) {
-          if (Match.identifier(token))
-            token.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
-          varType = token.getValue();
-          return passToken(token, true);
+        if (passer.isType(activeToken)) {
+          if (passer.isIdentifier(activeToken))
+            activeToken.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
+          varType = activeToken.getValue();
+          return passToken();
         }
         return fail();
       case 2:
-        if (Match.identifier(token)) {
+        if (passer.isIdentifier(activeToken)){
           // @todo: Check for duplicate and throw error
-          SymbolEntry symbolEntry = classSymbolTable.add(token, varType, varKind);
+          SymbolEntry symbolEntry = classSymbolTable.add(activeToken, varType, varKind);
           if(symbolEntry.getKind() == SymbolKind.FIELD) {
             numFieldVars++;
           }
@@ -46,10 +46,10 @@ public class CompileClassVarDec extends Compile {
         }
         return fail();
       case 3:
-        if (Match.symbol(token, Symbol.COMMA))
-          return passToken(token, true, 2);
-        if (Match.symbol(token, Symbol.SEMI_COLON))
-          return passToken(token, true, 4);
+        if (passer.matchSymbol(activeToken, Symbol.COMMA))
+          return passToken(2);
+        if (passer.matchSymbol(activeToken, Symbol.SEMI_COLON))
+          return passToken(4);
         return fail();
       case 4:
         return postfix();

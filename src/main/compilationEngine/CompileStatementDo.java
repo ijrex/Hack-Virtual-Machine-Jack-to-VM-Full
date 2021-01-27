@@ -62,45 +62,45 @@ public class CompileStatementDo extends Compile {
     return command;
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.DO));
+        return passToken(passer.matchKeyword(activeToken, Keyword.DO));
       case 1:
-        if (Match.identifier(token)) {
-          lookahead = token;
-          return passToken(token, true);
+        if (passer.isIdentifier(activeToken)){
+          lookahead = activeToken;
+          return passToken();
         }
         return fail();
       case 2:
-        if (Match.symbol(token, Symbol.PARENTHESIS_L)) {
+        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L)) {
           lookahead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          return buildLocalCommandStart() + passToken(token, true, 5);
+          return buildLocalCommandStart() + passToken(5);
         }
-        if (Match.symbol(token, Symbol.PERIOD)) {
+        if (passer.matchSymbol(activeToken, Symbol.PERIOD)) {
           handleIdentifierClassOrVarName(lookahead);
-          return passToken(token, true);
+          return passToken();
         }
         return fail();
       case 3:
-        if (Match.identifier(token)) {
-          token.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          subroutine = token;
-          return buildRemoteCommandStart() + passToken(token, true);
+        if (passer.isIdentifier(activeToken)) {
+          activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          subroutine = activeToken;
+          return buildRemoteCommandStart() + passToken();
         }
         return fail();
       case 4:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 5:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList();
-        return handleChildClass(compileExpressionList, token);
+        return handleChildClass(compileExpressionList);
       case 6:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 7:
-        return passToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return passToken(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 8:
         nArgs += compileExpressionList.getNumArgs();
         return buildCommandEnd() + postfix();

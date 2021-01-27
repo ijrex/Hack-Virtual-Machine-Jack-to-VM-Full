@@ -101,67 +101,67 @@ public class CompileTerm extends Compile {
     return command;
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        if (Match.intConst(token))
-          return VM.writePush("constant", token.getIntValue()) + passToken(token, true, 500);
-        if (Match.keywordConst(token))
-          return keywordTokenCommand(token.getKeyword()) + passToken(token, true, 500);
-        if (Match.stringConst(token)) {
-          return stringCommand(token) + passToken(token, true, 500);
+        if (passer.isIntConst(activeToken))
+          return VM.writePush("constant", activeToken.getIntValue()) + passToken(500);
+        if (passer.isKeywordConst(activeToken))
+          return keywordTokenCommand(activeToken.getKeyword()) + passToken(500);
+        if (passer.isStringConst(activeToken)) {
+          return stringCommand(activeToken) + passToken(500);
         }
-        if (Match.identifier(token)) {
-          lookAhead = token;
+        if (passer.isIdentifier(activeToken)) {
+          lookAhead = activeToken;
           pos++;
           return "";
         }
-        if (Match.symbol(token, Symbol.PARENTHESIS_L))
-          return passToken(token, true, 300);
+        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L))
+          return passToken(300);
 
-        if (Match.unaryOp(token)) {
-          lookAhead = token;
-          return passToken(token, true, 400);
+        if (passer.isUnaryOp(activeToken)) {
+          lookAhead = activeToken;
+          return passToken(400);
         }
 
         return fail();
       case 1:
         if (lookAhead != null) {
-          Symbol symbol = token.getSymbol();
+          Symbol symbol = activeToken.getSymbol();
 
           switch (symbol) {
             case PERIOD:
               handleIdentifierClassOrVarName(lookAhead);
-              return passToken(lookAhead, true) + passToken(token, true, 100);
+              return passToken() + passToken(100);
             case BRACKET_L:
               handleIdentifierVarName(lookAhead);
-              return passToken(lookAhead, true) + passToken(token, true, 200);
+              return passToken() + passToken(200);
             case PARENTHESIS_L:
               lookAhead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-              return passToken(lookAhead, true) + passToken(token, true, 102);
+              return passToken() + passToken(102);
             default:
               handleIdentifierVarName(lookAhead);
-              return identifierTokenCommand(lookAhead) + passToken(lookAhead, true) + postfix();
+              return identifierTokenCommand(lookAhead) + passToken() + postfix();
           }
         }
         return fail();
       case 100:
-        if (Match.identifier(token)) {
-          token.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          subroutineToken = token;
-          return passToken(token, true);
+        if (passer.isIdentifier(activeToken)) {
+          activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE);
+          subroutineToken = activeToken;
+          return passToken();
         }
         return fail();
       case 101:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 102:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList();
-        return handleChildClass(compileExpressionList, token);
+        return handleChildClass(compileExpressionList);
       case 103:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 104:
         int nArgs = compileExpressionList.getNumArgs();
         return subroutineCallCommand(nArgs) + postfix();
@@ -169,25 +169,25 @@ public class CompileTerm extends Compile {
       case 200:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression, token);
+        return handleChildClass(compileExpression);
       case 201:
-        return arrayReferenceCommand() + passToken(token, Match.symbol(token, Symbol.BRACKET_R));
+        return arrayReferenceCommand() + passToken(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
       case 202:
         return postfix();
 
       case 300:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression, token);
+        return handleChildClass(compileExpression);
       case 301:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 302:
         return postfix();
 
       case 400:
         if (compileTerm == null)
           compileTerm = new CompileTerm();
-        return handleChildClass(compileTerm, token);
+        return handleChildClass(compileTerm);
       case 401:
         return VM.writeUnaryOp(lookAhead.getSymbol()) + postfix();
 

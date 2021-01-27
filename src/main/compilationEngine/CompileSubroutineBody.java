@@ -36,33 +36,33 @@ public class CompileSubroutineBody extends Compile {
     return command;
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 1:
-        if (Match.keyword(token, Keyword.VAR) && compileVarDec == null)
+        if (passer.matchKeyword(activeToken, Keyword.VAR) && compileVarDec == null)
           compileVarDec = new CompileVarDec();
         if (compileVarDec != null)
-          return handleChildClass(compileVarDec, token);
+          return handleChildClass(compileVarDec);
         pos++;
       case 2:
-        if (Match.keyword(token, Keyword.VAR)) {
+        if (passer.matchKeyword(activeToken, Keyword.VAR)) {
           compileVarDec = null;
           pos--;
-          return handleToken(token);
+          return handleRoutine();
         }
         pos++;
         numLocals = scopedSymbolTable.getKindAmount(SymbolKind.VAR);
-        return buildCommand() + handleToken(token);
+        return buildCommand() + handleRoutine();
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements();
-        return handleChildClass(compileStatements, token);
+        return handleChildClass(compileStatements);
       case 4:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 5:
         return postfix();
       default:

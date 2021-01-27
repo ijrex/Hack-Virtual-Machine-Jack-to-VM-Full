@@ -21,24 +21,24 @@ public class CompileExpressionList extends Compile {
     return numArgs;
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleToken() throws IOException {
     switch (pos) {
       case -2:
         return postfix();
       case -1:
-        if (Match.symbol(token, Symbol.PARENTHESIS_R))
-          return prefix(token, -2);
-        return prefix(token);
+        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
+          return prefix(-2);
+        return prefix();
       case 0:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression, token);
+        return handleChildClass(compileExpression);
       case 1:
         numArgs++;
-        if (Match.symbol(token, Symbol.COMMA)) {
+        if (passer.matchSymbol(activeToken, Symbol.COMMA)) {
           compileExpression = null;
           pos--;
-          return passToken(token, true, 0);
+          return passToken(0);
         }
         return postfix();
       default:

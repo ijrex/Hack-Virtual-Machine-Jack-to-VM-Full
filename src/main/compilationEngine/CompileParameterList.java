@@ -18,34 +18,34 @@ public class CompileParameterList extends Compile {
     wrapperLabel = "parameterList";
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -2:
         return postfix();
       case -1:
-        if (Match.symbol(token, Symbol.PARENTHESIS_R))
-          return prefix(token, -2);
-        return prefix(token);
+        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
+          return prefix(-2);
+        return prefix();
       case 0:
-        if (Match.type(token)) {
-          varType = token.getValue();
+        if (passer.isType(activeToken)) {
+          varType = activeToken.getValue();
 
           if(!incKeyForMethod && functionType == Keyword.METHOD) {
             incKeyForMethod = true;
             scopedSymbolTable.incKey();
           }
-          return  passToken(token, true);
+          return passToken();
         }
       case 1:
-        if (Match.identifier(token)) {
-          SymbolEntry symbolEntry = scopedSymbolTable.add(token, varType, "ARGUMENT");
+        if (Match.identifier(activeToken)) {
+          SymbolEntry symbolEntry = scopedSymbolTable.add(activeToken, varType, "ARGUMENT");
           return passSymbolEntry(symbolEntry, true);
         }
         return fail();
       case 2:
-        if (Match.symbol(token, Symbol.COMMA))
-          return passToken(token, true, 0);
-        if (Match.symbol(token, Symbol.PARENTHESIS_R))
+        if (Match.symbol(activeToken, Symbol.COMMA))
+          return passToken( 0);
+        if (Match.symbol(activeToken, Symbol.PARENTHESIS_R))
           return postfix();
       default:
         return fail();

@@ -20,43 +20,43 @@ public class CompileSubroutineDec extends Compile {
     scopedSymbolTable = new SymbolTable();
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
       case -1:
-        return prefix(token);
+        return prefix();
       case 0:
-        if (Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
-          functionType = token.getKeyword();
-          return passToken(token, true);
+        if (passer.matchKeyword(activeToken, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
+          functionType = activeToken.getKeyword();
+          return passToken();
         }
         return fail();
       case 1:
-        if (Match.type(token, Keyword.VOID)) {
-          if (Match.identifier(token))
-            token.setIdentifierCat(IdentifierCat.CLASS);
-          returnType = token;
-          return passToken(token, true);
+        if (passer.isType(activeToken, Keyword.VOID)) {
+          if (passer.isIdentifier(activeToken))
+            activeToken.setIdentifierCat(IdentifierCat.CLASS);
+          returnType = activeToken;
+          return passToken();
         }
         return fail();
       case 2:
-        if (Match.identifier(token)) {
-          functionName = className + "." + token.getValue();
-          token.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
-          return passToken(token, true);
+        if (passer.isIdentifier(activeToken)) {
+          functionName = className + "." + activeToken.getValue();
+          activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
+          return passToken();
         }
         return fail();
       case 3:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 4:
         if (compileParameterList == null)
           compileParameterList = new CompileParameterList();
-        return handleChildClass(compileParameterList, token);
+        return handleChildClass(compileParameterList);
       case 5:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
           compileSubroutineBody = new CompileSubroutineBody();
-        return handleChildClass(compileSubroutineBody, token);
+        return handleChildClass(compileSubroutineBody);
       case 7:
         resetStaticStatements();
         return postfix();
