@@ -7,7 +7,6 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolTable;
-import compilationEngine.util.*;
 
 public class CompileClass extends Compile {
 

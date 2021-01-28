@@ -6,7 +6,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.util.Match;
 import compilationEngine.vmwriter.VM;
 
 public class CompileStatementDo extends Compile {

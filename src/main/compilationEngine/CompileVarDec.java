@@ -7,7 +7,6 @@ import tokenlib.Symbol;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
-import compilationEngine.util.Match;
 
 public class CompileVarDec extends Compile {
   String varType;

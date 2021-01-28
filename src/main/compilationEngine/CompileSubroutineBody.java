@@ -1,13 +1,11 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolKind;
-import compilationEngine.util.*;
 import compilationEngine.vmwriter.VM;
 
 public class CompileSubroutineBody extends Compile {

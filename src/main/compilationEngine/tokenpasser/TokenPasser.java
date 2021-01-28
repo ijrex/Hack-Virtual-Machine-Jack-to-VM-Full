@@ -77,6 +77,16 @@ public class TokenPasser {
     return false;
   }
 
+  public Boolean isReturnTypeType(Token token) {
+    Keyword expected = Keyword.VOID;
+    activeCriteria = "Type or " + expected.toString();
+
+    if(matchKeyword(token, expected) || isType(token)) {
+      return true;
+    }
+    return false;
+  }
+
   public Boolean isKeywordConst(Token token) {
     return matchKeyword(token, new Keyword[] { Keyword.TRUE, Keyword.FALSE, Keyword.NULL, Keyword.THIS });
   }
@@ -88,7 +98,7 @@ public class TokenPasser {
   }
 
   public Boolean isUnaryOp(Token token) {
-    return matchSymbol(token, new Symbol[] { Symbol.MINUS, Symbol.TILDE };);
+    return matchSymbol(token, new Symbol[] { Symbol.MINUS, Symbol.TILDE });
   }
 
   public Boolean isSubroutineDec(Token token) {
@@ -106,5 +116,4 @@ public class TokenPasser {
   public Boolean isStatementDec(Token token) {
     return matchKeyword(token, new Keyword[] { Keyword.LET, Keyword.IF, Keyword.WHILE, Keyword.DO, Keyword.RETURN });
   }
-
 }

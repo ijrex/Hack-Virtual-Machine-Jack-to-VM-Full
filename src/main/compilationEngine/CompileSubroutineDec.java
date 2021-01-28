@@ -6,7 +6,6 @@ import tokenlib.*;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolTable;
-import compilationEngine.util.Match;
 
 public class CompileSubroutineDec extends Compile {
 
@@ -31,7 +30,7 @@ public class CompileSubroutineDec extends Compile {
         }
         return fail();
       case 1:
-        if (passer.isType(activeToken, Keyword.VOID)) {
+        if (passer.isReturnTypeType(activeToken)) {
           if (passer.isIdentifier(activeToken))
             activeToken.setIdentifierCat(IdentifierCat.CLASS);
           returnType = activeToken;

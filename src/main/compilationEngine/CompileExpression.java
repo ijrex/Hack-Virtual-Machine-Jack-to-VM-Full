@@ -5,7 +5,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.util.*;
 import compilationEngine.vmwriter.VM;
 
 public class CompileExpression extends Compile {
