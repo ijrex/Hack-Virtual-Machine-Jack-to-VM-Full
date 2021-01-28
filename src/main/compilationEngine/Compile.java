@@ -37,21 +37,21 @@ public abstract class Compile {
     finished = false;
   }
 
-  private String handlePassToken(Token token, Boolean pass, int nextPos, String returnVal) throws IOException {
+  private String handlePassToken(Token token, Boolean pass, int nextPos) throws IOException {
     if (pass) {
       pos = nextPos;
-      return returnVal;
+      return "";
     }
 
     throw new IOException(passTokenError(token));
   }
 
   protected String passToken(Token token, Boolean pass) throws IOException {
-    return handlePassToken(token, pass, pos + 1, "");
+    return handlePassToken(token, pass, pos + 1);
   }
 
   protected String passToken(Token token, Boolean pass, int nextPos) throws IOException {
-    return handlePassToken(token, pass, nextPos, "");
+    return handlePassToken(token, pass, nextPos);
   }
 
   protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
