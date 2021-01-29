@@ -26,8 +26,6 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 1:
         if (passer.isType(activeToken)) {
-          if (passer.isIdentifier(activeToken))
-            activeToken.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = activeToken.getValue();
           return passActive();
         }

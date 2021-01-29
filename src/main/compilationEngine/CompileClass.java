@@ -27,11 +27,7 @@ public class CompileClass extends Compile {
       case 0:
         return passActive(passer.matchKeyword(activeToken, Keyword.CLASS));
       case 1:
-        if (passer.isIdentifier(activeToken)) {
-          activeToken.setIdentifierCat(IdentifierCat.CLASS_DEC);
-          return passActive();
-        }
-        return fail();
+        return passActive(passer.isIdentifier(activeToken));
       case 2:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 3:

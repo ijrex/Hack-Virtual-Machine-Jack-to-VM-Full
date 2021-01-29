@@ -38,7 +38,6 @@ public class CompileSubroutineDec extends Compile {
       case 2:
         if (passer.isIdentifier(activeToken)) {
           functionName = className + "." + activeToken.getValue();
-          activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
           return passActive();
         }
         return fail();

@@ -22,8 +22,6 @@ public class CompileVarDec extends Compile {
         return passActive(passer.matchKeyword(activeToken, Keyword.VAR));
       case 1:
         if (passer.isType(activeToken)) {
-          if(passer.isIdentifier(activeToken))
-            activeToken.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = activeToken.getValue();
           return passActive();
         }
