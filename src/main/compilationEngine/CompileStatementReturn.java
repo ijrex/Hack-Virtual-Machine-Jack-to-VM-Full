@@ -27,13 +27,11 @@ public class CompileStatementReturn extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
-        return passToken(passer.matchKeyword(activeToken, Keyword.RETURN));
+        return passActive(passer.matchKeyword(activeToken, Keyword.RETURN));
       case 1:
         if (passer.matchSymbol(activeToken, Symbol.SEMI_COLON))
-          return passToken(4);
+          return passActive(4);
         pos++;
       case 2:
         if (compileExpression == null)
@@ -41,7 +39,7 @@ public class CompileStatementReturn extends Compile {
         if (compileExpression != null)
           return handleChildClass(compileExpression);
       case 3:
-        return passToken(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
+        return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 4:
         return buildCommand() + postfix();
       default:

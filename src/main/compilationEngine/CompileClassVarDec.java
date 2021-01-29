@@ -18,12 +18,10 @@ public class CompileClassVarDec extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
         if (passer.isClassVarDec(activeToken)){
           varKind = activeToken.getKeyword().toString();
-          return passToken();
+          return passActive();
         }
         return fail();
       case 1:
@@ -31,7 +29,7 @@ public class CompileClassVarDec extends Compile {
           if (passer.isIdentifier(activeToken))
             activeToken.setIdentifierCat(IdentifierCat.SYMBOL_DEC);
           varType = activeToken.getValue();
-          return passToken();
+          return passActive();
         }
         return fail();
       case 2:
@@ -46,9 +44,9 @@ public class CompileClassVarDec extends Compile {
         return fail();
       case 3:
         if (passer.matchSymbol(activeToken, Symbol.COMMA))
-          return passToken(2);
+          return passActive(2);
         if (passer.matchSymbol(activeToken, Symbol.SEMI_COLON))
-          return passToken(4);
+          return passActive(4);
         return fail();
       case 4:
         return postfix();

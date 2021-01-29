@@ -14,8 +14,6 @@ public class CompileStatements extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
         if (passer.isStatementDec(activeToken) && compileStatement == null) {
           Keyword statementType = activeToken.getKeyword();

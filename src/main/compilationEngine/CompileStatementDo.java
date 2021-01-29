@@ -63,43 +63,41 @@ public class CompileStatementDo extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
-        return passToken(passer.matchKeyword(activeToken, Keyword.DO));
+        return passActive(passer.matchKeyword(activeToken, Keyword.DO));
       case 1:
         if (passer.isIdentifier(activeToken)){
           lookahead = activeToken;
-          return passToken();
+          return passActive();
         }
         return fail();
       case 2:
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L)) {
           lookahead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          return buildLocalCommandStart() + passToken(5);
+          return buildLocalCommandStart() + passActive(5);
         }
         if (passer.matchSymbol(activeToken, Symbol.PERIOD)) {
           handleIdentifierClassOrVarName(lookahead);
-          return passToken();
+          return passActive();
         }
         return fail();
       case 3:
         if (passer.isIdentifier(activeToken)) {
           activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutine = activeToken;
-          return buildRemoteCommandStart() + passToken();
+          return buildRemoteCommandStart() + passActive();
         }
         return fail();
       case 4:
-        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 5:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList();
         return handleChildClass(compileExpressionList);
       case 6:
-        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 7:
-        return passToken(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
+        return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 8:
         nArgs += compileExpressionList.getNumArgs();
         return buildCommandEnd() + postfix();

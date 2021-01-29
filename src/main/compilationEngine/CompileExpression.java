@@ -55,8 +55,6 @@ public class CompileExpression extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
         if (compileTerm1 == null)
           compileTerm1 = new CompileTerm();
@@ -65,7 +63,7 @@ public class CompileExpression extends Compile {
         if (passer.isOp(activeToken)){
           compileTerm1 = null;
           command = buildCommand(activeToken) + command;
-          return passToken(0);
+          return passActive(0);
         }
         return command + postfix();
       default:

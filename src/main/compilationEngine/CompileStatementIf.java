@@ -27,39 +27,37 @@ public class CompileStatementIf extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
-        return passToken(passer.matchKeyword(activeToken, Keyword.IF));
+        return passActive(passer.matchKeyword(activeToken, Keyword.IF));
       case 1:
-        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
         return handleChildClass(compileExpression);
       case 3:
-        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 4:
-        return ifStartCommand + passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
+        return ifStartCommand + passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
           compileStatements1 = new CompileStatements();
         return handleChildClass(compileStatements1);
       case 6:
-        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 7:
         if (passer.matchKeyword(activeToken, Keyword.ELSE)) {
-          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passToken(8);
+          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passActive(8);
         }
         return VM.writeLabel(labelFalse) + postfix();
       case 8:
-        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 9:
         if (compileStatements2 == null)
           compileStatements2 = new CompileStatements();
         return handleChildClass(compileStatements2);
       case 10:
-        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 11:
         return VM.writeLabel(labelEnd) + postfix();
       default:

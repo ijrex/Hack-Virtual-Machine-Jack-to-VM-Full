@@ -11,7 +11,7 @@ import compilationEngine.tokenpasser.TokenPasser;
 import errormessage.ErrorMessage;
 
 public abstract class Compile {
-  int pos = -1;
+  int pos = 0;
   boolean finished = false;
   String wrapperLabel;
 
@@ -41,7 +41,9 @@ public abstract class Compile {
     finished = false;
   }
 
-  private String handlePassToken(Boolean pass, int nextPos) throws IOException {
+  // Pass tokens
+
+  private String handlePassActiveToken(Boolean pass, int nextPos) throws IOException {
     if (pass) {
       pos = nextPos;
       return "";
@@ -50,20 +52,20 @@ public abstract class Compile {
     throw new IOException(passTokenError(activeToken));
   }
 
-  protected String passToken() throws IOException {
-    return handlePassToken(true, pos + 1);
+  protected String passActive() throws IOException {
+    return handlePassActiveToken(true, pos + 1);
   }
 
-  protected String passToken(Boolean pass) throws IOException {
-    return handlePassToken(pass, pos + 1);
+  protected String passActive(Boolean pass) throws IOException {
+    return handlePassActiveToken(pass, pos + 1);
   }
 
-  protected String passToken(int nextPos) throws IOException {
-    return handlePassToken(true, nextPos);
+  protected String passActive(int nextPos) throws IOException {
+    return handlePassActiveToken(true, nextPos);
   }
 
-  protected String passToken(Boolean pass, int nextPos) throws IOException {
-    return handlePassToken(pass, nextPos);
+  protected String passActive(Boolean pass, int nextPos) throws IOException {
+    return handlePassActiveToken(pass, nextPos);
   }
 
   protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
@@ -90,17 +92,6 @@ public abstract class Compile {
 
   protected Boolean isComplete() {
     return finished;
-  }
-
-  /* Prefix */
-
-  protected String prefix(int newPos) throws IOException {
-    pos = newPos;
-    return "" + handleToken(activeToken);
-  }
-
-  protected String prefix() throws IOException {
-    return prefix(0);
   }
 
   /* Postfix */

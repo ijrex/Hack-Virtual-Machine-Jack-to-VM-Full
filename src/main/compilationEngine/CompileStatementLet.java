@@ -43,22 +43,20 @@ public class CompileStatementLet extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
-        return passToken(passer.matchKeyword(activeToken, Keyword.LET));
+        return passActive(passer.matchKeyword(activeToken, Keyword.LET));
       case 1:
         if (passer.isIdentifier(activeToken)) {
           handleIdentifierVarName(activeToken);
           varToken = activeToken;
-          return passToken();
+          return passActive();
         }
         return fail();
       case 2:
         if (compileExpression1 == null && passer.matchSymbol(activeToken, Symbol.BRACKET_L)) {
           isArray = true;
           compileExpression1 = new CompileExpression();
-          return passToken(2);
+          return passActive(2);
         }
         if (compileExpression1 != null)
           return handleChildClass(compileExpression1);
@@ -66,17 +64,17 @@ public class CompileStatementLet extends Compile {
       case 3:
         if (compileExpression1 != null){
           String command = buildArrayLocationCommand();
-          return command + passToken(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
+          return command + passActive(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
         }
         pos++;
       case 4:
-        return passToken(passer.matchSymbol(activeToken, Symbol.EQUALS));
+        return passActive(passer.matchSymbol(activeToken, Symbol.EQUALS));
       case 5:
         if (compileExpression2 == null)
           compileExpression2 = new CompileExpression();
         return handleChildClass(compileExpression2);
       case 6:
-        return passToken(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
+        return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 7:
         return buildAssignmentCommand() + postfix();
       default:

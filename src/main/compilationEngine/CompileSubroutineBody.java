@@ -36,10 +36,8 @@ public class CompileSubroutineBody extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
-        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 1:
         if (passer.matchKeyword(activeToken, Keyword.VAR) && compileVarDec == null)
           compileVarDec = new CompileVarDec();
@@ -60,7 +58,7 @@ public class CompileSubroutineBody extends Compile {
           compileStatements = new CompileStatements();
         return handleChildClass(compileStatements);
       case 4:
-        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 5:
         return postfix();
       default:

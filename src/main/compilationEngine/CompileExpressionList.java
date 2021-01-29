@@ -20,22 +20,20 @@ public class CompileExpressionList extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -2:
-        return postfix();
-      case -1:
-        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
-          return prefix(-2);
-        return prefix();
       case 0:
+        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
+          return postfix();
+        pos++;
+      case 1:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
         return handleChildClass(compileExpression);
-      case 1:
+      case 2:
         numArgs++;
         if (passer.matchSymbol(activeToken, Symbol.COMMA)) {
           compileExpression = null;
           pos--;
-          return passToken(0);
+          return passActive(0);
         }
         return postfix();
       default:

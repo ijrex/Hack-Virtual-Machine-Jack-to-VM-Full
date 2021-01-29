@@ -102,15 +102,13 @@ public class CompileTerm extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
         if (passer.isIntConst(activeToken))
-          return VM.writePush("constant", activeToken.getIntValue()) + passToken(500);
+          return VM.writePush("constant", activeToken.getIntValue()) + passActive(500);
         if (passer.isKeywordConst(activeToken))
-          return keywordTokenCommand(activeToken.getKeyword()) + passToken(500);
+          return keywordTokenCommand(activeToken.getKeyword()) + passActive(500);
         if (passer.isStringConst(activeToken)) {
-          return stringCommand(activeToken) + passToken(500);
+          return stringCommand(activeToken) + passActive(500);
         }
         if (passer.isIdentifier(activeToken)) {
           lookAhead = activeToken;
@@ -118,11 +116,11 @@ public class CompileTerm extends Compile {
           return "";
         }
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L))
-          return passToken(300);
+          return passActive(300);
 
         if (passer.isUnaryOp(activeToken)) {
           lookAhead = activeToken;
-          return passToken(400);
+          return passActive(400);
         }
 
         return fail();
@@ -133,16 +131,16 @@ public class CompileTerm extends Compile {
           switch (symbol) {
             case PERIOD:
               handleIdentifierClassOrVarName(lookAhead);
-              return passToken() + passToken(100);
+              return passActive() + passActive(100);
             case BRACKET_L:
               handleIdentifierVarName(lookAhead);
-              return passToken() + passToken(200);
+              return passActive() + passActive(200);
             case PARENTHESIS_L:
               lookAhead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-              return passToken() + passToken(102);
+              return passActive() + passActive(102);
             default:
               handleIdentifierVarName(lookAhead);
-              return identifierTokenCommand(lookAhead) + passToken() + postfix();
+              return identifierTokenCommand(lookAhead) + passActive() + postfix();
           }
         }
         return fail();
@@ -150,17 +148,17 @@ public class CompileTerm extends Compile {
         if (passer.isIdentifier(activeToken)) {
           activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutineToken = activeToken;
-          return passToken();
+          return passActive();
         }
         return fail();
       case 101:
-        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 102:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList();
         return handleChildClass(compileExpressionList);
       case 103:
-        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 104:
         int nArgs = compileExpressionList.getNumArgs();
         return subroutineCallCommand(nArgs) + postfix();
@@ -170,7 +168,7 @@ public class CompileTerm extends Compile {
           compileExpression = new CompileExpression();
         return handleChildClass(compileExpression);
       case 201:
-        return arrayReferenceCommand() + passToken(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
+        return arrayReferenceCommand() + passActive(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
       case 202:
         return postfix();
 
@@ -179,7 +177,7 @@ public class CompileTerm extends Compile {
           compileExpression = new CompileExpression();
         return handleChildClass(compileExpression);
       case 301:
-        return passToken(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 302:
         return postfix();
 

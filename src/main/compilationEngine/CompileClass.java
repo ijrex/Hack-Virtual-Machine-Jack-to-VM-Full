@@ -25,18 +25,16 @@ public class CompileClass extends Compile {
 
   protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix();
       case 0:
-        return passToken(passer.matchKeyword(activeToken, Keyword.CLASS));
+        return passActive(passer.matchKeyword(activeToken, Keyword.CLASS));
       case 1:
         if (passer.isIdentifier(activeToken)) {
           activeToken.setIdentifierCat(IdentifierCat.CLASS_DEC);
-          return passToken();
+          return passActive();
         }
         return fail();
       case 2:
-        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 3:
         if (passer.isClassVarDec(activeToken) && compileClassVarDec == null)
           compileClassVarDec = new CompileClassVarDec();
@@ -64,7 +62,7 @@ public class CompileClass extends Compile {
         }
         pos++;
       case 7:
-        return passToken(passer.matchSymbol(activeToken, Symbol.BRACE_R)) + postfix();
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R)) + postfix();
       default:
         return fail();
     }
