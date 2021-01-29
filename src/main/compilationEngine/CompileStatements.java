@@ -47,7 +47,7 @@ public class CompileStatements extends Compile {
           return handleRoutine();
         }
       default:
-        return postfix();
+        return endRoutine();
     }
   }
 

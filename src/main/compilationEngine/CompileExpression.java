@@ -65,7 +65,7 @@ public class CompileExpression extends Compile {
           command = buildCommand(activeToken) + command;
           return passActive(0);
         }
-        return command + postfix();
+        return command + endRoutine();
       default:
         return fail();
     }

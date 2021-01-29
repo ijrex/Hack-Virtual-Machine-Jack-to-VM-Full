@@ -62,7 +62,7 @@ public class CompileClass extends Compile {
         }
         pos++;
       case 7:
-        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R)) + postfix();
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R)) + endRoutine();
       default:
         return fail();
     }

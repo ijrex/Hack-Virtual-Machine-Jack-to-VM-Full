@@ -49,7 +49,7 @@ public class CompileStatementIf extends Compile {
         if (passer.matchKeyword(activeToken, Keyword.ELSE)) {
           return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passActive(8);
         }
-        return VM.writeLabel(labelFalse) + postfix();
+        return VM.writeLabel(labelFalse) + endRoutine();
       case 8:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 9:
@@ -59,7 +59,7 @@ public class CompileStatementIf extends Compile {
       case 10:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 11:
-        return VM.writeLabel(labelEnd) + postfix();
+        return VM.writeLabel(labelEnd) + endRoutine();
       default:
         return fail();
     }

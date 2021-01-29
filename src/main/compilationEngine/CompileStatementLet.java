@@ -76,7 +76,7 @@ public class CompileStatementLet extends Compile {
       case 6:
         return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 7:
-        return buildAssignmentCommand() + postfix();
+        return buildAssignmentCommand() + endRoutine();
       default:
         return fail();
     }

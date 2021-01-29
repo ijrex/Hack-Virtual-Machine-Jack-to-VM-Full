@@ -60,7 +60,7 @@ public class CompileSubroutineBody extends Compile {
       case 4:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 5:
-        return postfix();
+        return endRoutine();
       default:
         return fail();
     }

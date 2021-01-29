@@ -140,7 +140,7 @@ public class CompileTerm extends Compile {
               return passActive() + passActive(102);
             default:
               handleIdentifierVarName(lookAhead);
-              return identifierTokenCommand(lookAhead) + passActive() + postfix();
+              return identifierTokenCommand(lookAhead) + passActive() + endRoutine();
           }
         }
         return fail();
@@ -161,7 +161,7 @@ public class CompileTerm extends Compile {
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 104:
         int nArgs = compileExpressionList.getNumArgs();
-        return subroutineCallCommand(nArgs) + postfix();
+        return subroutineCallCommand(nArgs) + endRoutine();
 
       case 200:
         if (compileExpression == null)
@@ -170,7 +170,7 @@ public class CompileTerm extends Compile {
       case 201:
         return arrayReferenceCommand() + passActive(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
       case 202:
-        return postfix();
+        return endRoutine();
 
       case 300:
         if (compileExpression == null)
@@ -179,17 +179,17 @@ public class CompileTerm extends Compile {
       case 301:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 302:
-        return postfix();
+        return endRoutine();
 
       case 400:
         if (compileTerm == null)
           compileTerm = new CompileTerm();
         return handleChildClass(compileTerm);
       case 401:
-        return VM.writeUnaryOp(lookAhead.getSymbol()) + postfix();
+        return VM.writeUnaryOp(lookAhead.getSymbol()) + endRoutine();
 
       case 500:
-        return postfix();
+        return endRoutine();
 
       default:
         return fail();

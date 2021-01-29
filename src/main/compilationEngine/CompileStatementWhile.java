@@ -42,7 +42,7 @@ public class CompileStatementWhile extends Compile {
       case 6:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 7:
-        return VM.writeGoto(labelExp) + VM.writeLabel(labelEnd) + postfix();
+        return VM.writeGoto(labelExp) + VM.writeLabel(labelEnd) + endRoutine();
       default:
         return fail();
     }

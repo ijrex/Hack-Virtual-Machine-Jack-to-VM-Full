@@ -21,7 +21,7 @@ public class CompileParameterList extends Compile {
     switch (pos) {
       case 0:
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
-          return postfix();
+          return endRoutine();
         pos++;
       case 1:
         if (passer.isType(activeToken)) {
@@ -43,7 +43,7 @@ public class CompileParameterList extends Compile {
         if (Match.symbol(activeToken, Symbol.COMMA))
           return passActive( 0);
         if (Match.symbol(activeToken, Symbol.PARENTHESIS_R))
-          return postfix();
+          return endRoutine();
       default:
         return fail();
     }

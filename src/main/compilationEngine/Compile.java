@@ -94,9 +94,9 @@ public abstract class Compile {
     return finished;
   }
 
-  /* Postfix */
+  /* End Routine */
 
-  protected String postfix() {
+  protected String endRoutine() {
     finished = true;
     return "";
   }

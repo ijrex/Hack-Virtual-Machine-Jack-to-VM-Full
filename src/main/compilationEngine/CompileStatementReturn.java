@@ -41,7 +41,7 @@ public class CompileStatementReturn extends Compile {
       case 3:
         return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 4:
-        return buildCommand() + postfix();
+        return buildCommand() + endRoutine();
       default:
         return fail();
     }

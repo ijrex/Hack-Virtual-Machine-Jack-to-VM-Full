@@ -22,7 +22,7 @@ public class CompileExpressionList extends Compile {
     switch (pos) {
       case 0:
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
-          return postfix();
+          return endRoutine();
         pos++;
       case 1:
         if (compileExpression == null)
@@ -35,7 +35,7 @@ public class CompileExpressionList extends Compile {
           pos--;
           return passActive(0);
         }
-        return postfix();
+        return endRoutine();
       default:
         return fail();
     }

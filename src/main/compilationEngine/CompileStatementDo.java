@@ -100,7 +100,7 @@ public class CompileStatementDo extends Compile {
         return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 8:
         nArgs += compileExpressionList.getNumArgs();
-        return buildCommandEnd() + postfix();
+        return buildCommandEnd() + endRoutine();
       default:
         return fail();
     }

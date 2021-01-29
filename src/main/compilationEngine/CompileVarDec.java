@@ -41,7 +41,7 @@ public class CompileVarDec extends Compile {
           return passActive();
         return fail();
       case 4:
-        return postfix();
+        return endRoutine();
       default:
         return fail();
     }
