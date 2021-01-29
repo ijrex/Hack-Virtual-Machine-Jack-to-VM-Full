@@ -14,7 +14,7 @@ public class CompileSubroutineDec extends Compile {
 
   public CompileSubroutineDec() {
     super();
-    wrapperLabel = "subroutineDec";
+    routineLabel = "subroutineDec";
 
     scopedSymbolTable = new SymbolTable();
   }

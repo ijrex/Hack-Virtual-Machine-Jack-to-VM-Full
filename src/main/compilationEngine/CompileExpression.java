@@ -14,6 +14,10 @@ public class CompileExpression extends Compile {
 
   String command = "";
 
+  public CompileExpression() {
+    routineLabel = "expression";
+  }
+
   public static String buildCommand(Token token) {
     Symbol value = token.getSymbol();
 
@@ -47,10 +51,6 @@ public class CompileExpression extends Compile {
     }
 
     return VM.writeCall("Math." + output, 2);
-  }
-
-  public CompileExpression() {
-    wrapperLabel = "expression";
   }
 
   protected String handleRoutine() throws IOException {

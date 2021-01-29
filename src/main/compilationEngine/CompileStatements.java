@@ -9,7 +9,7 @@ public class CompileStatements extends Compile {
   Compile compileStatement;
 
   public CompileStatements() {
-    wrapperLabel = "statements";
+    routineLabel = "statements";
   }
 
   protected String handleRoutine() throws IOException {

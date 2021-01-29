@@ -12,7 +12,7 @@ public class CompileStatementReturn extends Compile {
   Compile compileExpression;
 
   public CompileStatementReturn() {
-    wrapperLabel = "returnStatement";
+    routineLabel = "returnStatement";
   }
 
   private String buildCommand() {

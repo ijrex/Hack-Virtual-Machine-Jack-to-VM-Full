@@ -14,7 +14,7 @@ public class CompileStatementIf extends Compile {
   Compile compileStatements2;
 
   public CompileStatementIf() {
-    wrapperLabel = "ifStatement";
+    routineLabel = "ifStatement";
 
     numIfStatements++;
   }

@@ -13,7 +13,7 @@ import errormessage.ErrorMessage;
 public abstract class Compile {
   int pos = 0;
   boolean finished = false;
-  String wrapperLabel;
+  String routineLabel;
 
   static TokenPasser passer = new TokenPasser();
   static Token activeToken;
@@ -63,7 +63,7 @@ public abstract class Compile {
     String err = "";
     err += ErrorMessage.header("TOKEN INFO");
     err += ErrorMessage.info("Token", token.getValue());
-    err += ErrorMessage.info("Routine", wrapperLabel);
+    err += ErrorMessage.info("Routine", routineLabel);
     err += ErrorMessage.info("Case", String.valueOf(pos));
     return err;
   }

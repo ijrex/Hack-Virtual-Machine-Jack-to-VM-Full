@@ -14,8 +14,7 @@ public class CompileClass extends Compile {
   Compile compileSubroutineDec;
 
   public CompileClass() {
-    wrapperLabel = "class";
-
+    routineLabel = "class";
     classSymbolTable = new SymbolTable();
   }
 

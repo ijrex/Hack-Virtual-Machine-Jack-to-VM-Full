@@ -13,7 +13,7 @@ public class CompileStatementDo extends Compile {
   Compile compileExpressionList;
 
   public CompileStatementDo() {
-    wrapperLabel = "doStatement";
+    routineLabel = "doStatement";
   }
 
   int nArgs;

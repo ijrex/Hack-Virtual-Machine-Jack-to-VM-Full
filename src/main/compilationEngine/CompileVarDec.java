@@ -13,7 +13,7 @@ public class CompileVarDec extends Compile {
 
   public CompileVarDec() {
     super();
-    wrapperLabel = "varDec";
+    routineLabel = "varDec";
   }
 
   protected String handleRoutine() throws IOException {

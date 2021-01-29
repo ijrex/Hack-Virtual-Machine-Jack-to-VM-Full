@@ -11,7 +11,7 @@ public class CompileExpressionList extends Compile {
   int numArgs = 0;
 
   public CompileExpressionList() {
-    wrapperLabel = "expressionList";
+    routineLabel = "expressionList";
   }
 
   public int getNumArgs() {

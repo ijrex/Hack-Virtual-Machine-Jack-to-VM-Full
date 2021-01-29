@@ -14,7 +14,7 @@ public class CompileStatementLet extends Compile {
   Compile compileExpression2;
 
   public CompileStatementLet() {
-    wrapperLabel = "letStatement";
+    routineLabel = "letStatement";
   }
 
   Token varToken;

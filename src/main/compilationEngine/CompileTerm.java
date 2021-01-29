@@ -18,7 +18,7 @@ public class CompileTerm extends Compile {
   Token subroutineToken;
 
   public CompileTerm() {
-    wrapperLabel = "term";
+    routineLabel = "term";
   }
 
   private String identifierTokenCommand(Token token) {

@@ -14,7 +14,7 @@ public class CompileParameterList extends Compile {
   Boolean incKeyForMethod = false;
 
   public CompileParameterList() {
-    wrapperLabel = "parameterList";
+    routineLabel = "parameterList";
   }
 
   protected String handleRoutine() throws IOException {

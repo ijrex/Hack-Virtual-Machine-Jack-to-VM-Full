@@ -14,7 +14,7 @@ public class CompileSubroutineBody extends Compile {
   Compile compileStatements;
 
   public CompileSubroutineBody() {
-    wrapperLabel = "subroutineBody";
+    routineLabel = "subroutineBody";
   }
 
   private String buildCommand() {

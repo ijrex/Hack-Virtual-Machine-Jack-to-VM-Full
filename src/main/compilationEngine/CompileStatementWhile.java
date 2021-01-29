@@ -13,7 +13,7 @@ public class CompileStatementWhile extends Compile {
   Compile compileStatements;
 
   public CompileStatementWhile() {
-    wrapperLabel = "whileStatement";
+    routineLabel = "whileStatement";
 
     numWhileStatements++;
   }
