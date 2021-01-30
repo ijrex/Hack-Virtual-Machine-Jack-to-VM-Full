@@ -26,8 +26,6 @@ public abstract class Compile {
   static Keyword functionType;
   static Token returnType;
 
-  static int numLocals = 0;
-
   static int numWhileStatements = 0;
   static int numIfStatements = 0;
 
@@ -175,7 +173,6 @@ public abstract class Compile {
   protected void resetStaticStatements() {
     numWhileStatements = 0;
     numIfStatements = 0;
-    numLocals = 0;
   }
 
   /* Compile Expression List Only */

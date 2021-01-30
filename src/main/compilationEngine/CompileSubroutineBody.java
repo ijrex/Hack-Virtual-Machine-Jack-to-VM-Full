@@ -18,7 +18,7 @@ public class CompileSubroutineBody extends Compile {
   }
 
   private String buildCommand() {
-    String command = VM.writeFunction(functionName, numLocals);
+    String command = VM.writeFunction(functionName, scopedSymbolTable.getKindAmount(SymbolKind.VAR));
 
 
     if (functionType == Keyword.CONSTRUCTOR) {
@@ -52,7 +52,6 @@ public class CompileSubroutineBody extends Compile {
           return handleRoutine();
         }
         pos++;
-        numLocals = scopedSymbolTable.getKindAmount(SymbolKind.VAR);
         return buildCommand() + handleRoutine();
       case 3:
         if (compileStatements == null)
