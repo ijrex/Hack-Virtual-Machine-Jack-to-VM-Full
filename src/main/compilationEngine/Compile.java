@@ -7,12 +7,16 @@ import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.symboltable.SymbolTable;
+import compilationEngine.tokenpasser.TokenPasser;
 import errormessage.ErrorMessage;
 
 public abstract class Compile {
-  int pos = -1;
+  int pos = 0;
   boolean finished = false;
-  String wrapperLabel;
+  String routineLabel;
+
+  static TokenPasser passer = new TokenPasser();
+  static Token activeToken;
 
   // Statics to be reset
   static SymbolTable classSymbolTable;
@@ -25,102 +29,85 @@ public abstract class Compile {
   static int numFieldVars = 0;
   static int numLocals = 0;
 
-  // VM Label counts
   static int numWhileStatements = 0;
   static int numIfStatements = 0;
 
-  public Compile() {
-    this.init();
+  // Pass tokens
+
+  protected String passActive() throws IOException {
+    return handlePassActiveToken(true, pos + 1);
   }
 
-  private void init() {
-    finished = false;
+  protected String passActive(Boolean pass) throws IOException {
+    return handlePassActiveToken(pass, pos + 1);
   }
 
-  private String handlePassToken(Token token, Boolean pass, int nextPos) throws IOException {
+  protected String passActive(int nextPos) throws IOException {
+    return handlePassActiveToken(true, nextPos);
+  }
+
+  protected String passActive(Boolean pass, int nextPos) throws IOException {
+    return handlePassActiveToken(pass, nextPos);
+  }
+
+  private String handlePassActiveToken(Boolean pass, int nextPos) throws IOException {
     if (pass) {
       pos = nextPos;
       return "";
     }
 
-    throw new IOException(passTokenError(token));
-  }
-
-  protected String passToken(Token token, Boolean pass) throws IOException {
-    return handlePassToken(token, pass, pos + 1);
-  }
-
-  protected String passToken(Token token, Boolean pass, int nextPos) throws IOException {
-    return handlePassToken(token, pass, nextPos);
-  }
-
-  protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
-    if (pass) {
-      pos++;
-      return "";
-    }
-
-    throw new IOException(passSymbolEntryError(symbolEntry));
+    throw new IOException(passTokenError(activeToken));
   }
 
   private String passTokenError(Token token) {
     String err = "";
     err += ErrorMessage.header("TOKEN INFO");
     err += ErrorMessage.info("Token", token.getValue());
-    err += ErrorMessage.info("Routine", wrapperLabel);
+    err += ErrorMessage.info("Routine", routineLabel);
     err += ErrorMessage.info("Case", String.valueOf(pos));
     return err;
   }
 
-  private String passSymbolEntryError(SymbolEntry symbolEntry) {
-    return "ERROR: Cannot pass symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
-  }
+  /* End Routine */
 
-  protected Boolean isComplete() {
-    return finished;
-  }
-
-  /* Prefix */
-
-  protected String prefix(Token token, int newPos) throws IOException {
-    pos = newPos;
-    return "" + handleToken(token);
-  }
-
-  protected String prefix(Token token) throws IOException {
-    return prefix(token, 0);
-  }
-
-  /* Postfix */
-
-  protected String postfix() {
+  protected String endRoutine() {
     finished = true;
     return "";
   }
 
-  /* Fail */
+  /* Fail Routine */
 
   protected String fail() throws IOException {
     throw new IOException("ERROR: Failed while parsing " + this.getClass());
   }
 
-  protected String handleToken(Token token) throws IOException {
+
+  /* Internal API to handle own routine */
+
+  protected String handleRoutine() throws IOException {
     throw new IOException();
   }
 
   /* Handle Child Class */
+  /* External API for parent routines */
 
-  protected String handleChildClass(Compile compiler, Token token) throws IOException {
+  protected String handleChildClass(Compile compiler) throws IOException {
     if (!compiler.isComplete()) {
-      String str = compiler.handleToken(token);
+      String str = compiler.handleToken(activeToken);
       if (compiler.isComplete()) {
         pos++;
-        return str + handleToken(token);
+        return str + handleToken(activeToken);
       }
       return str;
     }
-    throw new IOException(childClassError(token, compiler));
+    throw new IOException(childClassError(activeToken, compiler));
   }
+
+  public String handleToken(Token token) throws IOException {
+    activeToken = token;
+    return handleRoutine();
+  }
+
 
   private String childClassError(Token token, Compile compiler) {
     String str = "\n";
@@ -128,6 +115,11 @@ public abstract class Compile {
     str += "ERROR (Continued): Handling child class \"" + compiler.getClass() + "\"";
 
     return str;
+  }
+
+
+  protected Boolean isComplete() {
+    return finished;
   }
 
   /* Search symbol tables and add properties to identifier tokens */
@@ -147,6 +139,21 @@ public abstract class Compile {
 
     return false;
   }
+
+
+  protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
+    if (pass) {
+      pos++;
+      return "";
+    }
+
+    throw new IOException(passSymbolEntryError(symbolEntry));
+  }
+
+  private String passSymbolEntryError(SymbolEntry symbolEntry) {
+    return "ERROR: Cannot pass symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
+  }
+
 
   protected void handleIdentifierVarName(Token token) throws IOException {
     boolean isSet = setIdentifierPropsIfSymbolExists(token);

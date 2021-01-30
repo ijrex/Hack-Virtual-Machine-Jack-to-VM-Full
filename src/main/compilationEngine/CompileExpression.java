@@ -5,7 +5,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.util.*;
 import compilationEngine.vmwriter.VM;
 
 public class CompileExpression extends Compile {
@@ -14,6 +13,10 @@ public class CompileExpression extends Compile {
   Compile compileTerm2;
 
   String command = "";
+
+  public CompileExpression() {
+    routineLabel = "expression";
+  }
 
   public static String buildCommand(Token token) {
     Symbol value = token.getSymbol();
@@ -50,25 +53,19 @@ public class CompileExpression extends Compile {
     return VM.writeCall("Math." + output, 2);
   }
 
-  public CompileExpression() {
-    wrapperLabel = "expression";
-  }
-
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix(token);
       case 0:
         if (compileTerm1 == null)
           compileTerm1 = new CompileTerm();
-        return handleChildClass(compileTerm1, token);
+        return handleChildClass(compileTerm1);
       case 1:
-        if (Match.op(token)) {
+        if (passer.isOp(activeToken)){
           compileTerm1 = null;
-          command = buildCommand(token) + command;
-          return passToken(token, true, 0);
+          command = buildCommand(activeToken) + command;
+          return passActive(0);
         }
-        return command + postfix();
+        return command + endRoutine();
       default:
         return fail();
     }

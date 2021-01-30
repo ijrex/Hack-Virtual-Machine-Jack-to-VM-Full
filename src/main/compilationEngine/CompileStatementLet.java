@@ -6,7 +6,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.util.*;
 import compilationEngine.vmwriter.VM;
 
 public class CompileStatementLet extends Compile {
@@ -15,7 +14,7 @@ public class CompileStatementLet extends Compile {
   Compile compileExpression2;
 
   public CompileStatementLet() {
-    wrapperLabel = "letStatement";
+    routineLabel = "letStatement";
   }
 
   Token varToken;
@@ -42,44 +41,42 @@ public class CompileStatementLet extends Compile {
     return VM.writePop(location, varToken.getRunningIndex());
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix(token);
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.LET));
+        return passActive(passer.matchKeyword(activeToken, Keyword.LET));
       case 1:
-        if (Match.identifier(token)) {
-          handleIdentifierVarName(token);
-          varToken = token;
-          return passToken(token, true);
+        if (passer.isIdentifier(activeToken)) {
+          handleIdentifierVarName(activeToken);
+          varToken = activeToken;
+          return passActive();
         }
         return fail();
       case 2:
-        if (compileExpression1 == null && Match.symbol(token, Symbol.BRACKET_L)) {
+        if (compileExpression1 == null && passer.matchSymbol(activeToken, Symbol.BRACKET_L)) {
           isArray = true;
           compileExpression1 = new CompileExpression();
-          return passToken(token, true, 2);
+          return passActive(2);
         }
         if (compileExpression1 != null)
-          return handleChildClass(compileExpression1, token);
+          return handleChildClass(compileExpression1);
         pos++;
       case 3:
         if (compileExpression1 != null){
           String command = buildArrayLocationCommand();
-          return command + passToken(token, Match.symbol(token, Symbol.BRACKET_R));
+          return command + passActive(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
         }
         pos++;
       case 4:
-        return passToken(token, Match.symbol(token, Symbol.EQUALS));
+        return passActive(passer.matchSymbol(activeToken, Symbol.EQUALS));
       case 5:
         if (compileExpression2 == null)
           compileExpression2 = new CompileExpression();
-        return handleChildClass(compileExpression2, token);
+        return handleChildClass(compileExpression2);
       case 6:
-        return passToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 7:
-        return buildAssignmentCommand() + postfix();
+        return buildAssignmentCommand() + endRoutine();
       default:
         return fail();
     }

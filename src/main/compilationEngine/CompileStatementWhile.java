@@ -1,12 +1,10 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.util.*;
 import compilationEngine.vmwriter.VM;
 
 public class CompileStatementWhile extends Compile {
@@ -15,7 +13,7 @@ public class CompileStatementWhile extends Compile {
   Compile compileStatements;
 
   public CompileStatementWhile() {
-    wrapperLabel = "whileStatement";
+    routineLabel = "whileStatement";
 
     numWhileStatements++;
   }
@@ -23,30 +21,28 @@ public class CompileStatementWhile extends Compile {
   String labelExp = "WHILE_EXP" + numWhileStatements;
   String labelEnd = "WHILE_END" + numWhileStatements;
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix(token);
       case 0:
-        return VM.writeLabel(labelExp) + passToken(token, Match.keyword(token, Keyword.WHILE));
+        return VM.writeLabel(labelExp) + passActive(passer.matchKeyword(activeToken, Keyword.WHILE));
       case 1:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression, token);
+        return handleChildClass(compileExpression);
       case 3:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 4:
-        return "not\n" + VM.writeIf(labelEnd) + passToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return "not\n" + VM.writeIf(labelEnd) + passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 5:
         if (compileStatements == null)
           compileStatements = new CompileStatements();
-        return handleChildClass(compileStatements, token);
+        return handleChildClass(compileStatements);
       case 6:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 7:
-        return VM.writeGoto(labelExp) + VM.writeLabel(labelEnd) + postfix();
+        return VM.writeGoto(labelExp) + VM.writeLabel(labelEnd) + endRoutine();
       default:
         return fail();
     }

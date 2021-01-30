@@ -1,12 +1,10 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.util.Match;
 import compilationEngine.vmwriter.VM;
 
 public class CompileStatementReturn extends Compile {
@@ -14,7 +12,7 @@ public class CompileStatementReturn extends Compile {
   Compile compileExpression;
 
   public CompileStatementReturn() {
-    wrapperLabel = "returnStatement";
+    routineLabel = "returnStatement";
   }
 
   private String buildCommand() {
@@ -27,25 +25,23 @@ public class CompileStatementReturn extends Compile {
     return command + VM.writeReturn();
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix(token);
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.RETURN));
+        return passActive(passer.matchKeyword(activeToken, Keyword.RETURN));
       case 1:
-        if (Match.symbol(token, Symbol.SEMI_COLON))
-          return passToken(token, true, 4);
+        if (passer.matchSymbol(activeToken, Symbol.SEMI_COLON))
+          return passActive(4);
         pos++;
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
         if (compileExpression != null)
-          return handleChildClass(compileExpression, token);
+          return handleChildClass(compileExpression);
       case 3:
-        return passToken(token, Match.symbol(token, Symbol.SEMI_COLON));
+        return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 4:
-        return buildCommand() + postfix();
+        return buildCommand() + endRoutine();
       default:
         return fail();
     }

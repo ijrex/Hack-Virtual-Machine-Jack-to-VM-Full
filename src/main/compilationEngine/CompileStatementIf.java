@@ -1,12 +1,10 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.util.*;
 import compilationEngine.vmwriter.VM;
 
 public class CompileStatementIf extends Compile {
@@ -16,7 +14,7 @@ public class CompileStatementIf extends Compile {
   Compile compileStatements2;
 
   public CompileStatementIf() {
-    wrapperLabel = "ifStatement";
+    routineLabel = "ifStatement";
 
     numIfStatements++;
   }
@@ -27,43 +25,41 @@ public class CompileStatementIf extends Compile {
 
   String ifStartCommand = VM.writeIf(labelTrue) + VM.writeGoto(labelFalse) + VM.writeLabel(labelTrue);
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix(token);
       case 0:
-        return passToken(token, Match.keyword(token, Keyword.IF));
+        return passActive(passer.matchKeyword(activeToken, Keyword.IF));
       case 1:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression, token);
+        return handleChildClass(compileExpression);
       case 3:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 4:
-        return ifStartCommand + passToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return ifStartCommand + passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 5:
         if (compileStatements1 == null)
           compileStatements1 = new CompileStatements();
-        return handleChildClass(compileStatements1, token);
+        return handleChildClass(compileStatements1);
       case 6:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 7:
-        if (Match.keyword(token, Keyword.ELSE)) {
-          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passToken(token, true, 8);
+        if (passer.matchKeyword(activeToken, Keyword.ELSE)) {
+          return VM.writeGoto(labelEnd) + VM.writeLabel(labelFalse) + passActive(8);
         }
-        return VM.writeLabel(labelFalse) + postfix();
+        return VM.writeLabel(labelFalse) + endRoutine();
       case 8:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_L));
       case 9:
         if (compileStatements2 == null)
           compileStatements2 = new CompileStatements();
-        return handleChildClass(compileStatements2, token);
+        return handleChildClass(compileStatements2);
       case 10:
-        return passToken(token, Match.symbol(token, Symbol.BRACE_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 11:
-        return VM.writeLabel(labelEnd) + postfix();
+        return VM.writeLabel(labelEnd) + endRoutine();
       default:
         return fail();
     }

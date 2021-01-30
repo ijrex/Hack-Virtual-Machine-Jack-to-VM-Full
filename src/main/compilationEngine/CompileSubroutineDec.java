@@ -6,7 +6,6 @@ import tokenlib.*;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolTable;
-import compilationEngine.util.Match;
 
 public class CompileSubroutineDec extends Compile {
 
@@ -15,51 +14,48 @@ public class CompileSubroutineDec extends Compile {
 
   public CompileSubroutineDec() {
     super();
-    wrapperLabel = "subroutineDec";
+    routineLabel = "subroutineDec";
 
     scopedSymbolTable = new SymbolTable();
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -1:
-        return prefix(token);
       case 0:
-        if (Match.keyword(token, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
-          functionType = token.getKeyword();
-          return passToken(token, true);
+        if (passer.matchKeyword(activeToken, new Keyword[] { Keyword.CONSTRUCTOR, Keyword.FUNCTION, Keyword.METHOD })) {
+          functionType = activeToken.getKeyword();
+          return passActive();
         }
         return fail();
       case 1:
-        if (Match.type(token, Keyword.VOID)) {
-          if (Match.identifier(token))
-            token.setIdentifierCat(IdentifierCat.CLASS);
-          returnType = token;
-          return passToken(token, true);
+        if (passer.isReturnTypeType(activeToken)) {
+          if (passer.isIdentifier(activeToken))
+            activeToken.setIdentifierCat(IdentifierCat.CLASS);
+          returnType = activeToken;
+          return passActive();
         }
         return fail();
       case 2:
-        if (Match.identifier(token)) {
-          functionName = className + "." + token.getValue();
-          token.setIdentifierCat(IdentifierCat.SUBROUTINE_DEC);
-          return passToken(token, true);
+        if (passer.isIdentifier(activeToken)) {
+          functionName = className + "." + activeToken.getValue();
+          return passActive();
         }
         return fail();
       case 3:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_L));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L));
       case 4:
         if (compileParameterList == null)
           compileParameterList = new CompileParameterList();
-        return handleChildClass(compileParameterList, token);
+        return handleChildClass(compileParameterList);
       case 5:
-        return passToken(token, Match.symbol(token, Symbol.PARENTHESIS_R));
+        return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
           compileSubroutineBody = new CompileSubroutineBody();
-        return handleChildClass(compileSubroutineBody, token);
+        return handleChildClass(compileSubroutineBody);
       case 7:
         resetStaticStatements();
-        return postfix();
+        return endRoutine();
       default:
         return fail();
     }

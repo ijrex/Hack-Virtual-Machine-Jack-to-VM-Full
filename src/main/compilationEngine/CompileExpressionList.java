@@ -1,11 +1,8 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.Symbol;
 
 import java.io.IOException;
-
-import compilationEngine.util.*;
 
 public class CompileExpressionList extends Compile {
 
@@ -14,33 +11,31 @@ public class CompileExpressionList extends Compile {
   int numArgs = 0;
 
   public CompileExpressionList() {
-    wrapperLabel = "expressionList";
+    routineLabel = "expressionList";
   }
 
   public int getNumArgs() {
     return numArgs;
   }
 
-  public String handleToken(Token token) throws IOException {
+  protected String handleRoutine() throws IOException {
     switch (pos) {
-      case -2:
-        return postfix();
-      case -1:
-        if (Match.symbol(token, Symbol.PARENTHESIS_R))
-          return prefix(token, -2);
-        return prefix(token);
       case 0:
+        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
+          return endRoutine();
+        pos++;
+      case 1:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression, token);
-      case 1:
+        return handleChildClass(compileExpression);
+      case 2:
         numArgs++;
-        if (Match.symbol(token, Symbol.COMMA)) {
+        if (passer.matchSymbol(activeToken, Symbol.COMMA)) {
           compileExpression = null;
           pos--;
-          return passToken(token, true, 0);
+          return passActive(0);
         }
-        return postfix();
+        return endRoutine();
       default:
         return fail();
     }
