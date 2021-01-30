@@ -20,8 +20,9 @@ public class CompileSubroutineBody extends Compile {
   private String buildCommand() {
     String command = VM.writeFunction(functionName, numLocals);
 
+
     if (functionType == Keyword.CONSTRUCTOR) {
-      command += VM.writePush("constant", numFieldVars);
+      command += VM.writePush("constant", classSymbolTable.getKindAmount(SymbolKind.FIELD));
       command += VM.writeCall("Memory.alloc", 1);
       command += VM.writePop("pointer", 0);
     }

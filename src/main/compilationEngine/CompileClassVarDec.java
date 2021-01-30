@@ -33,9 +33,6 @@ public class CompileClassVarDec extends Compile {
         if (passer.isIdentifier(activeToken)){
           // @todo: Check for duplicate and throw error
           SymbolEntry symbolEntry = classSymbolTable.add(activeToken, varType, varKind);
-          if(symbolEntry.getKind() == SymbolKind.FIELD) {
-            numFieldVars++;
-          }
           return passSymbolEntry(symbolEntry, true);
         }
         return fail();
