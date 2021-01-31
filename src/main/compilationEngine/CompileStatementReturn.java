@@ -37,7 +37,7 @@ public class CompileStatementReturn extends Compile {
         if (compileExpression == null)
           compileExpression = new CompileExpression();
         if (compileExpression != null)
-          return handleChildClass(compileExpression);
+          return handleSubroutine(compileExpression);
       case 3:
         return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 4:

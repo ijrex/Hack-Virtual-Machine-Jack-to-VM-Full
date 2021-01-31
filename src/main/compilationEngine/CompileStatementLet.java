@@ -1,11 +1,11 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.Keyword;
 import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.vmwriter.VM;
 
 public class CompileStatementLet extends Compile {
@@ -17,13 +17,13 @@ public class CompileStatementLet extends Compile {
     routineLabel = "letStatement";
   }
 
-  Token varToken;
+  SymbolEntry varSymbol;
+
   Boolean isArray = false;
 
-
   private String buildArrayLocationCommand() {
-    String location = VM.parseLocation(varToken.getIdentifierCat());
-    String command = VM.writePush(location, varToken.getRunningIndex());
+    String location = VM.parseLocation(varSymbol.getKind());
+    String command = VM.writePush(location, varSymbol.getKey());
     command += "add\n";
     return command;
   }
@@ -37,8 +37,8 @@ public class CompileStatementLet extends Compile {
       return command;
     }
 
-    String location = VM.parseLocation(varToken.getIdentifierCat());
-    return VM.writePop(location, varToken.getRunningIndex());
+    String location = VM.parseLocation(varSymbol.getKind());
+    return VM.writePop(location, varSymbol.getKey());
   }
 
   protected String handleRoutine() throws IOException {
@@ -47,8 +47,7 @@ public class CompileStatementLet extends Compile {
         return passActive(passer.matchKeyword(activeToken, Keyword.LET));
       case 1:
         if (passer.isIdentifier(activeToken)) {
-          handleIdentifierVarName(activeToken);
-          varToken = activeToken;
+          varSymbol = findSymbol(activeToken);
           return passActive();
         }
         return fail();
@@ -59,7 +58,7 @@ public class CompileStatementLet extends Compile {
           return passActive(2);
         }
         if (compileExpression1 != null)
-          return handleChildClass(compileExpression1);
+          return handleSubroutine(compileExpression1);
         pos++;
       case 3:
         if (compileExpression1 != null){
@@ -72,7 +71,7 @@ public class CompileStatementLet extends Compile {
       case 5:
         if (compileExpression2 == null)
           compileExpression2 = new CompileExpression();
-        return handleChildClass(compileExpression2);
+        return handleSubroutine(compileExpression2);
       case 6:
         return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 7:

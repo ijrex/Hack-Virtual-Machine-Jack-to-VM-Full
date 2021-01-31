@@ -6,7 +6,9 @@ import tokenlib.Keyword;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
+import compilationEngine.symboltable.SymbolKind;
 import compilationEngine.symboltable.SymbolTable;
+import compilationEngine.symboltable.SymbolType;
 import compilationEngine.tokenpasser.TokenPasser;
 import errormessage.ErrorMessage;
 
@@ -25,9 +27,6 @@ public abstract class Compile {
   static String functionName;
   static Keyword functionType;
   static Token returnType;
-
-  static int numFieldVars = 0;
-  static int numLocals = 0;
 
   static int numWhileStatements = 0;
   static int numIfStatements = 0;
@@ -81,17 +80,14 @@ public abstract class Compile {
     throw new IOException("ERROR: Failed while parsing " + this.getClass());
   }
 
+  /* External API to Handle subroutine */
 
-  /* Internal API to handle own routine */
-
-  protected String handleRoutine() throws IOException {
-    throw new IOException();
+  public String handleToken(Token token) throws IOException {
+    activeToken = token;
+    return handleRoutine();
   }
 
-  /* Handle Child Class */
-  /* External API for parent routines */
-
-  protected String handleChildClass(Compile compiler) throws IOException {
+  protected String handleSubroutine(Compile compiler) throws IOException {
     if (!compiler.isComplete()) {
       String str = compiler.handleToken(activeToken);
       if (compiler.isComplete()) {
@@ -100,16 +96,10 @@ public abstract class Compile {
       }
       return str;
     }
-    throw new IOException(childClassError(activeToken, compiler));
+    throw new IOException(subroutineError(activeToken, compiler));
   }
 
-  public String handleToken(Token token) throws IOException {
-    activeToken = token;
-    return handleRoutine();
-  }
-
-
-  private String childClassError(Token token, Compile compiler) {
+  private String subroutineError(Token token, Compile compiler) {
     String str = "\n";
     str += "ERROR: Cannot pass \"" + token.getValue() + "\"\n";
     str += "ERROR (Continued): Handling child class \"" + compiler.getClass() + "\"";
@@ -117,6 +107,11 @@ public abstract class Compile {
     return str;
   }
 
+  /* Internal API for all classes to handle own routine */
+
+  protected String handleRoutine() throws IOException {
+    throw new IOException();
+  }
 
   protected Boolean isComplete() {
     return finished;
@@ -124,51 +119,30 @@ public abstract class Compile {
 
   /* Search symbol tables and add properties to identifier tokens */
 
-  protected boolean setIdentifierPropsIfSymbolExists(Token token) {
+  protected SymbolEntry findSymbol(Token token, Boolean optional) throws IOException {
     SymbolEntry entry = scopedSymbolTable.find(token);
 
     if (entry == null)
       entry = classSymbolTable.find(token);
 
-    if (entry != null) {
-      token.setIdentifierCat(entry.getKindtoString());
-      token.setRunningIndex(entry.getKey());
-      token.setVarType(entry.getType());
-      return true;
+    if (entry != null || optional) {
+      return entry;
     }
 
-    return false;
+    throw new IOException("@todo: handle unfound symbol entry - " + activeToken.getValue());
   }
 
-
-  protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
-    if (pass) {
-      pos++;
-      return "";
-    }
-
-    throw new IOException(passSymbolEntryError(symbolEntry));
+  protected SymbolEntry findSymbol(Token token) throws IOException {
+    return findSymbol(token, false);
   }
 
-  private String passSymbolEntryError(SymbolEntry symbolEntry) {
-    return "ERROR: Cannot pass symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
-  }
+  protected SymbolEntry findSymbolOrStub(Token token) throws IOException {
+    SymbolEntry entry = findSymbol(token, true);
 
+    if (entry != null)
+      return entry;
 
-  protected void handleIdentifierVarName(Token token) throws IOException {
-    boolean isSet = setIdentifierPropsIfSymbolExists(token);
-
-    if (!isSet) {
-      throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
-    }
-  }
-
-  protected void handleIdentifierClassOrVarName(Token token) throws IOException {
-    boolean isSet = setIdentifierPropsIfSymbolExists(token);
-
-    if (!isSet) {
-      token.setIdentifierCat(IdentifierCat.CLASS);
-    }
+    return new SymbolEntry(token, new SymbolType("external") , SymbolKind.NULL, -1);
   }
 
   /* Reset statics */
@@ -176,8 +150,6 @@ public abstract class Compile {
   protected void resetStaticStatements() {
     numWhileStatements = 0;
     numIfStatements = 0;
-    numFieldVars = 0;
-    numLocals = 0;
   }
 
   /* Compile Expression List Only */

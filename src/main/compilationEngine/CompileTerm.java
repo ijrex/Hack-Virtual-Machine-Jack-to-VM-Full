@@ -6,6 +6,7 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.vmwriter.VM;
 
 public class CompileTerm extends Compile {
@@ -14,16 +15,18 @@ public class CompileTerm extends Compile {
   Compile compileExpression;
   Compile compileTerm;
 
-  Token lookAhead;
-  Token subroutineToken;
+  Token lookAheadToken;
+
+  SymbolEntry lookaheadSymbol;
+  SymbolEntry subroutineEntry;
 
   public CompileTerm() {
     routineLabel = "term";
   }
 
-  private String identifierTokenCommand(Token token) {
-    String location = VM.parseLocation(token.getIdentifierCat());
-    return VM.writePush(location, token.getRunningIndex());
+  private String identifierTokenCommand() {
+    String location = VM.parseLocation(lookaheadSymbol.getKind());
+    return VM.writePush(location, lookaheadSymbol.getKey());
   }
 
   private String keywordTokenCommand(Keyword keyword) {
@@ -43,8 +46,8 @@ public class CompileTerm extends Compile {
   }
 
   private String arrayReferenceCommand() {
-    String location = VM.parseLocation(lookAhead.getIdentifierCat());
-    String command = VM.writePush(location, lookAhead.getRunningIndex());
+    String location = VM.parseLocation(lookaheadSymbol.getKind());
+    String command = VM.writePush(location, lookaheadSymbol.getKey());
     command += "add\n";
     command += VM.writePop("pointer", 1);
     command += VM.writePush("that", 0);
@@ -75,22 +78,22 @@ public class CompileTerm extends Compile {
     String command = "";
     String callClassName = "";
 
-    int runningIndex = lookAhead.getRunningIndex();
+    int runningIndex = lookaheadSymbol.getKey();
 
     if(runningIndex >= 0){
-      String location = VM.parseLocation(lookAhead.getIdentifierCat());
+      String location = VM.parseLocation(lookaheadSymbol.getKind());
 
-      callClassName = lookAhead.getVarType();
+      callClassName = lookaheadSymbol.getType();
       command += VM.writePush(location, runningIndex);
       nArgs++;
     } else {
-      callClassName = lookAhead.getValue();
+      callClassName = lookaheadSymbol.getName();
     }
 
     String subroutineCallName;
 
-    if(subroutineToken != null) {
-      subroutineCallName = subroutineToken.getValue();
+    if(subroutineEntry != null) {
+      subroutineCallName = subroutineEntry.getName();
     } else {
       subroutineCallName = "@todo: handle method call";
     }
@@ -111,43 +114,39 @@ public class CompileTerm extends Compile {
           return stringCommand(activeToken) + passActive(500);
         }
         if (passer.isIdentifier(activeToken)) {
-          lookAhead = activeToken;
-          pos++;
-          return "";
+          lookAheadToken = activeToken;
+          return passActive();
         }
+
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L))
           return passActive(300);
 
         if (passer.isUnaryOp(activeToken)) {
-          lookAhead = activeToken;
+          lookAheadToken = activeToken;
           return passActive(400);
         }
 
         return fail();
       case 1:
-        if (lookAhead != null) {
-          Symbol symbol = activeToken.getSymbol();
+        Symbol symbol = activeToken.getSymbol();
 
-          switch (symbol) {
-            case PERIOD:
-              handleIdentifierClassOrVarName(lookAhead);
-              return passActive() + passActive(100);
-            case BRACKET_L:
-              handleIdentifierVarName(lookAhead);
-              return passActive() + passActive(200);
-            case PARENTHESIS_L:
-              lookAhead.setIdentifierCat(IdentifierCat.SUBROUTINE);
-              return passActive() + passActive(102);
-            default:
-              handleIdentifierVarName(lookAhead);
-              return identifierTokenCommand(lookAhead) + passActive() + endRoutine();
-          }
+        switch (symbol) {
+          case PERIOD:
+            lookaheadSymbol = findSymbolOrStub(lookAheadToken);
+            return passActive() + passActive(100);
+          case BRACKET_L:
+            lookaheadSymbol = findSymbol(lookAheadToken);
+            return passActive() + passActive(200);
+          case PARENTHESIS_L:
+            lookaheadSymbol = findSymbolOrStub(lookAheadToken);
+            return passActive() + passActive(102);
+          default:
+            lookaheadSymbol = findSymbol(lookAheadToken);
+            return identifierTokenCommand() + passActive() + endRoutine();
         }
-        return fail();
       case 100:
         if (passer.isIdentifier(activeToken)) {
-          activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE);
-          subroutineToken = activeToken;
+          subroutineEntry = findSymbolOrStub(activeToken);
           return passActive();
         }
         return fail();
@@ -156,7 +155,7 @@ public class CompileTerm extends Compile {
       case 102:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList();
-        return handleChildClass(compileExpressionList);
+        return handleSubroutine(compileExpressionList);
       case 103:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 104:
@@ -166,7 +165,7 @@ public class CompileTerm extends Compile {
       case 200:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression);
+        return handleSubroutine(compileExpression);
       case 201:
         return arrayReferenceCommand() + passActive(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
       case 202:
@@ -175,7 +174,7 @@ public class CompileTerm extends Compile {
       case 300:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression);
+        return handleSubroutine(compileExpression);
       case 301:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 302:
@@ -184,9 +183,9 @@ public class CompileTerm extends Compile {
       case 400:
         if (compileTerm == null)
           compileTerm = new CompileTerm();
-        return handleChildClass(compileTerm);
+        return handleSubroutine(compileTerm);
       case 401:
-        return VM.writeUnaryOp(lookAhead.getSymbol()) + endRoutine();
+        return VM.writeUnaryOp(lookAheadToken.getSymbol()) + endRoutine();
 
       case 500:
         return endRoutine();

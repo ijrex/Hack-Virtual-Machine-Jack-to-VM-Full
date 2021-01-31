@@ -1,6 +1,5 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.*;
 
 import java.io.IOException;
@@ -29,8 +28,6 @@ public class CompileSubroutineDec extends Compile {
         return fail();
       case 1:
         if (passer.isReturnTypeType(activeToken)) {
-          if (passer.isIdentifier(activeToken))
-            activeToken.setIdentifierCat(IdentifierCat.CLASS);
           returnType = activeToken;
           return passActive();
         }
@@ -46,13 +43,13 @@ public class CompileSubroutineDec extends Compile {
       case 4:
         if (compileParameterList == null)
           compileParameterList = new CompileParameterList();
-        return handleChildClass(compileParameterList);
+        return handleSubroutine(compileParameterList);
       case 5:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 6:
         if (compileSubroutineBody == null)
           compileSubroutineBody = new CompileSubroutineBody();
-        return handleChildClass(compileSubroutineBody);
+        return handleSubroutine(compileSubroutineBody);
       case 7:
         resetStaticStatements();
         return endRoutine();

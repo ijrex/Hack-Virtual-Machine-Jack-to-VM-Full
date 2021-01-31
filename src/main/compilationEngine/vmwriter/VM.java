@@ -1,6 +1,6 @@
 package compilationEngine.vmwriter;
 
-import token.IdentifierCat;
+import compilationEngine.symboltable.SymbolKind;
 import tokenlib.Symbol;
 
 public class VM {
@@ -89,8 +89,8 @@ public class VM {
     return className + "." + subroutineName;
   }
 
-  public static String parseLocation(IdentifierCat location) {
-    switch (location) {
+  public static String parseLocation(SymbolKind symbolKind) {
+    switch (symbolKind) {
       case ARGUMENT:
         return "argument";
       case VAR:
@@ -100,7 +100,7 @@ public class VM {
       case STATIC:
         return "static";
       default:
-        return "@todo: unhandled " + location;
+        return "@todo: unhandled " + symbolKind;
     }
   }
 }

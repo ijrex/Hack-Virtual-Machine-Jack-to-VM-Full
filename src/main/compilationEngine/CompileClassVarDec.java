@@ -4,8 +4,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.*;
-
 public class CompileClassVarDec extends Compile {
 
   String varKind;
@@ -32,11 +30,8 @@ public class CompileClassVarDec extends Compile {
       case 2:
         if (passer.isIdentifier(activeToken)){
           // @todo: Check for duplicate and throw error
-          SymbolEntry symbolEntry = classSymbolTable.add(activeToken, varType, varKind);
-          if(symbolEntry.getKind() == SymbolKind.FIELD) {
-            numFieldVars++;
-          }
-          return passSymbolEntry(symbolEntry, true);
+          classSymbolTable.add(activeToken, varType, varKind);
+          return passActive();
         }
         return fail();
       case 3:

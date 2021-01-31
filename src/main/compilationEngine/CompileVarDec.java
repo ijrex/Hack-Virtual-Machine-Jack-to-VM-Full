@@ -5,8 +5,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolEntry;
-
 public class CompileVarDec extends Compile {
   String varType;
 
@@ -27,8 +25,8 @@ public class CompileVarDec extends Compile {
         return fail();
       case 2:
         if (passer.isIdentifier(activeToken)) {
-          SymbolEntry symbolEntry = scopedSymbolTable.add(activeToken, varType, "VAR");
-          return passSymbolEntry(symbolEntry, true);
+          scopedSymbolTable.add(activeToken, varType, "VAR");
+          return passActive();
         }
         return fail();
       case 3:

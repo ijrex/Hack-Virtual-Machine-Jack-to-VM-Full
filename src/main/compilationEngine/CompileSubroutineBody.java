@@ -18,10 +18,10 @@ public class CompileSubroutineBody extends Compile {
   }
 
   private String buildCommand() {
-    String command = VM.writeFunction(functionName, numLocals);
+    String command = VM.writeFunction(functionName, scopedSymbolTable.getKindAmount(SymbolKind.VAR));
 
     if (functionType == Keyword.CONSTRUCTOR) {
-      command += VM.writePush("constant", numFieldVars);
+      command += VM.writePush("constant", classSymbolTable.getKindAmount(SymbolKind.FIELD));
       command += VM.writeCall("Memory.alloc", 1);
       command += VM.writePop("pointer", 0);
     }
@@ -42,7 +42,7 @@ public class CompileSubroutineBody extends Compile {
         if (passer.matchKeyword(activeToken, Keyword.VAR) && compileVarDec == null)
           compileVarDec = new CompileVarDec();
         if (compileVarDec != null)
-          return handleChildClass(compileVarDec);
+          return handleSubroutine(compileVarDec);
         pos++;
       case 2:
         if (passer.matchKeyword(activeToken, Keyword.VAR)) {
@@ -51,12 +51,11 @@ public class CompileSubroutineBody extends Compile {
           return handleRoutine();
         }
         pos++;
-        numLocals = scopedSymbolTable.getKindAmount(SymbolKind.VAR);
         return buildCommand() + handleRoutine();
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements();
-        return handleChildClass(compileStatements);
+        return handleSubroutine(compileStatements);
       case 4:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 5:

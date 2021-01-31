@@ -39,7 +39,7 @@ public class CompileStatements extends Compile {
           }
         }
         if (compileStatement != null)
-          return handleChildClass(compileStatement);
+          return handleSubroutine(compileStatement);
       case 1:
         if (passer.isStatementDec(activeToken) && compileStatement != null) {
           compileStatement = null;

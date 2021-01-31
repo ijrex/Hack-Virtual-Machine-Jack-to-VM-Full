@@ -5,9 +5,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolEntry;
-import compilationEngine.util.*;
-
 public class CompileParameterList extends Compile {
 
   String varType;
@@ -34,15 +31,15 @@ public class CompileParameterList extends Compile {
           return passActive();
         }
       case 2:
-        if (Match.identifier(activeToken)) {
-          SymbolEntry symbolEntry = scopedSymbolTable.add(activeToken, varType, "ARGUMENT");
-          return passSymbolEntry(symbolEntry, true);
+        if (passer.isIdentifier(activeToken)) {
+          scopedSymbolTable.add(activeToken, varType, "ARGUMENT");
+          return passActive();
         }
         return fail();
       case 3:
-        if (Match.symbol(activeToken, Symbol.COMMA))
-          return passActive( 0);
-        if (Match.symbol(activeToken, Symbol.PARENTHESIS_R))
+        if (passer.matchSymbol(activeToken, Symbol.COMMA))
+          return passActive(0);
+        if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
           return endRoutine();
       default:
         return fail();

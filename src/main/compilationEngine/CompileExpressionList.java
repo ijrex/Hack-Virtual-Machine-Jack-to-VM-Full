@@ -27,12 +27,11 @@ public class CompileExpressionList extends Compile {
       case 1:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression);
+        return handleSubroutine(compileExpression);
       case 2:
         numArgs++;
         if (passer.matchSymbol(activeToken, Symbol.COMMA)) {
           compileExpression = null;
-          pos--;
           return passActive(0);
         }
         return endRoutine();

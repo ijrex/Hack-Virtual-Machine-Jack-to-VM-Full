@@ -26,32 +26,6 @@ public abstract class Token {
     return null;
   }
 
-  // Identifier only
-
-  public void setIdentifierCat(IdentifierCat str) {
-  }
-
-  public void setIdentifierCat(String str) {
-  }
-
-  public IdentifierCat getIdentifierCat() {
-    return null;
-  }
-
-  public void setRunningIndex(int x) {
-  }
-
-  public int getRunningIndex() {
-    return -1;
-  }
-
-  public void setVarType(String str) {
-  }
-
-  public String getVarType() {
-    return null;
-  }
-
   // intConst only
 
   public int getIntValue() {
