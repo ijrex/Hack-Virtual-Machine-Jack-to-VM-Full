@@ -6,7 +6,9 @@ import tokenlib.Keyword;
 import java.io.IOException;
 
 import compilationEngine.symboltable.SymbolEntry;
+import compilationEngine.symboltable.SymbolKind;
 import compilationEngine.symboltable.SymbolTable;
+import compilationEngine.symboltable.SymbolType;
 import compilationEngine.tokenpasser.TokenPasser;
 import errormessage.ErrorMessage;
 
@@ -121,20 +123,30 @@ public abstract class Compile {
 
   /* Search symbol tables and add properties to identifier tokens */
 
-  protected boolean setIdentifierPropsIfSymbolExists(Token token) {
+  protected SymbolEntry findSymbol(Token token, Boolean optional) throws IOException {
     SymbolEntry entry = scopedSymbolTable.find(token);
 
     if (entry == null)
       entry = classSymbolTable.find(token);
 
-    if (entry != null) {
-      token.setIdentifierCat(entry.getKindtoString());
-      token.setRunningIndex(entry.getKey());
-      token.setVarType(entry.getType());
-      return true;
+    if (entry != null || optional) {
+      return entry;
     }
 
-    return false;
+    throw new IOException("@todo: handle unfound symbol entry - " + activeToken.getValue());
+  }
+
+  protected SymbolEntry findSymbol(Token token) throws IOException {
+    return findSymbol(token, false);
+  }
+
+  protected SymbolEntry findSymbolOrPlaceholder(Token token) throws IOException {
+    SymbolEntry entry = findSymbol(token, true);
+
+    if (entry != null)
+      return entry;
+
+    return new SymbolEntry(token, new SymbolType("external") , SymbolKind.NULL, -1);
   }
 
 
@@ -148,24 +160,7 @@ public abstract class Compile {
   }
 
   private String passSymbolEntryError(SymbolEntry symbolEntry) {
-    return "ERROR: Cannot pass symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
-  }
-
-
-  protected void handleIdentifierVarName(Token token) throws IOException {
-    boolean isSet = setIdentifierPropsIfSymbolExists(token);
-
-    if (!isSet) {
-      throw new IOException("ERROR: Undefined symbol \"" + token.getValue() + "\"is not a variable.\n");
-    }
-  }
-
-  protected void handleIdentifierClassOrVarName(Token token) throws IOException {
-    boolean isSet = setIdentifierPropsIfSymbolExists(token);
-
-    if (!isSet) {
-      token.setIdentifierCat(IdentifierCat.CLASS);
-    }
+    return "@todo: Cannot pass symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
   }
 
   /* Reset statics */

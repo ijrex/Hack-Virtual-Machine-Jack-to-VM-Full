@@ -1,6 +1,5 @@
 package compilationEngine;
 
-import token.*;
 import tokenlib.*;
 
 import java.io.IOException;
@@ -29,8 +28,6 @@ public class CompileSubroutineDec extends Compile {
         return fail();
       case 1:
         if (passer.isReturnTypeType(activeToken)) {
-          if (passer.isIdentifier(activeToken))
-            activeToken.setIdentifierCat(IdentifierCat.CLASS);
           returnType = activeToken;
           return passActive();
         }

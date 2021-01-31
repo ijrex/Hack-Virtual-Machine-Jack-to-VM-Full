@@ -6,6 +6,7 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
+import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.vmwriter.VM;
 
 public class CompileStatementDo extends Compile {
@@ -18,8 +19,10 @@ public class CompileStatementDo extends Compile {
 
   int nArgs;
 
-  Token lookahead;
+  // Token lookahead;
   Token subroutine;
+
+  SymbolEntry lookaheadSymbol;
 
   String subroutineCallName;
   String callClassName;
@@ -29,7 +32,7 @@ public class CompileStatementDo extends Compile {
     // i.e. foo();
     nArgs++;
     callClassName = className;
-    subroutineCallName = lookahead.getValue();
+    subroutineCallName = lookaheadSymbol.getName();
     return VM.writePush("pointer", 0);
   }
 
@@ -39,16 +42,16 @@ public class CompileStatementDo extends Compile {
 
     // Remote method call
     // i.e. foo.bar();
-    if (lookahead.getRunningIndex() >= 0) {
+    if (lookaheadSymbol.getKey() >= 0) {
       nArgs++;
-      callClassName = lookahead.getVarType();
-      String location = VM.parseLocation(lookahead.getIdentifierCat());
-      return VM.writePush(location, lookahead.getRunningIndex());
+      callClassName = lookaheadSymbol.getType();
+      String location = VM.parseLocation(lookaheadSymbol.getKind());
+      return VM.writePush(location, lookaheadSymbol.getKey());
     }
 
     // Remote function call
     // i.e. Foo.bar();
-    callClassName = lookahead.getValue();
+    callClassName = lookaheadSymbol.getName();
 
     return "";
   }
@@ -67,23 +70,20 @@ public class CompileStatementDo extends Compile {
         return passActive(passer.matchKeyword(activeToken, Keyword.DO));
       case 1:
         if (passer.isIdentifier(activeToken)){
-          lookahead = activeToken;
+          lookaheadSymbol = findSymbolOrPlaceholder(activeToken);
           return passActive();
         }
         return fail();
       case 2:
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L)) {
-          lookahead.setIdentifierCat(IdentifierCat.SUBROUTINE);
           return buildLocalCommandStart() + passActive(5);
         }
         if (passer.matchSymbol(activeToken, Symbol.PERIOD)) {
-          handleIdentifierClassOrVarName(lookahead);
           return passActive();
         }
         return fail();
       case 3:
         if (passer.isIdentifier(activeToken)) {
-          activeToken.setIdentifierCat(IdentifierCat.SUBROUTINE);
           subroutine = activeToken;
           return buildRemoteCommandStart() + passActive();
         }
