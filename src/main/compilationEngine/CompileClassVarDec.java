@@ -4,8 +4,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.*;
-
 public class CompileClassVarDec extends Compile {
 
   String varKind;
