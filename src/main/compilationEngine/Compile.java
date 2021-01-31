@@ -145,20 +145,6 @@ public abstract class Compile {
     return new SymbolEntry(token, new SymbolType("external") , SymbolKind.NULL, -1);
   }
 
-
-  protected String passSymbolEntry(SymbolEntry symbolEntry, Boolean pass) throws IOException {
-    if (pass) {
-      pos++;
-      return "";
-    }
-
-    throw new IOException(passSymbolEntryError(symbolEntry));
-  }
-
-  private String passSymbolEntryError(SymbolEntry symbolEntry) {
-    return "@todo: Cannot pass symbol entry \"" + symbolEntry.getName() + "\", pos = " + pos;
-  }
-
   /* Reset statics */
 
   protected void resetStaticStatements() {

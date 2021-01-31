@@ -32,8 +32,8 @@ public class CompileClassVarDec extends Compile {
       case 2:
         if (passer.isIdentifier(activeToken)){
           // @todo: Check for duplicate and throw error
-          SymbolEntry symbolEntry = classSymbolTable.add(activeToken, varType, varKind);
-          return passSymbolEntry(symbolEntry, true);
+          classSymbolTable.add(activeToken, varType, varKind);
+          return passActive();
         }
         return fail();
       case 3:

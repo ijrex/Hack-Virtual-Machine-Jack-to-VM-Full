@@ -5,7 +5,6 @@ import tokenlib.Symbol;
 
 import java.io.IOException;
 
-import compilationEngine.symboltable.SymbolEntry;
 import compilationEngine.util.*;
 
 public class CompileParameterList extends Compile {
@@ -35,8 +34,8 @@ public class CompileParameterList extends Compile {
         }
       case 2:
         if (Match.identifier(activeToken)) {
-          SymbolEntry symbolEntry = scopedSymbolTable.add(activeToken, varType, "ARGUMENT");
-          return passSymbolEntry(symbolEntry, true);
+          scopedSymbolTable.add(activeToken, varType, "ARGUMENT");
+          return passActive();
         }
         return fail();
       case 3:
