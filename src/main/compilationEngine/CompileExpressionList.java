@@ -32,7 +32,6 @@ public class CompileExpressionList extends Compile {
         numArgs++;
         if (passer.matchSymbol(activeToken, Symbol.COMMA)) {
           compileExpression = null;
-          pos--;
           return passActive(0);
         }
         return endRoutine();

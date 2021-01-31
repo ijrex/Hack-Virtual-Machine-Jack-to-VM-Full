@@ -136,7 +136,7 @@ public abstract class Compile {
     return findSymbol(token, false);
   }
 
-  protected SymbolEntry findSymbolOrPlaceholder(Token token) throws IOException {
+  protected SymbolEntry findSymbolOrStub(Token token) throws IOException {
     SymbolEntry entry = findSymbol(token, true);
 
     if (entry != null)

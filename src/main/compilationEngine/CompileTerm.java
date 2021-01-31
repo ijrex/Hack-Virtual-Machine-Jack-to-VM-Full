@@ -114,9 +114,8 @@ public class CompileTerm extends Compile {
           return stringCommand(activeToken) + passActive(500);
         }
         if (passer.isIdentifier(activeToken)) {
-          pos++;
           lookAheadToken = activeToken;
-          return "";
+          return passActive();
         }
 
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_L))
@@ -133,13 +132,13 @@ public class CompileTerm extends Compile {
 
         switch (symbol) {
           case PERIOD:
-            lookaheadSymbol = findSymbolOrPlaceholder(lookAheadToken);
+            lookaheadSymbol = findSymbolOrStub(lookAheadToken);
             return passActive() + passActive(100);
           case BRACKET_L:
             lookaheadSymbol = findSymbol(lookAheadToken);
             return passActive() + passActive(200);
           case PARENTHESIS_L:
-            lookaheadSymbol = findSymbolOrPlaceholder(lookAheadToken);
+            lookaheadSymbol = findSymbolOrStub(lookAheadToken);
             return passActive() + passActive(102);
           default:
             lookaheadSymbol = findSymbol(lookAheadToken);
@@ -147,7 +146,7 @@ public class CompileTerm extends Compile {
         }
       case 100:
         if (passer.isIdentifier(activeToken)) {
-          subroutineEntry = findSymbolOrPlaceholder(activeToken);
+          subroutineEntry = findSymbolOrStub(activeToken);
           return passActive();
         }
         return fail();

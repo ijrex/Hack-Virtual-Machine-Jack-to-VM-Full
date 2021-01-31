@@ -38,7 +38,7 @@ public class CompileParameterList extends Compile {
         return fail();
       case 3:
         if (passer.matchSymbol(activeToken, Symbol.COMMA))
-          return passActive( 0);
+          return passActive(0);
         if (passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R))
           return endRoutine();
       default:

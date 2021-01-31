@@ -70,7 +70,7 @@ public class CompileStatementDo extends Compile {
         return passActive(passer.matchKeyword(activeToken, Keyword.DO));
       case 1:
         if (passer.isIdentifier(activeToken)){
-          lookaheadSymbol = findSymbolOrPlaceholder(activeToken);
+          lookaheadSymbol = findSymbolOrStub(activeToken);
           return passActive();
         }
         return fail();
