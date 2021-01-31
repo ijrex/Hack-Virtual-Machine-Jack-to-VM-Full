@@ -156,7 +156,7 @@ public class CompileTerm extends Compile {
       case 102:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList();
-        return handleChildClass(compileExpressionList);
+        return handleSubroutine(compileExpressionList);
       case 103:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 104:
@@ -166,7 +166,7 @@ public class CompileTerm extends Compile {
       case 200:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression);
+        return handleSubroutine(compileExpression);
       case 201:
         return arrayReferenceCommand() + passActive(passer.matchSymbol(activeToken, Symbol.BRACKET_R));
       case 202:
@@ -175,7 +175,7 @@ public class CompileTerm extends Compile {
       case 300:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression);
+        return handleSubroutine(compileExpression);
       case 301:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 302:
@@ -184,7 +184,7 @@ public class CompileTerm extends Compile {
       case 400:
         if (compileTerm == null)
           compileTerm = new CompileTerm();
-        return handleChildClass(compileTerm);
+        return handleSubroutine(compileTerm);
       case 401:
         return VM.writeUnaryOp(lookAheadToken.getSymbol()) + endRoutine();
 

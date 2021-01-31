@@ -34,7 +34,7 @@ public class CompileStatementIf extends Compile {
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression);
+        return handleSubroutine(compileExpression);
       case 3:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 4:
@@ -42,7 +42,7 @@ public class CompileStatementIf extends Compile {
       case 5:
         if (compileStatements1 == null)
           compileStatements1 = new CompileStatements();
-        return handleChildClass(compileStatements1);
+        return handleSubroutine(compileStatements1);
       case 6:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 7:
@@ -55,7 +55,7 @@ public class CompileStatementIf extends Compile {
       case 9:
         if (compileStatements2 == null)
           compileStatements2 = new CompileStatements();
-        return handleChildClass(compileStatements2);
+        return handleSubroutine(compileStatements2);
       case 10:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 11:

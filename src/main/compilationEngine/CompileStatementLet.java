@@ -58,7 +58,7 @@ public class CompileStatementLet extends Compile {
           return passActive(2);
         }
         if (compileExpression1 != null)
-          return handleChildClass(compileExpression1);
+          return handleSubroutine(compileExpression1);
         pos++;
       case 3:
         if (compileExpression1 != null){
@@ -71,7 +71,7 @@ public class CompileStatementLet extends Compile {
       case 5:
         if (compileExpression2 == null)
           compileExpression2 = new CompileExpression();
-        return handleChildClass(compileExpression2);
+        return handleSubroutine(compileExpression2);
       case 6:
         return passActive(passer.matchSymbol(activeToken, Symbol.SEMI_COLON));
       case 7:

@@ -58,7 +58,7 @@ public class CompileExpression extends Compile {
       case 0:
         if (compileTerm1 == null)
           compileTerm1 = new CompileTerm();
-        return handleChildClass(compileTerm1);
+        return handleSubroutine(compileTerm1);
       case 1:
         if (passer.isOp(activeToken)){
           compileTerm1 = null;

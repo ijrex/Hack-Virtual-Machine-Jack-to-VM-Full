@@ -30,7 +30,7 @@ public class CompileStatementWhile extends Compile {
       case 2:
         if (compileExpression == null)
           compileExpression = new CompileExpression();
-        return handleChildClass(compileExpression);
+        return handleSubroutine(compileExpression);
       case 3:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 4:
@@ -38,7 +38,7 @@ public class CompileStatementWhile extends Compile {
       case 5:
         if (compileStatements == null)
           compileStatements = new CompileStatements();
-        return handleChildClass(compileStatements);
+        return handleSubroutine(compileStatements);
       case 6:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 7:

@@ -43,7 +43,7 @@ public class CompileSubroutineBody extends Compile {
         if (passer.matchKeyword(activeToken, Keyword.VAR) && compileVarDec == null)
           compileVarDec = new CompileVarDec();
         if (compileVarDec != null)
-          return handleChildClass(compileVarDec);
+          return handleSubroutine(compileVarDec);
         pos++;
       case 2:
         if (passer.matchKeyword(activeToken, Keyword.VAR)) {
@@ -56,7 +56,7 @@ public class CompileSubroutineBody extends Compile {
       case 3:
         if (compileStatements == null)
           compileStatements = new CompileStatements();
-        return handleChildClass(compileStatements);
+        return handleSubroutine(compileStatements);
       case 4:
         return passActive(passer.matchSymbol(activeToken, Symbol.BRACE_R));
       case 5:

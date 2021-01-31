@@ -33,7 +33,7 @@ public class CompileClass extends Compile {
         if (passer.isClassVarDec(activeToken) && compileClassVarDec == null)
           compileClassVarDec = new CompileClassVarDec();
         if (compileClassVarDec != null)
-          return handleChildClass(compileClassVarDec);
+          return handleSubroutine(compileClassVarDec);
         pos++;
       case 4:
         if (passer.isClassVarDec(activeToken) && compileClassVarDec != null) {
@@ -46,7 +46,7 @@ public class CompileClass extends Compile {
         if (passer.isSubroutineDec(activeToken) && compileSubroutineDec == null)
           compileSubroutineDec = new CompileSubroutineDec();
         if (compileSubroutineDec != null)
-          return handleChildClass(compileSubroutineDec);
+          return handleSubroutine(compileSubroutineDec);
         pos++;
       case 6:
         if (passer.isSubroutineDec(activeToken) && compileSubroutineDec != null) {

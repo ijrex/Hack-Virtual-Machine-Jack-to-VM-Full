@@ -93,7 +93,7 @@ public class CompileStatementDo extends Compile {
       case 5:
         if (compileExpressionList == null)
           compileExpressionList = new CompileExpressionList();
-        return handleChildClass(compileExpressionList);
+        return handleSubroutine(compileExpressionList);
       case 6:
         return passActive(passer.matchSymbol(activeToken, Symbol.PARENTHESIS_R));
       case 7:

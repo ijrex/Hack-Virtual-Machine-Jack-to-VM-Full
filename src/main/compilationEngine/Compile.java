@@ -80,17 +80,14 @@ public abstract class Compile {
     throw new IOException("ERROR: Failed while parsing " + this.getClass());
   }
 
+  /* External API to Handle subroutine */
 
-  /* Internal API to handle own routine */
-
-  protected String handleRoutine() throws IOException {
-    throw new IOException();
+  public String handleToken(Token token) throws IOException {
+    activeToken = token;
+    return handleRoutine();
   }
 
-  /* Handle Child Class */
-  /* External API for parent routines */
-
-  protected String handleChildClass(Compile compiler) throws IOException {
+  protected String handleSubroutine(Compile compiler) throws IOException {
     if (!compiler.isComplete()) {
       String str = compiler.handleToken(activeToken);
       if (compiler.isComplete()) {
@@ -99,16 +96,10 @@ public abstract class Compile {
       }
       return str;
     }
-    throw new IOException(childClassError(activeToken, compiler));
+    throw new IOException(subroutineError(activeToken, compiler));
   }
 
-  public String handleToken(Token token) throws IOException {
-    activeToken = token;
-    return handleRoutine();
-  }
-
-
-  private String childClassError(Token token, Compile compiler) {
+  private String subroutineError(Token token, Compile compiler) {
     String str = "\n";
     str += "ERROR: Cannot pass \"" + token.getValue() + "\"\n";
     str += "ERROR (Continued): Handling child class \"" + compiler.getClass() + "\"";
@@ -116,6 +107,11 @@ public abstract class Compile {
     return str;
   }
 
+  /* Internal API for all classes to handle own routine */
+
+  protected String handleRoutine() throws IOException {
+    throw new IOException();
+  }
 
   protected Boolean isComplete() {
     return finished;
