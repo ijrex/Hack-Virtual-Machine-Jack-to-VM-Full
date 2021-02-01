@@ -82,6 +82,7 @@ public class Tokenizer {
         }
       }
 
+      activeLinePos = 0;
       compilationEngineVM.reset();
 
       System.out.println("SUCCESS: " + sourcePath);

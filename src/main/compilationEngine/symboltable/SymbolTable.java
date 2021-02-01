@@ -1,10 +1,12 @@
 package compilationEngine.symboltable;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 
 import token.*;
 
 import compilationEngine.symboltable.util.*;
+import errormessage.ErrorMessage;
 
 public class SymbolTable {
 
@@ -23,7 +25,7 @@ public class SymbolTable {
     key = -1;
   }
 
-  public SymbolEntry add(Token token, String _type, String _kind) {
+  public SymbolEntry add(Token token, String _type, String _kind) throws IOException {
 
     String value = token.getValue();
 
@@ -55,20 +57,24 @@ public class SymbolTable {
   }
 
   public int getKindAmount(SymbolKind kind) {
-    int kinds = 0;
+    int numKinds = 0;
     for (String key : table.keySet()) {
       if (table.get(key).getKind() == kind)
-        kinds++;
+      numKinds++;
     }
-    return kinds;
+    return numKinds;
   }
 
-  //@todo: remove or move, used for debgging
-  public void print() {
-    for (String key : table.keySet()) {
-      String str = key + " -> " + table.get(key).print();
+  // For debugging
 
-      System.out.println(str);
+  public String print() {
+    String[] headers = new String[]{"Name", "Kind", "Type", "Running Index"};
+
+    String data = "";
+
+    for (String key : table.keySet()) {
+      data += table.get(key).print() + ",";
     }
+    return ErrorMessage.printTable(headers, data);
   }
 }
