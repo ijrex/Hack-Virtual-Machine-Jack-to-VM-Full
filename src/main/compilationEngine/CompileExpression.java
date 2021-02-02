@@ -18,7 +18,7 @@ public class CompileExpression extends Compile {
     routineLabel = "expression";
   }
 
-  public static String buildCommand(Token token) {
+  private String buildCommand(Token token) throws IOException {
     Symbol value = token.getSymbol();
 
     // Hardware command
@@ -46,8 +46,7 @@ public class CompileExpression extends Compile {
         output = "divide";
         break;
       default:
-        output = "@todo parse " + token.getSymbol();
-        break;
+        throw new IOException(compileError("Invalid arithmetic symbol"));
     }
 
     return VM.writeCall("Math." + output, 2);

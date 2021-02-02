@@ -124,8 +124,15 @@ public class Tokenizer {
     if (token != null)
       return token;
 
-    System.out.println("Cannot parse: " + line);
-    throw new IOException();
+    throw new IOException(parseError(line));
+  }
+
+  private String parseError(String line) {
+    String err = "";
+    err += ErrorMessage.header("TOKEN PARSING ERROR");
+    err += ErrorMessage.info("Message", "Token couldn't be created");
+    err += ErrorMessage.info("Line value", line);
+    return err;
   }
 
 }

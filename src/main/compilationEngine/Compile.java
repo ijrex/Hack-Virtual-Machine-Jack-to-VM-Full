@@ -143,7 +143,7 @@ public abstract class Compile {
 
   /* Errors */
 
-  private String compileError(String errorMessage) {
+  protected String compileError(String errorMessage) {
     String err = "";
     err += ErrorMessage.header("COMPILATION ERROR");
     err += ErrorMessage.info("Message", errorMessage);
@@ -151,7 +151,7 @@ public abstract class Compile {
     return err;
   }
 
-  private String tokenInfo() {
+  protected String tokenInfo() {
     String err = "";
     err += ErrorMessage.header("TOKEN INFO");
     err += ErrorMessage.info("Token", activeToken.getValue());
@@ -161,7 +161,7 @@ public abstract class Compile {
     return err;
   }
 
-  private String symbolTableError() {
+  protected String symbolTableError() {
     String err = "";
     err += ErrorMessage.header("SYMBOL TABLE");
     err += ErrorMessage.info("Message", "Could not find symbol");
