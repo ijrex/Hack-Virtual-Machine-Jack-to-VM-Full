@@ -125,7 +125,7 @@ public abstract class Compile {
     if (entry != null)
       return entry;
 
-    return new SymbolEntry(token, new SymbolType("external") , SymbolKind.NULL, -1);
+    return new SymbolEntry(token, new SymbolType("external") , SymbolKind.STUB, -1);
   }
 
   /* Reset statics */

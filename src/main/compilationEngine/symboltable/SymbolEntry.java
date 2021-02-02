@@ -24,11 +24,6 @@ public class SymbolEntry {
     return this.key;
   }
 
-  // @todo: remove this
-  public String getKindtoString() {
-    return this.kind.toString();
-  }
-
   public String getType() {
     return this.type.getValue();
   }
