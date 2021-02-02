@@ -85,10 +85,15 @@ public class ErrorMessage {
 
   public static String printTable(String[] headers, String data) {
 
+    if(data == "") {
+      return "No data\n";
+    }
+
     String output = "\n";
     int tabs = 2;
 
     String[] dataArr = parseData(data);
+
     int[] colWidth = calculateColWidths(headers, dataArr);
 
     output += formatRow(headers, colWidth, tabs);

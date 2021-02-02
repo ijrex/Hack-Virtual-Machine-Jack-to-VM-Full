@@ -92,8 +92,9 @@ public class Tokenizer {
     } catch (IOException e) {
       String err = "";
 
-      err += ErrorMessage.header("ERROR");
+      err += ErrorMessage.header("ERROR - COMPILATION FAILED");
       err += ErrorMessage.info("File", sourceFile.getName());
+      err += ErrorMessage.info("File Path", sourceFile.getPath());
       err += ErrorMessage.info("Line Number", String.valueOf(activeLinePos));
       err += ErrorMessage.info("Line Value", activeLine);
 
