@@ -36,6 +36,10 @@ public class SymbolTable {
 
     key = (kind == lastKind) ? key + 1 : 0;
 
+    if(find(token) != null) {
+      throw new IOException(duplicateSymbolError(token));
+    }
+
     table.put(value, new SymbolEntry(token, type, kind, key));
 
     lastKind = kind;
@@ -76,5 +80,14 @@ public class SymbolTable {
       data += table.get(key).print() + ",";
     }
     return ErrorMessage.printTable(headers, data);
+  }
+
+  public String duplicateSymbolError(Token token) {
+    String err = "";
+    err += ErrorMessage.header("DUPLICATE SYMBOL ENTRY");
+    err += ErrorMessage.info("Token", token.getValue());
+    err += ErrorMessage.header("SYMBOL TABLE");
+    err += print();
+    return err;
   }
 }
