@@ -24,11 +24,6 @@ public class SymbolEntry {
     return this.key;
   }
 
-  // @todo: remove this
-  public String getKindtoString() {
-    return this.kind.toString();
-  }
-
   public String getType() {
     return this.type.getValue();
   }
@@ -37,7 +32,8 @@ public class SymbolEntry {
     return this.kind;
   }
 
-  //@todo: remove or move, used for debgging
+  // For debugging
+
   public String print() {
     return this.name + ", " + this.type.getValue() + ", " + this.kind + ", " + this.key;
   }

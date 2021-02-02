@@ -2,6 +2,7 @@ package compilationEngine;
 
 import java.io.IOException;
 
+import errormessage.ErrorMessage;
 import token.*;
 
 public class CompilationEngine {
@@ -20,7 +21,7 @@ public class CompilationEngine {
     if (!compileClass.finished)
       return compileClass.handleToken(token);
 
-      return "@todo throw error";
+    throw new IOException(ErrorMessage.header("CompilationEngine Error") + ErrorMessage.info("Message", "Compilation could not be finished"));
   }
 
   public void setClassName(String className) {

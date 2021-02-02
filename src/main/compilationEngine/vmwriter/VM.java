@@ -100,7 +100,7 @@ public class VM {
       case STATIC:
         return "static";
       default:
-        return "@todo: unhandled " + symbolKind;
+        return null;
     }
   }
 }

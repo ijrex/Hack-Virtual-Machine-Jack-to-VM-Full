@@ -55,16 +55,7 @@ public abstract class Compile {
       return "";
     }
 
-    throw new IOException(passTokenError(activeToken));
-  }
-
-  private String passTokenError(Token token) {
-    String err = "";
-    err += ErrorMessage.header("TOKEN INFO");
-    err += ErrorMessage.info("Token", token.getValue());
-    err += ErrorMessage.info("Routine", routineLabel);
-    err += ErrorMessage.info("Case", String.valueOf(pos));
-    return err;
+    throw new IOException(compileError("Cannot pass token"));
   }
 
   /* End Routine */
@@ -77,7 +68,7 @@ public abstract class Compile {
   /* Fail Routine */
 
   protected String fail() throws IOException {
-    throw new IOException("ERROR: Failed while parsing " + this.getClass());
+    throw new IOException(compileError("Subroutine failure"));
   }
 
   /* External API to Handle subroutine */
@@ -96,21 +87,13 @@ public abstract class Compile {
       }
       return str;
     }
-    throw new IOException(subroutineError(activeToken, compiler));
-  }
-
-  private String subroutineError(Token token, Compile compiler) {
-    String str = "\n";
-    str += "ERROR: Cannot pass \"" + token.getValue() + "\"\n";
-    str += "ERROR (Continued): Handling child class \"" + compiler.getClass() + "\"";
-
-    return str;
+    throw new IOException(compileError("Could not finish subroutine"));
   }
 
   /* Internal API for all classes to handle own routine */
 
   protected String handleRoutine() throws IOException {
-    throw new IOException();
+    throw new IOException(compileError("No subroutine handler found"));
   }
 
   protected Boolean isComplete() {
@@ -129,7 +112,7 @@ public abstract class Compile {
       return entry;
     }
 
-    throw new IOException("@todo: handle unfound symbol entry - " + activeToken.getValue());
+    throw new IOException(symbolTableError());
   }
 
   protected SymbolEntry findSymbol(Token token) throws IOException {
@@ -142,7 +125,7 @@ public abstract class Compile {
     if (entry != null)
       return entry;
 
-    return new SymbolEntry(token, new SymbolType("external") , SymbolKind.NULL, -1);
+    return new SymbolEntry(token, new SymbolType("external") , SymbolKind.STUB, -1);
   }
 
   /* Reset statics */
@@ -156,5 +139,38 @@ public abstract class Compile {
 
   public int getNumArgs() {
     return -1;
+  }
+
+  /* Errors */
+
+  protected String compileError(String errorMessage) {
+    String err = "";
+    err += ErrorMessage.header("COMPILATION ERROR");
+    err += ErrorMessage.info("Message", errorMessage);
+    err += tokenInfo();
+    return err;
+  }
+
+  protected String tokenInfo() {
+    String err = "";
+    err += ErrorMessage.header("TOKEN INFO");
+    err += ErrorMessage.info("Token", activeToken.getValue());
+    err += ErrorMessage.info("Expected", passer.getExpected());
+    err += ErrorMessage.info("Case", String.valueOf(pos));
+    err += ErrorMessage.info("Routine", routineLabel);
+    return err;
+  }
+
+  protected String symbolTableError() {
+    String err = "";
+    err += ErrorMessage.header("SYMBOL TABLE");
+    err += ErrorMessage.info("Message", "Could not find symbol");
+    err += tokenInfo();
+    err += ErrorMessage.header("CLASS SYMBOL TABLE");
+    err += classSymbolTable.print();
+    err += ErrorMessage.header("SCOPED SYMBOL TABLE");
+    err += scopedSymbolTable.print();
+
+    return err;
   }
 }

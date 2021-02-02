@@ -116,4 +116,10 @@ public class TokenPasser {
   public Boolean isStatementDec(Token token) {
     return matchKeyword(token, new Keyword[] { Keyword.LET, Keyword.IF, Keyword.WHILE, Keyword.DO, Keyword.RETURN });
   }
+
+  // For error logging
+
+  public String getExpected() {
+    return activeCriteria;
+  }
 }

@@ -82,6 +82,7 @@ public class Tokenizer {
         }
       }
 
+      activeLinePos = 0;
       compilationEngineVM.reset();
 
       System.out.println("SUCCESS: " + sourcePath);
@@ -91,8 +92,9 @@ public class Tokenizer {
     } catch (IOException e) {
       String err = "";
 
-      err += ErrorMessage.header("ERROR");
+      err += ErrorMessage.header("ERROR - COMPILATION FAILED");
       err += ErrorMessage.info("File", sourceFile.getName());
+      err += ErrorMessage.info("File Path", sourceFile.getPath());
       err += ErrorMessage.info("Line Number", String.valueOf(activeLinePos));
       err += ErrorMessage.info("Line Value", activeLine);
 
@@ -122,8 +124,15 @@ public class Tokenizer {
     if (token != null)
       return token;
 
-    System.out.println("Cannot parse: " + line);
-    throw new IOException();
+    throw new IOException(parseError(line));
+  }
+
+  private String parseError(String line) {
+    String err = "";
+    err += ErrorMessage.header("TOKEN PARSING ERROR");
+    err += ErrorMessage.info("Message", "Token couldn't be created");
+    err += ErrorMessage.info("Line value", line);
+    return err;
   }
 
 }
